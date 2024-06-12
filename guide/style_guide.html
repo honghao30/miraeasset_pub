@@ -18,6 +18,7 @@
                     <li><a href="#sect2">폰트(Font)</a></li>
                     <li><a href="#sect3">아이콘(Icon)</a></li>
                     <li><a href="#sect4">배치(Layout)</a></li>                    
+                    <li><a href="#sect5">애니메이션(animation)</a></li>   
                 </ul>
             </div>
             <div class="guide-cont">
@@ -66,28 +67,35 @@
                     <div class="section_text">
                         내용
                     </div>
-                </div>                
-
+                </div>    
                 <div class="section" id="sect3">
-                    <div class="page_tit_h2">파일 구조</div>
-                    <div class="section_text">
-                        내용
-                    </div>
-                </div> 
-
-                <div class="section" id="sect4">
                     <div class="page_tit_h2">아이콘(Icon)</div>
                     <div class="section_text">
                         내용
                     </div>
                 </div> 
 
-                <div class="section" id="sect5">
+                <div class="section" id="sect4">
                     <div class="page_tit_h2">배치(Layout)</div>
                     <div class="section_text">
                         내용
                     </div>
                 </div> 
+
+                <div class="section" id="sect5">
+                    <div class="page_tit_h2">애니메이션(animation)</div>
+                    <div class="section_text">
+                        애니메이션 가이드이며 JS에서 실행 시점을 제어해야 한다.
+                        <pre class="code_view">
+            .slidedown {animation:slidedown 1s ease-out both;}
+            @keyframes slidedown {
+                0% {opacity:0; transform:translateY(70px);}
+                100% {opacity:1; transform:translateY(0px);}
+            }
+                        </pre>
+                        * 미리보기 상태의 코드는 예시이며 사용시 .css or .js 에 내용 참고 바람.
+                    </div>
+                </div>                 
 
             </div>
         </div>

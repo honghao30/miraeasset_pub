@@ -55,7 +55,7 @@ hr { margin: 0; height: 100px; border: 0 none; }
 .page_tit_h3  {font-size: 16px;font-weight: 400;line-height: 16px;color: #222;margin: 0 0 10px 0;}
 .page_tit_h1+.guide-page__table-wrap {margin-top: 32px;}
 .page_tit_h2+.section_text {margin-top: 24px;}
-.section_text {min-height: 300px;border: 1px solid #C6C6C6;border-radius: 12px;padding: 16px;}
+.section_text {border: 1px solid #C6C6C6;border-radius: 12px;padding: 16px;}
 .section+.section {margin: 24px 0;}
 .page_tit_h1+.section {margin-top: 32px;}
 .guide-page__table-wrap {margin-bottom: 16px;}
@@ -86,8 +86,13 @@ hr { margin: 0; height: 100px; border: 0 none; }
 .site-name__wrap h1 {font-size: 26px;}
 .site-name__wrap .site-info {font-size: 16px;line-height: 16px;}
 
+.code_view { background-color: #ececec;margin: 16px 0; padding: 0; border-radius: 5px; overflow: auto; white-space: pre; font-family: monospace;position: relative;border: 1px solid #ccc;display: flex;flex-direction: column; } 
+.code_view::before {content: '';position: absolute;left:30px;top: 0;width: 1px;height: 100%;background: #ccc;}
+.code_line { display: block; height: 35px;line-height: 35px; } 
+.line_number { display: inline-block; width: 30px; text-align: center; margin-right: 20px; color: #888; }
+.code_view .code_line:nth-child(odd) {background: #fafafa;}
 /* 색상 */
-.color-box {width: 160px;height: 50px;color:#fff;border-radius: 6px;padding: 9px;font-size: 14px;font-weight: 100; margin-bottom: 20px;;}
+.color-box {width: 160px;height: 50px;color:#fff;border-radius: 6px;padding: 9px;font-size: 14px;font-weight: 100; margin-bottom: 20px;}
 .color-name {font-size: 16px;font-weight: 500;}
 .color-code {font-size: 13px;font-weight: 400;}
 .bg_primary {background-color: #0072BC;}

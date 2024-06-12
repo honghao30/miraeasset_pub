@@ -29,16 +29,34 @@ window.addEventListener('load', function() {
         const navList = document.querySelectorAll('.navgation__wrap--top li');
         console.log(navList)
         if (location.includes('pub_list')) {
-            navList[3].classList.add('is-active');
+            navList[4].classList.add('is-active');
         } else if(location.includes('compornent')) {
-            navList[2].classList.add('is-active');
+            navList[3].classList.add('is-active');
         } else if(location.includes('style_guide')) {
             navList[1].classList.add('is-active');
         } else if(location.includes('rules')) {
             navList[0].classList.add('is-active');
+        } else if(location.includes('js_guide')) {
+            navList[2].classList.add('is-active');
         } else {
             return false;
         }
 
-    }, 200);    
+    }, 200); 
+    const preElements = document.querySelectorAll('.code_view');
+
+    preElements.forEach(pre => {
+        const lines = pre.innerText.split('\n');
+        let formattedCode = '';
+
+        lines.forEach((line, index) => {
+            const escapedLine = line
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                //.trim();
+            formattedCode += `<span class="code_line"><span class="line_number">${index + 1}</span>${escapedLine}</span>\n`;
+        });
+
+        pre.innerHTML = formattedCode;
+    });       
 });
