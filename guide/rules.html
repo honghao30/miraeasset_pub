@@ -14,11 +14,11 @@
         <div class="guide-content__wrap lnb-type">
             <div class="lnb-side__wrap">
                 <ul class="lnb_list">
-                    <li><a href="#sect1">기본정의</a></li>                                        
+                    <li><a href="#sect1">기본 가이드</a></li>                                        
                     <li><a href="#sect2">폴더 구조</a></li>
                     <li><a href="#sect3">파일 구조</a></li>
-                    <li><a href="#sect4">CSS & SCSS 가이드</a></li>
-                    <li><a href="#sect5">Javascript 가이드</a></li>
+                    <li><a href="#sect4">CSS & SCSS</a></li>
+                    <li><a href="#sect5">Javascript </a></li>
                 </ul>
             </div>
             <div class="guide-cont">
@@ -34,9 +34,19 @@
                     </div>
                 </div>                
                 <div class="section" id="sect1">
-                    <div class="page_tit_h2">기본정의</div>
+                    <div class="page_tit_h2">기본 가이드</div>
                     <div class="section_text">
-                        내용
+                        <div class="page_tit_h3">DTD / language TYPE / Encoding 선언</div>
+                        <pre class="code_view">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html lang="ko"&gt;
+                            &lt;head&gt;
+                            <meta charset="utf-8">
+                        </pre> 
+                        <div class="page_tit_h3">크로스브라우징</div>
+                        <ul class="description-list">
+                            <li>(수정필요)안드로이드 폰(갤럭시3이상(갤럭시3,4,5), 노트2이상(노트2,노트3,노트4))과 아이폰4(아이폰4,4s,5)이상 기종에서 잘 보일수 있는 코딩을 기본으로 한다.</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -50,12 +60,30 @@
                 <div class="section" id="sect3">
                     <div class="page_tit_h2">파일 구조</div>
                     <div class="section_text">
-                        내용
+                        <div class="page_tit_h3">공통파일</div>
+                        <ul class="description-list">
+                            <li>header & footer와 같이 전체적으로 사용되는 파일</li>
+                        </ul>
+                        <div class="page_tit_h3" style="margin-top: 20px;">컴포넌트</div>
+                        <ul class="description-list">
+                            <li>프레임웍기반에서 여러 개의 프로그램 함수들을 모아 하나의 특정한 기능을 수행할 수 있도록 구성한 작은 기능적 단위를 말하나,
+                                일반 html마크업에서 컴포넌트란 특정한 기능을 수행할 수 있도록 구성한 UI 단위를 말한다.</li>
+                        </ul>    
+                        <div class="page_tit_h3" style="margin-top: 20px;">파일 include</div>
+                        <ul class="description-list">
+                            <li>헤더와 푸터를 포함한 컴포넌트는 include 한다. 예) data-include-path="top_nav.html"</li>
+                        </ul>  
+                        <pre class="code_view">
+                            <div class="header__wrap">
+                                <div data-include-path="top_nav.html"></div>    
+                                <div data-include-path="site-name.html"></div>
+                            </div>
+                        </pre>                                                                    
                     </div>
                 </div> 
 
                 <div class="section" id="sect4">
-                    <div class="page_tit_h2">CSS & SCSS 가이드</div>
+                    <div class="page_tit_h2">CSS & SCSS</div>
                     <div class="section_text">
                         <ul class="description-list">
                             <li>컴포넌트 기반의 웹 개발론에 최적화된 BEM 방식을 사용한다.</li>
@@ -69,9 +97,29 @@
                 </div> 
 
                 <div class="section" id="sect5">
-                    <div class="page_tit_h2">Javascript 가이드</div>
+                    <div class="page_tit_h2">Javascript</div>
                     <div class="section_text">
-                        내용
+                        <ul class="description-list">
+                            <li>자바스크립트는 공통 스크립트와 퍼블 화면 예시용 스크립트로 구분한다.</li>
+                            <li>예시용 스크립트는 마크업 페이지내 포함하며 주석으로 <화면 예시용 -- 데이터 연동시 삭제 처리 > 표시한다. <br>
+                                예) 퍼블화면에서 반복되는 내용의 tr, li는 스크립트로 처리한다. <화면 예시용 -- 데이터 연동시 삭제 처리 >
+                                <pre class="code_view">
+                                    <table class="board_list notice-list">
+                                        <tr>
+                                            <td class="num">1</td>
+                                            <td>테스트</td>
+                                            <td>이름</td>
+                                            <td>2024.10.15</td>
+                                        </tr>
+                                    </table>
+
+                                    // 화면 예시용 -- 데이터 연동시 삭제 처리
+                                    createrTable('notice-list', 9, 4);
+                                </pre>                      
+                            </li>
+                            <li>공통함수는 ui_common.js 에서 작성하고 export 한다. 함수가 필요한 파일에서 import 해서 사용하면 된다.</li>
+                            <li>js 가이드 참고</li>
+                        </ul>
                     </div>
                 </div> 
 
