@@ -36,6 +36,51 @@
 .pagination a.btn-next::before {background: url('../images/admin/icon-pagination-arrow.svg') no-repeat center;border-left: 1px solid #CFD4DA;transform: rotate(180deg)}
 .pagination a.btn-last::before {background: url('../images/admin/icon-pagination-arrow-double.svg') no-repeat center;transform: rotate(180deg)}
 
+
+/* 
+    table
+*/
+:root {
+    --table-border: 1px solid #E2E3E7;
+    --table-th-bg: #E2E3E7;
+    --th-font-size: 18px;
+    --th-line-height: 21px;
+    --th-ft-color:#222;
+    --th-font-weight: 600;
+    --th-align-c: center;
+    --th-height: 65px;
+    --th-padding-top-bottom: 22px;
+    --th-padding-side: 0px;
+
+    --table-border-color: #E2E3E7;
+    --td-ft-color: #5a5c5f;
+    --td-ft-size: 18px;
+    --td-ft-line-height: 21px;
+    --td-padding-top-bottom: 22px;
+    --td-padding-side: 0px;
+
+    --tbody-th-bg-color: #fafafa;
+    --tbody-th-side: 16px;
+    --tbody-td-side: 16px;
+    
+    --table-td-text-left: left;
+
+}
+
+.table__wrap {margin: 0;width: 100%;}
+/* list type */
+.table-list {width: 100%;}
+.table-list thead th {padding: var( --th-padding-top-bottom) var(--th-padding-side);height: var(--th-height); background-color: var(--table-th-bg);text-align: var(--th-align-c);font-size: var(--th-font-size);line-height: var(--th-line-height);color: var(---th-ft-color);font-weight: var(--th-font-weight);}
+.table-list tbody th {padding: var( --td-padding-top-bottom) var(--td-padding-side);height: var(--td-height); background-color: var(--table-th-bg);text-align: var(--td-align-c);font-size: var(--td-font-size);line-height: var(--th-line-height);color: var(---th-ft-color);font-weight: var(--th-font-weight);}
+.table-list tbody td {padding: var(--td-padding-top-bottom) var(--td-padding-side);text-align: center;color: var(--td-ft-color); font-size: var(--td-ft-size);line-height: var(--td-ft-line-height);border-bottom: 1px solid var(--table-border-color);}
+
+/* table body */
+.table-body-only {width: 100%;border-top: 1px solid var(--table-border-color);}
+.table-body-only tbody th {padding: var( --td-padding-top-bottom) var(--tbody-th-side);height: var(--td-height); background-color: var(--tbody-th-bg-color);text-align: var(--td-align-c);font-size: var(--td-font-size);line-height: var(--th-line-height);color: var(---th-ft-color);font-weight: var(--th-font-weight);border-bottom: 1px solid var(--table-border-color);}
+.table-body-only tbody td {padding: var(--td-padding-top-bottom) var(--tbody-td-side);text-align: var(--table-td-text-left);color: var(--td-ft-color); font-size: var(--td-ft-size);line-height: var(--td-ft-line-height);border-bottom: 1px solid var(--table-border-color);}
+
+
+
 /* 모달 */
 body.modal-open {height: 100%;overflow: hidden;}
 .modal__wrap--bg {background-color: rgba(90, 92, 95, 0.5);display:none;width: 100%;height: 100%;position: fixed;left: 0;top: 0;transition: opacity 0.3s ease;}

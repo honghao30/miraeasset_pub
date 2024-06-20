@@ -70,29 +70,3 @@
 .bg_second {background-color: #FF4949;}
 .bg_grayscale-50 {background-color: #EFF3F9;color:#222;}
 
-/* table */
-:root {
-    --table-border: 1px solid #E2E3E7;
-    --table-th-bg: #E2E3E7;
-    --th-font-size: 18px;
-    --th-line-height: 21px;
-    --th-ft-color:#222;
-    --th-font-weight: 600;
-    --th-align-c: center;
-    --th-height: 65px;
-    --th-padding-top-bottom: 22px;
-    --th-padding-side: 0px;
-
-    --table-border-color: #E2E3E7;
-    --td-ft-color: #5a5c5f;
-    --td-ft-size: 18px;
-    --td-ft-line-height: 21px;
-    --td-padding-top-bottom: 22px;
-    --td-padding-side: 0px;
-
-}
-
-.table__wrap {margin: 0;width: 100%;}
-.table-list {width: 100%;}
-.table-list thead th {padding: var( --th-padding-top-bottom) var(--th-padding-sid);height: var(--th-height); background-color: var(--table-th-bg);text-align: var(--th-align-c);font-size: var(--th-font-size);line-height: var(--th-line-height);color: var(---th-ft-color);font-weight: var(--th-font-weight);}
-.table-list tbody td {padding: var(--td-padding-top-bottom) var(--td-padding-side);text-align: center;color: var(--td-ft-color); font-size: var(--td-ft-size);line-height: var(--td-ft-line-height);border-bottom: 1px solid var(--table-border-color);}

@@ -7,3 +7,17 @@
         <li><a href="/dh/guide/pub_list.html">퍼블리싱 목록</a></li> 
     </ul>
 </div>
+
+<script>
+    const checkUrl = window.location.href;
+    const links = document.querySelectorAll('.navgation__wrap--top li a')
+    if(!checkUrl.includes('dh')) {
+        links.forEach(link => {
+            const url = link.getAttribute('href');
+            console.log(url);
+            const newUrl = url.replace('/dh','');
+            link.setAttribute('href',newUrl);
+        })
+    }
+
+</script>

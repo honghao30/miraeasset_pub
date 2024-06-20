@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title>Publish Guide System</title>
     <link rel="stylesheet" href="../guide.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/locales/ko.js"></script>
 </head>
 <body>
     <div class="guide_wrap">
@@ -14,10 +17,10 @@
         <div class="guide-content__wrap lnb-type">
             <div class="lnb-side__wrap">
                 <ul class="lnb_list">
-                    <li><a href="#sect1">폼 요소</a></li>                                        
+                    <li  class="is-active"><a href="compornent.html">폼 요소</a></li>                                        
                     <li><a href="#sect2">버튼&링크</a></li>
                     <li><a href="#sect3">탭</a></li>
-                    <li class="is-active"><a href="compornent_table.html">표</a></li>                    
+                    <li><a href="compornent_table.html">표</a></li>                    
                     <li><a href="#sect5">아코디언</a></li>                    
                     <li><a href="#sect6">스와이프</a></li>        
                     <li><a href="#sect7">모달</a></li>   
@@ -28,7 +31,177 @@
             </div>            
             <div class="guide-cont">
                 <div class="page_tit_h1">컴포넌트 가이드</div>
-          
+                <div class="section">
+                    <div class="page_tit_h2">폼 요소</div>    
+                    <div class="section_text_no_round">
+                        <div class="table__wrap">
+                            <table class="table table-list">
+                                <colgroup>
+                                    <col width="10%" />
+                                    <col width="15%" />
+                                    <col width="" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Core class</th>
+                                        <th scope="col">class</th>
+                                        <th scope="col">Example</th>
+                                    </tr>
+                                </thead>                
+                                <tbody>
+                                    <tr>
+                                        <td>Input</td>
+                                        <td>.form-element__wrap</td>
+                                        <td>
+                                            <div class="form-element__wrap">
+                                                <label for="code01" class="font-type-h5-bold">지점명</label>
+                                                <span  class="form-element__inner input-type">
+                                                    <input type="text" class="font-type-h5-regular" value="" placeholder="부산 광역시" id="code01" />
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>                                 
+                                    <tr>
+                                        <td>Input</td>
+                                        <td>.inner_button</td>
+                                        <td>
+                                            <div class="form-element__wrap">
+                                                <label for="code011" class="font-type-h5-bold">지점명</label>
+                                                <span  class="form-element__inner input-type has-text-button">
+                                                    <input type="text" class="font-type-h5-regular" value="" placeholder="아이디 입력" id="code011" />
+                                                    <button type="button" class="btn-text-button color-blue">중복확인</button>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>                       
+                                    <tr>
+                                        <td>Input multi</td>
+                                        <td>.form-element__wrap .input-multi</td>
+                                        <td>
+                                            <div class="form-element__wrap">
+                                                <label for="code01" class="font-type-h5-bold">지점명</label>
+                                                <div class="input-multi">
+                                                    <span  class="form-element__inner input-type">
+                                                        <input type="text" class="font-type-h5-regular" value="" placeholder="부산 광역시" id="code01" />
+                                                    </span>
+                                                    <span  class="form-element__inner input-type">
+                                                        <input type="text" class="font-type-h5-regular" value="" placeholder="일련 번호" id="code01" />
+                                                    </span>  
+                                                </div>                              
+                                            </div>
+                                        </td>
+                                    </tr>                     
+                                    <tr>
+                                        <td>Input disabled</td>
+                                        <td>input 에 disabled 추가</td>
+                                        <td>
+                                            <div class="form-element__wrap">
+                                                <label for="code01" class="font-type-h5-bold">지점명</label>
+                                                <span  class="form-element__inner input-type">
+                                                    <input type="text" class="font-type-h5-regular" disabled value="" placeholder="부산 광역시" id="code01" />
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>  
+                                    <tr>
+                                        <td>Select</td>
+                                        <td>.form-element__wrap</td>
+                                        <td>
+                                            <div class="form-element__wrap">
+                                                <label for="code01" class="font-type-h5-bold">지점명</label>
+                                                <span  class="form-element__inner select-wrap">
+                                                    <select class="font-type-h5-regular">
+                                                        <option>항목1</option>
+                                                        <option>항목2</option>
+                                                        <option>항목3</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Select readOnly</td>
+                                        <td>.form-element__wrap</td>
+                                        <td>
+                                            <div class="form-element__wrap">
+                                                <label for="code01" class="font-type-h5-bold">지점명</label>
+                                                <span  class="form-element__inner select-wrap">
+                                                    <select class="font-type-h5-regular" readonly>
+                                                        <option>항목1</option>
+                                                        <option>항목2</option>
+                                                        <option>항목3</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>                      
+                                    <tr>
+                                        <td>textArea</td>
+                                        <td>.form-element__wrap</td>
+                                        <td>
+                                            <div class="form-element__wrap">
+                                                <label for="code02" class="font-type-h5-bold">지점명</label>
+                                                <span  class="form-element__inner text-area">
+                                                    <textarea name="" id="code02" class="font-type-h5-regular" style="height: 119px;"></textarea>  
+                                                    <p class="font-type-cont-regular text-count">6/1000</p>                                  
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>  
+                                    <tr>
+                                        <td>Input</td>
+                                        <td>data pick</td>
+                                        <td>
+                                            <div class="form-element__wrap">
+                                                <label for="code01" class="font-type-h5-bold">날자선택</label>
+                                                <span  class="form-element__inner input-type">
+                                                    <input type="text" class="font-type-h5-regular" value="" name="datepicker" placeholder="" id="datepicker" autocomplete="off" />
+                                                </span>
+                                            </div>
+                                            <script>
+                                                const elem = document.querySelector('input[name="datepicker"]');
+                                                const datepicker = new Datepicker(elem, {
+                                                // ...options
+                                                    autohide: true,
+                                                    format: 'yyyy-mm-dd',
+                                                    language: 'ko',
+                                                    maxDate: new Date(),
+                                                    todayHighlight: true,
+                                                }); 
+                                            </script>
+                                        </td>
+                                    </tr>                                        
+                                    <tr>
+                                        <td>check box</td>
+                                        <td>.checkbox</td>
+                                        <td>
+                                            <div class="checkbox">
+                                                <input type="checkbox" id="auto"> 
+                                                <label for="auto">비밀번호 저장</label>
+                                            </div>
+                                        </td>
+                                    </tr>        
+                                    <tr>
+                                        <td>radio</td>
+                                        <td>.radio-box</td>
+                                        <td>
+                                            <div class="radio-box">
+                                                <label id="r01">
+                                                    <input type="radio" name="type" value="email" id="r01" checked />
+                                                    <span>이메일</span>
+                                                </label>
+                                                <label id="r02">
+                                                    <input type="radio" name="type" value="tel" id="r02" />
+                                                    <span>전화</span>
+                                                </label>                                
+                                            </div>
+                                        </td>
+                                    </tr>                                                                     
+                                </tbody>
+                            </table>                 
+                        </div>         
+                    </div>
+                </div>
             </div>
         </div>
     </div>
