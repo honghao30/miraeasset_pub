@@ -1,0 +1,25 @@
+<ul class="lnb_list">
+    <li><a href="compornent.html">폼 요소</a></li>                                        
+    <li><a href="compornent_button.html">버튼&링크</a></li>
+    <li><a href="#sect3">탭</a></li>
+    <li><a href="compornent_table.html">표</a></li>                    
+    <li><a href="#sect5">아코디언</a></li>                    
+    <li><a href="#sect6">스와이프</a></li>        
+    <li><a href="#sect7">모달</a></li>   
+    <li><a href="#sect8">뱃지&태그</a></li>   
+    <li><a href="#sect9">안내메시지</a></li>   
+    <li><a href="compornent_chart.html">챠트</a></li>   
+</ul>
+
+<script>
+    const lnbList = document.querySelectorAll('.lnb_list li a');
+    const nowUrl = window.location.href;
+    const fileName = nowUrl.match(/\/([^\/]+\.html)$/)[1];
+    lnbList.forEach((el) => {
+        const elLink = el.href;
+        const urlName = elLink.match(/\/([^\/]+\.html)$/)[1];        
+        if (fileName === urlName) {
+            el.parentNode.classList.add('is-active');
+        }
+    });
+</script>
