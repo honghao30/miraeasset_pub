@@ -22,6 +22,21 @@
     position: absolute;right: 10px;top: 50%;transform: translateY(-50%);}
 .form-element__wrap .form-element__inner .text-count {text-align: right;color:#AFB5BC;}
 .form-element__wrap .input-multi {display: flex;width: 100%;gap: 10px;align-items: center;}
+.pin-code input[type="password"] { background-color: #fff; border: none; border-bottom: thin solid gray; width: 20px; font-size: 24px; margin-bottom: 20px; margin-right: 5px;}
+.pin-dot .dot {width: 10px; height: 10px; background: darkgrey; border-radius: 100%; margin: 0 5px;display: inline-flex;}
+.pin-dot .dot.is-active {background: rgba(0,0,0,0.7);}
+
+/* switch */
+.switch_wrap {position: relative;font-size: 14px;font-weight: 300;line-height: 14px;display: flex;align-items: center;}
+.switch_wrap label {margin-right: 4px;}
+.switch_wrap [type="checkbox"] {appearance: none;position: relative;border: 2px solid #D8DDE9;border-radius: 20px;width: 40px;height: 20px;opacity: 1;font-size: 14px;background-color: #D8DDE9;}
+.switch_wrap [type="checkbox"]::before {content: "";position: absolute;left: 1px;top: 50%;transform: translateY(-50%); width: 15px;height: 15px;border-radius: 50%;background-color: #fff;transition: left 250ms linear;}
+.switch_wrap [type="checkbox"]:checked {background-color: #1293E7;border-color: #1293E7;}
+.switch_wrap [type="checkbox"]:checked::before {background-color: white; left: 19px;}
+.switch_wrap [type="checkbox"]:disabled {border-color: lightgray; opacity: 0.7; cursor: not-allowed; }
+.switch_wrap [type="checkbox"]:disabled:before {background-color: lightgray;}
+.switch_wrap [type="checkbox"]:disabled + span {opacity: 0.7;cursor: not-allowed;}
+.switch_wrap input[type="checkbox"]:checked:after {background: none;}
 
 
 /* 페이지네이션 */
