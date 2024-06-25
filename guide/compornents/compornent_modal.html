@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Publish Guide System</title>
+    <link rel="stylesheet" href="../guide.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/locales/ko.js"></script>
+</head>
+<body>
+    <div class="guide_wrap">
+        <div class="header__wrap">
+            <div data-include-path="../top_nav.html"></div>   
+            <div data-include-path="../site-name.html"></div>
+        </div>
+        <div class="guide-content__wrap lnb-type">
+            <div class="lnb-side__wrap">
+                <div data-include-path="./cmp_side.html"></div>
+            </div>            
+            <div class="guide-cont">
+                <div class="page_tit_h1">모달 가이드</div>
+                <div class="section">
+                    <div class="page_tit_h2">Modal Basic</div>
+                    <div class="section_text_no_round">
+                        <!-- Modal -->
+
+                        <!-- input -->
+                        <pre class="code_view">
+
+                        </pre>                          
+                    </div>
+                    
+
+                </div>
+                <div class="section">
+                    <div class="page_tit_h2">API 명세서</div>    
+                    <div class="section_text_no_round">
+                        <!-- 테이블 -->
+                        <div class="table__wrap">
+                            <table class="table table-list sm">
+                                <colgroup>
+                                    <col width="10%" />                                    
+                                    <col width="" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-l">type</td>
+                                        <td class="text-l">input type(default text / password )</td>
+                                        <td class="text-l"></td>
+                                    </tr>                                     
+                                    <tr>
+                                        <td class="text-l">size</td>
+                                        <td class="text-l">form element size(default, sm, lg)</td>
+                                        <td class="text-l"></td>
+                                    </tr>     
+                                    <tr>
+                                        <td class="text-l">disabled</td>
+                                        <td class="text-l">disable the form element</td>
+                                        <td class="text-l"></td>
+                                    </tr>                                                                                                                                                                                                                                                              
+                                </tbody>
+                            </table>
+                        </div>      
+                        <!-- 테이블 -->                         
+
+                        * form element의 기본 명세서를 제공합니다.
+                    </div>                    
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="../guide.js"></script>
+    <script src="../../front_markup/resource/js/ui_common.js"></script>
+</body>
+</html>

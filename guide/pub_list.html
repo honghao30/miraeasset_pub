@@ -26,6 +26,13 @@
                         <li>보류: <strong id="hold-count">0</strong></li>
                         <li>제외: <strong id="excluded-count">0</strong></li>
                     </ul>
+                    <div class="custom-graph__wrap">
+                        <div class="custom-graph__bar">
+                            <div class="bar data-type1" style="width: 100%" title="대기: 1">대기</div>
+                            <div class="bar data-type2" style="width: 0%" title="진행중: 2">진행중</div>
+                            <div class="bar data-type3" style="width: 0%" title="완료: 0">완료</div>
+                        </div>
+                    </div>                    
                 </div>            
                 <div class="filter-option">
                     진행상태 : 
@@ -150,6 +157,34 @@
                     // 초기 카운트 및 테이블 렌더링
                     updateCounts();
                     renderTable();
+
+                    // 프로그래스 바
+                    const totalCount = data.length;
+                    const statusCount = { pending: 0, inProgress: 0, completed: 0 };
+
+                    data.forEach(item => {
+                        if (item.condition === '진행대기') statusCount.pending++;
+                        else if (item.condition === '진행중') statusCount.inProgress++;
+                        else if (item.condition === '완료') statusCount.completed++;
+                    });
+
+                    const pendingPercent = (statusCount.pending / totalCount) * 100;
+                    const inProgressPercent = (statusCount.inProgress / totalCount) * 100;
+                    const completedPercent = (statusCount.completed / totalCount) * 100;
+
+                    const bars = document.querySelectorAll('.bar');
+                    bars[0].style.width = pendingPercent + '%';
+                    bars[0].title = `대기: ${statusCount.pending}`;
+                    bars[1].style.width = inProgressPercent + '%';
+                    bars[1].title = `진행중: ${statusCount.inProgress}`;
+                    bars[2].style.width = completedPercent + '%';
+                    bars[2].title = `완료: ${statusCount.completed}`;        
+                    
+                    bars[0].setAttribute('title', `대기: ${statusCount.pending} (${pendingPercent.toFixed(2)}%)`);
+                    bars[1].setAttribute('title', `진행중: ${statusCount.inProgress} (${inProgressPercent.toFixed(2)}%)`);
+                    bars[2].setAttribute('title', `완료: ${statusCount.completed} (${completedPercent.toFixed(2)}%)`);
+
+
                 })
                 .catch(error => console.error('Error loading JSON:', error));
         });
