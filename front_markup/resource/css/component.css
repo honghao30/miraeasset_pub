@@ -39,14 +39,83 @@
 .switch_wrap input[type="checkbox"]:checked:after {background: none;}
 
 /* 콤보박스  */
-.dropdown-menu__wrap {position: relative;}
-.dropdown-menu__wrap .btn-dropdown {width: 100%;border:1px solid #D8DDE9;height: 30px;padding: 0px 12px 0px 12px;border-radius: 4px;gap: 8px; display:flex;align-items: center;justify-content: center;font-size: 14px;font-weight: 300;line-height: 14px;color:#717B8A;}
-.dropdown-menu__wrap .btn-dropdown::after {content: ""; display: inline-block; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid #717B8A; margin-left: 8px; margin-top: 1px;position: absolute;right: 10px;top: 10px;}
-.dropdown-menu__wrap .btn-dropdown.is-active::after {transform: rotate(180deg);}
-.dropdown-menu__wrap .dropdown_list {position: absolute;left:0;top: 29px;background-color: #fff; width: 100%;border: 1px solid #D8DDE9;padding: 5px 0;display: none;z-index: 20;}
-.dropdown-menu__wrap .dropdown_list.is-active {display: block;}
-.dropdown-menu__wrap .dropdown_list li button {font-size: 14px;font-weight: 300;line-height: 14px;width: 100%;height: 100%;padding: 5px 10px;color:#717B8A;}
-.dropdown-menu__wrap .dropdown_list li:hover button {background-color: #D8DDE9;}
+/* 공통 변수 */
+:root {
+    --dropdown-border: 1px solid #D8DDE9;
+    --dropdown-bg: #fff;
+    --dropdown-hover-bg: #D8DDE9;
+    --dropdown-text-color: #717B8A;
+    --dropdown-arrow-size: 6px;
+}
+
+/* 드롭다운 메뉴 */
+.dropdown-menu__wrap {
+    position: relative;
+}
+.dropdown-menu__wrap .btn-dropdown {
+    width: 100%;
+    border: var(--dropdown-border);
+    height: 30px;
+    padding: 0px 12px;
+    border-radius: 4px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 14px;
+    color: var(--dropdown-text-color);
+    position: relative;
+}
+.dropdown-menu__wrap .btn-dropdown::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: var(--dropdown-arrow-size) solid transparent;
+    border-right: var(--dropdown-arrow-size) solid transparent;
+    border-top: var(--dropdown-arrow-size) solid var(--dropdown-text-color);
+    margin-left: 8px;
+    margin-top: 1px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.dropdown-menu__wrap .btn-dropdown.is-active::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu__wrap .dropdown_list {
+    position: absolute;
+    left: 0;
+    top: 29px;
+    background-color: var(--dropdown-bg);
+    width: 100%;
+    border: var(--dropdown-border);
+    padding: 5px 0;
+    display: none;
+    z-index: 20;
+}
+
+.dropdown-menu__wrap .dropdown_list.is-active {
+    display: block;
+}
+
+.dropdown-menu__wrap .dropdown_list li button {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 14px;
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    color: var(--dropdown-text-color);
+}
+
+.dropdown-menu__wrap .dropdown_list li:hover button {
+    background-color: var(--dropdown-hover-bg);
+}
 
 
 /* 페이지네이션 */
