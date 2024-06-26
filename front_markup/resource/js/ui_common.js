@@ -1,10 +1,53 @@
 // 모달창 열기
-// const openModal = (target, btn, type) => {
-//     btn && btn.classList.add('modal-open');
-//     target.classList.add('show');
-//     tabEvent(target);
-//     closeModal(target, type);
-// };
+const openModal = (event, wa, type) => {
+    const btn = event.target;
+    const modalId = btn.getAttribute('modal-id');
+    const target = document.getElementById(modalId);
+    
+    if (btn) {
+        btn.classList.add('modal-open');
+    }    
+    if (target) {          
+        // 추가적인 클래스 설정
+        switch (type) {
+            case 'left':
+                target.classList.add('is-active-left');
+                break;
+            case 'bottom':
+                target.classList.add('is-active-bottom');
+                break;
+            default:
+                // 기본값 처리 (예: 'default')
+                target.classList.add('is-active');      
+                break;
+        }
+        
+        // 탭 이벤트 실행 여부 확인 후 실행
+        if (wa) {
+            tabEvent(target);
+        }
+        
+        // 기본적인 모달 닫기 처리
+        closeModal(target, 'default');
+    }
+};
+
+// modal 닫기
+const closeModal = event => {
+    btn = event.target;
+    activeModel = btn.closest('.modal__wrap--bg');
+    btn.classList.remove('modal-open');
+    activeModel.classList.add('fade-out');
+    setTimeout(() => {
+        activeModel.classList.remove('is-active');
+        activeModel.classList.remove('fade-out');
+        document.body.classList.remove('modal-open');
+    },300);    
+}
+// 접근성 탭이동
+const tabEvent = el => {
+    console.log("탭 이벤트가 실행되었습니다.");
+}
 // UUID생성
 const generateUniqueId = () => {
     return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
