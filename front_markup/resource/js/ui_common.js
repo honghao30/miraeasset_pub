@@ -134,3 +134,51 @@ function handleDropdownMenu(menu) {
 }
 
 dropdownMenus.forEach(handleDropdownMenu);  
+
+//스크롤 이벤트
+const ScrollEnterMain = () => {
+    const scrollElements = document.querySelectorAll(".animation-enter");
+
+    if (!scrollElements) return;
+
+    const elementInView = (el, dividend = 1) => el.getBoundingClientRect().top <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
+    const elementOutofView = (el) => el.getBoundingClientRect().top > (window.innerHeight || document.documentElement.clientHeight);
+    const displayScrollElement = (element) => element.classList.add("fade-in");
+    const hideScrollElement = (element) => {
+        element.classList.remove("fade-in", "left-enter-effect", "right-enter-effect", "shadow-effect", "scroll-up");
+    };
+
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
+                el.classList.toggle('left-enter-effect', el.hasAttribute('left-enter'));
+                el.classList.toggle('right-enter-effect', el.hasAttribute('right-enter'));
+                el.classList.toggle('shadow-effect', el.hasAttribute('shadow-effect'));
+                el.classList.toggle('scroll-up', el.hasAttribute('scrollUp'));
+            } else if (elementOutofView(el)) {
+                hideScrollElement(el);
+            }
+        });
+    };
+
+    window.addEventListener("scroll", handleScrollAnimation);
+};
+
+ScrollEnterMain();
+
+// 위 아래 구분을 위한 스크립트
+let lastScrollTop = 0;
+const scrollEventManage = () => {
+const Yoffset = window.pageYOffset || document.documentElement.scrollTop;
+
+if (Yoffset > lastScrollTop) {
+    // downscroll code
+    console.log("scroll Down")
+} else {
+    console.log("scroll Up")
+}
+lastScrollTop = Yoffset <= 0 ? 0 : Yoffset;
+}
+window.addEventListener("scroll", scrollEventManage);
+// 위 아래 구분을 위한 스크립트====================
