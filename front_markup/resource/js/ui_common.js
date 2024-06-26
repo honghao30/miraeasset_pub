@@ -16,6 +16,9 @@ const openModal = (event, wa, type) => {
             case 'bottom':
                 target.classList.add('is-active-bottom');
                 break;
+            case 'right':
+                target.classList.add('is-active-right');
+                break;                
             default:
                 // 기본값 처리 (예: 'default')
                 target.classList.add('is-active');      
@@ -28,26 +31,41 @@ const openModal = (event, wa, type) => {
         }
         
         // 기본적인 모달 닫기 처리
-        closeModal(target, 'default');
+        //closeModal(target, 'default');
     }
 };
 
 // modal 닫기
 const closeModal = event => {
-    btn = event.target;
-    activeModel = btn.closest('.modal__wrap--bg');
-    btn.classList.remove('modal-open');
-    activeModel.classList.add('fade-out');
-    setTimeout(() => {
-        activeModel.classList.remove('is-active');
-        activeModel.classList.remove('fade-out');
-        document.body.classList.remove('modal-open');
-    },300);    
-}
+    const btn = event.target;
+    const activeModal = btn.closest('.modal__wrap--bg');
+    if (activeModal) {
+        btn.classList.remove('modal-open');
+        activeModal.classList.add('fade-out');
+        setTimeout(() => {
+            activeModal.classList.remove('is-active');
+            activeModal.classList.remove('fade-out');
+            document.body.classList.remove('modal-open');
+        }, 300);
+        
+        // 포커스를 닫기 전 버튼으로 되돌립니다.
+        const btnToFocus = activeModal.querySelector('button');
+        if (btnToFocus) {            
+            btnToFocus.focus();
+        }
+    }
+};
+
+
 // 접근성 탭이동
-const tabEvent = el => {
-    console.log("탭 이벤트가 실행되었습니다.");
-}
+const tabEvent = (el, isOpening) => {
+    if (isOpening) {
+        el.setAttribute('tabindex', '0');
+        el.focus();
+    } else {
+        el.removeAttribute('tabindex', '0');      
+    }
+};
 // UUID생성
 const generateUniqueId = () => {
     return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
