@@ -22,12 +22,22 @@
                 <div data-include-path="./cmp_side.html"></div>
             </div>            
             <div class="guide-cont">
-                <div class="page_tit_h1">달력 컴포넌트</div>
+                <div class="page_tit_h1">달력 컴포넌트</div>                  
                 <div class="section">
+                    <style>
+                        input[type='date']::before {
+                        content: attr(placeholder); 
+                        width: 100%;
+                        height: 100%;
+                        }
+                        input[type='date']:valid::before {
+                        display: none; 
+                        }
+                    </style>                        
                     <div class="form-element__wrap">
                         <label for="code01" class="font-type-h5-bold">날자선택</label>
                         <span  class="form-element__inner input-type">
-                            <input type="date" class="font-type-h5-regular" value="" name="datepicker" placeholder="" id="datepicker" autocomplete="off" />
+                            <input type="date" class="font-type-h5-regular" value="" name="datepicker"  placeholder="날짜 선택" id="datepicker" autocomplete="off" />
                         </span>
                     </div>
                 </div>
@@ -89,9 +99,10 @@
                             </div>
                         </div>
 
-                        <div class="show-data-layer">
+                        <div class="show-data-layer"></div>
+                        <script>
 
-                        </div>
+                        </script>
                     
                 </div>                
                 <div class="section">
@@ -109,6 +120,9 @@
                     <div class="detail-section">
                         오늘 날짜에 해당하는 값
                     </div>
+                    <script>
+
+                    </script>                        
                 </div>
 
                 <div class="section">

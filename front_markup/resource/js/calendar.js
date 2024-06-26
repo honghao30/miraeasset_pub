@@ -78,6 +78,12 @@ const createMonthlyCalendar = (containerId) => {
         const firstDayOfMonth = date.startOf('month').day();
         const daysInMonth = date.daysInMonth();
 
+        // 이전 달의 마지막 날의 날짜
+        const lastDayOfPrevMonth = date.subtract(1, 'month').endOf('month').date();
+
+        // 다음 달의 첫째 날의 날짜
+        const firstDayOfNextMonth = date.add(1, 'month').startOf('month').date();
+
         // 테이블 초기화
         tableBody.innerHTML = '';
 
@@ -85,9 +91,14 @@ const createMonthlyCalendar = (containerId) => {
         let dayIndex = 0;
         let row = tableBody.insertRow();
 
-        // 첫째 날 이전의 빈 칸 추가
+        // 첫째 날 이전의 빈 칸에 이전 달의 날짜 채우기
         for (let i = 0; i < firstDayOfMonth; i++) {
             const cell = row.insertCell();
+            const prevMonthDay = lastDayOfPrevMonth - (firstDayOfMonth - i - 1);
+            const link = document.createElement('a');
+            link.href = '#';
+            link.textContent = prevMonthDay;
+            cell.appendChild(link);
             cell.classList.add('gray');
             dayIndex++;
         }
@@ -102,13 +113,13 @@ const createMonthlyCalendar = (containerId) => {
 
             // 사용자 데이터 추가 함수 호출
             addUserDataToCell(cell, date.date(day));
-            
+
             // 클릭 이벤트 리스너 등록
             link.addEventListener('click', (event) => {
                 event.preventDefault();
                 handleLinkClick(date, day); // 외부 함수 호출
             });
-            
+
             // 일요일, 토요일일 경우 클래스 추가
             const weekday = (firstDayOfMonth + day - 1) % 7;
             if (weekday === 0 || weekday === 6) {
@@ -119,6 +130,19 @@ const createMonthlyCalendar = (containerId) => {
             if (++dayIndex % 7 === 0 && day < daysInMonth) {
                 row = tableBody.insertRow();
             }
+        }
+
+        // 다음 달의 첫째 날짜로 채우기
+        let nextMonthDay = 1;
+        while (dayIndex % 7 !== 0) {
+            const cell = row.insertCell();
+            const link = document.createElement('a');
+            link.href = '#';
+            link.textContent = nextMonthDay;
+            cell.appendChild(link);
+            cell.classList.add('gray');
+            dayIndex++;
+            nextMonthDay++;
         }
 
         // 마지막 날 이후에 빈 칸 추가
@@ -150,7 +174,6 @@ const addUserDataToCell = (cell, date) => {
 
 // 페이지 로드 시 createMonthlyCalendar 함수 호출
 createMonthlyCalendar('calendarContainer');
-
 // 주간
 const createWeeklyCalendar = (containerId) => {
     const container = document.getElementById(containerId);
@@ -219,6 +242,7 @@ const createWeeklyCalendar = (containerId) => {
         }
     }
 };
+
 const handleWeeklyLinkClick = (day) => {
     const selectedDay = day.format('YYYYMMDD');
     document.querySelector('.detail-section').innerText = `${selectedDay} 일 등록한 모든 데이터`;
@@ -231,6 +255,5 @@ const addUserDataToWeeklyLink = (link) => {
     link.appendChild(userData);
 };
 createWeeklyCalendar('calendarWeekly');
-
 
 
