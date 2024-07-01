@@ -212,10 +212,7 @@ body.modal-open {height: 100%;overflow: hidden;}
 .modal__wrap--bg.is-active {opacity: 1;transition: opacity 0.3s ease;}
 .modal__wrap--bg.default .modal__wrap {background-color: #fff;position: fixed;opacity: 0; z-index: 2;overflow: hidden;}
 .modal__wrap--bg.default.is-active .modal__wrap {opacity: 1;transform: all 0.3s;left: 50%;top: 50%;transform: translate(-50%,-50%);border-radius: 8px;}
-.modal__wrap--bg.type-bottom .modal__wrap {
-    bottom: -100%; transition: bottom 0.3s, opacity 0.3s; left: 0%; width: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px; opacity: 0;
-}
-
-.modal__wrap--bg.type-bottom.is-active .modal__wrap {
-    bottom: 0; opacity: 1;
-}
+.modal__wrap--bg.type-bottom .modal__wrap {bottom: -100%; transition: bottom 0.3s, opacity 0.3s; left: 0%; width: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px; opacity: 0;}
+.modal__wrap--bg.type-bottom.is-active .modal__wrap { bottom: 0; opacity: 1;}
+.modal__wrap--bg.type-right .modal__wrap {bottom: -100%; transition: right 0.3s, opacity 0.3s; right: -100%;top:0; width: 100%; opacity: 0;}
+.modal__wrap--bg.type-right.is-active .modal__wrap { right: 0; opacity: 1;width: 50%;}

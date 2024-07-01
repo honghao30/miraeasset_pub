@@ -26,6 +26,7 @@
                         <!-- Modal -->
                         <button type="button" onclick="openModal(event)" modal-id="basic">모달 기본</button>
                         <button type="button" onclick="openModal(event)" modal-id="basic2">모달 하단</button>
+                        <button type="button" onclick="openModal(event)" modal-id="basic3">모달 오른쪽</button>
                         <!-- 모달 -->                 
                         <div class="modal__wrap--bg default" id="basic" >
                             <div class="modal__wrap size-default ">
@@ -62,7 +63,22 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                           
+                        </div>       
+                        <div class="modal__wrap--bg type-right" id="basic3" >
+                            <div class="modal__wrap ">
+                                <div class="modal-cont">
+                                    <div style="height: 300px;">
+                                        모달 컨텐츠
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="button__wrap flex-end">
+                                        <button type="button" class="btn btn-cancel close-modal"  onclick="closeModal(event)">취소</button>
+                                        <button type="button" class="btn btn-black btn-add">등록</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                               
                         <!-- 모달 --> 
                     </div>
                     
