@@ -1,71 +1,95 @@
-// 모달창 열기
-const openModal = (event, wa, type) => {
+// 모달 열기
+const openModal = (event, type) => {
     const btn = event.target;
     const modalId = btn.getAttribute('modal-id');
     const target = document.getElementById(modalId);
-    
+    const wa = btn.getAttribute('aria-haspopup');
+
     if (btn) {
         btn.classList.add('modal-open');
-    }    
-    if (target) {          
-        // 추가적인 클래스 설정
-        switch (type) {
-            case 'left':
-                target.classList.add('is-active-left');
-                break;
-            case 'bottom':
-                target.classList.add('is-active-bottom');
-                break;
-            case 'right':
-                target.classList.add('is-active-right');
-                break;                
-            default:
-                // 기본값 처리 (예: 'default')
-                target.classList.add('is-active');      
-                break;
-        }
-        
-        // 탭 이벤트 실행 여부 확인 후 실행
-        if (wa) {
-            tabEvent(target);
-        }
-        
-        // 기본적인 모달 닫기 처리
-        //closeModal(target, 'default');
     }
+
+    if (target) {        
+        target.style.display = 'block';
+
+        setTimeout(() => {
+            target.classList.add('is-active');                
+            document.body.classList.add('modal-open');
+        }, 300);
+    }
+    setTimeout(() => {
+        if (wa) {
+            tabEvent(btn, target);
+        }        
+    }, 300); 
 };
 
-// modal 닫기
-const closeModal = event => {
-    const btn = event.target;
-    const activeModal = btn.closest('.modal__wrap--bg');
-    if (activeModal) {
-        btn.classList.remove('modal-open');
-        activeModal.classList.add('fade-out');
+// 모달 외부 클릭 이벤트 핸들러
+document.addEventListener("click", function(e) {    
+    if (e.target.classList.contains('modal__wrap--bg')) {
+        const activeModal = document.querySelector('.modal__wrap--bg.is-active');
         setTimeout(() => {
             activeModal.classList.remove('is-active');
-            activeModal.classList.remove('fade-out');
-            document.body.classList.remove('modal-open');
-        }, 300);
-        
-        // 포커스를 닫기 전 버튼으로 되돌립니다.
-        const btnToFocus = activeModal.querySelector('button');
-        if (btnToFocus) {            
-            btnToFocus.focus();
+            document.body.classList.remove('modal-open');     
+        }, 300);         
+        activeModal.style.display = 'none';
+    }
+});
+
+//모달창 닫기
+const closeModal = (event, openButton) => {
+    const btn = event.currentTarget;
+    const activeModal = btn.closest('.modal__wrap--bg');
+    if (activeModal) {
+        if (openButton) {
+            openButton.classList.remove('modal-open');
         }
+
+        activeModal.classList.remove('is-active')        
+        document.body.classList.remove('modal-open');
+        
+        
+        setTimeout(() => {
+            activeModal.style.display = 'none';
+            // 접근성 탭 이동 이벤트 호출
+            if (openButton) {
+                tabEvent(openButton, activeModal);
+            }
+        }, 300);
     }
 };
 
-
-// 접근성 탭이동
-const tabEvent = (el, isOpening) => {
-    if (isOpening) {
-        el.setAttribute('tabindex', '0');
-        el.focus();
+// 접근성 탭 이동
+const tabEvent = (btn, el) => {
+    const isModalOpen = el.classList.contains('is-active');
+    const modalWrap = el.querySelector('.modal__wrap');
+    
+    if (isModalOpen) {
+        console.log('모달이 열려 있습니다.', btn, el);
+        if (modalWrap) {
+            modalWrap.setAttribute('tabindex', '0');
+            modalWrap.focus();
+        }
+        btn.setAttribute('aria-expanded', 'true');
     } else {
-        el.removeAttribute('tabindex', '0');      
+        console.log('모달이 닫혀 있습니다.', btn, el);
+        if (modalWrap) {
+            modalWrap.setAttribute('tabindex', '');
+        }
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
     }
 };
+
+const addCloseModalListeners = (target, openButton) => {
+    const closeButtons = target.querySelectorAll('.close-modal');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', (event) => closeModal(event, openButton));
+    });
+};
+
+
+
 // UUID생성
 const generateUniqueId = () => {
     return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
