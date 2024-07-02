@@ -64,15 +64,13 @@ const tabEvent = (btn, el) => {
     const isModalOpen = el.classList.contains('is-active');
     const modalWrap = el.querySelector('.modal__wrap');
     
-    if (isModalOpen) {
-        console.log('모달이 열려 있습니다.', btn, el);
+    if (isModalOpen) {        
         if (modalWrap) {
             modalWrap.setAttribute('tabindex', '0');
             modalWrap.focus();
         }
         btn.setAttribute('aria-expanded', 'true');
-    } else {
-        console.log('모달이 닫혀 있습니다.', btn, el);
+    } else {        
         if (modalWrap) {
             modalWrap.setAttribute('tabindex', '');
         }

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Publish Guide System</title>
   <link rel="stylesheet" href="./guide.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../front_markup/resource/bundle/tailwindcss.css"></script>
 </head>
 <body>
     <div class="guide_wrap">
@@ -43,6 +43,7 @@
                             &lt;html lang="ko"&gt;
                             &lt;head&gt;
                             <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
                         </pre> 
                         <div class="page_tit_h3">크로스브라우징</div>
                         <ul class="description-list">
@@ -95,6 +96,138 @@
                             <li>Tag 규칙을 사용하지 않고 Class 규칙에 속하는 규칙을 사용한다. </li> 
                             <li style="margin-top: 15px;font-weight: 500;">tailwindcss 를 사용하며  과도한 클래스 중첩이 발생하지 않는 경우 예) Spacing, align, Transforms 등 경우에 사용한다. </li>
                         </ul>
+                        <div class="my-4">
+                            <div class="page_tit_h3 font-medium">tailwindcss 대표 케이스</div>
+                            <table class="table table-list sm">
+                                <colgroup>
+                                    <col width="40%" />
+                                    <col width="" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>Class</th>
+                                        <th>Properties</th>
+                                    </tr>
+                                </thead>                                
+                                <tbody>
+                                    <tr>
+                                        <td>cursor-default</td>
+                                        <td>cursor-default</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>underline</td>
+                                        <td>text-decoration-line: underline;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>overline</td>
+                                        <td>text-decoration-line: overline;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>line-through</td>
+                                        <td>text-decoration-line: line-through;</td>
+                                    </tr>                                                                                                                                                
+                                    <tr>
+                                        <td>no-underline</td>
+                                        <td>text-decoration-line: none;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>no-underline hover:underline</td>
+                                        <td><a href="#" class="hover:underline">Link</a></td>
+                                    </tr>                                     
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>    
+                                    <tr>
+                                        <td>underline-offset-auto</td>
+                                        <td>text-underline-offset: auto;</td>
+                                    </tr>   
+                                    <tr>
+                                        <td>underline-offset-0</td>
+                                        <td>text-underline-offset: 0px;</td>
+                                    </tr>   
+                                    <tr>
+                                        <td>underline-offset-8</td>
+                                        <td>text-underline-offset: 8px;<br>
+                                            <p class="underline underline-offset-8">The quick brown fox...</p>
+                                        </td>
+                                    </tr>   
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>   
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>                                                                                                                                                                                                                       
+                                    <tr>
+                                        <td>resize-none</td>
+                                        <td>resize: none;</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>   
+                                    <tr>
+                                        <td>aspect-auto</td>
+                                        <td>aspect-ratio: auto;</td>
+                                    </tr>  
+                                    <tr>
+                                        <td>aspect-square</td>
+                                        <td>aspect-ratio: 1 / 1;</td>
+                                    </tr>   
+                                    <tr>
+                                        <td>aspect-video</td>
+                                        <td>aspect-video</td>
+                                    </tr>   
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>   
+                                    <tr>
+                                        <td>m-0</td>
+                                        <td>margin: 0px;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mx-0</td>
+                                        <td>
+                                            margin-left: 0px;
+                                            margin-right: 0px;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>my-0</td>
+                                        <td>
+                                            margin-top: 0px;
+                                            margin-bottom: 0px;
+                                        </td>
+                                    </tr>     
+                                    <tr>
+                                        <td>mt-0</td>
+                                        <td>margin-top: 0px;
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>mr-0</td>
+                                        <td>margin-right: 0px;
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>mb-0</td>
+                                        <td>margin-bottom: 0px;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-l">
+                                            <a href="https://tailwindcss.com/docs/margin" target="_blank">https://tailwindcss.com/docs/margin</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div> 
 
