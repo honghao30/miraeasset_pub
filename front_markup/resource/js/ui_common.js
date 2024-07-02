@@ -134,6 +134,12 @@ const checkLabel = () => {
 }
 checkLabel()
 
+//숫자에 콤마
+const numComma = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+
 // dot pin
 const checkDotPin = (pw) => {
     const pwStr = pw.toString(); // 비밀번호를 문자열로 변환
@@ -238,7 +244,7 @@ const ScrollEnterMain = () => {
                 el.classList.toggle('left-enter-effect', el.hasAttribute('left-enter'));
                 el.classList.toggle('right-enter-effect', el.hasAttribute('right-enter'));
                 el.classList.toggle('shadow-effect', el.hasAttribute('shadow-effect'));
-                el.classList.toggle('scroll-up', el.hasAttribute('scrollUp'));
+                el.classList.toggle('scroll-up', el.hasAttribute('scrollUp'));                
             } else if (elementOutofView(el)) {
                 hideScrollElement(el);
             }

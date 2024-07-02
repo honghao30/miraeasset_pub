@@ -21,9 +21,72 @@
             <div class="guide-cont">
                 <div class="page_tit_h1">커스텀 그래프</div>
                 <div class="section">
-                    <div class="page_tit_h2">원형</div>
+                    <div class="page_tit_h2">도넛형</div>
                     <div class="section_text_no_round">
+                        <style>
+                            .half-donut {
+                                width: 300px;
+                                height: 150px;
+                                position: relative;
+                                text-align: center;
+                                font-size: 22px;
+                                font-weight: 600;
+                                border-radius: 150px 150px 0 0;
+                                overflow: hidden;
+                                color: var(--fill);
+                                display: flex;
+                                align-items: flex-end;
+                                justify-content: center;
+                                box-sizing: border-box;
+                            }
+                            .half-donut::before, .half-donut::after {
+                                content: '';
+                                width: 300px;
+                                height: 150px;
+                                border: 10px solid var(--fill);
+                                border-top: none;
+                                position: absolute;
+                                transform-origin: 50% 0% 0;
+                                border-radius: 0 0 300px 300px;
+                                box-sizing: border-box;
+                                left: 0;
+                                top: 100%;
+                            }
+                            .half-donut::before {
+                                border-color: rgba(0, 0, 0, .15);
+                                transform: rotate(180deg);
+                            }
+                            .half-donut::after {
+                                z-index: 3;
+                                transform: rotate(0deg);
+                            }
+                            .half-donut.animated::after {
+                                animation: fillGraphAnimation 2s ease-in forwards;
+                            }
+                            @keyframes fillGraphAnimation {
+                                from {
+                                    transform: rotate(0deg);
+                                }
+                                to {
+                                    transform: rotate(calc(1deg * (var(--percentage) * 1.8)));
+                                }
+                            }
+                            .half-donut:hover::after {
+                                opacity: .8;
+                                cursor: pointer;
+                            }
+                        </style>
+                        <div class="half-donut" id="halfDonut" style="--percentage: 90; --fill: #039BE5;">
+                            CSS3
+                        </div>
 
+                        <script>
+                            window.onload = function() {
+                                setTimeout(function() {
+                                    document.getElementById('halfDonut').classList.add('animated');
+                                }, 100); // 0.1초 후 애니메이션 시작
+                            };
+                        </script>
 
                     </div>
                 </div>
