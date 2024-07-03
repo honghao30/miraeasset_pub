@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirect Example</title>
-  <script>
+  <title>미리에셋생명헬스케어</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="./front_markup/resource/css/index.css" />
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
       // 리다이렉트할 URL 설정
       const redirectUrl = './guide/index.html'; // 원하는 리다이렉트 URL로 변경하세요
@@ -12,9 +16,32 @@
       // 리다이렉트 실행
       window.location.href = redirectUrl;
     });
-  </script>
+  </script> -->
 </head>
 <body>
-  <p>잠시만 기다려 주세요. 곧 리다이렉트됩니다...</p>
+  <style>
+    .gate-list {margin: 100px auto;padding: 30px;}
+    .gate-list li {
+      width:100%;
+      height: 80px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gate-list li a {
+      font-size: 18px;
+    }
+  </style>
+<ul class="gate-list">
+    <li>
+        <a href="./sian/typeA/typeA01.html">제안시안 A안</a>
+    </li>
+    <li>
+      <a href="./guide/index.html">퍼블리싱 가이드</a>
+    </li>
+</ul>
 </body>
 </html>
