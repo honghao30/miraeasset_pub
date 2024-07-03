@@ -1,111 +1,105 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>    
-    <title>미래에셋 시안 B </title>
+    <title>미래에셋 시안 A </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" href="../../front_markup/resource/img/favicon3.ico">
     <link rel="stylesheet" href="../../front_markup/resource/css/index.css" />
-    <script src="../../front_markup/resource/bundle/tailwindcss.css"></script>
     <link rel="stylesheet" href="./sian.css" />
     <link rel="stylesheet" href="../../front_markup/resource/bundle/swiper.min.css " />
     <script type="text/javascript" src="../../front_markup/resource/bundle/swiper-bundle.min.js"></script>
 </head>
 <body>
     <div class="sian__wrap">
-        <header class="before-start">
+        <header>
+            <h1 class="logo">
+                <a href="#">
+                    <img src="./img/logo.svg" alt="미리에셋생명" />
+                </a>
+            </h1>
+            <button type="button" class="btn btn-alert">
+                <i class="ico ico-alert"></i>
+                <span class="ir-text">알림</span>
+            </button>
             <button type="button" class="btn btn-hamguger">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <span class="ir-text">메뉴</span>
-            </button>            
-            <button type="button" class="btn btn-alert">
-                <i class="ico ico-alert"></i>
-                <span class="ir-text">알림</span>
             </button>
         </header>
         <!-- header -->
+        <nav class="gnb__wrap">
+            <img src="./img/top_nav.svg" alt="대메뉴" />
+        </nav>
         <div class="sian-content">
             <div class="section welcome">
-                <img src="./img/text-welcome.png" alt="김미래님 환영 합니다." />
+                <img src="./img/text_welcome_msg.svg" alt="" />
             </div>
-            <div class="section my_insurance">
-                <img src="./img/my_insurance.png" alt="보험 상품" />
+            <div class="section video">
+                <img src="./img/vidoe_temp.png" alt="" />
             </div>
-            <div class="section walk-world">
-                <img src="./img/img_walking_world.png" alt="걷기 연동" />
+            <div class="section rangking-bn">
+                <img src="./img/ranking_bn.png" alt="" />
+            </div>            
+            <div class="section card-my-insure animation-enter">
+                <img src="./img/card01_my_info.svg" alt="" />
             </div>
-            <div class="card-content__round-box">
-                <a href="#" class="count-walk">
-                    <i></i>
-                    오늘은 <strong><span>6,508</span>걸음</strong> 걸었어요.
-                </a>                
+            <div class="section card-my-favo animation-enter">
+                <img src="./img/card_favo_menu.svg" alt="" />
             </div>
-            <div class="section card-activity">
-                <div class="tit">
-                    <img src="./img/tit_my_activity.png" alt="오늘은 이만큼 활동했어요." />
+            <div class="section card-my-levels animation-enter">
+                <div class="title-area flex justify-between">
+                    <div class="tit">
+                        <img src="./img/tit_health_level.svg" alt="" />
+                    </div>
+                    <div class="more">
+                        <a href="#">
+                            <img src="./img/btn_health_more.svg" alt="건강등급 자세히 보기" />
+                        </a>
+                    </div>
                 </div>
-                <ul class="activity-list">
-                    <li>
-                        <div class="active-box">
-                            <i class="ico-flame"></i>
-                            <div class="active-info">
-                                <div class="tit">소비 칼로리</div>
-                                <div class="condition">1,032</div>
+                <div class="card-content__round-box">
+                    <div class="text">
+                        <img src="./img/health_level_text.svg" alt="" />
+                    </div>
+                    <div class="graph__wrap--bar-type animation-enter">
+                        <div class="bar-type-item">
+                            <div class="bar-type-box">
+                                <div class="badge">
+                                    <img src="./img/badge3.svg" alt=""/>
+                                </div>
+                                <div class="bar-type-bar-inner"></div>
+                            </div>
+                            <div class="item-name">
+                                베니보리님
                             </div>
                         </div>
-                    </li>
-                    <li>
-                        <div class="active-box">
-                            <i class="ico-medicine"></i>
-                            <div class="active-info">
-                                <div class="tit">영양제 분석</div>
-                                <div class="condition">부족2·과다1</div>
+                        <div class="bar-type-item average-data">
+                            <div class="bar-type-box">
+                                <div class="badge">
+                                    <img src="./img/badge1.svg" alt=""/>
+                                </div>
+                                <div class="bar-type-bar-inner"></div>
+                            </div>
+                            <div class="item-name">
+                                30대 평균
                             </div>
                         </div>
-                    </li>
-                    <li>
-                        <div class="active-box">
-                            <i class="ico-walk"></i>
-                            <div class="active-info">
-                                <div class="tit">걸음 수</div>
-                                <div class="condition">475</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="active-box">
-                            <i class="ico-feel"></i>
-                            <div class="active-info">
-                                <div class="tit">오늘의 기분</div>
-                                <div class="condition">신남</div>
-                            </div>
-                        </div>
-                    </li>                                                            
-                </ul>
+                    </div>
+                </div>
             </div>
-            <div class="section color-terapy">
+            <div class="section swiper-card animation-enter">
                 <div class="swiper card01">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="card-content__round-box">
-                                <div class="color-test__wrap">
-                                    <div class="text-color">
-                                        <img src="./img/text-color.png" alt="눈이 피로하다면 이 컬라가 눈을 보호해 줄거예요." />
-                                    </div>
-                                    <div class="color-sample">
-                                        <img src="./img/color-teraphy.png" alt="" />
-                                    </div>
-                                    <div class="button__wrap">
-                                        <a href="#">
-                                            <img src="./img/btn-color-test.png" alt="" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                                                            
+                            <img src="./img/home_swiper_card01.svg" alt="" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./img/home_swiper_card01.svg" alt="" />
+                        </div>                                     
                     </div>
                     <div class="swiper-pagination"></div>   
                     <script>
@@ -122,8 +116,77 @@
                             },
                         });
                     </script>  
-                </div>                
-            </div>
+                </div>
+            </div>         
+            <div class="section knowledge-card animation-enter">
+                <img src="./img/healthcare_knowledge.svg" alt="" />
+            </div>                
+            <div class="section record-list__wrap animation-enter">
+                <img src="./img/card_record_list.svg" alt="" />
+            </div>   
+
+            <div class="section health-tip animation-enter">
+                <div class="flex justify-between">
+                    <div class="tit">
+                        <img src="./img/tit_tip.svg" alt="" />
+                    </div>
+                    <div class="more">
+                        <a href="#">
+                            <img src="./img/btn_more_tip.svg" alt="꿀팁 더보기" />
+                        </a>
+                    </div>
+                </div>
+                <div class="health-tip-cont flex flex-col">
+                    <div class="animation-enter">
+                        <img src="./img/tip_img01.png" alt="" />
+                    </div>
+                    <div class="animation-enter">
+                        <img src="./img/tip_img02.png" alt="" />
+                    </div>                    
+                </div>
+            </div> 
+
+            <div class="section health-product animation-enter">
+                <div class="title-area flex justify-between">
+                    <div class="tit">
+                        <img src="./img/tit_product.svg" alt="" />
+                    </div>
+                    <div class="more">
+                        <a href="#">
+                            <img src="./img/btn_more_product.svg" alt="더 많은상품 보기" />
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-btns">
+                        <ul class="tab-button-list">
+                            <li class="is-active"><a href="#">전체</a></li>
+                            <li><a href="#">건강</a></li>
+                            <li><a href="#">변액</a></li>
+                            <li><a href="#">자산</a></li>
+                            <li><a href="#">연금</a></li>                         
+                        </ul>
+                    </div>
+                    <div class="tab-pane1s">
+                        <div class="tab-pane1 is-active">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>
+                        <div class="tab-pane1">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>     
+                        <div class="tab-pane1">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>  
+                        <div class="tab-pane1">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>  
+                        <div class="tab-pane1">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>                                                                                             
+                    </div>
+                </div>
+            </div>  
+
 
         </div>
     </div>

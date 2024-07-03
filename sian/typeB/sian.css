@@ -1,9 +1,14 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url('../../front_markup/resource/bundle/tailwindcss/tailwind-all.css');
 
 :root {
     --var-border-color: #F5F5F5;
-    --var-bg-color-gray: #f5f5f5;
-    --font-Pretendard: 'Pretendard', 'Malgun Gothic', '맑은고딕', 'sans-serif',
+    --var-bg-color-gray: #fff;
+    --font-NanumSquare: 'NanumSquare', 'Malgun Gothic', '맑은고딕', 'sans-serif';
+    
+}
+html,body {
+    font-family: var(--font-NanumSquare);
+    background-color: #f6f6f6;
 }
 
 .sian__wrap {
@@ -15,8 +20,8 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 0 32px;
-    height: 72px;
+    padding: 20px 20px 0;
+    height: 54px;
 }
 header .logo {
     flex:1;
@@ -40,7 +45,7 @@ header .logo svg {
 .btn-hamguger {
     position: relative;
     width: 24px;
-    height: 36px;
+    height: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,20 +59,166 @@ header .logo svg {
 }
 /* //header */
 .sian-content {
-    padding: 80px 0px 100px;
+    padding: calc(25 / 16 * 1rem) 0 calc(100 / 16 * 1rem); 
 }
 .section.welcome {
-    padding: 0 32px;
+    padding: 0 20px;
 }
-.section.rutin-list {    
+.section.welcome img {
+    width: 192px;
 }
-.section.level-default img,
-.section.rutin-list img {
+.section.my_insurance {
+    padding:  calc(10 / 16 * 1rem) calc(10 / 16 * 1rem) 0;
+}
+.section.walk-world {
+    padding:  calc(40 / 16 * 1rem) calc(10 / 16 * 1rem) calc(10 / 16 * 1rem); 
+}
+
+.section.walk-world img,
+.section.my_insurance img {
     width: 100%;
-    max-width: 100%;
 }
-.section.news {
-    padding: 0 32px;
+
+.card-content__round-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 20px;
+    border-radius: 26px;
+    background: #FFF;
+    box-shadow: 0px 2px 8px 0px rgba(36, 45, 60, 0.10);
+    margin: 0 20px;
+}
+
+.count-walk {
+    display: block;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 4px;
+    position: relative;
+}
+.count-walk i {
+    display: inline-flex;
+    width:24px;
+    height:24px;
+    background: url('./img/icon-hugeicons_runninicong-shoes.svg') no-repeat center center;
+    background-size: 24px 24px;
+}
+.count-walk::after {
+    content: '';
+    display: inline-flex;
+    width:20px;
+    height:20px;
+    position: absolute;
+    background: url('./img/icon_arrow_right.svg') no-repeat center center;
+    background-size: 20px auto;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.count-walk strong {
+    color: #F58220;
+}
+
+.section.card-activity {
+    padding:  calc(50 / 16 * 1rem) calc(16 / 16 * 1rem) 0;
+}
+.section.card-activity .tit img {
+    width: 188px;
+}
+.activity-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: calc(12 / 16 * 1rem);
+}
+.activity-list li {
+    display: flex;        
+    flex-direction: column;    
+    width: calc((100% / 2) - 7px);
+    aspect-ratio: 0.8 / 1;
+    border-radius: 26px;
+    padding: 24px;
+    background: #FFF;
+    box-shadow: 0px 2px 8px 0px rgba(36, 45, 60, 0.10);
+}
+.activity-list li i {
+    display: block;
+}
+.activity-list li .tit {
+    color: #666;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: -0.14px;
+}
+.activity-list li .condition {
+    color: #000;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+.active-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.active-info {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 8px;
+}
+.ico-flame {
+    width:30px;
+    height:48px;
+    background: url('./img/ico_activity01.png') no-repeat left center;
+    background-size: 30px 48px;
+}
+.ico-medicine {
+    width:60px;
+    height:36px;
+    background: url('./img/ico_activity02.png') no-repeat left center;
+    background-size: 60px 36px;
+}
+.ico-walk {
+    width:56px;
+    height:36px;
+    background: url('./img/ico_activity03.png') no-repeat left center;
+    background-size: 55px 36px;
+}
+.ico-feel {
+    width:38px;
+    height:38px;
+    background: url('./img/ico_activity04.png') no-repeat left center;
+    background-size: 38px 38px;
+}
+
+.section.color-terapy {
+    margin: calc(20 / 16 * 1rem) 0;
+}
+.section.color-terapy .color-test__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;    
+}
+.section.color-terapy .color-test__wrap .text-color {
+    margin-bottom: 29px;
+}
+.section.color-terapy .color-test__wrap .text-color img {
+    width: calc(278 / 16 * 1rem) 0;
+}
+
+.section.color-terapy .color-test__wrap .button__wrap {
+    margin-top: 37px;
+} 
+.section.color-terapy .color-test__wrap .button__wrap img {
+    width: 100%;
 }
 /* //fnb */
 .fnb-wrap {
