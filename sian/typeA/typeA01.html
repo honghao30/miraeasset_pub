@@ -7,9 +7,9 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" href="../../front_markup/resource/img/favicon3.ico">
     <link rel="stylesheet" href="../../front_markup/resource/css/index.css" />
-    <script src="../../front_markup/resource/bundle/tailwindcss.css"></script>
     <link rel="stylesheet" href="./sian.css" />
     <link rel="stylesheet" href="../../front_markup/resource/bundle/swiper.min.css " />
+    <script type="text/javascript" src="../../front_markup/resource/bundle/swiper-bundle.min.js"></script>
 </head>
 <body>
     <div class="sian__wrap">
@@ -31,21 +31,163 @@
             </button>
         </header>
         <!-- header -->
+        <nav class="gnb__wrap">
+            <img src="./img/top_nav.svg" alt="대메뉴" />
+        </nav>
         <div class="sian-content">
             <div class="section welcome">
-                <img src="./img/text-welcome.svg" alt="" />
+                <img src="./img/text_welcome_msg.svg" alt="" />
             </div>
-            <div class="section level-default">
-                <img src="./img/member_level_default.svg" alt="" />
+            <div class="section video">
+                <img src="./img/vidoe_temp.png" alt="" />
             </div>
-            <div class="section rutin-list">                
-                <img src="./img/img_routine.svg" alt="" />
+            <div class="section rangking-bn">
+                <img src="./img/ranking_bn.png" alt="" />
+            </div>            
+            <div class="section card-my-insure animation-enter">
+                <img src="./img/card01_my_info.svg" alt="" />
             </div>
-            <div class="section news">
-                <div class="tit">
-                    <img src="./img/news_tit1.svg" alt="다양한 소식을 전해 드려요." />
+            <div class="section card-my-favo animation-enter">
+                <img src="./img/card_favo_menu.svg" alt="" />
+            </div>
+            <div class="section card-my-levels animation-enter">
+                <div class="title-area flex justify-between">
+                    <div class="tit">
+                        <img src="./img/tit_health_level.svg" alt="" />
+                    </div>
+                    <div class="more">
+                        <a href="#">
+                            <img src="./img/btn_health_more.svg" alt="건강등급 자세히 보기" />
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content__round-box">
+                    <div class="text">
+                        <img src="./img/health_level_text.svg" alt="" />
+                    </div>
+                    <div class="graph__wrap--bar-type animation-enter">
+                        <div class="bar-type-item">
+                            <div class="bar-type-box">
+                                <div class="badge">
+                                    <img src="./img/badge3.svg" alt=""/>
+                                </div>
+                                <div class="bar-type-bar-inner"></div>
+                            </div>
+                            <div class="item-name">
+                                베니보리님
+                            </div>
+                        </div>
+                        <div class="bar-type-item average-data">
+                            <div class="bar-type-box">
+                                <div class="badge">
+                                    <img src="./img/badge1.svg" alt=""/>
+                                </div>
+                                <div class="bar-type-bar-inner"></div>
+                            </div>
+                            <div class="item-name">
+                                30대 평균
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="section swiper-card animation-enter">
+                <div class="swiper card01">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./img/home_swiper_card01.svg" alt="" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./img/home_swiper_card01.svg" alt="" />
+                        </div>                                     
+                    </div>
+                    <div class="swiper-pagination"></div>   
+                    <script>
+                        var swiper = new Swiper(".card01", {
+                            speed: 600,
+                            // autoplay: {
+                            //     delay: 5000,
+                            //     disableOnInteraction: false
+                            // },
+                            parallax: true,
+                            pagination: {
+                                el: ".swiper-pagination",
+                                clickable: true,
+                            },
+                        });
+                    </script>  
+                </div>
+            </div>         
+            <div class="section knowledge-card animation-enter">
+                <img src="./img/healthcare_knowledge.svg" alt="" />
+            </div>                
+            <div class="section record-list__wrap animation-enter">
+                <img src="./img/card_record_list.svg" alt="" />
+            </div>   
+
+            <div class="section health-tip animation-enter">
+                <div class="flex justify-between">
+                    <div class="tit">
+                        <img src="./img/tit_tip.svg" alt="" />
+                    </div>
+                    <div class="more">
+                        <a href="#">
+                            <img src="./img/btn_more_tip.svg" alt="꿀팁 더보기" />
+                        </a>
+                    </div>
+                </div>
+                <div class="health-tip-cont flex flex-col">
+                    <div class="animation-enter">
+                        <img src="./img/tip_img01.png" alt="" />
+                    </div>
+                    <div class="animation-enter">
+                        <img src="./img/tip_img02.png" alt="" />
+                    </div>                    
+                </div>
+            </div> 
+
+            <div class="section health-product animation-enter">
+                <div class="title-area flex justify-between">
+                    <div class="tit">
+                        <img src="./img/tit_product.svg" alt="" />
+                    </div>
+                    <div class="more">
+                        <a href="#">
+                            <img src="./img/btn_more_product.svg" alt="더 많은상품 보기" />
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-btns">
+                        <ul class="tab-button-list">
+                            <li class="is-active"><a href="#">전체</a></li>
+                            <li><a href="#">건강</a></li>
+                            <li><a href="#">변액</a></li>
+                            <li><a href="#">자산</a></li>
+                            <li><a href="#">연금</a></li>                         
+                        </ul>
+                    </div>
+                    <div class="tab-pane1s">
+                        <div class="tab-pane1 is-active">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>
+                        <div class="tab-pane1">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>     
+                        <div class="tab-pane1">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>  
+                        <div class="tab-pane1">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>  
+                        <div class="tab-pane1">
+                            <img src="./img/product_list.png" alt="" />
+                        </div>                                                                                             
+                    </div>
+                </div>
+            </div>  
+
+
         </div>
     </div>
     <nav class="fnb-wrap">
@@ -100,8 +242,7 @@
         </ul>
     </nav>
 
-    <script src="../../front_markup/resource/js/ui_common.js"></script>
-    <script src="../../front_markup/resource/bundle/swiper.min.js"></script>
+    <script src="../../front_markup/resource/js/ui_common.js"></script>    
     <script src="./sian.js"></script>
 </body>
 </html>

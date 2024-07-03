@@ -86,7 +86,26 @@ const addCloseModalListeners = (target, openButton) => {
     });
 };
 
+// 탭메뉴
+function tabMenus(tabGroupSelector) {
+    const tabGroup = document.querySelector(tabGroupSelector);
+    const tabButtons = tabGroup.querySelectorAll('.tab-button-list li a');
+    const tabPanes = tabGroup.querySelectorAll('.tab-pane1');
 
+    tabButtons.forEach((button, index) => {
+        button.addEventListener('click', event => {            
+            event.preventDefault();
+            handleTabClick(index);
+        });
+    });
+
+    function handleTabClick(index) {        
+        tabButtons.forEach(btn => btn.parentElement.classList.remove('is-active'));        
+        tabButtons[index].parentElement.classList.add('is-active');        
+        tabPanes.forEach(pane => pane.classList.remove('is-active'));        
+        tabPanes[index].classList.add('is-active');
+    }
+}
 
 // UUID생성
 const generateUniqueId = () => {
@@ -244,9 +263,9 @@ const ScrollEnterMain = () => {
                 el.classList.toggle('left-enter-effect', el.hasAttribute('left-enter'));
                 el.classList.toggle('right-enter-effect', el.hasAttribute('right-enter'));
                 el.classList.toggle('shadow-effect', el.hasAttribute('shadow-effect'));
-                el.classList.toggle('scroll-up', el.hasAttribute('scrollUp'));                
+                el.classList.toggle('scroll-up', el.hasAttribute('scrollUp'));                                
             } else if (elementOutofView(el)) {
-                hideScrollElement(el);
+                hideScrollElement(el);                
             }
         });
     };
@@ -257,17 +276,17 @@ const ScrollEnterMain = () => {
 ScrollEnterMain();
 
 // 위 아래 구분을 위한 스크립트
-let lastScrollTop = 0;
-const scrollEventManage = () => {
-const Yoffset = window.pageYOffset || document.documentElement.scrollTop;
+// let lastScrollTop = 0;
+// const scrollEventManage = () => {
+// const Yoffset = window.pageYOffset || document.documentElement.scrollTop;
 
-if (Yoffset > lastScrollTop) {
-    // downscroll code
-    console.log("scroll Down")
-} else {
-    console.log("scroll Up")
-}
-lastScrollTop = Yoffset <= 0 ? 0 : Yoffset;
-}
-window.addEventListener("scroll", scrollEventManage);
+// if (Yoffset > lastScrollTop) {
+//     // downscroll code
+//     console.log("scroll Down")
+// } else {
+//     console.log("scroll Up")
+// }
+// lastScrollTop = Yoffset <= 0 ? 0 : Yoffset;
+// }
+// window.addEventListener("scroll", scrollEventManage);
 // 위 아래 구분을 위한 스크립트====================
