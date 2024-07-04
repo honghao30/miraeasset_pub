@@ -487,37 +487,58 @@ header .logo img {
 .achievement-chart__wrap img {
     width: 100%;
 }
-/* .achievement-chart__wrap2 {
+.achievement-chart__wrap2 {
+    position: relative;
     display: flex;
+    margin: 56px auto;
     align-items: center;
     justify-content: center;
-    position: relative;
-    width: calc(100% - 6px);
-    padding-bottom: calc(100% - 6px);
-    margin: 0 auto;
-    border-radius: 50%;
-    position: relative;
-    text-align: center;
-    transition: background .3s ease-in-out;
-    background: conic-gradient(#3F8BC9 0% 72%, #F2F2F2 72% 100%);
 }
-.achievement-chart__wrap2::before {
-    color: #fff;
-    width: 88%;
-    padding: calc(35% - .74vw) 0;
-    background: #fff;
-    border-radius: 50%;
+.achievement-chart__wrap2 .origin-data {
+    position: relative;
+}
+.achievement-chart__wrap2 .over-data {
     position: absolute;
-    left: 6%;
-    top: 6%;
-    display: block;
-    content: attr(data-percent)'%';
-    transform: skew(-0.03deg);
-    padding: calc(35% - -4.7vw) 0;
-} */
+    top:0;
+    left:0;
+    z-index: 11;
+}
+.achievement-chart__wrap2 .icon-fire {
+    position: absolute;
+    top: 4%;
+    left: 75%;
+    z-index: 13;
+    opacity: 0;
+    animation: fadeIn 6s ease forwards;
+}
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.achievement-chart__wrap2  .icon-fire img {
+    width: 28px;
+}
+.svg-path {
+    stroke-dasharray: 1 1020;
+    stroke-dashoffset: 0;
+    transition: stroke-dasharray 2s, stroke-dashoffset 2s;
+}
+.svg-path.animation {
+    stroke-dasharray: 1020 1020;
+    stroke-dashoffset: 0;
+}
 
 .achievement-data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;

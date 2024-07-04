@@ -38,9 +38,41 @@
                 <div class="text">
                     <img src="./img/archiev-rate-text.png" alt="조금 더 힘내세요" />
                 </div>
-                <div class="achievement-chart__wrap">
+                <!-- <div class="achievement-chart__wrap">
                     <img src="./img/my_goalin_graph.png" alt="" />
-                </div>                            
+                </div> -->
+                <div class="achievement-chart__wrap2">
+                    <div class="achievement-data">
+                        <div class="data1">목표 달성율</div>
+                        <div class="data1"><strong data-num="64" class="text-ani">64</strong> %</div>
+                    </div>
+                    <div class="icon-fire">
+                        <img src="./img/icon_fire.png" />
+                    </div>
+                    <div class="over-data animaion">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="175" height="198" viewBox="0 0 175 198" fill="none">
+                            <path class="svg-path" d="M48.518 188.254C24.7909 169.972 9.5 141.272 9.5 108.995C9.5 53.7683 54.2734 9 109.5 9C130.355 9 149.716 15.3829 165.738 26.3027" 
+                                stroke="url(#paint0_linear_263_2892)" stroke-width="18" stroke-miterlimit="10" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="paint0_linear_263_2892" x1="87.6189" y1="9" x2="87.6189" y2="188.255" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#F6943B"/>
+                                    <stop offset="1" stop-color="#FFCA48"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>                 
+                    </div>    
+                    <div class="origin-data">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="219" height="198" viewBox="0 0 219 198" fill="none">
+                            <path d="M170.47 188.26C194.21 169.99 209.5 141.28 209.5 109C209.5 53.77 164.73 9 109.5 9C54.27 9 9.5 53.77 9.5 109C9.5 141.28 24.79 169.99 48.53 188.26" stroke="#ECECEC" stroke-width="18" stroke-miterlimit="10" stroke-linecap="round"/>
+                        </svg>
+                    </div>                
+                </div>              
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        document.querySelector('.svg-path').classList.add('animation');                        
+                    })
+                </script>
+
                 <div class="data">
                     <img src="./img/archiev-rate-data.png" alt="" />
                 </div>
