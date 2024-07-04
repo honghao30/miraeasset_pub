@@ -459,7 +459,7 @@ header .logo img {
 
 /* // 루틴 진입후 */
 .section.welcome2 {
-    padding: calc(20 / 16 * 1rem) calc(16 / 16 * 1rem) calc(0 / 16 * 1rem);
+    padding: calc(0 / 16 * 1rem) calc(16 / 16 * 1rem) calc(0 / 16 * 1rem);
 }
 .section.welcome2 img {
     width:248px;
@@ -474,8 +474,8 @@ header .logo img {
     width: 100%;
 }
 .achievement-chart__wrap {
-    width: 200px;
-    height: 179px;
+    width: 60%;
+    aspect-ratio: 1/1;
     margin: 56px auto;
     /* background: url('./img/bg_gray_round_chart.png') no-repeat center center; */
     /* background-size: 200px auto; */
@@ -484,16 +484,38 @@ header .logo img {
     justify-content: center;
     position: relative;
 }
-.achievement-data-active {
-    width: 200px;
-    height: 194px;
-    margin: 56px auto;
-    background: url('./img/bg_gray_round_chart_active.png') no-repeat 0 0;
-    background-size: 200px auto;
-    position: absolute;
-    left:0;
-    top:0;  
+.achievement-chart__wrap img {
+    width: 100%;
 }
+/* .achievement-chart__wrap2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: calc(100% - 6px);
+    padding-bottom: calc(100% - 6px);
+    margin: 0 auto;
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    transition: background .3s ease-in-out;
+    background: conic-gradient(#3F8BC9 0% 72%, #F2F2F2 72% 100%);
+}
+.achievement-chart__wrap2::before {
+    color: #fff;
+    width: 88%;
+    padding: calc(35% - .74vw) 0;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 6%;
+    top: 6%;
+    display: block;
+    content: attr(data-percent)'%';
+    transform: skew(-0.03deg);
+    padding: calc(35% - -4.7vw) 0;
+} */
+
 
 .achievement-data {
     display: flex;
