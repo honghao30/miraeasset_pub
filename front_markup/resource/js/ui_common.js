@@ -89,20 +89,24 @@ const addCloseModalListeners = (target, openButton) => {
 // 탭메뉴
 function tabMenus(tabGroupSelector) {
     const tabGroup = document.querySelector(tabGroupSelector);
+    if (!tabGroup) return; 
+
     const tabButtons = tabGroup.querySelectorAll('.tab-button-list li a');
     const tabPanes = tabGroup.querySelectorAll('.tab-pane1');
 
+    if (!tabButtons.length || !tabPanes.length) return; 
+
     tabButtons.forEach((button, index) => {
-        button.addEventListener('click', event => {            
+        button.addEventListener('click', event => {
             event.preventDefault();
             handleTabClick(index);
         });
     });
 
-    function handleTabClick(index) {        
-        tabButtons.forEach(btn => btn.parentElement.classList.remove('is-active'));        
-        tabButtons[index].parentElement.classList.add('is-active');        
-        tabPanes.forEach(pane => pane.classList.remove('is-active'));        
+    function handleTabClick(index) {
+        tabButtons.forEach(btn => btn.parentElement.classList.remove('is-active'));
+        tabButtons[index].parentElement.classList.add('is-active');
+        tabPanes.forEach(pane => pane.classList.remove('is-active'));
         tabPanes[index].classList.add('is-active');
     }
 }
@@ -158,6 +162,32 @@ const numComma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
+// 숫자 애니메이션
+const animateNumbers = () => {
+    const ANIMATION_SPEED = 100;
+    const numberCounts = document.querySelectorAll('.text-ani');
+    numberCounts.forEach(number => {
+        const num = parseInt(number.getAttribute('data-num'));
+        let count = 0;
+        const increment = Math.ceil(num / 100);
+
+        animateNumber(number, count, increment, num);
+    });
+};
+
+const animateNumber = (element, count, increment, target) => {
+    const updateNumber = () => {
+        count += increment;
+
+        if (count <= target) {
+            element.textContent = count.toLocaleString();
+            requestAnimationFrame(updateNumber);
+        } else {
+            element.textContent = target.toLocaleString();
+        }
+    };
+    requestAnimationFrame(updateNumber);
+};
 
 // dot pin
 const checkDotPin = (pw) => {
@@ -263,7 +293,8 @@ const ScrollEnterMain = () => {
                 el.classList.toggle('left-enter-effect', el.hasAttribute('left-enter'));
                 el.classList.toggle('right-enter-effect', el.hasAttribute('right-enter'));
                 el.classList.toggle('shadow-effect', el.hasAttribute('shadow-effect'));
-                el.classList.toggle('scroll-up', el.hasAttribute('scrollUp'));                                
+                el.classList.toggle('scroll-up', el.hasAttribute('scrollUp'));     
+                displayAnimation();                           
             } else if (elementOutofView(el)) {
                 hideScrollElement(el);                
             }
@@ -274,7 +305,14 @@ const ScrollEnterMain = () => {
 };
 
 ScrollEnterMain();
+let isAnimated = false;
 
+const displayAnimation = () => {
+    if (!isAnimated) {
+        animateNumbers();
+        isAnimated = true;
+    }
+};
 // 위 아래 구분을 위한 스크립트
 // let lastScrollTop = 0;
 // const scrollEventManage = () => {
@@ -283,10 +321,24 @@ ScrollEnterMain();
 // if (Yoffset > lastScrollTop) {
 //     // downscroll code
 //     console.log("scroll Down")
+//     onDownScroll();
 // } else {
 //     console.log("scroll Up")
+//     onUpScroll();
 // }
 // lastScrollTop = Yoffset <= 0 ? 0 : Yoffset;
 // }
 // window.addEventListener("scroll", scrollEventManage);
 // 위 아래 구분을 위한 스크립트====================
+
+// const onDownScroll = () => {
+    // Additional downscroll logic
+    // This function will be called when scrolling down
+    // Add your additional downscroll actions here
+// }
+
+// const onUpScroll = () => {
+    // Additional upscroll logic
+    // This function will be called when scrolling up
+    // Add your additional upscroll actions here
+// }

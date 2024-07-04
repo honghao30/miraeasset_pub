@@ -35,15 +35,20 @@
                 <img src="./img/my_insurance.png" alt="보험 상품" />
             </div>
             <div class="section walk-world">
-                <img src="./img/img_walking_world.png" alt="걷기 연동" />
+                <div class="tit">
+                    <img src="./img/txt_walking_world.png" alt="" />
+                </div>
+                <div class="walk-world">
+                    <a href="typeB02Walk.html"><img src="./img/img_walking_world.png" alt="" /></a>
+                </div>                
             </div>
-            <div class="card-content__round-box">
+            <div class="card-content__round-box animation-enter">
                 <a href="#" class="count-walk">
                     <i></i>
-                    오늘은 <strong><span>6,508</span>걸음</strong> 걸었어요.
+                    오늘은 <strong><span data-num="6508" class="text-ani">6,508</span>걸음</strong> 걸었어요.
                 </a>                
             </div>
-            <div class="section card-activity">
+            <div class="section card-activity animation-enter">
                 <div class="tit">
                     <img src="./img/tit_my_activity.png" alt="오늘은 이만큼 활동했어요." />
                 </div>
@@ -53,7 +58,7 @@
                             <i class="ico-flame"></i>
                             <div class="active-info">
                                 <div class="tit">소비 칼로리</div>
-                                <div class="condition">1,032</div>
+                                <div data-num="1032" class="text-ani condition">1,032</div>
                             </div>
                         </div>
                     </li>
@@ -71,7 +76,7 @@
                             <i class="ico-walk"></i>
                             <div class="active-info">
                                 <div class="tit">걸음 수</div>
-                                <div class="condition">475</div>
+                                <div  data-num="475" class="text-ani condition">475</div>
                             </div>
                         </div>
                     </li>
@@ -86,7 +91,7 @@
                     </li>                                                            
                 </ul>
             </div>
-            <div class="section color-terapy">
+            <div class="section color-terapy animation-enter">
                 <div class="swiper card01">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -99,13 +104,47 @@
                                         <img src="./img/color-teraphy.png" alt="" />
                                     </div>
                                     <div class="button__wrap">
+                                        <a href="typeB02Color.html">
+                                            <img src="./img/btn-color-test.png" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="swiper-slide">
+                            <div class="card-content__round-box">
+                                <div class="color-test__wrap">
+                                    <div class="text-color">
+                                        <img src="./img/text-fire.png" alt="눈이 피로하다면 잠시 잠깐 불멍 때리기!" />
+                                    </div>
+                                    <div class="fire-sample">
+                                        <img src="./img/img-fire.png" alt="" />
+                                    </div>
+                                    <div class="button__wrap">
                                         <a href="#">
                                             <img src="./img/btn-color-test.png" alt="" />
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                        </div>                                                            
+                        </div>        
+                        <div class="swiper-slide">
+                            <div class="card-content__round-box">
+                                <div class="color-test__wrap">
+                                    <div class="text-color">
+                                        <img src="./img/text_feel.png" alt="좋은일이 생겨셧나요?" />
+                                    </div>
+                                    <div class="fire-sample">
+                                        <img src="./img/img_feel.png" alt="" />
+                                    </div>
+                                    <div class="button__wrap">
+                                        <a href="#">
+                                            <img src="./img/btn-color-test.png" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                                                                                      
                     </div>
                     <div class="swiper-pagination"></div>   
                     <script>
@@ -125,6 +164,161 @@
                 </div>                
             </div>
 
+            <div class="section insurance_recommendation animation-enter">
+                <div class="title-area flex justify-between">
+                    <div class="tit">
+                        <img src="./img/tit_insurance.png" alt="보험추천" />
+                    </div>
+                    <a href="#" class="more">
+                        <img src="./img/btn_insurance_more.png" alt="보험 추천 더보기" />
+                    </a>
+                </div>
+                <div class="insurance-list">
+                    <div class="swiper card02">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./img/insurance_bn.png" alt="" />
+                            </div>  
+                            <div class="swiper-slide">
+                                <img src="./img/insurance_bn.png" alt="" />
+                            </div>                                                                                   
+                        </div>
+                        <div class="swiper-pagination"></div>   
+                        <script>
+                            var swiper = new Swiper(".card02", {
+                                speed: 600,                                
+                                slidesPerView: "auto",
+                                spaceBetween: 0,
+                                parallax: true,
+                                pagination: {
+                                    el: ".swiper-pagination",
+                                    clickable: true,
+                                },
+                            });
+                        </script>  
+                    </div>   
+                </div>
+            </div>
+
+            <div class="section main-bn-section animation-enter">
+                <img src="./img/bn_mainb01.png" alt="" />
+            </div>
+            <div class="section health-tip animation-enter">
+                <p class="text"><img src="./img/text_tip_health.png" alt="건강을 위한 꿀팁 알려드려요" /></p>
+                <div class="tab-content">
+                    <div class="tab-btns">
+                        <ul class="tab-button-list">
+                            <li class="is-active"><a href="#">전체</a></li>
+                            <li><a href="#">라이프</a></li>
+                            <li><a href="#">컬쳐</a></li>
+                            <li><a href="#">자산</a></li>
+                            <li><a href="#">노후</a></li>                         
+                            <li><a href="#">건강</a></li>                         
+                        </ul>
+                    </div>
+                    <div class="tab-pane1s">
+                        <div class="tab-pane1 is-active">
+                            <div class="swiper card03">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="./img/health_bn01.png" alt="" />
+                                    </div>  
+                                    <div class="swiper-slide">
+                                        <img src="./img/health_bn01.png" alt="" />
+                                    </div>                                                                                   
+                                </div>
+                                <div class="swiper-pagination"></div>   
+                                <script>
+                                    var swiper = new Swiper(".card03", {
+                                        speed: 600,                                
+                                        slidesPerView: "auto",
+                                        spaceBetween: 0,
+                                        parallax: true,
+                                        pagination: {
+                                            el: ".swiper-pagination",
+                                            clickable: true,
+                                        },
+                                    });
+                                </script>  
+                            </div>                               
+                        </div>
+                        <div class="tab-pane1">
+                            <div class="swiper card04">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="./img/health_bn01.png" alt="" />
+                                    </div>  
+                                    <div class="swiper-slide">
+                                        <img src="./img/health_bn01.png" alt="" />
+                                    </div>                                                                                   
+                                </div>
+                                <div class="swiper-pagination"></div>   
+                                <script>
+                                    var swiper = new Swiper(".card04", {
+                                        speed: 600,                                
+                                        slidesPerView: "auto",
+                                        spaceBetween: 0,
+                                        parallax: true,
+                                        pagination: {
+                                            el: ".swiper-pagination",
+                                            clickable: true,
+                                        },
+                                    });
+                                </script>  
+                            </div>                             
+                        </div>     
+                        <div class="tab-pane1">
+                            <div class="swiper card05">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="./img/health_bn01.png" alt="" />
+                                    </div>  
+                                    <div class="swiper-slide">
+                                        <img src="./img/health_bn01.png" alt="" />
+                                    </div>                                                                                   
+                                </div>
+                                <div class="swiper-pagination"></div>   
+                                <script>
+                                    var swiper = new Swiper(".card05", {
+                                        speed: 600,                                
+                                        slidesPerView: "auto",
+                                        spaceBetween: 0,
+                                        parallax: true,
+                                        pagination: {
+                                            el: ".swiper-pagination",
+                                            clickable: true,
+                                        },
+                                    });
+                                </script>  
+                            </div>                              
+                        </div>  
+                        <div class="tab-pane1">
+                            <div class="swiper card06">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="./img/health_bn01.png" alt="" />
+                                    </div>  
+                                    <div class="swiper-slide">
+                                        <img src="./img/health_bn01.png" alt="" />
+                                    </div>                                                                                   
+                                </div>
+                                <div class="swiper-pagination"></div>   
+                                <script>
+                                    var swiper = new Swiper(".card06", {
+                                        speed: 600,                                
+                                        slidesPerView: "auto",
+                                        spaceBetween: 0,
+                                        parallax: true,
+                                        pagination: {
+                                            el: ".swiper-pagination",
+                                            clickable: true,
+                                        },
+                                    });
+                                </script>
+                        </div>                                                                                              
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <nav class="fnb-wrap">
