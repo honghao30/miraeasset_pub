@@ -929,4 +929,21 @@ header .logo img {
     50% {
         opacity: 1;
     }
+}.section.achievement-msg .achievement-txt {
+  color: #fff;
+  font-family: "Pretendard";
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: -0.12px;
+  position: absolute;
+  right: 15%;
+  position: absolute;
+  top: 18%;
+}
+.section.achievement-msg {
+  position: relative;
+}
+.section.achievement-msg img {
+  max-width: 100%;
 }
