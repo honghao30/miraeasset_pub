@@ -39,9 +39,83 @@
         <div class="section welcome">
           <img src="./img/text_welcome_msg.svg" alt="" />
         </div>
-        <div class="section video">
-          <img src="./img/vidoe_temp.png" alt="" />
+        <div class="section walking-world">
+          <div class="walking-world-card is-animation">
+            <div class="text">
+              <img src="./img/text_walking_world_black.png" alt="걸어서 세계여행" />
+            </div>
+            <div class="motion-area">
+                <div class="marking1">
+                  <img src="./img/img-sejong-great.png" alt="" />
+                </div>
+                <div class="marking2">
+                  <img src="./img/img-statue-liberty.png" alt="" />
+                </div>  
+                <div class="marking3 ">
+                  <img src="./img/img-filamit.png" alt="" />
+                </div>   
+                <div class="marking4 ">
+                  <img src="./img/img-paris-tower.png" alt="" />
+                </div>  
+                <div class="marking5 ">
+                  <img src="./img/img-pagoda.png" alt="" />
+                </div>  
+                <div class="marking6">
+                  <img src="./img/img-lionking.png" alt="" />
+                </div>                  
+                <div class="cloud-image1">
+                  <img src="./img/cloud01.png" alt="구름1" />
+                </div>
+                <div class="cloud-image2">
+                  <img src="./img/cloud01.png" alt="구름2" />
+                </div>                
+                <div class="cloud-image3">
+                  <img src="./img/cloud01.png" alt="구름3" />
+                </div>                                
+                <div class="earth">
+                  <img src="./img/earth.png" alt="" />
+                </div>
+            </div>
+          </div>
         </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const markings = document.querySelectorAll('.marking1, .marking2, .marking3, .marking4, .marking5, .marking6');
+          const rotationDuration = 14000;
+          const markingDuration = rotationDuration / markings.length;
+          let lastTimestamp = 0;
+          let currentMarkingIndex = 0;
+
+          function animate(timestamp) {
+            if (!lastTimestamp) lastTimestamp = timestamp;
+
+            const progress = (timestamp - lastTimestamp) % rotationDuration;
+            const percentage = (progress / rotationDuration) * 100;
+
+            
+            const newMarkingIndex = Math.floor(percentage / (100 / markings.length)) % markings.length;
+
+            if (newMarkingIndex !== currentMarkingIndex) {            
+              markings[currentMarkingIndex].classList.remove('animation');
+              
+              setTimeout(() => {
+                markings[newMarkingIndex].classList.add('animation');
+              }, 100);
+
+              currentMarkingIndex = newMarkingIndex;
+            }
+
+            requestAnimationFrame(animate);
+          }
+
+          requestAnimationFrame(animate);
+        });
+      </script>
+
+
+  
+  
         <div class="section card-my-insure">
           <img src="./img/card01_my_info.svg" alt="" />
         </div>

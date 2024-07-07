@@ -10,11 +10,11 @@
             // downscroll code
             console.log("scroll Down")
             //document.querySelector('.gnb__wrap').classList.add('sticky');        
-            document.querySelector('.fnb-wrap').classList.add('hide');
+            document.querySelector('.fnb-wrap') && document.querySelector('.fnb-wrap').classList.add('hide');
         } else {
             console.log("scroll Up")
             //document.querySelector('.gnb__wrap').classList.remove('sticky');        
-            document.querySelector('.fnb-wrap').classList.remove('hide');
+            document.querySelector('.fnb-wrap') && document.querySelector('.fnb-wrap').classList.remove('hide');
         }
         lastScrollTop = Yoffset <= 0 ? 0 : Yoffset;
     }
@@ -125,9 +125,8 @@
         link.parentElement.appendChild(userData);
     };
     
-    createWeeklyCalendar('calendarWeekly');
-    
-    
-
+    if(document.querySelector('.calendarWeekly')) {
+        createWeeklyCalendar('calendarWeekly');
+    }
 })();
 

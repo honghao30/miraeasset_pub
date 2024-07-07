@@ -1,0 +1,300 @@
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.show-msg.animation-enter.right-enter.fade-in {
+  animation: fade-in-right 0.5s ease forwards;
+  animation-delay: 0.7s;
+  width: 95%;
+}
+.show-msg img {
+  max-width: 100%;
+  width: 100%;
+}
+.card-content__round-box.walk-wrap {
+  position: relative;
+  border-radius: 16px;
+}
+.card-content__round-box.fire-wrap {
+  padding: calc(30 / 16 * 1rem) calc(32 / 16 * 1rem);
+}
+.card-content__round-box.walk-wrap .show-msg {
+  position: absolute;
+  bottom: -50%;
+  right: 0;
+}
+.fs-20 {
+  font-size: 20px !important;
+}
+.activity-list li {
+  min-height: 165px;
+}
+.activity-list li .tit {
+  font-family: "NanumSquare";
+}
+.fire-sample.smile-img img {
+  width: 188px;
+}
+.active-box .ico-flame {
+  width: 8vw;
+  height: 12.8vw;
+  background-size: 8vw 12.8vw;
+}
+.active-box .ico-medicine {
+  width: 16vw;
+  height: 9.6vw;
+  background-size: 16vw 9.6vw;
+}
+.active-box .ico-walk {
+  width: 14.9333vw;
+  height: 9.6vw;
+  background-size: 14.9333vw 9.6vw;
+}
+.active-box .ico-feel {
+  width: 10.1333vw;
+  height: 10.1333vw;
+  background-size: 10.1333vw 10.1333vw;
+}
+.service-banner {
+  padding: 0 16px;
+}
+.service-banner img {
+  box-shadow: 0px 2px 8px 0px rgba(36, 45, 60, 0.1);
+  border-radius: 16px;
+  width: 99%;
+}
+.section.my_insurance {
+  padding-top: calc(20 / 16 * 1rem);
+}
+.section.insurance_recommendation {
+  padding: calc(40 / 16 * 1rem) 0 calc(30 / 16 * 1rem) calc(0 / 16 * 1rem);
+}
+.sian-content {
+  padding-bottom: calc(10 / 16 * 1rem);
+  padding-top: calc(20 / 16 * 1rem);
+}
+header {
+  z-index: 1;
+  padding: 10px 20px;
+}
+.fnb-list li a {
+  font-family: "NanumSquare";
+  font-weight: 800;
+}
+.insurance-list {
+  padding: 0 0 0 calc(16 / 16 * 1rem);
+}
+
+.insurance-list .swiper-slide img {
+  width: 100%;
+  border-radius: 26px;
+  box-shadow: 0px 2px 8px 0px rgba(36, 45, 60, 0.1);
+}
+.routine-swiper .swiper-pagination,
+.tab-pane1s .swiper-pagination,
+.section.insurance_recommendation .swiper-pagination,
+.color-terapy .swiper-pagination {
+  margin-top: calc(20 / 16 * 1rem);
+}
+.section.insurance_recommendation {
+  padding: calc(40 / 16 * 1rem) 0 calc(36 / 16 * 1rem) calc(0 / 16 * 1rem);
+}
+.card-content__round-box.goal-achievement-rate {
+  padding: calc(40 / 16 * 1rem) calc(30 / 16 * 1rem) calc(30 / 16 * 1rem);
+  position: relative;
+}
+.card-content__round-box.goal-achievement-rate .show-msg {
+  position: absolute;
+  bottom: -8%;
+  right: 0;
+  z-index: 1;
+  /* animation-delay: 0s !important; */
+}
+.goal-achievement-rate-txt {
+  color: #212121;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.18px;
+  line-height: 21px;
+}
+.achievement-chart__wrap2 {
+  margin: calc(36 / 16 * 1rem) auto;
+}
+.achievement-data .data1 {
+  font-family: "Pretendard";
+  color: #212121;
+}
+.achievement-data .data1.fw700 {
+  font-weight: 700;
+}
+.achievement-chart__wrap2 .icon-fire {
+  top: -1%;
+  left: 68%;
+  animation-delay: 0.3s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+}
+.my-level-content {
+  width: calc(100% - 60px);
+  margin: calc(44 / 16 * 1rem) calc(30 / 16 * 1rem) calc(40 / 16 * 1rem);
+}
+.card-content__round-box.my-care-level {
+  padding: calc(40 / 16 * 1rem) calc(0 / 16 * 1rem) calc(0 / 16 * 1rem);
+  overflow: hidden;
+}
+.my-level-content {
+  flex: 1;
+  padding: calc(38 / 16 * 1rem) 0 0 0;
+}
+.my-care-level .gray-box {
+  background: #f9f9fb;
+  height: 64px;
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  color: #212121;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.14px;
+  font-family: "NanumSquare";
+}
+.section.my_routine {
+  position: relative;
+}
+.section.my_routine .show-msg {
+  width: auto !important;
+  position: absolute;
+  bottom: 12.2%;
+  right: 3%;
+  z-index: 1;
+}
+.section.my_routine .show-msg img {
+  width: auto;
+}
+.routine-swiper {
+  padding-right: 0;
+}
+.section.record-routine {
+  position: relative;
+}
+.section.record-routine .show-msg {
+  width: auto !important;
+  position: absolute;
+  bottom: -5%;
+  right: 3%;
+  z-index: 1;
+}
+.section.today-list {
+  padding: calc(50 / 16 * 1rem) calc(16 / 16 * 1rem);
+}
+.section.today-list .title-area {
+  margin-bottom: calc(12 / 16 * 1rem);
+}
+.section.today-list .today-img {
+  margin-left: -10px;
+}
+.section.today-list .today-img img {
+  max-width: 103%;
+}
+.section.cando-list {
+  position: relative;
+}
+.section.cando-list .show-msg {
+  width: auto !important;
+  position: absolute;
+  bottom: -3%;
+  right: 5%;
+  z-index: 1;
+}
+.section.cando-list > img {
+  margin: 0 auto;
+  max-width: 96%;
+}
+.section.trip-ranking {
+  padding: calc(50 / 16 * 1rem) calc(16 / 16 * 1rem) 0;
+}
+.section.trip-ranking .tit {
+  padding-bottom: calc(10 / 16 * 1rem);
+}
+.section.trip-ranking > img {
+  box-shadow: 0px 2px 8px 0px rgba(36, 45, 60, 0.1);
+  border-radius: 26px;
+}
+.section.record-calorie .calorie-list_flx {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+.section.record-calorie .calorie-list_flx .line-bar {
+  margin-top: 39px;
+  width: 8.7%;
+}
+.section.record-calorie .calorie-list_flx2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.section.record-calorie .calorie-list_flx2 img {
+  box-shadow: 0px 2px 8px 0px rgba(36, 45, 60, 0.1);
+  border-radius: 26px;
+}
+.section.family-manage {
+  position: relative;
+  padding-bottom: calc(30 / 16 * 1rem);
+}
+.section.family-manage .family-list {
+  padding: calc(0 / 16 * 1rem) calc(16 / 16 * 1rem);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 13px;
+}
+.section.family-manage .family-list img {
+  width: calc(50% - 6.5px);
+  box-shadow: 0px 2px 8px 0px rgba(36, 45, 60, 0.1);
+  border-radius: 26px;
+}
+.section.family-manage .show-msg {
+  width: auto !important;
+  position: absolute;
+  bottom: 0;
+  right: 3%;
+  z-index: 1;
+}
+.section.health-service {
+  padding: calc(50 / 16 * 1rem) calc(16 / 16 * 1rem) 0;
+}
+.section.health-service .title-area {
+  padding-bottom: calc(12 / 16 * 1rem);
+}
+.section.health-service .more img {
+  width: 24px;
+}
+.section.health-service .health-service-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 13px;
+}
+.section.health-service .health-service-list img {
+  width: calc(50% - 6.5px);
+}
+.pd60 {
+  padding-bottom: calc(60 / 16 * 1rem);
+}

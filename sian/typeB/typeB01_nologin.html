@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>미래에셋 시안 B_로그인 전</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" href="../../front_markup/resource/img/favicon3.ico" />
+    <link rel="stylesheet" href="../../front_markup/resource/css/index.css" />
+    <script src="../../front_markup/resource/bundle/tailwindcss.css"></script>
+    <link rel="stylesheet" href="./sian.css" />
+    <link rel="stylesheet" href="./siansub.css" />
+    <link rel="stylesheet" href="../../front_markup/resource/bundle/swiper.min.css " />
+    <script type="text/javascript" src="../../front_markup/resource/bundle/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="sian__wrap">
+      <header class="before-start">
+        <button type="button" class="btn btn-hamguger">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <span class="ir-text">메뉴</span>
+        </button>
+        <button type="button" class="btn btn-alert">
+          <i class="ico ico-alert"></i>
+          <span class="ir-text">알림</span>
+        </button>
+      </header>
+      <!-- header -->
+      <div class="sian-content">
+        <div class="section welcome">
+          <img src="./img/text-welcome.png" alt="김미래님 환영 합니다." />
+        </div>
+        <div class="section my_insurance">
+          <img src="./img/my_insurance.svg" alt="보험 상품" />
+        </div>
+        <div class="card-content__round-box walk-world-section">
+          <div class="text">
+            <img src="./img/text_walk_top.png" alt="세계 런전 여행자중 1위에요" />
+          </div>
+          <div class="walk-animation">
+            <div class="label-me">
+              <img src="./img/walk_label_me.png" alt="나 1위" />
+            </div>
+            <div class="label-me-ranking">
+              <img src="./img/walk_label_2.png" alt="2위" />
+            </div>
+            <div class="circle-img">
+              <img src="./img/walk_around_round.png" alt="" />
+            </div>
+            <div class="flying-img">
+              <img src="./img/walk_flying.png" alt="비행기" />
+            </div>
+            <div class="balloon-img">
+              <img src="./img/walk_balloon.png" alt="기구" />
+            </div>
+            <div class="earth">
+              <img src="./img/walk_around_earth.png" alt="" />
+            </div>
+          </div>
+          <div class="button__wrap">
+            <a href="#none">
+              <img src="./img/text_walk_button.png" alt="자세히 보기" />
+            </a>
+          </div>
+        </div>
+        <style>
+          .card-content__round-box.walk-world-section {
+            flex-direction: column;
+            justify-content: center;
+            padding-bottom: 30px;
+            margin: 50px 16px 30px;
+          }
+          .card-content__round-box.walk-world-section .text img {
+            width: 243px;
+          }
+          .card-content__round-box.walk-world-section .button__wrap img {
+            width: 100%;
+          }
+          .walk-animation {
+            height: 266px;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+          }
+          /* 기본상태 */
+          .walk-animation .earth img {
+            width: 200px;
+          }
+          .walk-animation .label-me-ranking {
+            opacity: 0;
+            position: absolute;
+            left: -55px;
+            top: 65px;
+          }
+          .walk-animation .label-me {
+            opacity: 0;
+            position: absolute;
+            right: 2px;
+            top: 15px;
+          }
+          .walk-animation .flying-img {
+            position: absolute;
+            left: 29px;
+            top: 26%;
+            z-index: 13;
+            opacity: 0;
+            transition: opacity 0.2s;
+          }
+          .walk-animation .balloon-img {
+            opacity: 0;
+            position: absolute;
+            right: 20px;
+            top: 43%;
+            z-index: 12;
+            transition: opacity 0.5s ease-in;
+          }
+          .walk-animation .circle-img {
+            opacity: 0;
+            position: absolute;
+            left: 0%;
+            top: 14%;
+          }
+          .walk-animation .circle-img {
+            opacity: 0;
+          }
+
+          .walk-animation.is-animation .label-me {
+            animation: label-enter 0.5s ease-in forwards;
+            animation-delay: 3.5s;
+          }
+          .walk-animation.is-animation .label-me img {
+            width: 65.2px;
+          }
+          .walk-animation.is-animation .label-me-ranking {
+            animation: label-enter 0.5s ease-in forwards;
+            animation-delay: 3.5s;
+          }
+          .walk-animation.is-animation .label-me-ranking img {
+            width: 66.31px;
+          }
+          .walk-animation.is-animation .circle-img img {
+            opacity: 1;
+            width: 239.37px;
+          }
+          .walk-animation.is-animation .circle-img {
+            animation: circle-enter 1.5s linear 2;
+            animation-delay: 1.8s;
+            opacity: 0;
+          }
+          .walk-animation.is-animation .earth img {
+            animation: earth-enter 0.5s ease-in forwards;
+          }
+          .walk-animation.is-animation .earth {
+            animation-delay: 0.6s;
+            animation: earth-wave 1.8s ease-in infinite;
+          }
+          .walk-animation.is-animation .flying-img img {
+            width: 53px;
+            animation: flying-wave 1s ease-in infinite;
+          }
+          .walk-animation.is-animation .flying-img {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+            z-index: 13;
+            animation: flying-move 3.8s cubic-bezier(0.3, 0.27, 0.07, 1.64) forwards;
+            animation-delay: 0.7s;
+          }
+          .walk-animation.is-animation .balloon-img {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+            animation: balloon-move 9.8s cubic-bezier(0.3, 0.27, 0.07, 1.64) infinite;
+            animation-delay: 0.6s;
+            /* perspective: 100px; */
+          }
+          .walk-animation.is-animation .balloon-img img {
+            width: 33px;
+            animation: balloon-wave 1.5s ease-in infinite;
+            /* transform-style: preserve-3d; */
+          }
+          @keyframes earth-enter {
+            0% {
+              opacity: 0;
+              transform: scale(1);
+            }
+            30% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.02);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+          @keyframes earth-wave {
+            0%,
+            100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(5%);
+            }
+          }
+          @keyframes balloon-wave {
+            0%,
+            100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(8%);
+            }
+          }
+          @keyframes balloon-move {
+            0%,
+            100% {
+              animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+              transform: translateX(0) rotate(-9.56deg);
+              top: 43%;
+            }
+            50% {
+              transform: translateX(-420%) rotate(9.56deg);
+              top: 45%;
+              animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+            }
+          }
+          @keyframes circle-enter {
+            0% {
+              opacity: 1;
+              transform: rotate(0);
+            }
+            100% {
+              opacity: 1;
+              transform: rotate(360deg);
+            }
+          }
+          @keyframes flying-move {
+            0% {
+              transform: translateX(0%) translateY(-5%);
+            }
+            100% {
+              transform: translateX(150%) translateY(0%);
+            }
+          }
+          @keyframes flying-wave {
+            0%,
+            100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(5%);
+            }
+          }
+          @keyframes label-enter {
+            0% {
+              opacity: 0;
+            }
+            60% {
+              opacity: 0.8;
+            }
+            70% {
+              opacity: 0.6;
+            }
+            80% {
+              opacity: 0.8;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+        </style>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const walkWorldSection = document.querySelector(".card-content__round-box.walk-world-section");
+            const walkAnimation = document.querySelector(".walk-animation");
+
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting && entry.intersectionRatio === 1) {
+                    walkAnimation.classList.add("is-animation");
+                    observer.unobserve(walkWorldSection); // 애니메이션 시작 후 관찰 중지
+                  }
+                });
+              },
+              { threshold: 1 }
+            );
+
+            observer.observe(walkWorldSection);
+
+            const circleImg = document.querySelector(".circle-img");
+
+            circleImg.addEventListener(
+              "animationend",
+              () => {
+                circleImg.style.opacity = "1";
+              },
+              { once: true }
+            );
+          });
+        </script>
+        <!-- 걷기 연동 -->
+        <!-- <div class="card-content__round-box animation-enter">
+          <a href="#" class="count-walk">
+            <i></i>
+            오늘은 <strong><span data-num="6508" class="text-ani">6,508</span>걸음</strong> 걸었어요.
+          </a>
+          <div class="show-msg animation-enter right-enter">
+            <img src="./img/msg_txt01.svg" alt="" />
+          </div>
+        </div> -->
+        <div class="service-banner animation-enter">
+          <img src="./img/service_banner.svg" alt="" />
+        </div>
+        <div class="section color-terapy animation-enter">
+          <div class="swiper card01">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="card-content__round-box fire-wrap">
+                  <div class="color-test__wrap">
+                    <div class="text-color">
+                      <img src="./img/text-color.png" alt="눈이 피로하다면 이 컬라가 눈을 보호해 줄거예요." />
+                    </div>
+                    <div class="color-sample">
+                      <img src="./img/color-teraphy.png" alt="" />
+                    </div>
+                    <div class="button__wrap">
+                      <a href="typeB02Color.html">
+                        <img src="./img/btn-color-test.png" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-content__round-box fire-wrap">
+                  <div class="color-test__wrap">
+                    <div class="text-color fire">
+                      <img src="./img/text-fire.png" alt="눈이 피로하다면 잠시 잠깐 불멍 때리기!" />
+                    </div>
+                    <div class="fire-sample">
+                      <img src="./img/img-fire.png" alt="" />
+                    </div>
+                    <div class="button__wrap">
+                      <a href="#">
+                        <img src="./img/btn-color-test02.png" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card-content__round-box fire-wrap">
+                  <div class="color-test__wrap">
+                    <div class="text-color smile">
+                      <img src="./img/text_feel.png" alt="좋은일이 생겨셧나요?" />
+                    </div>
+                    <div class="fire-sample smile-img">
+                      <img src="./img/img_feel.png" alt="" />
+                    </div>
+                    <div class="button__wrap">
+                      <a href="#">
+                        <img src="./img/btn-color-test03.png" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <script>
+              var swiper = new Swiper(".card01", {
+                speed: 600,
+                // autoplay: {
+                //     delay: 5000,
+                //     disableOnInteraction: false
+                // },
+                parallax: true,
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                },
+              });
+            </script>
+          </div>
+        </div>
+
+        <div class="section insurance_recommendation animation-enter">
+          <div class="title-area flex justify-between">
+            <div class="tit">
+              <img src="./img/tit_insurance.png" alt="보험추천" />
+            </div>
+            <a href="#" class="more">
+              <img src="./img/btn_insurance_more.png" alt="보험 추천 더보기" />
+            </a>
+          </div>
+          <div class="insurance-list">
+            <div class="swiper card02">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="./img/insurance_bn.svg" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./img/insurance_bn2.svg" alt="" />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <script>
+                var swiper = new Swiper(".card02", {
+                  speed: 600,
+                  slidesPerView: 1.1,
+                  spaceBetween: 12,
+                  parallax: true,
+                  pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                  },
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <div class="section main-bn-section animation-enter">
+          <img src="./img/bn_mainb01.svg" alt="" />
+        </div>
+        <div class="section health-tip animation-enter">
+          <p class="text"><img src="./img/text_tip_health.png" alt="건강을 위한 꿀팁 알려드려요" /></p>
+          <div class="tab-content">
+            <div class="tab-btns">
+              <ul class="tab-button-list">
+                <li class="is-active"><a href="#">전체</a></li>
+                <li><a href="#">라이프</a></li>
+                <li><a href="#">컬쳐</a></li>
+                <li><a href="#">자산</a></li>
+                <li><a href="#">노후</a></li>
+                <li><a href="#">건강</a></li>
+              </ul>
+            </div>
+            <div class="tab-pane1s">
+              <div class="tab-pane1 is-active">
+                <div class="swiper card03">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn01.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn02.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <script>
+                    var swiper = new Swiper(".card03", {
+                      speed: 600,
+                      slidesPerView: "auto",
+                      spaceBetween: 0,
+                      parallax: true,
+                      pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                      },
+                    });
+                  </script>
+                </div>
+              </div>
+              <div class="tab-pane1">
+                <div class="swiper card04">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn01.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn02.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <script>
+                    var swiper = new Swiper(".card04", {
+                      speed: 600,
+                      slidesPerView: "auto",
+                      spaceBetween: 0,
+                      parallax: true,
+                      pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                      },
+                    });
+                  </script>
+                </div>
+              </div>
+              <div class="tab-pane1">
+                <div class="swiper card05">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn01.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn02.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <script>
+                    var swiper = new Swiper(".card05", {
+                      speed: 600,
+                      slidesPerView: "auto",
+                      spaceBetween: 0,
+                      parallax: true,
+                      pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                      },
+                    });
+                  </script>
+                </div>
+              </div>
+              <div class="tab-pane1">
+                <div class="swiper card06">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn01.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn02.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <script>
+                    var swiper = new Swiper(".card06", {
+                      speed: 600,
+                      slidesPerView: "auto",
+                      spaceBetween: 0,
+                      parallax: true,
+                      pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                      },
+                    });
+                  </script>
+                </div>
+              </div>
+              <div class="tab-pane1">
+                <div class="swiper card07">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn01.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn02.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <script>
+                    var swiper = new Swiper(".card07", {
+                      speed: 600,
+                      slidesPerView: "auto",
+                      spaceBetween: 0,
+                      parallax: true,
+                      pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                      },
+                    });
+                  </script>
+                </div>
+              </div>
+              <div class="tab-pane1">
+                <div class="swiper card08">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn01.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/health_bn02.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <script>
+                    var swiper = new Swiper(".card08", {
+                      speed: 600,
+                      slidesPerView: "auto",
+                      spaceBetween: 0,
+                      parallax: true,
+                      pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                      },
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="fnb-wrap">
+      <ul class="fnb-list">
+        <li class="is-active">
+          <a href="#">
+            <i class="io ico-home">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path
+                  d="M6 28C5.44772 28 5 27.5523 5 27V12.5363C5 12.2228 5.14705 11.9274 5.39723 11.7384L15.0382 4.45535C15.3949 4.1859 15.8871 4.1859 16.2438 4.45535L25.8848 11.7384C26.1349 11.9274 26.282 12.2228 26.282 12.5363V27C26.282 27.5523 25.8343 28 25.282 28H19.3894C18.8371 28 18.3894 27.5523 18.3894 27V19.2954C18.3894 18.7431 17.9417 18.2954 17.3894 18.2954H13.8926C13.3403 18.2954 12.8926 18.7431 12.8926 19.2954V27C12.8926 27.5523 12.4449 28 11.8926 28H6Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </i>
+            <span>홈</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="io ico-life">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <mask id="path-1-inside-1_2_4925" fill="white">
+                  <path
+                    d="M16.2449 28.4347C16.0846 28.4778 15.9154 28.4778 15.7551 28.4349C12.5631 27.5796 9.90281 25.8998 7.77421 23.3955C5.5914 20.8273 4.5 17.9335 4.5 14.7141V7.88655C4.5 7.45096 4.78197 7.06547 5.1971 6.93353L15.6971 3.59627C15.8942 3.53363 16.1058 3.53363 16.3029 3.59627L26.8029 6.93353C27.218 7.06547 27.5 7.45096 27.5 7.88655V14.7141C27.5 17.9326 26.4086 20.8259 24.2258 23.3941C22.0972 25.8984 19.4369 27.5778 16.2449 28.4347Z"
+                  />
+                </mask>
+                <path
+                  d="M26.8029 6.93353L26.1971 8.83958L26.8029 6.93353ZM15.7551 28.4349L16.2727 26.503L15.7551 28.4349ZM16.2727 26.503C13.4707 25.7522 11.1622 24.2933 9.29812 22.1002L6.25031 24.6907C8.64345 27.5063 11.6555 29.4069 15.2375 30.3667L16.2727 26.503ZM9.29812 22.1002C7.40698 19.8752 6.5 17.4353 6.5 14.7141H2.5C2.5 18.4318 3.77583 21.7794 6.25031 24.6907L9.29812 22.1002ZM6.5 14.7141V7.88655H2.5V14.7141H6.5ZM5.8029 8.83958L16.3029 5.50232L15.0913 1.69023L4.59129 5.02749L5.8029 8.83958ZM15.6971 5.50232L26.1971 8.83958L27.4087 5.02749L16.9087 1.69023L15.6971 5.50232ZM25.5 7.88655V14.7141H29.5V7.88655H25.5ZM25.5 14.7141C25.5 17.4342 24.5931 19.8737 22.7019 22.0988L25.7497 24.6893C28.2241 21.7782 29.5 18.431 29.5 14.7141H25.5ZM22.7019 22.0988C20.8379 24.2917 18.5292 25.7506 15.7263 26.5031L16.7635 30.3663C20.3446 29.4049 23.3564 27.5051 25.7497 24.6893L22.7019 22.0988ZM16.3029 5.50232C16.1058 5.56495 15.8942 5.56495 15.6971 5.50232L16.9087 1.69023C16.3175 1.50232 15.6825 1.50232 15.0913 1.69023L16.3029 5.50232ZM6.5 7.88655C6.5 8.32215 6.21803 8.70763 5.8029 8.83958L4.59129 5.02749C3.3459 5.42332 2.5 6.57977 2.5 7.88655H6.5ZM26.1971 8.83958C25.782 8.70763 25.5 8.32215 25.5 7.88655H29.5C29.5 6.57977 28.6541 5.42332 27.4087 5.02749L26.1971 8.83958ZM15.2375 30.3667C15.7373 30.5006 16.2638 30.5005 16.7635 30.3663L15.7263 26.5031C15.9053 26.4551 16.0936 26.455 16.2727 26.503L15.2375 30.3667Z"
+                  fill="black"
+                  mask="url(#path-1-inside-1_2_4925)"
+                />
+                <path d="M16 11.5117L16 19.5117" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M20 15.5117H12" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </i>
+            <span>계약</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="io ico-heart">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path
+                  d="M26.9324 6.16C28.2565 7.54036 29 9.40924 29 11.3575C29 13.3058 28.2565 15.1746 26.9324 16.555L16.7196 27.2433C16.3257 27.6555 15.6674 27.6555 15.2735 27.2433L5.06069 16.555C4.07725 15.527 3.4077 14.2206 3.13587 12.7993C2.86404 11.3781 3.002 9.9052 3.53249 8.56499C4.06297 7.22478 4.9624 6.07682 6.11819 5.26482C7.27398 4.45282 8.63478 4.01285 10.0302 4C11.8962 4.01176 13.6822 4.78804 14.9998 6.16C15.384 6.55484 15.7189 6.99832 15.9965 7.48C16.2742 6.99832 16.6091 6.55484 16.9933 6.16C17.6425 5.47608 18.4162 4.93299 19.2693 4.5623C20.1225 4.1916 21.0381 4.00071 21.9629 4.00071C22.8877 4.00071 23.8033 4.1916 24.6564 4.5623C25.5096 4.93299 26.2832 5.47608 26.9324 6.16Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path d="M4.5 15.4286H8.1039L10.4416 12L13.5584 18L15.8961 14.5714H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </i>
+            <span>헬스케어</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="io ico-insure">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <rect x="8" y="5" width="16" height="22" rx="1" stroke="black" stroke-width="2" />
+                <path d="M14 23H18" stroke="black" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </i>
+            <span>보험</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <script src="../../front_markup/resource/js/ui_common.js"></script>
+    <script src="./sian.js"></script>
+  </body>
+</html>
