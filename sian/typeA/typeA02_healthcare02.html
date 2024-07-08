@@ -14,42 +14,42 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/plugin/isSameOrBefore.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/locale/ko.min.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
   </head>
   <body>
     <div class="sian__wrap">
       <header>
-        <h1 class="logo">
-          <a href="#">
-            <button type="button" class="btn btn-hamguger">
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <span class="ir-text">메뉴</span>
-            </button>
+        <nav class="gnb__wrap gnb__flex">
+          <a href="./typeA01.html" class="home flex">
+            <span class="icon-health">
+              <img src="./img/icon_heath_small_img.png" alt="" />
+            </span>
+            <img src="./img/top_nav_health.svg" alt="헬스" />
           </a>
-        </h1>
-        <button type="button" class="btn btn-alert">
-          <i class="ico ico-alert"></i>
-          <span class="ir-text">알림</span>
-        </button>
+          <div class="gnb__flex2">
+            <a href="./typeA01.html">홈 </a>
+            <a href="#">계약</a>
+            <a href="#">상품</a>
+          </div>
+        </nav>
+        <div class="util-area flex">
+          <button type="button" class="btn btn-alert">
+            <i class="ico ico-alert"></i>
+            <span class="ir-text">알림</span>
+          </button>
+          <button type="button" class="btn btn-hamguger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <span class="ir-text">메뉴</span>
+          </button>
+        </div>
       </header>
       <!-- header -->
-      <nav class="gnb__wrap gnb__flex">
-        <a href="./typeA01.html"  class="home flex">
-          <span class="icon-health">
-            <img src="./img/icon_heath_small_img.png" alt="" />
-          </span>
-          <img src="./img/top_nav_health.svg" alt="헬스" />
-        </a>
-        <div class="gnb__flex2">
-          <a href="./typeA01.html">홈 </a>
-          <a href="#">계약</a>
-          <a href="#">상품</a>
-        </div>
-      </nav>
       <div class="sian-content">
         <div class="section welcome before-start welcome２">
-          <img src="./img/member_msg.svg" alt="베니보리님 안녕하세요" />
+          <p class="care-tit">베니보리 님의 활동 요약</p>
         </div>
         <div class="member-activity-report">
           <div class="activity-report-left">
@@ -94,7 +94,7 @@
             <div class="box2">
               <div class="weight-data">
                 <p>체중</p>
-                <p><strong>62</strong> kg</p>
+                <p style="margin-top: 4px"><strong>58</strong> kg</p>
               </div>
               <div class="title-area flex justify-end">
                 <div class="icon">
@@ -139,7 +139,7 @@
             <div class="box2 box3">
               <div class="weight-data">
                 <p>영양제</p>
-                <p><strong style="font-size: 22px;">비타민 C</strong></p>
+                <p style="margin-top: 4px"><strong style="font-size: 22px">비타민 C</strong></p>
               </div>
               <div class="title-area flex justify-end">
                 <div class="icon">
@@ -152,7 +152,7 @@
             <div class="box2 box4">
               <div class="weight-data">
                 <p>운동</p>
-                <p><strong>60</strong> 분</p>
+                <p style="margin-top: 4px"><strong style="letter-spacing: -0.56px">60</strong> 분</p>
               </div>
               <div class="title-area flex justify-end">
                 <div class="icon">
@@ -212,7 +212,7 @@
             <div class="box2 box5">
               <div class="weight-data">
                 <p>물</p>
-                <p><strong>900</strong> ML</p>
+                <p style="margin-top: 4px"><strong style="letter-spacing: -0.56px">900</strong> ml</p>
               </div>
               <div class="water-cup__wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" width="51" height="70" viewBox="0 0 51 70" fill="none">
@@ -237,8 +237,8 @@
             <div class="box2 box6">
               <div class="weight-data">
                 <p>컨디션</p>
-                <p>
-                  <strong style="font-size: 22px;"
+                <p style="margin-top: 9px">
+                  <strong style="font-size: 22px"
                     >아주<br />
                     좋아</strong
                   >
@@ -361,12 +361,23 @@
         <div class="section user-solution-board show-poistion">
           <div class="show-msg animation-enter right-enter">
             <img src="./img/health_solution_anitext.png" alt="" />
-          </div>          
-          <div class="text">
-            <img src="./img/text_solution_health.png" alt="" />
           </div>
+          <p class="text">베니보리님 미래건강 솔루션</p>
           <div class="board">
-            <img src="./img/user_total_board.png" alt="" />
+            <div class="board-top">
+              <div>
+                <p class="board-tit">오늘 진행 루틴 달성률</p>
+                <p class="board-des">간단한 활동 루틴 3가지를 완료해보세요!</p>
+              </div>
+              <strong>72%</strong>
+            </div>
+            <div>
+              <div class="bar-wrap">
+                <div class="graph">
+                  <div class="grap-info orange" style="animation-delay: 0.9s"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="section drinking-info animation-enter">
@@ -374,20 +385,47 @@
             <li>
               <div class="img">
                 <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
-                  <path d="M42.7391 19.1444C41.8617 13.6645 39.1377 13.2299 33.8395 7.87133C32.981 7.0036 31.6102 6.79704 30.5102 7.36415C29.0915 5.81036 27.5388 3.73741 26.1904 1.22275C25.7886 0.474899 24.98 0 24.0912 0H9.32695C7.54937 0 6.41712 1.79263 7.26387 3.26712L13.6389 14.3668C12.9447 14.7016 12.4695 15.3443 12.3786 16.0792C11.5349 22.9186 11.5621 23.1308 11.2072 24.2844C10.2953 27.2326 8.10699 29.6385 5.28487 31.0141C1.99567 32.6199 -0.0121666 35.8144 5.54811e-05 39.2386C0.00689983 41.2055 1.72483 42.787 3.81138 42.787H15.0078C17.0151 42.787 18.9188 42.1018 20.404 40.9058L39.6679 26.42C41.9852 24.6781 43.182 21.9071 42.7391 19.1444Z" fill="#FFD5BE"/>
-                  <path d="M39.6679 26.5387L20.404 41.0245C18.9188 42.2205 17.0151 42.9057 15.0078 42.9057H3.81138C1.72483 42.9057 0.00689973 41.3242 5.53849e-05 39.3573C-0.0121667 35.93 1.99919 32.7368 5.28487 31.1328C8.44061 29.5946 10.688 26.8244 11.3988 23.6884C11.5609 22.992 11.5137 23.2092 12.3786 16.1979C12.4695 15.4628 12.9509 14.7862 13.7259 14.4449L14.4338 14.1369C15.4614 13.6897 16.6739 13.8834 17.4913 14.622C19.8526 16.7586 23.395 17.1846 25.9265 15.7027C27.9142 14.539 29.0856 12.312 28.9947 9.93848C28.9002 7.51013 32.0821 6.21361 33.8395 7.99001C39.1376 13.3485 41.8617 13.7831 42.7391 19.2631C43.182 22.0258 41.9852 24.7968 39.6679 26.5387Z" fill="url(#paint0_linear_321_11784)"/>
-                  <path d="M17.675 14.7765C18.1248 15.4439 18.1087 16.2965 17.6443 16.9549C17.4392 17.2457 17.31 17.5783 17.2673 17.9239C16.4067 24.8867 16.4386 25.3336 15.8446 26.8492C14.8227 29.4641 12.7679 31.5942 10.1736 32.8587C6.8844 34.4645 4.87656 37.6591 4.88878 41.0832C4.89171 41.702 5.06282 42.282 5.36104 42.7874H3.81138C1.72483 42.7874 0.00689974 41.2059 5.53849e-05 39.239C-0.0121667 35.8117 1.99919 32.6185 5.28487 31.0145C8.64779 29.3753 11.1181 26.2687 11.5827 22.5318C11.8603 20.2982 12.3786 16.0796 12.3786 16.0796C12.4695 15.3447 12.9447 14.7019 13.6389 14.3672C13.6907 14.3403 13.708 14.3347 14.4338 14.0186C15.6001 13.5109 17.045 13.8415 17.675 14.7765Z" fill="#98E8AA"/>
-                  <path d="M42.9071 19.3603C43.35 22.123 42.1532 24.894 39.8359 26.6359L20.572 41.1217C19.0868 42.3177 17.1831 43.0029 15.1757 43.0029H3.97935C1.8928 43.0029 0.17487 41.4214 0.168025 39.4545C0.16607 38.9068 0.214958 38.3673 0.313712 37.8389H14.7993C16.2249 37.8389 17.6065 37.3806 18.7182 36.5387L36.1419 23.3421C37.2204 22.5251 37.765 21.2341 37.5763 19.9422L37.1363 16.9305C36.9574 15.705 37.4375 14.4767 38.4162 13.6532L39.304 12.9072C41.24 14.6648 42.3918 16.1421 42.9071 19.3603Z" fill="#42434D"/>
-                  <path d="M17.1685 20.5339C15.4925 21.0396 13.7563 20.9571 12.1435 20.3555C11.9781 20.2938 11.8767 20.1353 11.8971 19.9687L11.9908 19.2077C12.0206 18.9656 12.2861 18.8165 12.5255 18.9082C13.2817 19.1974 14.7809 19.7105 16.6895 19.1285C17.1011 19.0041 17.5411 19.218 17.6741 19.6053C17.806 19.9935 17.5791 20.4094 17.1685 20.5339Z" fill="#EEF7FF"/>
-                  <path d="M17.1993 25.5948C15.2063 26.2785 13.0791 26.0996 11.248 25.1651C11.0801 25.0794 11.0027 24.8921 11.0636 24.7213C11.1449 24.4935 11.2203 24.2569 11.2864 24.0194C11.3507 23.7885 11.6262 23.6752 11.8491 23.7885C12.661 24.2011 14.3991 24.988 16.6635 24.208C17.0702 24.0688 17.519 24.2661 17.6667 24.6488C17.8143 25.0323 17.6051 25.4556 17.1993 25.5948Z" fill="#EEF7FF"/>
-                  <path d="M5.00768 41.8797C5.11562 42.3439 4.75013 42.7852 4.24629 42.7852H3.81138C1.72483 42.7852 0.00690077 41.2037 5.64164e-05 39.2368C-0.00189911 38.689 0.0469892 38.1496 0.145743 37.6212H4.49934C5.01824 37.6212 5.39331 38.0886 5.25163 38.5595C4.93522 39.6107 4.76568 40.8395 5.00768 41.8797Z" fill="#585966"/>
-                  <path d="M13.0148 37.621H0.140625C0.65884 34.8113 2.53908 32.3501 5.27975 31.0121C5.59948 30.8563 5.9108 30.6875 6.21196 30.5059C10.0296 31.2522 12.597 34.184 13.0148 37.621Z" fill="#CBE3FA"/>
-                  <path d="M9.83496 33.0559C8.0966 34.0554 6.6982 35.217 5.73256 37.2887C5.63869 37.49 5.42847 37.621 5.19537 37.621H0.140625C0.65884 34.8113 2.53908 32.3501 5.27975 31.0121C5.59948 30.8563 5.9108 30.6875 6.21196 30.5059C7.62805 30.7828 8.88282 31.3646 9.90341 32.1549C10.216 32.3971 10.1803 32.8574 9.83496 33.0559Z" fill="#EEF7FF"/>
-                  <path d="M18.4896 15.2641C18.1395 15.0409 17.8042 14.7873 17.4903 14.5033C16.6729 13.7647 15.4605 13.571 14.4328 14.0183C14.4328 14.0183 13.6663 14.3521 13.6379 14.3668L7.26288 3.26712C6.41613 1.79263 7.54838 0 9.32596 0C10.3023 0 11.0545 0.77118 11.0275 1.69156C11.0166 2.06041 11.1052 2.44135 11.3128 2.80329L18.4896 15.2641Z" fill="#FFF3E4"/>
+                  <path
+                    d="M42.7391 19.1444C41.8617 13.6645 39.1377 13.2299 33.8395 7.87133C32.981 7.0036 31.6102 6.79704 30.5102 7.36415C29.0915 5.81036 27.5388 3.73741 26.1904 1.22275C25.7886 0.474899 24.98 0 24.0912 0H9.32695C7.54937 0 6.41712 1.79263 7.26387 3.26712L13.6389 14.3668C12.9447 14.7016 12.4695 15.3443 12.3786 16.0792C11.5349 22.9186 11.5621 23.1308 11.2072 24.2844C10.2953 27.2326 8.10699 29.6385 5.28487 31.0141C1.99567 32.6199 -0.0121666 35.8144 5.54811e-05 39.2386C0.00689983 41.2055 1.72483 42.787 3.81138 42.787H15.0078C17.0151 42.787 18.9188 42.1018 20.404 40.9058L39.6679 26.42C41.9852 24.6781 43.182 21.9071 42.7391 19.1444Z"
+                    fill="#FFD5BE"
+                  />
+                  <path
+                    d="M39.6679 26.5387L20.404 41.0245C18.9188 42.2205 17.0151 42.9057 15.0078 42.9057H3.81138C1.72483 42.9057 0.00689973 41.3242 5.53849e-05 39.3573C-0.0121667 35.93 1.99919 32.7368 5.28487 31.1328C8.44061 29.5946 10.688 26.8244 11.3988 23.6884C11.5609 22.992 11.5137 23.2092 12.3786 16.1979C12.4695 15.4628 12.9509 14.7862 13.7259 14.4449L14.4338 14.1369C15.4614 13.6897 16.6739 13.8834 17.4913 14.622C19.8526 16.7586 23.395 17.1846 25.9265 15.7027C27.9142 14.539 29.0856 12.312 28.9947 9.93848C28.9002 7.51013 32.0821 6.21361 33.8395 7.99001C39.1376 13.3485 41.8617 13.7831 42.7391 19.2631C43.182 22.0258 41.9852 24.7968 39.6679 26.5387Z"
+                    fill="url(#paint0_linear_321_11784)"
+                  />
+                  <path
+                    d="M17.675 14.7765C18.1248 15.4439 18.1087 16.2965 17.6443 16.9549C17.4392 17.2457 17.31 17.5783 17.2673 17.9239C16.4067 24.8867 16.4386 25.3336 15.8446 26.8492C14.8227 29.4641 12.7679 31.5942 10.1736 32.8587C6.8844 34.4645 4.87656 37.6591 4.88878 41.0832C4.89171 41.702 5.06282 42.282 5.36104 42.7874H3.81138C1.72483 42.7874 0.00689974 41.2059 5.53849e-05 39.239C-0.0121667 35.8117 1.99919 32.6185 5.28487 31.0145C8.64779 29.3753 11.1181 26.2687 11.5827 22.5318C11.8603 20.2982 12.3786 16.0796 12.3786 16.0796C12.4695 15.3447 12.9447 14.7019 13.6389 14.3672C13.6907 14.3403 13.708 14.3347 14.4338 14.0186C15.6001 13.5109 17.045 13.8415 17.675 14.7765Z"
+                    fill="#98E8AA"
+                  />
+                  <path
+                    d="M42.9071 19.3603C43.35 22.123 42.1532 24.894 39.8359 26.6359L20.572 41.1217C19.0868 42.3177 17.1831 43.0029 15.1757 43.0029H3.97935C1.8928 43.0029 0.17487 41.4214 0.168025 39.4545C0.16607 38.9068 0.214958 38.3673 0.313712 37.8389H14.7993C16.2249 37.8389 17.6065 37.3806 18.7182 36.5387L36.1419 23.3421C37.2204 22.5251 37.765 21.2341 37.5763 19.9422L37.1363 16.9305C36.9574 15.705 37.4375 14.4767 38.4162 13.6532L39.304 12.9072C41.24 14.6648 42.3918 16.1421 42.9071 19.3603Z"
+                    fill="#42434D"
+                  />
+                  <path
+                    d="M17.1685 20.5339C15.4925 21.0396 13.7563 20.9571 12.1435 20.3555C11.9781 20.2938 11.8767 20.1353 11.8971 19.9687L11.9908 19.2077C12.0206 18.9656 12.2861 18.8165 12.5255 18.9082C13.2817 19.1974 14.7809 19.7105 16.6895 19.1285C17.1011 19.0041 17.5411 19.218 17.6741 19.6053C17.806 19.9935 17.5791 20.4094 17.1685 20.5339Z"
+                    fill="#EEF7FF"
+                  />
+                  <path
+                    d="M17.1993 25.5948C15.2063 26.2785 13.0791 26.0996 11.248 25.1651C11.0801 25.0794 11.0027 24.8921 11.0636 24.7213C11.1449 24.4935 11.2203 24.2569 11.2864 24.0194C11.3507 23.7885 11.6262 23.6752 11.8491 23.7885C12.661 24.2011 14.3991 24.988 16.6635 24.208C17.0702 24.0688 17.519 24.2661 17.6667 24.6488C17.8143 25.0323 17.6051 25.4556 17.1993 25.5948Z"
+                    fill="#EEF7FF"
+                  />
+                  <path
+                    d="M5.00768 41.8797C5.11562 42.3439 4.75013 42.7852 4.24629 42.7852H3.81138C1.72483 42.7852 0.00690077 41.2037 5.64164e-05 39.2368C-0.00189911 38.689 0.0469892 38.1496 0.145743 37.6212H4.49934C5.01824 37.6212 5.39331 38.0886 5.25163 38.5595C4.93522 39.6107 4.76568 40.8395 5.00768 41.8797Z"
+                    fill="#585966"
+                  />
+                  <path d="M13.0148 37.621H0.140625C0.65884 34.8113 2.53908 32.3501 5.27975 31.0121C5.59948 30.8563 5.9108 30.6875 6.21196 30.5059C10.0296 31.2522 12.597 34.184 13.0148 37.621Z" fill="#CBE3FA" />
+                  <path
+                    d="M9.83496 33.0559C8.0966 34.0554 6.6982 35.217 5.73256 37.2887C5.63869 37.49 5.42847 37.621 5.19537 37.621H0.140625C0.65884 34.8113 2.53908 32.3501 5.27975 31.0121C5.59948 30.8563 5.9108 30.6875 6.21196 30.5059C7.62805 30.7828 8.88282 31.3646 9.90341 32.1549C10.216 32.3971 10.1803 32.8574 9.83496 33.0559Z"
+                    fill="#EEF7FF"
+                  />
+                  <path
+                    d="M18.4896 15.2641C18.1395 15.0409 17.8042 14.7873 17.4903 14.5033C16.6729 13.7647 15.4605 13.571 14.4328 14.0183C14.4328 14.0183 13.6663 14.3521 13.6379 14.3668L7.26288 3.26712C6.41613 1.79263 7.54838 0 9.32596 0C10.3023 0 11.0545 0.77118 11.0275 1.69156C11.0166 2.06041 11.1052 2.44135 11.3128 2.80329L18.4896 15.2641Z"
+                    fill="#FFF3E4"
+                  />
                   <defs>
                     <linearGradient id="paint0_linear_321_11784" x1="21.0228" y1="15.2875" x2="31.0565" y2="32.0102" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#66DD81"/>
-                      <stop offset="1" stop-color="#38BD56"/>
+                      <stop stop-color="#66DD81" />
+                      <stop offset="1" stop-color="#38BD56" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -399,10 +437,10 @@
                   <div class="graph">
                     <div class="grap-info green" style="animation-delay: 0.9s"></div>
                   </div>
-                  <div class="text">65%</div>
+                  <div class="text">35%</div>
                 </div>
               </div>
-            </li>            
+            </li>
             <li>
               <div class="img">
                 <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -486,7 +524,7 @@
                   <div class="graph">
                     <div class="grap-info yellow" style="animation-delay: 1.2s"></div>
                   </div>
-                  <div class="text">75%</div>
+                  <div class="text">72%</div>
                 </div>
               </div>
             </li>
@@ -508,16 +546,17 @@
         </div>
 
         <div class="section challenge-section animation-enter">
-          <div class="title-area flex justify-between  show-poistion">
+          <div class="title-area flex justify-between show-poistion">
             <div class="show-msg animation-enter right-enter">
               <img src="./img/callange_msg_ani.svg" alt="" />
             </div>
             <div class="tit">
-              <img src="./img/tit_callange.png" alt="챌린지" />
+              <p>그룹 챌린지 모임</p>
             </div>
-            <a href="#" class="more">
-              <img src="./img/btn_more_plus.png" alt="" />
-            </a>
+            <div class="more">
+              <img src="./img/icon_more.svg" alt="" />
+              <p>더보기</p>
+            </div>
           </div>
           <div class="challenge-content">
             <div class="scroll-box">
@@ -530,7 +569,7 @@
                 </div>
                 <div class="items">
                   <img src="./img/img_callange_03.png" alt="" />
-                </div>                
+                </div>
               </div>
             </div>
           </div>
@@ -538,11 +577,13 @@
         <div class="section challenge-section service pharmacy-section animation-enter">
           <div class="title-area flex justify-between">
             <div class="tit">
-              <img src="./img/Frame.png" alt="건강서비스" />
+              <p>건강서비스</p>
+              <span>특별한 당신을 위한 서비스</span>
             </div>
-            <a href="#" class="more">
-              <img src="./img/btn_more_plus.png" alt="" />
-            </a>
+            <div class="more">
+              <img src="./img/icon_more.svg" alt="" />
+              <p>더보기</p>
+            </div>
           </div>
           <div class="challenge-content">
             <div class="scroll-box">
@@ -558,15 +599,16 @@
           </div>
         </div>
         <div class="btm-wrap h-320">
-          <div class="btm-topline" style="cursor: pointer;">
-            <img src="./img/brm-blackline.svg" alt="" class="topline"/>
+          <div class="btm-topline" style="cursor: pointer">
+            <img src="./img/brm-blackline.svg" alt="" class="topline" />
           </div>
           <div class="btm-content">
             <div class="btm-bigtit">
-              <p>건강 관리 캘린더<br/>
+              <p>
+                건강 관리 캘린더<br />
                 <strong>2024년 7월</strong>
               </p>
-              <img src="./img/btm-arrowdown.svg" alt="" class="down-icon">
+              <img src="./img/btm-arrowdown.svg" alt="" class="down-icon" />
             </div>
             <div class="btm-cont01">
               <div class="status-box">
@@ -584,7 +626,7 @@
                 </div>
               </div>
               <div>
-                <img src="./img/btm-calendar.png" alt="" class="btm-calendar"/>
+                <img src="./img/btm-calendar.png" alt="" class="btm-calendar" />
               </div>
             </div>
             <div class="btm-cont02 show-poistion">
@@ -601,9 +643,9 @@
                   <p><strong>15,000</strong>걸음</p>
                   <div class="bar-wrap">
                     <div class="graph">
-                        <div class="grap-info green" style="animation-delay: 0.5s;"></div>
+                      <div class="grap-info green" style="animation-delay: 0.5s"></div>
                     </div>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -614,7 +656,7 @@
                   <img src="./img/icon_arrowright.svg" alt="" />
                 </div>
                 <div class="btm-walkdes">
-                  <img src="./img/btm-weightlist.png" alt="">
+                  <img src="./img/btm-weightlist.png" alt="" />
                 </div>
               </div>
             </div>
@@ -631,105 +673,105 @@
               </div>
             </div>
             <div class="btm-cont05">
-              <img src="./img/btm_cont05.png" alt="">
+              <img src="./img/btm_cont05.png" alt="" />
             </div>
           </div>
         </div>
-        <div class="btm-dimmed" style="display: none;"></div>
+        <div class="btm-dimmed" style="display: none"></div>
       </div>
     </div>
     <script>
-        document.querySelectorAll('.topline').forEach(button => {
-          button.addEventListener('click', handleToggle);
-          button.addEventListener('touchstart', handleTouchStart);
-          button.addEventListener('touchmove', handleTouchMove);
-        });
+      document.querySelectorAll(".topline").forEach((button) => {
+        button.addEventListener("click", handleToggle);
+        button.addEventListener("touchstart", handleTouchStart);
+        button.addEventListener("touchmove", handleTouchMove);
+      });
 
-        let startY;
+      let startY;
 
-        function handleTouchStart(event) {
-          startY = event.touches[0].clientY;
-        }
+      function handleTouchStart(event) {
+        startY = event.touches[0].clientY;
+      }
 
-        function handleTouchMove(event) {
-          const currentY = event.touches[0].clientY;
-          const diffY = startY - currentY;
+      function handleTouchMove(event) {
+        const currentY = event.touches[0].clientY;
+        const diffY = startY - currentY;
 
-          if (Math.abs(diffY) > 50) { // 일정한 거리를 이동해야 이벤트 발생
-            if (diffY > 0) {
-              // 위로 스와이프
-              handleToggle();
-            } else {
-              // 아래로 스와이프
-              handleToggle();
-            }
-            // 터치 움직임을 한 번만 처리하도록 startY를 재설정
-            startY = currentY;
-          }
-        }
-
-        function handleToggle() {
-          const btmWrap = document.querySelector('.btm-wrap');
-          const btmH320 = document.querySelector('.btm-wrap.h-320');
-          const btmDimmed = document.querySelector('.btm-dimmed');
-          const downIcon = document.querySelector('.down-icon');
-          const topline = document.querySelector('.btm-topline');
-
-          const openMenu = () => {
-            btmH320.classList.remove('h-320');
-            btmWrap.classList.add('full');
-            document.body.style.overflowY = "hidden";
-            btmDimmed.style.display = "block";
-            downIcon.classList.add('rotate');
-            topline.classList.add('btm-topline-fix');
-            setTimeout(() => {
-              btmWrap.classList.add('slideUp');
-            }, 100);
-          };
-
-          const closeMenu = () => {
-            btmWrap.classList.remove('slideUp');
-            setTimeout(() => {
-              btmWrap.classList.add('h-320');
-            }, 200);
-            setTimeout(() => {
-              btmWrap.classList.remove('full');
-            }, 300);
-            document.body.style.overflowY = "scroll";
-            btmDimmed.style.display = "none";
-            downIcon.classList.remove('rotate');
-            topline.classList.remove('btm-topline-fix');
-          };
-
-          if (btmH320) {
-            openMenu();
+        if (Math.abs(diffY) > 50) {
+          // 일정한 거리를 이동해야 이벤트 발생
+          if (diffY > 0) {
+            // 위로 스와이프
+            handleToggle();
           } else {
-            closeMenu();
+            // 아래로 스와이프
+            handleToggle();
           }
+          // 터치 움직임을 한 번만 처리하도록 startY를 재설정
+          startY = currentY;
         }
+      }
 
-  </script>
-  <script>
-    function handleIntersection(entries, observer) {
-        entries.forEach(entry => {
+      function handleToggle() {
+        const btmWrap = document.querySelector(".btm-wrap");
+        const btmH320 = document.querySelector(".btm-wrap.h-320");
+        const btmDimmed = document.querySelector(".btm-dimmed");
+        const downIcon = document.querySelector(".down-icon");
+        const topline = document.querySelector(".btm-topline");
+
+        const openMenu = () => {
+          btmH320.classList.remove("h-320");
+          btmWrap.classList.add("full");
+          document.body.style.overflowY = "hidden";
+          btmDimmed.style.display = "block";
+          downIcon.classList.add("rotate");
+          topline.classList.add("btm-topline-fix");
+          setTimeout(() => {
+            btmWrap.classList.add("slideUp");
+          }, 100);
+        };
+
+        const closeMenu = () => {
+          btmWrap.classList.remove("slideUp");
+          setTimeout(() => {
+            btmWrap.classList.add("h-320");
+          }, 200);
+          setTimeout(() => {
+            btmWrap.classList.remove("full");
+          }, 300);
+          document.body.style.overflowY = "scroll";
+          btmDimmed.style.display = "none";
+          downIcon.classList.remove("rotate");
+          topline.classList.remove("btm-topline-fix");
+        };
+
+        if (btmH320) {
+          openMenu();
+        } else {
+          closeMenu();
+        }
+      }
+    </script>
+    <script>
+      function handleIntersection(entries, observer) {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
+            entry.target.classList.add("fade-in");
           }
         });
       }
 
       const options = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.5 
+        rootMargin: "0px",
+        threshold: 0.5,
       };
       const observer = new IntersectionObserver(handleIntersection, options);
 
-      const showMsgElement = document.querySelector('.btm-cont02.show-poistion .show-msg');
+      const showMsgElement = document.querySelector(".btm-cont02.show-poistion .show-msg");
       if (showMsgElement) {
-        observer.observe(showMsgElement); 
+        observer.observe(showMsgElement);
       }
-  </script>
+    </script>
     <!-- <nav class="fnb-wrap">
       <ul class="fnb-list">
         <li class="is-active">

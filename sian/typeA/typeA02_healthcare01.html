@@ -14,44 +14,45 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/plugin/isSameOrBefore.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/locale/ko.min.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
   </head>
   <body>
     <div class="sian__wrap">
       <header>
-        <h1 class="logo">
-          <a href="#">
-            <button type="button" class="btn btn-hamguger">
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <span class="ir-text">메뉴</span>
-            </button>
+        <nav class="gnb__wrap gnb__flex">
+          <a href="./typeA01.html" class="home flex">
+            <span class="icon-health">
+              <img src="./img/icon_heath_small_img.png" alt="" />
+            </span>
+            <img src="./img/top_nav_health.svg" alt="헬스" />
           </a>
-        </h1>
-        <button type="button" class="btn btn-alert">
-          <i class="ico ico-alert"></i>
-          <span class="ir-text">알림</span>
-        </button>
+          <div class="gnb__flex2">
+            <a href="./typeA01.html">홈 </a>
+            <a href="#">계약</a>
+            <a href="#">상품</a>
+          </div>
+        </nav>
+        <div class="util-area flex">
+          <button type="button" class="btn btn-alert">
+            <i class="ico ico-alert"></i>
+            <span class="ir-text">알림</span>
+          </button>
+          <button type="button" class="btn btn-hamguger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <span class="ir-text">메뉴</span>
+          </button>
+        </div>
       </header>
       <!-- header -->
-      <nav class="gnb__wrap gnb__flex">
-        <a href="./typeA01.html"  class="home flex">
-          <span class="icon-health">
-            <img src="./img/icon_heath_small_img.png" alt="" />
-          </span>
-          <img src="./img/top_nav_health.svg" alt="헬스" />
-        </a>
-        <div class="gnb__flex2">
-          <a href="./typeA01.html">홈 </a>
-          <a href="#">계약</a>
-          <a href="#">상품</a>
-        </div>
-      </nav>
       <div class="sian-content">
         <div class="section card-my-levels">
           <div class="title-area flex justify-between">
             <div class="tit">
-              <img src="./img/health_level_text.png" alt="" />
+              <!-- <img src="./img/health_level_text.png" alt="" /> -->
+              <p>베니보리님 미래건강 솔루션</p>
             </div>
           </div>
           <div class="card-content__round-box">
@@ -79,8 +80,8 @@
               </div>
             </div>
             <script>
-              document.addEventListener("DOMContentLoaded", function() {
-                document.querySelector('.graph__wrap--bar-type').classList.add('is-active');
+              document.addEventListener("DOMContentLoaded", function () {
+                document.querySelector(".graph__wrap--bar-type").classList.add("is-active");
               });
             </script>
             <div class="recommend-routine__wrap">
@@ -154,7 +155,7 @@
           <div class="show-msg animation-enter right-enter">
             <img src="./img/member_msg_ani.svg" alt="" />
           </div>
-          <img src="./img/member_msg.svg" alt="베니보리님 안녕하세요" />
+          <p class="care-tit">베니보리 님의 활동 요약</p>
         </div>
         <div class="member-activity-report pd60">
           <div class="activity-report-left">
@@ -244,7 +245,7 @@
             <div class="box2 box3">
               <div class="weight-data">
                 <p>영양제</p>
-                <p><img src="./img/txt_plus.png" alt="" class="w81" /></p>
+                <p class="weight-data-plus"><img src="./img/icon_plus_gray.svg" alt="" />등록하기</p>
               </div>
               <div class="title-area flex justify-end">
                 <div class="icon">
@@ -257,7 +258,7 @@
             <div class="box2 box4">
               <div class="weight-data">
                 <p>운동</p>
-                <p><img src="./img/txt_plus.png" alt="" class="w81" /></p>
+                <p class="weight-data-plus"><img src="./img/icon_plus_gray.svg" alt="" />등록하기</p>
               </div>
               <div class="title-area flex justify-end">
                 <div class="icon">
@@ -317,7 +318,7 @@
             <div class="box2 box5">
               <div class="weight-data">
                 <p>물</p>
-                <p><img src="./img/txt_plus.png" alt="" class="w81" /></p>
+                <p class="weight-data-plus"><img src="./img/icon_plus_gray.svg" alt="" />등록하기</p>
               </div>
               <div class="water-cup__wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" width="51" height="70" viewBox="0 0 51 70" fill="none">
@@ -380,11 +381,12 @@
               <img src="./img/callange_msg_ani.svg" alt="" />
             </div>
             <div class="tit">
-              <img src="./img/tit_callange.svg" alt="챌린지" />
+              <p>그룹 챌린지 모임</p>
             </div>
-            <a href="#" class="more">
-              <img src="./img/btn_more_plus.png" alt="" />
-            </a>
+            <div class="more">
+              <img src="./img/icon_more.svg" alt="" />
+              <p>더보기</p>
+            </div>
           </div>
           <div class="challenge-content">
             <div class="scroll-box">
@@ -425,15 +427,16 @@
           </div>
         </div>
         <div class="btm-wrap h-320">
-          <div class="btm-topline" style="cursor: pointer;">
-            <img src="./img/brm-blackline.svg" alt="" class="topline"/>
+          <div class="btm-topline" style="cursor: pointer">
+            <img src="./img/brm-blackline.svg" alt="" class="topline" />
           </div>
           <div class="btm-content">
             <div class="btm-bigtit">
-              <p>건강 관리 캘린더<br/>
+              <p>
+                건강 관리 캘린더<br />
                 <strong>2024년 7월</strong>
               </p>
-              <img src="./img/btm-arrowdown.svg" alt="" class="down-icon">
+              <img src="./img/btm-arrowdown.svg" alt="" class="down-icon" />
             </div>
             <div class="btm-cont01">
               <div class="status-box">
@@ -451,7 +454,7 @@
                 </div>
               </div>
               <div>
-                <img src="./img/btm-calendar.png" alt="" class="btm-calendar"/>
+                <img src="./img/btm-calendar.png" alt="" class="btm-calendar" />
               </div>
             </div>
             <div class="btm-cont02 show-poistion">
@@ -468,9 +471,9 @@
                   <p><strong>15,000</strong>걸음</p>
                   <div class="bar-wrap">
                     <div class="graph">
-                        <div class="grap-info green" style="animation-delay: 0.5s;"></div>
+                      <div class="grap-info green" style="animation-delay: 0.5s"></div>
                     </div>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -481,7 +484,7 @@
                   <img src="./img/icon_arrowright.svg" alt="" />
                 </div>
                 <div class="btm-walkdes">
-                  <img src="./img/btm-weightlist.png" alt="">
+                  <img src="./img/btm-weightlist.png" alt="" />
                 </div>
               </div>
             </div>
@@ -498,105 +501,104 @@
               </div>
             </div>
             <div class="btm-cont05">
-              <img src="./img/btm_cont05.png" alt="">
+              <img src="./img/btm_cont05.png" alt="" />
             </div>
           </div>
         </div>
-        <div class="btm-dimmed" style="display: none;"></div>
+        <div class="btm-dimmed" style="display: none"></div>
       </div>
-      
     </div>
     <script>
-          document.querySelectorAll('.topline').forEach(button => {
-            button.addEventListener('click', handleToggle);
-            button.addEventListener('touchstart', handleTouchStart);
-            button.addEventListener('touchmove', handleTouchMove);
-          });
+      document.querySelectorAll(".topline").forEach((button) => {
+        button.addEventListener("click", handleToggle);
+        button.addEventListener("touchstart", handleTouchStart);
+        button.addEventListener("touchmove", handleTouchMove);
+      });
 
-          let startY;
+      let startY;
 
-          function handleTouchStart(event) {
-            startY = event.touches[0].clientY;
+      function handleTouchStart(event) {
+        startY = event.touches[0].clientY;
+      }
+
+      function handleTouchMove(event) {
+        const currentY = event.touches[0].clientY;
+        const diffY = startY - currentY;
+
+        if (Math.abs(diffY) > 50) {
+          // 일정한 거리를 이동해야 이벤트 발생
+          if (diffY > 0) {
+            // 위로 스와이프
+            handleToggle();
+          } else {
+            // 아래로 스와이프
+            handleToggle();
           }
+          // 터치 움직임을 한 번만 처리하도록 startY를 재설정
+          startY = currentY;
+        }
+      }
 
-          function handleTouchMove(event) {
-            const currentY = event.touches[0].clientY;
-            const diffY = startY - currentY;
+      function handleToggle() {
+        const btmWrap = document.querySelector(".btm-wrap");
+        const btmH320 = document.querySelector(".btm-wrap.h-320");
+        const btmDimmed = document.querySelector(".btm-dimmed");
+        const downIcon = document.querySelector(".down-icon");
+        const topline = document.querySelector(".btm-topline");
 
-            if (Math.abs(diffY) > 50) { // 일정한 거리를 이동해야 이벤트 발생
-              if (diffY > 0) {
-                // 위로 스와이프
-                handleToggle();
-              } else {
-                // 아래로 스와이프
-                handleToggle();
-              }
-              // 터치 움직임을 한 번만 처리하도록 startY를 재설정
-              startY = currentY;
-            }
-          }
+        const openMenu = () => {
+          btmH320.classList.remove("h-320");
+          btmWrap.classList.add("full");
+          document.body.style.overflowY = "hidden";
+          btmDimmed.style.display = "block";
+          downIcon.classList.add("rotate");
+          topline.classList.add("btm-topline-fix");
+          setTimeout(() => {
+            btmWrap.classList.add("slideUp");
+          }, 100);
+        };
 
-          function handleToggle() {
-            const btmWrap = document.querySelector('.btm-wrap');
-            const btmH320 = document.querySelector('.btm-wrap.h-320');
-            const btmDimmed = document.querySelector('.btm-dimmed');
-            const downIcon = document.querySelector('.down-icon');
-            const topline = document.querySelector('.btm-topline');
+        const closeMenu = () => {
+          btmWrap.classList.remove("slideUp");
+          setTimeout(() => {
+            btmWrap.classList.add("h-320");
+          }, 200);
+          setTimeout(() => {
+            btmWrap.classList.remove("full");
+          }, 300);
+          document.body.style.overflowY = "scroll";
+          btmDimmed.style.display = "none";
+          downIcon.classList.remove("rotate");
+          topline.classList.remove("btm-topline-fix");
+        };
 
-            const openMenu = () => {
-              btmH320.classList.remove('h-320');
-              btmWrap.classList.add('full');
-              document.body.style.overflowY = "hidden";
-              btmDimmed.style.display = "block";
-              downIcon.classList.add('rotate');
-              topline.classList.add('btm-topline-fix');
-              setTimeout(() => {
-                btmWrap.classList.add('slideUp');
-              }, 100);
-            };
-
-            const closeMenu = () => {
-              btmWrap.classList.remove('slideUp');
-              setTimeout(() => {
-                btmWrap.classList.add('h-320');
-              }, 200);
-              setTimeout(() => {
-                btmWrap.classList.remove('full');
-              }, 300);
-              document.body.style.overflowY = "scroll";
-              btmDimmed.style.display = "none";
-              downIcon.classList.remove('rotate');
-              topline.classList.remove('btm-topline-fix');
-            };
-
-            if (btmH320) {
-              openMenu();
-            } else {
-              closeMenu();
-            }
-          }
-
+        if (btmH320) {
+          openMenu();
+        } else {
+          closeMenu();
+        }
+      }
     </script>
     <script>
       function handleIntersection(entries, observer) {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('fade-in');
-            }
-          });
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+          }
+        });
+      }
 
-        const options = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.5 
-        };
-        const observer = new IntersectionObserver(handleIntersection, options);
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5,
+      };
+      const observer = new IntersectionObserver(handleIntersection, options);
 
-        const showMsgElement = document.querySelector('.btm-cont02.show-poistion .show-msg');
-        if (showMsgElement) {
-          observer.observe(showMsgElement); 
-        }
+      const showMsgElement = document.querySelector(".btm-cont02.show-poistion .show-msg");
+      if (showMsgElement) {
+        observer.observe(showMsgElement);
+      }
     </script>
     <script src="../../front_markup/resource/js/ui_common.js"></script>
     <script src="./sian.js"></script>

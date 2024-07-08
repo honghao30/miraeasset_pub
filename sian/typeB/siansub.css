@@ -11,11 +11,12 @@
 .show-msg.animation-enter.right-enter.fade-in {
   animation: fade-in-right 0.5s ease forwards;
   animation-delay: 0.7s;
-  width: 95%;
+  width: fit-content;
+  max-width: 95%;
 }
 .show-msg img {
   max-width: 100%;
-  width: 100%;
+  width: fit-content;
 }
 .card-content__round-box.walk-wrap {
   position: relative;

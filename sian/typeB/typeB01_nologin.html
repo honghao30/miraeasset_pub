@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./siansub.css" />
     <link rel="stylesheet" href="../../front_markup/resource/bundle/swiper.min.css " />
     <script type="text/javascript" src="../../front_markup/resource/bundle/swiper-bundle.min.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
   </head>
   <body>
     <div class="sian__wrap">
@@ -30,14 +32,15 @@
       <!-- header -->
       <div class="sian-content">
         <div class="section welcome">
-          <img src="./img/text-welcome.png" alt="김미래님 환영 합니다." />
+          <p class="text"><strong>김미래님,</strong> 환영합니다.</p>          
         </div>
         <div class="section my_insurance">
           <img src="./img/my_insurance.svg" alt="보험 상품" />
         </div>
         <div class="card-content__round-box walk-world-section">
           <div class="text">
-            <img src="./img/text_walk_top.png" alt="세계 런전 여행자중 1위에요" />
+            <strong>걸어서 세계여행</strong>
+            걷기만 해도 세계 정복!            
           </div>
           <div class="walk-animation">
             <div class="label-me">
@@ -47,7 +50,7 @@
               <img src="./img/walk_label_2.png" alt="2위" />
             </div>
             <div class="circle-img">
-              <img src="./img/walk_around_round.png" alt="" />
+              <img src="./img/round_line.svg" alt="" />
             </div>
             <div class="flying-img">
               <img src="./img/walk_flying.png" alt="비행기" />
@@ -56,7 +59,7 @@
               <img src="./img/walk_balloon.png" alt="기구" />
             </div>
             <div class="earth">
-              <img src="./img/walk_around_earth.png" alt="" />
+              <img src="./img/earth.svg" alt="" />
             </div>
           </div>
           <div class="button__wrap">
@@ -70,7 +73,22 @@
             flex-direction: column;
             justify-content: center;
             padding-bottom: 30px;
-            margin: 50px 16px 30px;
+            padding-top: 30px;
+            margin: 20px 16px 30px;
+          }
+          .card-content__round-box.walk-world-section .text {
+            text-align: center;
+            color: #212121;
+            font-family: NanumSquare;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: -0.22px;
+          }
+          .card-content__round-box.walk-world-section .text strong {
+            display: block;
+            font-weight: 800;
           }
           .card-content__round-box.walk-world-section .text img {
             width: 243px;
@@ -79,8 +97,11 @@
             width: 100%;
           }
           .walk-animation {
-            height: 266px;
-            margin: 40px 0 20px;
+            width: 300px;
+            aspect-ratio: 1 / 1.1;            
+            /* height: 266px; */
+            padding-bottom: 30px;
+            margin: 30px auto;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -88,24 +109,24 @@
           }
           /* 기본상태 */
           .walk-animation .earth img {
-            width: 200px;
+            width: 249px;
           }
           .walk-animation .label-me-ranking {
             opacity: 0;
             position: absolute;
-            left: -55px;
-            top: 65px;
+            left: 0px;
+            top: 24px;
           }
           .walk-animation .label-me {
             opacity: 0;
             position: absolute;
-            right: 2px;
-            top: 15px;
+            right: 36px;
+            top: 3px;
           }
           .walk-animation .flying-img {
             position: absolute;
             left: 29px;
-            top: 26%;
+            top: 16%;
             z-index: 13;
             opacity: 0;
             transition: opacity 0.2s;
@@ -113,7 +134,7 @@
           .walk-animation .balloon-img {
             opacity: 0;
             position: absolute;
-            right: 20px;
+            right: 51px;
             top: 43%;
             z-index: 12;
             transition: opacity 0.5s ease-in;
@@ -122,7 +143,7 @@
             opacity: 0;
             position: absolute;
             left: 0%;
-            top: 14%;
+            top: 7%;
           }
           .walk-animation .circle-img {
             opacity: 0;
@@ -130,21 +151,21 @@
 
           .walk-animation.is-animation .label-me {
             animation: label-enter 0.5s ease-in forwards;
-            animation-delay: 3.5s;
+            animation-delay: 4.8s;
           }
           .walk-animation.is-animation .label-me img {
             width: 65.2px;
           }
           .walk-animation.is-animation .label-me-ranking {
             animation: label-enter 0.5s ease-in forwards;
-            animation-delay: 3.5s;
+            animation-delay: 4.9s;
           }
           .walk-animation.is-animation .label-me-ranking img {
             width: 66.31px;
           }
           .walk-animation.is-animation .circle-img img {
             opacity: 1;
-            width: 239.37px;
+            /* width: 239.37px; */
           }
           .walk-animation.is-animation .circle-img {
             animation: circle-enter 1.5s linear 2;
@@ -156,7 +177,7 @@
           }
           .walk-animation.is-animation .earth {
             animation-delay: 0.6s;
-            animation: earth-wave 1.8s ease-in infinite;
+            animation: earth-wave 2.5s ease-in infinite;
           }
           .walk-animation.is-animation .flying-img img {
             width: 53px;
@@ -172,7 +193,7 @@
           .walk-animation.is-animation .balloon-img {
             opacity: 1;
             transition: opacity 0.5s ease-in;
-            animation: balloon-move 9.8s cubic-bezier(0.3, 0.27, 0.07, 1.64) infinite;
+            animation: balloon-move 12.8s cubic-bezier(0.3, 0.27, 0.07, 1.64) infinite;
             animation-delay: 0.6s;
             /* perspective: 100px; */
           }
@@ -204,7 +225,7 @@
               transform: translateY(0);
             }
             50% {
-              transform: translateY(5%);
+              transform: translateY(3%);
             }
           }
           @keyframes balloon-wave {
@@ -224,7 +245,7 @@
               top: 43%;
             }
             50% {
-              transform: translateX(-420%) rotate(9.56deg);
+              transform: translateX(-550%) rotate(9.56deg);
               top: 45%;
               animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
             }
@@ -244,7 +265,7 @@
               transform: translateX(0%) translateY(-5%);
             }
             100% {
-              transform: translateX(150%) translateY(0%);
+              transform: translateX(250%) translateY(0%);
             }
           }
           @keyframes flying-wave {
@@ -305,15 +326,6 @@
           });
         </script>
         <!-- 걷기 연동 -->
-        <!-- <div class="card-content__round-box animation-enter">
-          <a href="#" class="count-walk">
-            <i></i>
-            오늘은 <strong><span data-num="6508" class="text-ani">6,508</span>걸음</strong> 걸었어요.
-          </a>
-          <div class="show-msg animation-enter right-enter">
-            <img src="./img/msg_txt01.svg" alt="" />
-          </div>
-        </div> -->
         <div class="service-banner animation-enter">
           <img src="./img/service_banner.svg" alt="" />
         </div>
@@ -323,8 +335,9 @@
               <div class="swiper-slide">
                 <div class="card-content__round-box fire-wrap">
                   <div class="color-test__wrap">
-                    <div class="text-color">
-                      <img src="./img/text-color.png" alt="눈이 피로하다면 이 컬라가 눈을 보호해 줄거예요." />
+                    <div class="title-text-type1">
+                        눈이 피로하다면
+                        <strong>이 컬러가 눈을 보호해줄거예요</strong>
                     </div>
                     <div class="color-sample">
                       <img src="./img/color-teraphy.png" alt="" />
@@ -392,8 +405,8 @@
 
         <div class="section insurance_recommendation animation-enter">
           <div class="title-area flex justify-between">
-            <div class="tit">
-              <img src="./img/tit_insurance.png" alt="보험추천" />
+            <div class="tit title-text-type2">
+              보험을 추천드려요              
             </div>
             <a href="#" class="more">
               <img src="./img/btn_insurance_more.png" alt="보험 추천 더보기" />
@@ -430,7 +443,10 @@
           <img src="./img/bn_mainb01.svg" alt="" />
         </div>
         <div class="section health-tip animation-enter">
-          <p class="text"><img src="./img/text_tip_health.png" alt="건강을 위한 꿀팁 알려드려요" /></p>
+          <p class="text title-text-type2">
+            미래에셋<br>스마트라이프            
+          </p>
+
           <div class="tab-content">
             <div class="tab-btns">
               <ul class="tab-button-list">

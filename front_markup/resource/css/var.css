@@ -25,7 +25,7 @@
     --deviceWidth: 323px;
 
     /* font */
-    --fontMain: 'NotoSans'
+    --fontMain: 'NanumSquare', 'Malgun Gothic', '맑은고딕', sans-serif;
 }
 
 /* rem 사용 예시  */
