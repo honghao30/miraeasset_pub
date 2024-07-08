@@ -97,7 +97,7 @@ header .logo svg {
   letter-spacing: -0.4px;
 }
 .section.welcome.welcome２ {
-  padding: calc(32 / 16 * 1rem) calc(16 / 16 * 1rem) 0;
+  padding: calc(20 / 16 * 1rem) calc(16 / 16 * 1rem) 0;
 }
 .section.rutin-list {
 }
@@ -125,7 +125,7 @@ header .logo svg {
 }
 
 .section.rangking-bn {
-  padding: 0 calc(16 / 16 * 1rem) calc(16 / 16 * 1rem);
+  padding: calc(16 / 16 * 1rem) calc(16 / 16 * 1rem) calc(20 / 16 * 1rem);
 }
 .section.rangking-bn img {
   width: 100%;
@@ -228,7 +228,7 @@ header .logo svg {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: calc(4 / 16 * 1rem) calc(16 / 16 * 1rem) 0;
+  padding: calc(0 / 16 * 1rem) calc(16 / 16 * 1rem) 0;
 }
 .section.record-list__wrap.flex-3 img.record_list {
   box-shadow: 0px 2px 8px 0px rgba(36, 45, 60, 0.1);
@@ -237,6 +237,21 @@ header .logo svg {
 .section.record-list__wrap.flex-3 img.wauto {
   width: 64px;
   margin: 0 auto;
+}
+.section.record-list__wrap.flex-3 .plus-black {
+  color: #292929;
+  font-family: "NanumSquare";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 25px; /* 178.571% */
+  letter-spacing: -0.28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section.record-list__wrap.flex-3 .plus-black img {
+  width: 14px;
+  height: 14px;
 }
 .section.knowledge-card {
   padding: calc(56 / 16 * 1rem) 0 calc(56 / 16 * 1rem);
@@ -290,6 +305,9 @@ header .logo svg {
 }
 .card-content__round-box .recommend-routine__wrap .tit {
   padding: calc(64 / 16 * 1rem) calc(20 / 16 * 1rem) 0;
+}
+.tab-pane1s.health-producttab .swiper-slide {
+  width: 85.6vw !important;
 }
 
 /* 그래프 */
@@ -516,7 +534,7 @@ header .logo svg {
   color: #616161;
   font-family: "Pretendard";
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 18px; /* 150% */
   letter-spacing: -0.24px;
 }
@@ -546,7 +564,7 @@ header .logo svg {
 }
 .section.user-solution-board .bar-wrap .graph .grap-info.orange {
   background: linear-gradient(to bottom, #ffa14d, #fe7800);
-  width: 72%;
+  animation: bar-pos3 0.5s ease forwards;
 }
 
 .section.drinking-info {
@@ -555,12 +573,12 @@ header .logo svg {
 .section.drinking-info ul {
   flex-direction: column;
   display: flex;
-  gap: 36px;
+  gap: 24px;
 }
 .section.drinking-info li {
   display: flex;
   justify-content: space-between;
-  gap: 21px;
+  gap: 20px;
   align-items: center;
 }
 .section.drinking-info li img {
@@ -586,7 +604,7 @@ header .logo svg {
   font-family: "Pretendard";
   font-size: 13px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 18px; /* 138.462% */
   letter-spacing: -0.26px;
 }
@@ -636,10 +654,15 @@ header .logo svg {
 }
 
 .section.health_report {
-  padding: calc(20 / 16 * 1rem) calc(6 / 16 * 1rem) calc(34 / 16 * 1rem);
+  padding: calc(22 / 16 * 1rem) calc(16 / 16 * 1rem) calc(34 / 16 * 1rem);
+  display: flex;
+  gap: 15px;
 }
+
 .section.health_report img {
-  width: 100%;
+  width: calc(50% - 7.5px);
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.11);
+  border-radius: 20px;
 }
 @keyframes bar-pos1 {
   from {
@@ -746,11 +769,11 @@ header .logo svg {
   /* margin-bottom: calc(12 / 16 * 1rem); */
 }
 .sian_a01 .section.welcome {
-  padding: calc(32 / 16 * 1rem) calc(16 / 16 * 1rem) calc(16 / 16 * 1rem);
+  padding: calc(20 / 16 * 1rem) calc(16 / 16 * 1rem) calc(16 / 16 * 1rem);
 }
 
 .sian_a01 .section.knowledge-card {
-  /* padding: calc(56 / 16 * 1rem) calc(6 / 16 * 1rem); */
+  padding: 0 0 calc(50 / 16 * 1rem);
 }
 .sian_a01 .section.swiper-card {
   /* padding: 0 0 calc(24 / 16 * 1rem) calc(16 / 16 * 1rem); */
@@ -759,22 +782,28 @@ header .logo svg {
   padding: 0;
 }
 .sian_a01 .section.health-product {
-  margin-top: calc(24 / 16 * 1rem);
-  margin-bottom: calc(10 / 16 * 1rem);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.sian_a01 .section.health-product .tab-pane1 {
+  padding: 0;
 }
 .sian_a01 .section.health-product .tab-pane1 .swiper {
   padding-right: calc(12 / 16 * 1rem);
 }
+.sian_a01 .section.health-product .section.swiper-card {
+  padding-bottom: 0;
+}
 .sian_a01 .good-product .swiper {
   margin-top: calc(20 / 16 * 1rem);
-  padding-bottom: calc(20 / 16 * 1rem);
-  padding-right: calc(24 / 16 * 1rem);
+  /* padding-bottom: calc(20 / 16 * 1rem); */
+  /* padding-right: calc(24 / 16 * 1rem); */
 }
 .sian_a01 .tab-pane1 {
   padding-right: 0;
 }
 .sian_a01 .section.health-tip.good-product {
-  padding-bottom: calc(54 / 16 * 1rem);
+  padding-bottom: calc(50 / 16 * 1rem);
   padding-right: 0;
 }
 .sian_a01 .section.health-tip.good-product .shadow-img {
@@ -824,7 +853,7 @@ header .logo svg {
   flex-direction: column;
 }
 .member-activity-report .box1 .title-area {
-  padding: 24px 20px;
+  padding: 24px 20px 18px;
   color: #fff;
 }
 .member-activity-report .box1 .title-area .tit {
@@ -966,7 +995,7 @@ header .logo svg {
   letter-spacing: -0.2px;
 }
 .member-activity-report .box2.box3 {
-  padding-bottom: 70px;
+  padding-bottom: 78px;
 }
 .member-activity-report .box2.box4 {
   padding-bottom: 67px;
@@ -986,7 +1015,7 @@ header .logo svg {
   justify-content: center;
 }
 .member-activity-report .box2.box6 {
-  padding: 19px 17px 105px 20px;
+  padding: 24px 17px 105px 20px;
 }
 .box2.box7 {
   padding: 0;
@@ -1180,14 +1209,19 @@ header .logo svg {
   width: 226px !important;
   max-width: 226px;
 }
-.section.challenge-section.service .scroll-content {
+/* .section.challenge-section.service .scroll-content {
   gap: 12px;
   padding: calc(0 / 16 * 1rem) calc(16 / 16 * 1rem) calc(50 / 16 * 1rem) calc(0 / 16 * 1rem);
 }
 .section.challenge-section.service .title-area .tit img {
   width: 160px;
+} */
+.section.challenge-section .section.swiper-card {
+  padding: calc(2 / 16 * 1rem) calc(0 / 16 * 1rem) calc(0 / 16 * 1rem) calc(6 / 16 * 1rem);
 }
-
+.section.challenge-section.pharmacy-section .section.swiper-card {
+  padding: calc(0 / 16 * 1rem) calc(0 / 16 * 1rem) calc(0 / 16 * 1rem) calc(16 / 16 * 1rem);
+}
 .section.swiper-card-event {
   padding: calc(0 / 16 * 1rem) calc(0 / 16 * 1rem) calc(80 / 16 * 1rem);
 }
@@ -1343,9 +1377,16 @@ header .logo svg {
 .gnb__wrap.gnb__flex .home {
   gap: 5px;
   margin-right: 14px;
+  color: #1c1c1c;
+  font-family: "NanumSquare";
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 32px; /* 160% */
+  letter-spacing: -0.4px;
 }
 .gnb__wrap.gnb__flex .home .icon-earth img {
   width: 20.04px;
+  margin-right: 4px;
 }
 .gnb__wrap.gnb__flex .home .icon-earth {
   animation: icon-rotation 3s ease-in-out infinite;
@@ -1407,8 +1448,8 @@ header .logo svg {
   left: 4%;
 }
 .section.challenge-section.pharmacy-section {
-  padding-top: calc(70 / 16 * 1rem);
-  padding-bottom: calc(132 / 16 * 1rem);
+  padding-top: calc(50 / 16 * 1rem);
+  padding-bottom: calc(149 / 16 * 1rem);
 }
 .section.challenge-section.pharmacy-section .title-area {
   align-items: flex-end;
@@ -1424,12 +1465,12 @@ header .logo svg {
 }
 
 .section.knowledge-card.pt50 .tit {
-  padding-top: calc(50 / 16 * 1rem);
+  padding-top: calc(68 / 16 * 1rem);
 }
 .section.knowledge-card .show-poistion .show-msg {
   position: absolute;
-  top: -15%;
-  left: 3%;
+  top: 10%;
+  left: 4%;
 }
 .section.video {
   padding-left: calc(16 / 16 * 1rem);
@@ -1446,7 +1487,7 @@ header .logo svg {
 
 /* 모션 */
 .section.walking-world {
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
   position: relative;
 }
 .section.walking-world .walking-world-card {
@@ -1738,10 +1779,10 @@ header .logo svg {
   margin-top: 3px;
   color: #7d7c7c;
   font-family: "NanumSquare";
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  line-height: 16px;
-  letter-spacing: -0.24px;
+  line-height: 18px;
+  letter-spacing: -0.26px;
 }
 .health-story-list li .icon {
   flex: 1;
@@ -1751,25 +1792,55 @@ header .logo svg {
   /* height: 100%; */
   align-items: flex-end;
 }
-.health-story-list .icon {
+.health-story-list .icon .icon-flx {
+  display: flex;
+  width: 32px;
+  height: 25px;
+  gap: 3.39px;
+  align-items: flex-end;
 }
 .health-story-list .icon .icon01 {
-  width: 32px;
-  height: 26px;
-  background: url("./img/icon_health_story01.png") no-repeat center;
-  background-size: 32px 26px;
-  animation: short-walk 1.2s ease-in infinite;
+  width: 8.4px;
+  height: 10.66px;
+  background: url("./img/orange-bar01.png") no-repeat center;
+  background-size: 8.4px 10.66px;
+  animation: oangebar01 1.2s ease-in infinite;
   transform-origin: 50% 50%;
+  overflow-x: hidden;
+}
+.health-story-list .icon .icon01-2 {
+  width: 8.4px;
+  height: 16.95px;
+  background: url("./img/orange-bar02.png") no-repeat center;
+  background-size: 8.4px 16.95px;
+  animation: oangebar02 1.2s ease-in infinite;
+  transform-origin: 50% 50%;
+  animation-delay: 0.2s;
+}
+.health-story-list .icon .icon01-3 {
+  width: 8.4px;
+  height: 25.09px;
+  background: url("./img/orange-bar03.png") no-repeat center;
+  background-size: 8.4px 25.09px;
+  animation: oangebar03 1.2s ease-in infinite;
+  transform-origin: 50% 50%;
+  animation-delay: 0.4s;
 }
 .health-story-list .icon .icon02 {
   width: 30px;
   height: 30px;
   background: url("./img/icon_health_story02.png") no-repeat center;
   background-size: 30px 30px;
-  animation: short-walk 1.2s ease-in infinite;
+  animation: yellowicon 1.2s ease-in infinite;
   transform-origin: 50% 50%;
 }
+.health-story-list .icon .icon-pos {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
 .health-story-list .icon .icon03 {
+  display: block;
   width: 30px;
   height: 30px;
   background: url("./img/icon_health_story03.png") no-repeat center;
@@ -1777,31 +1848,88 @@ header .logo svg {
   animation: short-walk 1.2s ease-in infinite;
   transform-origin: 50% 50%;
 }
+.health-story-list .icon .icon03-1 {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: url("./img/icon_health_story03-1.png") no-repeat center;
+  background-size: 14px 14px;
+  animation: icon05 1.2s ease-in infinite;
+  transform-origin: 50% 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 .health-story-list .icon .icon04 {
   width: 30px;
   height: 30px;
   background: url("./img/icon_health_story04.png") no-repeat center;
   background-size: 30px 30px;
-  animation: short-walk 1.2s ease-in infinite;
+  animation: icon04 1.2s ease-in infinite;
   transform-origin: 50% 50%;
 }
-
-@keyframes short-walk {
+@keyframes icon05 {
   0%,
-  50% {
+  100% {
     transform: rotate(0deg);
   }
-  15% {
+  50% {
     transform: rotate(15deg);
+  }
+}
+@keyframes icon04 {
+  0%,
+  100% {
+    transform: rotate(0deg);
   }
   35% {
     transform: rotate(-15deg);
   }
 }
-
+/* @keyframes oangebar01 {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 10.66px;
+  }
+} */
+@keyframes oangebar01 {
+  0% {
+    height: 10.66px;
+  }
+  100% {
+    height: 15.66px;
+  }
+}
+@keyframes oangebar02 {
+  0% {
+    height: 16.95px;
+  }
+  100% {
+    height: 21.66px;
+  }
+}
+@keyframes oangebar03 {
+  0% {
+    height: 25.09px;
+  }
+  100% {
+    height: 30.66px;
+  }
+}
+@keyframes yellowicon {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
 .gnb__wrap.gnb__flex .icon-health img {
   width: 24px;
   animation: scales 0.5s ease-in infinite;
+  margin-right: 4px;
 }
 
 @keyframes scales {
@@ -1839,4 +1967,32 @@ header .logo svg {
   gap: 6px;
   align-items: center;
   margin-top: 4px;
+}
+.member-activity-report .box2.pd28 {
+  padding-bottom: 28px;
+}
+.walking-world video {
+  border-radius: 26px;
+  max-width: 94%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.swiper.card0100 .video__wrap {
+  position: relative;  
+  border-radius: 12px;
+  overflow: hidden;
+}
+.swiper.card0100 .video__wrap video {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 26px;
+  -moz-border-radius:12px;
+  -webkit-border-radius:12px;
+  overflow: hidden;
+}
+.w51 {
+  width: 51px;
 }

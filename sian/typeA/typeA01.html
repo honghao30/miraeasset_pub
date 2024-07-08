@@ -21,7 +21,7 @@
             <span class="icon-earth">
               <img src="./img/earth.png" alt="" />
             </span>
-            <img src="./img/top_nav01.svg" alt="홈" />
+            홈
           </a>
           <div class="gnb__flex2">
             <a href="./typeA02_healthcare02.html">헬스</a>
@@ -58,8 +58,7 @@
         <div class="section walking-world animation-enter">
           <div class="swiper card0100">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <!-- 모션 -->
+              <!-- <div class="swiper-slide">
                 <div class="walking-world-card is-animation">
                   <div class="text">
                     <img src="./img/text_walking_world_black.png" alt="걸어서 세계여행" />
@@ -97,13 +96,17 @@
                     </div>
                   </div>
                 </div>
-                <!-- //모션 -->
                 <img src="./img/temp00000.png" style="opacity: 0" alt="" />
-              </div>
+              </div> -->
               <div class="swiper-slide">
-                <a href="typeA01_walk_step01.html">
-                  <img src="./img/temp00000.png" alt="" />
-                </a>
+                <div class="video__wrap">
+                  <video playsinline autoplay muted loop>
+                    <source src="./img/vidoe_temp.mp4" type="video/mp4">
+                    <!-- <source src="./img/temp00000.ogg" type="video/ogg"> -->
+                    Your browser does not support the video tag.
+                  </video>
+                  <img src="./img/temp00000.png" style="opacity: 0" alt="" />
+                </div>
               </div>
               <div class="swiper-slide">
                 <a href="#">
@@ -188,7 +191,7 @@
         <div class="section record-list__wrap animation-enter flex-3">
           <img src="./img/card_record_list01.png" alt="" class="record_list" />
           <img src="./img/card_record_list02.png" alt="" class="record_list" />
-          <img src="./img/card_record_list03.png" alt="" class="wauto" />
+          <p class="plus-black"><img src="./img/icon_plus_black.svg" alt="" />더 보기</p>
         </div>
         <div class="section knowledge-card animation-enter pt50">
           <div class="tit show-poistion">
@@ -207,8 +210,12 @@
                 리포트 미리보기
               </div>
               <div class="icon">
-                <i class="icon01"></i>
-                <!-- <img src="./img/icon_health_story01.png" alt="" /> -->
+                <div class="icon-flx">
+                  <i class="icon01"></i>
+                  <i class="icon01-2"></i>
+                  <i class="icon01-3"></i>
+                  <!-- <img src="./img/icon_health_story01.png" alt="" /> -->
+                </div>
               </div>
             </li>
             <li>
@@ -229,8 +236,11 @@
                 쉽게 초대하기
               </div>
               <div class="icon">
-                <i class="icon03"></i>
-                <!-- <img src="./img/icon_health_story01.png" alt="" /> -->
+                <div class="icon-pos">
+                  <i class="icon03"></i>
+                  <i class="icon03-1"></i>
+                  <!-- <img src="./img/icon_health_story01.png" alt="" /> -->
+                </div>
               </div>
             </li>
             <li>
@@ -267,7 +277,7 @@
                 <!-- <li><a href="#">연금</a></li> -->
               </ul>
             </div>
-            <div class="tab-pane1s">
+            <div class="tab-pane1s health-producttab">
               <div class="tab-pane1 is-active">
                 <div class="section swiper-card">
                   <div class="swiper card01">

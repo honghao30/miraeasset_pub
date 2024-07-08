@@ -23,7 +23,7 @@
   border-radius: 16px;
 }
 .card-content__round-box.fire-wrap {
-  padding: calc(30 / 16 * 1rem) calc(32 / 16 * 1rem);
+  padding: calc(30 / 16 * 1rem) calc(0 / 16 * 1rem);
 }
 .card-content__round-box.walk-wrap .show-msg {
   position: absolute;
@@ -120,7 +120,7 @@ header {
 .goal-achievement-rate-txt {
   color: #212121;
   text-align: center;
-  font-family: "Pretendard";
+  /* font-family: "Pretendard"; */
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.18px;
@@ -130,8 +130,15 @@ header {
   margin: calc(36 / 16 * 1rem) auto;
 }
 .achievement-data .data1 {
-  font-family: "Pretendard";
-  color: #212121;
+  /* font-family: "Pretendard"; */
+  color: #757575;
+  text-align: center;
+  font-family: 'NanumSquare';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
 }
 .achievement-data .data1.fw700 {
   font-weight: 700;
