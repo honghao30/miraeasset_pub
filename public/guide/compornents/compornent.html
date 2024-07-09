@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Publish Guide System</title>
+    <link rel="stylesheet" href="../guide.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/locales/ko.js"></script>
+    
+</head>
+<body>
+    <div class="guide_wrap">
+        <div class="header__wrap">
+            <div data-include-path="../top_nav.html"></div>   
+            <div data-include-path="../site-name.html"></div>
+        </div>
+        <div class="guide-content__wrap lnb-type">
+            <div class="lnb-side__wrap">
+                <div data-include-path="./cmp_side.html"></div>
+            </div>            
+            <div class="guide-cont">
+                <div class="page_tit_h1">폼 가이드</div>
+                <div class="section">
+                    <div class="page_tit_h2">Input Basic</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="form-element__wrap">
+                            <label class="font-type-h5-bold">항목명</label>
+                            <span  class="form-element__inner input-type">
+                                <input type="text" class="font-type-h5-regular" value="" placeholder="부산 광역시" />
+                            </span>
+                        </div>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="form-element__wrap">
+                                <label class="font-type-h5-bold">항목명</label>
+                                <span  class="form-element__inner input-type">
+                                    <input type="text" class="font-type-h5-regular" value="" placeholder="부산 광역시" />
+                                </span>
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>
+                    <div class="page_tit_h2">Input disabled</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="form-element__wrap">
+                            <label class="font-type-h5-bold">비활성화</label>
+                            <span  class="form-element__inner input-type">
+                                <input type="text" class="font-type-h5-regular" value="" disabled placeholder="부산 광역시" />
+                            </span>
+                        </div>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="form-element__wrap">
+                                <label class="font-type-h5-bold">비활성화</label>
+                                <span  class="form-element__inner input-type">
+                                    <input type="text" class="font-type-h5-regular" value="" disabled placeholder="부산 광역시" />
+                                </span>
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>
+                    <div class="page_tit_h2">Input Multi</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="form-element__wrap">
+                            <label class="font-type-h5-bold">Multi Input</label>
+                            <div class="input-multi">
+                                <span  class="form-element__inner input-type">
+                                    <input type="text" class="font-type-h5-regular" value="" placeholder="젓번째 항목" />
+                                </span>
+                                <span  class="form-element__inner input-type">
+                                    <input type="text" class="font-type-h5-regular" value="" placeholder="두번째 항목" />
+                                </span>  
+                            </div>  
+                        </div>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="form-element__wrap">
+                                <label class="font-type-h5-bold">Multi Input</label>
+                                <div class="input-multi">
+                                    <span  class="form-element__inner input-type">
+                                        <input type="text" class="font-type-h5-regular"  value="" placeholder="젓번째 항목" />
+                                    </span>
+                                    <span  class="form-element__inner input-type">
+                                        <input type="text" class="font-type-h5-regular" value="" placeholder="두번째 항목" />
+                                    </span>  
+                                </div>  
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>
+                    <div class="page_tit_h2">Input Button</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="form-element__wrap">
+                            <label class="font-type-h5-bold">Input + 버튼</label>
+                            <span  class="form-element__inner input-type has-text-button">
+                                <input type="text" class="font-type-h5-regular" value="" placeholder="아이디 입력" id="code011" />
+                                <button type="button" class="btn-text-button color-blue">중복확인</button>
+                            </span>
+                        </div>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <label class="font-type-h5-bold">Input + 버튼</label>
+                            <span  class="form-element__inner input-type has-text-button">
+                                <input type="text" class="font-type-h5-regular" value="" placeholder="아이디 입력" id="code011" />
+                                <button type="button" class="btn-text-button color-blue">중복확인</button>
+                            </span>
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>
+
+                    <div class="page_tit_h2">Select box</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="form-element__wrap">
+                            <label for="code01" class="font-type-h5-bold">지점명</label>
+                            <span  class="form-element__inner select-wrap">
+                                <select class="font-type-h5-regular">
+                                    <option>항목1</option>
+                                    <option>항목2</option>
+                                    <option>항목3</option>
+                                </select>
+                            </span>
+                        </div>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="form-element__wrap">
+                                <label for="code01" class="font-type-h5-bold">지점명</label>
+                                <span  class="form-element__inner select-wrap">
+                                    <select class="font-type-h5-regular">
+                                        <option>항목1</option>
+                                        <option>항목2</option>
+                                        <option>항목3</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>      
+
+                    <div class="page_tit_h2">커스텀 셀렉트박스</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="dropdown-menu__wrap" style="width: 200px;">
+                            <button type="button" class="btn-dropdown">판매인기순</button>
+                            <ul class="dropdown_list">
+                                <li><button type="button" data-option="판매인기순">판매인기순</button></li>
+                                <li><button type="button" data-option="제품명">제품명</button></li>
+                                <li><button type="button" data-option="제조사">제조사</button></li>
+                                <li><button type="button" data-option="높은가격순">높은가격순</button></li>
+                                <li><button type="button" data-option="낮은가격순">낮은가격순</button></li>
+                            </ul>
+                        </div>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="dropdown-menu__wrap">
+                                <button type="button" class="btn-dropdown">판매인기순</button>
+                                <ul class="dropdown_list">
+                                    <li><button type="button" data-option="판매인기순">판매인기순</button></li>
+                                    <li><button type="button" data-option="제품명">제품명</button></li>
+                                    <li><button type="button" data-option="제조사">제조사</button></li>
+                                    <li><button type="button" data-option="높은가격순">높은가격순</button></li>
+                                    <li><button type="button" data-option="낮은가격순">낮은가격순</button></li>
+                                </ul>
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            **** 화살표 이미지 추가 필요
+                        </p>
+                    </div> 
+
+                    <div class="page_tit_h2">text area</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="form-element__wrap">
+                            <label for="code02" class="font-type-h5-bold">지점명</label>
+                            <span  class="form-element__inner text-area">
+                                <textarea name="" id="code02" class="font-type-h5-regular" style="height: 119px;"></textarea>  
+                                <p class="font-type-cont-regular text-count">6/1000</p>                                  
+                            </span>
+                        </div>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="form-element__wrap">
+                                <label for="code02" class="font-type-h5-bold">지점명</label>
+                                <span  class="form-element__inner text-area">
+                                    <textarea name="" id="code02" class="font-type-h5-regular" style="height: 119px;"></textarea>  
+                                    <p class="font-type-cont-regular text-count">6/1000</p>                                  
+                                </span>
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>  
+
+                    <div class="page_tit_h2">data pick(basic)</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="form-element__wrap">
+                            <label for="code01" class="font-type-h5-bold">날자선택</label>
+                            <span  class="form-element__inner input-type">
+                                <input type="text" class="font-type-h5-regular" value="" name="datepicker" placeholder="" id="datepicker" autocomplete="off" />
+                            </span>
+                        </div>
+                        <script>
+                            const elem = document.querySelector('input[name="datepicker"]');
+                            const datepicker = new Datepicker(elem, {
+                            // ...options
+                                autohide: true,
+                                format: 'yyyy-mm-dd',
+                                language: 'ko',
+                                maxDate: new Date(),
+                                todayHighlight: true,
+                            }); 
+                        </script>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="form-element__wrap">
+                                <label for="code01" class="font-type-h5-bold">날자선택</label>
+                                <span  class="form-element__inner input-type">
+                                    <input type="text" class="font-type-h5-regular" value="" name="datepicker" placeholder="" id="datepicker" autocomplete="off" />
+                                </span>
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            원본소스 : https://mymth.github.io/vanillajs-datepicker/#/
+                        </p>
+                    </div>  
+
+                    <div class="page_tit_h2">Input Multi</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="form-element__wrap">
+                            <label class="font-type-h5-bold">Multi Input</label>
+                            <div class="input-multi">
+                                <span  class="form-element__inner input-type">
+                                    <input type="text" class="font-type-h5-regular date" name="range-start" value="" placeholder="시작 일자" />
+                                </span>
+                                <span  class="form-element__inner input-type">
+                                    <input type="text" class="font-type-h5-regular date" name="range-end" value="" placeholder="종료 일자" />
+                                </span>  
+                            </div>  
+                        </div>
+                        <script>
+                            var [dp1, dp2] = Array.from(document.querySelectorAll('.date'))
+                            .map(elem => new Datepicker(elem, {                                
+                                autohide: true,
+                                format: 'yyyy-mm-dd',
+                                language: 'ko',
+                            }));
+
+                            const minRangeSpan = 2;
+                            const minDiff = (minRangeSpan - 1) * 86400000;
+                            let setting = false;
+
+                            dp1.element.addEventListener('changeDate', (ev) => {
+                            if (setting) {
+                                return;
+                            }
+                            setting = true;
+
+                            const fromDate = ev.detail.date;
+                            if (fromDate === undefined) {
+                                dp2.setDate({clear: true});
+                                setting = false;
+                                return;
+                            }
+
+                            const fromDateVal = fromDate.getTime();
+                            const minToDateVal = fromDateVal + minDiff;
+                            const toDate = dp2.getDate();
+                            if (toDate === undefined) {
+                                dp2.setDate(minToDateVal);
+                                setting = false;
+                                return;
+                            }
+
+                            const toDateVal = toDate.getTime();
+                            if (fromDateVal > toDateVal) {
+                                dp2.setDate(fromDateVal);
+                                if (fromDateVal - toDateVal < minDiff) {
+                                dp1.setDate(fromDateVal - minDiff);
+                                } else {
+                                dp1.setDate(toDateVal);
+                                }
+                            } else if (toDateVal < minToDateVal) {
+                                dp2.setDate(minToDateVal);
+                            }
+                            setting = false;
+                            });
+
+                            dp2.element.addEventListener('changeDate', (ev) => {
+                            if (setting) {
+                                return;
+                            }
+                            setting = true;
+
+                            const toDate = ev.detail.date;
+                            if (toDate === undefined) {
+                                dp1.setDate({clear: true});
+                                setting = false;
+                                return;
+                            }
+
+                            const toDateVal = toDate.getTime();
+                            const maxFromDateVal = toDateVal - minDiff;
+                            const fromDate = dp1.getDate();
+                            if (fromDate === undefined) {
+                                dp1.setDate(maxFromDateVal);
+                                setting = false;
+                                return;
+                            }
+
+                            const fromDateVal = fromDate.getTime();
+                            if (toDateVal < fromDateVal) {
+                                dp1.setDate(toDateVal);
+                                if (fromDateVal - toDateVal < minDiff) {
+                                dp2.setDate(toDateVal + minDiff);
+                                } else {
+                                dp2.setDate(fromDateVal);
+                                }
+                            } else if (fromDateVal > maxFromDateVal) {
+                                dp1.setDate(maxFromDateVal);
+                            }
+                            setting = false;
+                            });
+
+                           // document.querySelector('.help').textContent = `Minimum range span: ${minRangeSpan} day${minRangeSpan > 1 ? 's' : ''}`;
+                        </script>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="form-element__wrap">
+                                <label class="font-type-h5-bold">기간선택</label>
+                                <div class="input-multi">
+                                    <span  class="form-element__inner input-type">
+                                        <input type="text" class="font-type-h5-regular date" name="range-start" value="" placeholder="시작 일자" />
+                                    </span>
+                                    <span  class="form-element__inner input-type">
+                                        <input type="text" class="font-type-h5-regular date" name="range-end" value="" placeholder="종료 일자" />
+                                    </span>  
+                                </div>   
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>                    
+
+                    <div class="page_tit_h2">check box</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="checkbox">
+                            <input type="checkbox" id="auto"> 
+                            <label for="auto">비밀번호 저장</label>
+                        </div>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="checkbox">
+                                <input type="checkbox" id="auto"> 
+                                <label for="auto">비밀번호 저장</label>
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>                      
+
+                    <div class="page_tit_h2">radio</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <div class="radio-box">
+                            <label id="r01">
+                                <input type="radio" name="type" value="email" id="r01" checked />
+                                <span>이메일</span>
+                            </label>
+                            <label id="r02">
+                                <input type="radio" name="type" value="tel" id="r02" />
+                                <span>전화</span>
+                            </label>                                
+                        </div>
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="radio-box">
+                                <label id="r01">
+                                    <input type="radio" name="type" value="email" id="r01" checked />
+                                    <span>이메일</span>
+                                </label>
+                                <label id="r02">
+                                    <input type="radio" name="type" value="tel" id="r02" />
+                                    <span>전화</span>
+                                </label>                                
+                            </div>
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>  
+
+                    <div class="page_tit_h2">switch</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                            <div class="switch_wrap">
+                                <input type="checkbox">
+                                <label><span>항목 체크</span></label>
+                            </div>
+                            <br>
+                            <div class="switch_wrap">
+                                <input type="checkbox">
+                                <label><span class="ir-text">항목 체크</span></label>
+                            </div>                            
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <div class="switch_wrap">
+                                <input type="checkbox">
+                                <label><span>항목 체크</span></label>
+                            </div>
+                            <div class="switch_wrap">
+                                <input type="checkbox">
+                                <label><span class="ir-text">항목 체크</span></label>
+                            </div>  
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div>  
+
+                    <div class="page_tit_h2">모바일 PIN 입력 UI(기본형)</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <label class="font-type-h5-bold">PIN 입력</label>
+                        <div class="input-multi pin-code">
+                            <input maxlength="1" type="password" >
+                            <input maxlength="1" type="password" >
+                            <input maxlength="1" type="password" >
+                            <input maxlength="1" type="password" >
+                        </div>                           
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <label class="font-type-h5-bold">PIN 입력</label>
+                            <div class="input-multi pin-code">
+                                <input maxlength="1" type="password" >
+                                <input maxlength="1" type="password" >
+                                <input maxlength="1" type="password" >
+                                <input maxlength="1" type="password" >
+                            </div> 
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div> 
+
+                    <div class="page_tit_h2">모바일 PIN 입력 UI(도트형)</div>
+                    <div class="section_text_no_round">
+                        <!-- 코드 영역 -->
+                        <label class="font-type-h5-bold">PIN 입력</label>
+                        <div class="input-multi pin-dot">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>  
+                        <div class="error_text" style="display: none;">
+                            잘못 입력했습니다. 
+                        </div>    
+                        <button type="button" class="btn"  onclick="checkDotPin(1234)">입력 테스트</button>                     
+                        <!-- 코드 영역 -->
+                        <pre class="code_view">
+                            <label class="font-type-h5-bold">PIN 입력</label>
+                            <div class="input-multi pin-dot">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>  
+                            <div class="error_text" style="display: none;">
+                                잘못 입력했습니다. 
+                            </div>    
+                        </pre>  
+                        <p class="text">
+                            미리보기는 참고용이며 가이드 html 참고 바라며, 코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                        </p>
+                    </div> 
+
+                </div>
+                <div class="section">
+                    <div class="page_tit_h2">API 명세서</div>    
+                    <div class="section_text_no_round">
+                        <!-- 테이블 -->
+                        <div class="table__wrap">
+                            <table class="table table-list sm">
+                                <colgroup>
+                                    <col width="10%" />                                    
+                                    <col width="" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-l">type</td>
+                                        <td class="text-l">input type(default text / password )</td>
+                                        <td class="text-l"></td>
+                                    </tr>                                     
+                                    <tr>
+                                        <td class="text-l">size</td>
+                                        <td class="text-l">form element size(default, sm, lg)</td>
+                                        <td class="text-l"></td>
+                                    </tr>     
+                                    <tr>
+                                        <td class="text-l">disabled</td>
+                                        <td class="text-l">disable the form element</td>
+                                        <td class="text-l"></td>
+                                    </tr>                                                                                                                                                                                                                                                              
+                                </tbody>
+                            </table>
+                        </div>      
+                        <!-- 테이블 -->                         
+
+                        * form element의 기본 명세서를 제공합니다.
+                    </div>                    
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="../guide.js"></script>
+    <script src="../../front_markup/resource/js/ui_common.js"></script>
+</body>
+</html>

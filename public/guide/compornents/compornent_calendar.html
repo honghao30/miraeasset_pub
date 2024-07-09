@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Publish Guide System</title>
+    <link rel="stylesheet" href="../guide.css" />
+    <script src="https://www.riamore.net/HTML5demo/chart/LicenseKey/rMateChartH5License.js"></script>
+    <script src="https://www.riamore.net/HTML5demo/chart/rMateChartH5/JS/rMateChartH5.js"></script>
+    <link rel="stylesheet" href="https://www.riamore.net/HTML5demo/chart/rMateChartH5/Assets/Css/rMateChartH5.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/plugin/isSameOrBefore.js"></script>
+</head>
+<body>
+    <div class="guide_wrap">
+        <div class="header__wrap">
+            <div data-include-path="../top_nav.html"></div>   
+            <div data-include-path="../site-name.html"></div>
+        </div>
+        <div class="guide-content__wrap lnb-type">
+            <div class="lnb-side__wrap">
+                <div data-include-path="./cmp_side.html"></div>
+            </div>            
+            <div class="guide-cont">
+                <div class="page_tit_h1">달력 컴포넌트</div>                  
+                <div class="section">
+                    <style>
+                        input[type='date']::before {
+                        content: attr(placeholder); 
+                        width: 100%;
+                        height: 100%;
+                        }
+                        input[type='date']:valid::before {
+                        display: none; 
+                        }
+                    </style>                        
+                    <div class="form-element__wrap">
+                        <label for="code01" class="font-type-h5-bold">날자선택</label>
+                        <span  class="form-element__inner input-type">
+                            <input type="date" class="font-type-h5-regular" value="" name="datepicker"  placeholder="날짜 선택" id="datepicker" autocomplete="off" />
+                        </span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="form-element__wrap">
+                        <label for="code01" class="font-type-h5-bold">기간선택</label>
+                        <div class="input-multi">
+                            <span  class="form-element__inner input-type">
+                                <input type="date" class="font-type-h5-regular" id="startDate" value="" placeholder="젓번째 항목" />
+                            </span>
+                            <span  class="form-element__inner input-type">
+                                <input type="date" class="font-type-h5-regular"  id="endDate" value="" placeholder="두번째 항목" />
+                            </span>  
+                        </div>  
+                    </div>
+                </div>
+                <div class="section">
+                    <style>
+                        .calendar__wrap {width: 100%;}
+                        .calendar__wrap .calendar__header {display: flex;align-items: center;justify-content: center;gap: 10px;}
+                        .calendar__content  {width: 100%;}
+                        .calendar__content table {width: 100%;}
+                        .calendar__content table th {border:1px solid var(--table-border-color);text-align: center;height: 35px;}
+                        .calendar__content table td {border:1px solid var(--table-border-color);text-align: center;height: 35px;}
+                        .gray {
+                            color: #ccc; /* 회색 텍스트 색상 */
+                        }
+                        .holiday {
+                            font-weight: bold; /* 휴일 날짜 굵게 표시 */
+                            color: blue; /* 휴일 텍스트 색상 */
+                        }
+                        .calendar__content ul {display: flex;align-items: center;justify-content: space-between;}
+                        .calendar__content li {display: flex;align-items: center;justify-content: center;height: 45px;width: calc(100% / 7)}
+                    </style>
+                    
+                        <div class="page_tit_h2">월간 달력</div>
+                        <div class="calendar__wrap" id="calendarContainer">
+                            <div class="calendar__header">
+                                <button type="button">이전</button>
+                                <div class="display-data">2024년 6월 27일</div>
+                                <button type="button">다음</button>
+                            </div>
+                            <div class="calendar__content">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">일</th>
+                                            <th scope="col">월</th>
+                                            <th scope="col">화</th>
+                                            <th scope="col">수</th>
+                                            <th scope="col">목</th>
+                                            <th scope="col">금</th>
+                                            <th scope="col">토</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="show-data-layer"></div>
+                        <script>
+
+                        </script>
+                    
+                </div>                
+                <div class="section">
+                    <div class="page_tit_h2">주간 달력</div>
+                    <div class="calendar__wrap" id="calendarWeekly">
+                        <div class="calendar__header">
+                            <button type="button" id="prevWeek">이전</button>
+                            <div class="display-data">2024년 6월 27일</div>
+                            <button type="button" id="nextWeek">다음</button>
+                        </div>
+                        <div class="calendar__content">
+                            <ul id="weekDates"> </ul>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        오늘 날짜에 해당하는 값
+                    </div>
+                    <script>
+
+                    </script>                        
+                </div>
+
+                <div class="section">
+                    <div class="page_tit_h2">API 명세서</div>    
+                    <div class="section_text_no_round">
+                        <!-- 테이블 -->
+                        <div class="table__wrap">
+                            <table class="table table-list sm">
+                                <colgroup>
+                                    <col width="10%" />                                    
+                                    <col width="" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-l">type</td>
+                                        <td class="text-l">table-list / body-only</td>
+                                        <td class="text-l"></td>
+                                    </tr>                                     
+                                </tbody>
+                            </table>
+                        </div>      
+                        <!-- 테이블 -->                         
+
+                        * table 의 기본 명세서를 제공합니다.
+                    </div>                    
+                </div>                
+
+            </div>
+        </div>
+    </div>
+    <script src="../guide.js"></script>
+    <script src="../../front_markup/resource/js/calendar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6/dayjs.min.js"></script>
+</body>
+</html>

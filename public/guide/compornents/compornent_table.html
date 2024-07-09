@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Publish Guide System</title>
+    <link rel="stylesheet" href="../guide.css" />
+    <script src="https://www.riamore.net/HTML5demo/chart/LicenseKey/rMateChartH5License.js"></script>
+    <script src="https://www.riamore.net/HTML5demo/chart/rMateChartH5/JS/rMateChartH5.js"></script>
+    <link rel="stylesheet" href="https://www.riamore.net/HTML5demo/chart/rMateChartH5/Assets/Css/rMateChartH5.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="guide_wrap">
+        <div class="header__wrap">
+            <div data-include-path="../top_nav.html"></div>   
+            <div data-include-path="../site-name.html"></div>
+        </div>
+        <div class="guide-content__wrap lnb-type">
+            <div class="lnb-side__wrap">
+                <div data-include-path="./cmp_side.html"></div>
+            </div>            
+            <div class="guide-cont">
+                <div class="page_tit_h1">컴포넌트 가이드</div>
+                <div class="section">
+                    <div class="page_tit_h2">리스트형</div>    
+                    <div class="section_text_no_round">
+                        <!-- 테이블 -->
+                        <div class="table__wrap">
+                            <table class="table table-list">
+                                <colgroup>
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">이름</th>
+                                        <th scope="col">날짜</th>
+                                        <th scope="col">보험명</th>
+                                        <th scope="col">진료기록</th>
+                                        <th scope="col">링크</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>홍길동</td>
+                                        <td>2024.10.05</td>
+                                        <td>암보험</td>
+                                        <td>5</td>
+                                        <td><a href="#">바로가기</a></td>
+                                    </tr>                      
+                                </tbody>
+                            </table>
+                        </div>      
+                        <!-- 테이블 -->                          
+                        <pre class="code_view">
+                            createrTable('table-list', 9, 5);
+                        </pre>
+                        * 데이터와 연동되는 반복되는 테이블의 경우 퍼블에서는 스크립트로 제어한다.
+                    </div>                    
+                </div>
+                <script>
+                    // 화면 예시용 -- 데이터 연동시 삭제 처리
+                    const createrTable = (el, row, col) => { 
+                        const table = document.querySelector('.' + el); 
+                        const firstRow = table.querySelector('tbody tr:first-child');
+                        console.log(firstRow)
+            
+                        for (var i = 0; i < row; i++) {
+                            const tr = document.createElement('tr');
+                            for (var j = 0; j < col; j++) {
+                                const td = document.createElement('td');
+                                const numCell = firstRow.children[j];
+                                if (numCell.classList.contains('num')) {
+                                    // 'num' 클래스가 있는 경우 해당 셀의 내용을 1씩 증가시킴
+                                    const numValue = parseInt(numCell.innerText);
+                                    td.innerText = numValue + i; // 각 행마다 숫자를 증가시킴
+                                } else {
+                                    // 'num' 클래스가 없는 경우 첫 번째 행의 값을 그대로 사용
+                                    td.innerHTML = numCell.innerHTML;
+                                }
+                                tr.appendChild(td);
+                            }
+                            table.querySelector('tbody').appendChild(tr);
+                        }   
+                    }
+            
+                    createrTable('table-list', 9, 5); // 'notice-list'만 전달
+                </script>
+                <div class="section mt-8">
+                    <div class="page_tit_h2">세로형</div>    
+                    <div class="section_text_no_round">
+                        <!-- 테이블 -->
+                        <div class="table__wrap">
+                            <table class="table table-body-only">
+                                <colgroup>
+                                    <col width="20%" />
+                                    <col />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">항목</th>
+                                        <td>2024.10.05</td>
+                                    </tr>  
+                                    <tr>
+                                        <th scope="row">항목</th>
+                                        <td>2024.10.05</td>
+                                    </tr>  
+                                    <tr>
+                                        <th scope="row">항목</th>
+                                        <td>2024.10.05</td>
+                                    </tr>                                                                                              
+                                </tbody>
+                            </table>
+                        </div>      
+                        <!-- 테이블 -->                          
+                    </div>                    
+                </div>
+                <div class="section">
+                    <div class="page_tit_h2">API 명세서</div>    
+                    <div class="section_text_no_round">
+                        <!-- 테이블 -->
+                        <div class="table__wrap">
+                            <table class="table table-list sm">
+                                <colgroup>
+                                    <col width="10%" />                                    
+                                    <col width="" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-l">type</td>
+                                        <td class="text-l">table-list / body-only</td>
+                                        <td class="text-l"></td>
+                                    </tr>                                     
+                                </tbody>
+                            </table>
+                        </div>      
+                        <!-- 테이블 -->                         
+
+                        * table 의 기본 명세서를 제공합니다.
+                    </div>                    
+                </div>                
+
+            </div>
+        </div>
+    </div>
+    <script src="../guide.js"></script>
+</body>
+</html>

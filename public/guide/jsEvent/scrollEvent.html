@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Publish Guide System</title>
+    <link rel="stylesheet" href="../guide.css" />
+    <script src="https://www.riamore.net/HTML5demo/chart/LicenseKey/rMateChartH5License.js"></script>
+    <script src="https://www.riamore.net/HTML5demo/chart/rMateChartH5/JS/rMateChartH5.js"></script>
+    <link rel="stylesheet" href="https://www.riamore.net/HTML5demo/chart/rMateChartH5/Assets/Css/rMateChartH5.css"/>
+    <script src="../../front_markup/resource/bundle/tailwindcss.css"></script>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/locales/ko.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="guide_wrap">
+        <div class="header__wrap">
+            <div data-include-path="../top_nav.html"></div>   
+            <div data-include-path="../site-name.html"></div>
+        </div>
+        <div class="guide-content__wrap">         
+            <div class="guide-cont">
+                <div class="page_tit_h1">스크롤 이벤트</div>
+                <div class="section  animation-enter" scrollUp>
+                    <div class="page_tit_h2">API 명세서</div>    
+                    <div class="section_text_no_round">
+                        <!-- 테이블 -->
+                        <div class="table__wrap">
+                            <table class="table table-list sm">
+                                <colgroup>
+                                    <col width="10%" />                                    
+                                    <col width="" />                                    
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Description</th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-l">type</td>
+                                        <td class="text-l">button type(default button / submit)</td>                                        
+                                    </tr>                                     
+                                                                                                                                                                                                                                                                                                        
+                                </tbody>
+                            </table>
+                        </div>      
+                        <!-- 테이블 -->                         
+
+                        * 스크롤의 기본 명세서를 제공합니다.
+                    </div>                    
+                </div>
+
+                <section class="animation-enter" shadow-effect>
+                    <div class="section" style="height: 500px;background-color: antiquewhite;margin: 30px 0;"></div>
+                </section>
+                <section class="animation-enter"  shadow-effect>
+                    <div class="scard" style="height: 100px;background-color: #fff;border: 1px solid #ccc;margin: 30px 0;"></div>
+                </section>
+                <section class="animation-enter"  shadow-effect>
+                    <div  class="scard" style="height: 100px;background-color: #fff;border: 1px solid #ccc;margin: 30px 0;"></div>
+                </section>
+                <section class="animation-enter"  shadow-effect>
+                    <div  class="scard" style="height: 100px;background-color: #fff;border: 1px solid #ccc;margin: 30px 0;"></div>
+                </section>
+                <section class="animation-enter"  shadow-effect>
+                    <div  class="scard" style="height: 100px;background-color: #fff;border: 1px solid #ccc;margin: 30px 0;"></div>
+                </section> 
+                <section class="animation-enter"  scrollUp>
+                    <button type="button" id="startAnimationButton">시작</button>
+                    <div  class="scard" style="height: 200px;background-color: #fff;border: 1px solid #ccc;margin: 30px 0;display: flex;align-items: center;justify-content: center;gap:15px;">
+                        <div data-num="12333000" class="text-ani text-2xl font-semibold">0</div>
+                        <div data-num="15333000" class="text-ani text-2xl font-semibold">0</div>
+                        <div data-num="11333000" class="text-ani text-2xl font-semibold">0</div>
+                        <script>                            
+                            const ANIMATION_SPEED = 100;
+
+                            const animateNumbers = () => {
+                                const numberCounts = document.querySelectorAll('.text-ani');
+                                numberCounts.forEach(number => {
+                                    const num = parseInt(number.getAttribute('data-num'));
+                                    let count = 0;
+                                    const increment = Math.ceil(num / 100);
+
+                                    const updateNumber = () => {
+                                        count += increment;
+
+                                        if (count <= num) {
+                                            number.textContent = count.toLocaleString();
+                                            requestAnimationFrame(updateNumber);
+                                        } else {
+                                            number.textContent = num.toLocaleString();
+                                        }
+                                    };  
+                                    requestAnimationFrame(updateNumber);
+                                });
+                            };
+                            
+                            // document.addEventListener('DOMContentLoaded', animateNumbers);
+
+                            // 예를 들어 버튼 클릭 시에도 실행되도록 설정할 수 있습니다.
+                            const button = document.getElementById('startAnimationButton');
+                            button.addEventListener('click', animateNumbers);
+
+                        </script>
+                    </div>
+                </section>                 
+                <section class="animation-enter" scrollUp>
+                    <div id="foo"></div>
+                    <script>
+                        const elem = document.getElementById('foo');
+                        const datepicker = new Datepicker(elem, {
+                        // ...options
+                            format: 'yyyy-mm-dd',
+                            language: 'ko',
+                            maxDate: new Date(),
+                            todayHighlight: true,
+                        });
+                    </script>
+                </section>  
+                
+                <section class="animation-enter">
+                    <style>
+                        #calendar-container {
+                            max-width: 1100px;
+                            margin: 20px auto;
+                        }
+                        #datepicker {
+                            margin: 20px auto;
+                            text-align: center;
+                        }
+                        #datepicker input {
+                            padding: 10px;
+                            font-size: 1.2em;
+                        }
+                        #weekly-calendar {
+                            width: 100%;
+                            overflow-x: scroll;
+                            white-space: nowrap;
+                        }
+                        .fc-col-header-cell-cushion {
+                            display: none; /* 날짜 밑의 셀 숨기기 */
+                        }
+                        .fc-timegrid-axis, .fc-timegrid-slot-label {
+                            display: none; /* 시간표 숨기기 */
+                        }
+                        #weekly-calendar tbody {
+                            display: none;
+                        }
+                        .calendar-buttons {
+                            margin-bottom: 10px;
+                        }
+                        .calendar-buttons button {
+                            margin: 0 5px;
+                            cursor: pointer;
+                            padding: 5px 10px;
+                            background-color: #007bff;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                        }
+                    </style>                    
+                            <div id="datepicker">
+                                <label for="date-input">날짜 선택: </label>
+                                <input type="date" id="date-input">
+                            </div>
+                            <div id="calendar-container">
+                                <h2>월간 보기</h2>
+                                <div id="monthly-calendar"></div>
+                            </div>
+                            <div class="show-info">
+                                <h3 id="selected-date-info"></h3>
+                            </div>                    
+                            <div id="calendar-container">
+                                <h2>주간 보기</h2>
+                                <div id="weekly-calendar">
+                                    <div class="calendar-buttons">
+                                        <button id="prevButton">이전</button>
+                                        <button id="nextButton">다음</button>
+                                    </div>
+                                    <div id="weekly-calendar-container"></div>
+                                </div>
+                            </div>
+                            <div class="show-info">
+                                <h3 id="range-info"></h3>
+                            </div>
+                        </section>
+            
+                <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+                <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/ko.js'></script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var monthlyCalendarEl = document.getElementById('monthly-calendar');
+                        var monthlyCalendar = new FullCalendar.Calendar(monthlyCalendarEl, {
+                            initialView: 'dayGridMonth',
+                            locale: 'ko',
+                            headerToolbar: {
+                                left: 'prev,next today',
+                                center: 'title',
+                                right: ''
+                            },
+                            selectable: true,
+                            selectMirror: true,
+                            select: function(arg) {
+                                var title = prompt('이벤트 제목:');
+                                if (title) {
+                                    monthlyCalendar.addEvent({
+                                        title: title,
+                                        start: arg.start,
+                                        end: arg.end,
+                                        allDay: arg.allDay
+                                    });
+                                }
+                                monthlyCalendar.unselect();
+                            },
+                            eventClick: function(arg) {
+                                if (confirm('이 이벤트를 삭제하시겠습니까?')) {
+                                    arg.event.remove();
+                                }
+                            },
+                            editable: true,
+                            dayMaxEvents: true // allow "more" link when too many events
+                        });
+                        monthlyCalendar.render();
+            
+                        var weeklyCalendarEl = document.getElementById('weekly-calendar-container'); // 주간 달력을 렌더링할 요소
+                        var weeklyCalendar = new FullCalendar.Calendar(weeklyCalendarEl, {
+                            initialView: 'timeGridWeek',
+                            locale: 'ko',
+                            headerToolbar: {
+                                left: '',
+                                center: 'title',
+                                right: ''
+                            },
+                            views: {
+                                timeGridWeek: {
+                                    slotLabelFormat: {
+                                        hour: 'numeric',
+                                        minute: '2-digit',
+                                        omitZeroMinute: false,
+                                        meridiem: 'short'
+                                    }
+                                }
+                            },
+                            allDaySlot: false,
+                            slotMinTime: '00:00:00',
+                            slotMaxTime: '24:00:00',
+                            contentHeight: 'auto',
+                            expandRows: true,
+                            selectable: true,
+                            selectMirror: true,
+                            select: function(arg) {
+                                var title = prompt('이벤트 제목:');
+                                if (title) {
+                                    weeklyCalendar.addEvent({
+                                        title: title,
+                                        start: arg.start,
+                                        end: arg.end,
+                                        allDay: arg.allDay
+                                    });
+                                }
+                                weeklyCalendar.unselect();
+                            },
+                            eventClick: function(arg) {
+                                if (confirm('이 이벤트를 삭제하시겠습니까?')) {
+                                    arg.event.remove();
+                                }
+                            },
+                            editable: true,
+                            dayMaxEvents: true // allow "more" link when too many events
+                        });
+                        weeklyCalendar.render();
+            
+                        var dateInput = document.getElementById('date-input');
+                        dateInput.addEventListener('change', function() {
+                            var selectedDate = new Date(this.value);
+                            monthlyCalendar.gotoDate(selectedDate);
+                            weeklyCalendar.gotoDate(selectedDate);
+                        });
+            
+                        // 이전 버튼 클릭 시
+                        document.getElementById('prevButton').addEventListener('click', function() {
+                            weeklyCalendar.prev();
+                        });
+            
+                        // 다음 버튼 클릭 시
+                        document.getElementById('nextButton').addEventListener('click', function() {
+                            weeklyCalendar.next();
+                        });
+            
+                        // 주간 달력에서 날짜 선택 시
+                        weeklyCalendar.on('click', function(info) {
+                            console.log(weeklyCalendar)
+                            var clickedDate = info.startStr; // startStr을 사용하여 ISO 8601 형식의 문자열로 날짜를 가져옴
+                            document.getElementById('clicked-date-info').textContent = '클릭한 날짜: ' + new Date(clickedDate).toLocaleDateString('ko-KR');
+                        });
+                    });
+                </script>
+               
+
+            </div>
+        </div>
+        <div class="bottom-nav__wrap">
+            <button type="button">버튼1</button>
+            <button type="button">버튼2</button>
+            <button type="button">버튼3</button>
+            <button type="button">버튼4</button>
+        </div>
+    </div>
+    <script src="../guide.js"></script>
+    <script src="../../front_markup/resource/js/ui_common.js"></script>
+</body>
+</html>
