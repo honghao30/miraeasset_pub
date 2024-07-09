@@ -26,8 +26,7 @@ window.addEventListener('load', function() {
     });
     setTimeout(() => {
         const location = window.location.href;
-        const navList = document.querySelectorAll('.navgation__wrap--top li');
-        console.log(navList)
+        const navList = document.querySelectorAll('.navgation__wrap--top li');        
         if (location.includes('pub_list')) {
             navList[4].classList.add('is-active');
         } else if(location.includes('compornent')) {
@@ -41,6 +40,19 @@ window.addEventListener('load', function() {
         } else {
             return false;
         }
+
+        // 메인 url
+        // const checkUrl = window.location.href;
+        // const links = document.querySelectorAll('.navgation__wrap--top li a')
+        // console.log(links)
+        // if(!checkUrl.includes('miraeasset')) {
+        //     links.forEach(link => {
+        //         const url = link.getAttribute('href');
+        //         console.log(url);
+        //         const newUrl = url.replace('/miraeasset','');
+        //         link.setAttribute('href',newUrl);
+        //     })
+        // }        
 
     }, 200); 
     // 코드 미리보기

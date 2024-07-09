@@ -3,17 +3,22 @@
 <head>
     <meta charset="utf-8">
     <title>Publish Guide System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../guide.css" />
+
     <script src="https://www.riamore.net/HTML5demo/chart/LicenseKey/rMateChartH5License.js"></script>
     <script src="https://www.riamore.net/HTML5demo/chart/rMateChartH5/JS/rMateChartH5.js"></script>
     <link rel="stylesheet" href="https://www.riamore.net/HTML5demo/chart/rMateChartH5/Assets/Css/rMateChartH5.css"/>
-    <script src="../../front_markup/resource/bundle/tailwindcss.css"></script>
+    
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/locales/ko.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/plugin/isSameOrBefore.js"></script>
+
 </head>
 <body>
     <div class="guide_wrap">
@@ -109,198 +114,6 @@
                         </script>
                     </div>
                 </section>                 
-                <section class="animation-enter" scrollUp>
-                    <div id="foo"></div>
-                    <script>
-                        const elem = document.getElementById('foo');
-                        const datepicker = new Datepicker(elem, {
-                        // ...options
-                            format: 'yyyy-mm-dd',
-                            language: 'ko',
-                            maxDate: new Date(),
-                            todayHighlight: true,
-                        });
-                    </script>
-                </section>  
-                
-                <section class="animation-enter">
-                    <style>
-                        #calendar-container {
-                            max-width: 1100px;
-                            margin: 20px auto;
-                        }
-                        #datepicker {
-                            margin: 20px auto;
-                            text-align: center;
-                        }
-                        #datepicker input {
-                            padding: 10px;
-                            font-size: 1.2em;
-                        }
-                        #weekly-calendar {
-                            width: 100%;
-                            overflow-x: scroll;
-                            white-space: nowrap;
-                        }
-                        .fc-col-header-cell-cushion {
-                            display: none; /* 날짜 밑의 셀 숨기기 */
-                        }
-                        .fc-timegrid-axis, .fc-timegrid-slot-label {
-                            display: none; /* 시간표 숨기기 */
-                        }
-                        #weekly-calendar tbody {
-                            display: none;
-                        }
-                        .calendar-buttons {
-                            margin-bottom: 10px;
-                        }
-                        .calendar-buttons button {
-                            margin: 0 5px;
-                            cursor: pointer;
-                            padding: 5px 10px;
-                            background-color: #007bff;
-                            color: white;
-                            border: none;
-                            border-radius: 4px;
-                        }
-                    </style>                    
-                            <div id="datepicker">
-                                <label for="date-input">날짜 선택: </label>
-                                <input type="date" id="date-input">
-                            </div>
-                            <div id="calendar-container">
-                                <h2>월간 보기</h2>
-                                <div id="monthly-calendar"></div>
-                            </div>
-                            <div class="show-info">
-                                <h3 id="selected-date-info"></h3>
-                            </div>                    
-                            <div id="calendar-container">
-                                <h2>주간 보기</h2>
-                                <div id="weekly-calendar">
-                                    <div class="calendar-buttons">
-                                        <button id="prevButton">이전</button>
-                                        <button id="nextButton">다음</button>
-                                    </div>
-                                    <div id="weekly-calendar-container"></div>
-                                </div>
-                            </div>
-                            <div class="show-info">
-                                <h3 id="range-info"></h3>
-                            </div>
-                        </section>
-            
-                <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
-                <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/ko.js'></script>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        var monthlyCalendarEl = document.getElementById('monthly-calendar');
-                        var monthlyCalendar = new FullCalendar.Calendar(monthlyCalendarEl, {
-                            initialView: 'dayGridMonth',
-                            locale: 'ko',
-                            headerToolbar: {
-                                left: 'prev,next today',
-                                center: 'title',
-                                right: ''
-                            },
-                            selectable: true,
-                            selectMirror: true,
-                            select: function(arg) {
-                                var title = prompt('이벤트 제목:');
-                                if (title) {
-                                    monthlyCalendar.addEvent({
-                                        title: title,
-                                        start: arg.start,
-                                        end: arg.end,
-                                        allDay: arg.allDay
-                                    });
-                                }
-                                monthlyCalendar.unselect();
-                            },
-                            eventClick: function(arg) {
-                                if (confirm('이 이벤트를 삭제하시겠습니까?')) {
-                                    arg.event.remove();
-                                }
-                            },
-                            editable: true,
-                            dayMaxEvents: true // allow "more" link when too many events
-                        });
-                        monthlyCalendar.render();
-            
-                        var weeklyCalendarEl = document.getElementById('weekly-calendar-container'); // 주간 달력을 렌더링할 요소
-                        var weeklyCalendar = new FullCalendar.Calendar(weeklyCalendarEl, {
-                            initialView: 'timeGridWeek',
-                            locale: 'ko',
-                            headerToolbar: {
-                                left: '',
-                                center: 'title',
-                                right: ''
-                            },
-                            views: {
-                                timeGridWeek: {
-                                    slotLabelFormat: {
-                                        hour: 'numeric',
-                                        minute: '2-digit',
-                                        omitZeroMinute: false,
-                                        meridiem: 'short'
-                                    }
-                                }
-                            },
-                            allDaySlot: false,
-                            slotMinTime: '00:00:00',
-                            slotMaxTime: '24:00:00',
-                            contentHeight: 'auto',
-                            expandRows: true,
-                            selectable: true,
-                            selectMirror: true,
-                            select: function(arg) {
-                                var title = prompt('이벤트 제목:');
-                                if (title) {
-                                    weeklyCalendar.addEvent({
-                                        title: title,
-                                        start: arg.start,
-                                        end: arg.end,
-                                        allDay: arg.allDay
-                                    });
-                                }
-                                weeklyCalendar.unselect();
-                            },
-                            eventClick: function(arg) {
-                                if (confirm('이 이벤트를 삭제하시겠습니까?')) {
-                                    arg.event.remove();
-                                }
-                            },
-                            editable: true,
-                            dayMaxEvents: true // allow "more" link when too many events
-                        });
-                        weeklyCalendar.render();
-            
-                        var dateInput = document.getElementById('date-input');
-                        dateInput.addEventListener('change', function() {
-                            var selectedDate = new Date(this.value);
-                            monthlyCalendar.gotoDate(selectedDate);
-                            weeklyCalendar.gotoDate(selectedDate);
-                        });
-            
-                        // 이전 버튼 클릭 시
-                        document.getElementById('prevButton').addEventListener('click', function() {
-                            weeklyCalendar.prev();
-                        });
-            
-                        // 다음 버튼 클릭 시
-                        document.getElementById('nextButton').addEventListener('click', function() {
-                            weeklyCalendar.next();
-                        });
-            
-                        // 주간 달력에서 날짜 선택 시
-                        weeklyCalendar.on('click', function(info) {
-                            console.log(weeklyCalendar)
-                            var clickedDate = info.startStr; // startStr을 사용하여 ISO 8601 형식의 문자열로 날짜를 가져옴
-                            document.getElementById('clicked-date-info').textContent = '클릭한 날짜: ' + new Date(clickedDate).toLocaleDateString('ko-KR');
-                        });
-                    });
-                </script>
-               
 
             </div>
         </div>
@@ -312,6 +125,6 @@
         </div>
     </div>
     <script src="../guide.js"></script>
-    <script src="../../front_markup/resource/js/ui_common.js"></script>
+    <script src="../../assets/js/index.js"></script>
 </body>
 </html>

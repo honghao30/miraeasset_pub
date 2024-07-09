@@ -1,21 +1,55 @@
 const path = require('path');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
-    mode: 'production', 
-    entry: './src/js/index.js', 
+    entry: './src/js/index.js',
     output: {
-        filename: 'index.js', // 출력 파일명 설정
-        path: path.resolve(__dirname, 'public', 'assets', 'js'), // 출력 경로 설정
+        filename: 'index.js',
+        path: path.resolve(__dirname, 'public/assets/js'),
     },
     module: {
         rules: [
-        {
-            test: /\.js$/, // .js 확장자 파일에 대해서만 로더 적용
-            exclude: /node_modules/, // node_modules 폴더 제외
-            use: {
-            loader: 'babel-loader', // babel 로더 사용
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                    },
+                },
             },
-        },
         ],
     },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'public'),
+            watch: true,
+        },
+        port: 3000,
+        hot: true,
+        open: true,
+        watchFiles: ['public/**/*', 'src/**/*'],
+    },
+    plugins: [
+        new BrowserSyncPlugin(
+            {
+                host: 'localhost',
+                port: 3001,
+                proxy: 'http://localhost:3000',
+                files: [
+                    'public/**/*.html',
+                    'public/assets/css/**/*.css',
+                    'public/assets/js/**/*.js'
+                ],
+                injectChanges: true,
+                reloadDelay: 0,
+                reloadDebounce: 500,
+                reloadOnRestart: true,
+            },
+            {
+                reload: false,
+            }
+        ),
+    ],
 };

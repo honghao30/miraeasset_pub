@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 class DateRangePicker {
     constructor(startDateId, endDateId) {
         this.startDateInput = document.getElementById(startDateId);
