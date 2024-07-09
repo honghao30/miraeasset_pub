@@ -56,14 +56,14 @@
                         </div>      
                         <!-- 테이블 -->                          
                         <pre class="code_view">
-                            createrTable('table-list', 9, 5);
+                            createTable('table-list', 9, 5);
                         </pre>
                         * 데이터와 연동되는 반복되는 테이블의 경우 퍼블에서는 스크립트로 제어한다.
                     </div>                    
                 </div>
                 <script>
                     // 화면 예시용 -- 데이터 연동시 삭제 처리
-                    const createrTable = (el, row, col) => { 
+                    const createTable = (el, row, col) => { 
                         const table = document.querySelector('.' + el); 
                         const firstRow = table.querySelector('tbody tr:first-child');
                         console.log(firstRow)
@@ -87,7 +87,7 @@
                         }   
                     }
             
-                    createrTable('table-list', 9, 5); // 'notice-list'만 전달
+                    createTable('table-list', 9, 5); // 'notice-list'만 전달
                 </script>
                 <div class="section mt-8">
                     <div class="page_tit_h2">세로형</div>    
