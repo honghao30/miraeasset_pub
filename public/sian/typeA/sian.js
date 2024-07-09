@@ -19,10 +19,10 @@
     
         if (Yoffset > lastScrollTop) {
             // 스크롤 다운
-            document.querySelector('header').classList.add('fix');   
+            document.querySelector('header') && document.querySelector('header').classList.add('fix');   
         } else {
             // 스크롤 업
-            document.querySelector('header').classList.remove('fix');                     
+            document.querySelector('header') && document.querySelector('header').classList.remove('fix');                     
         }
     
         lastScrollTop = Yoffset <= 0 ? 0 : Yoffset; // 페이지가 최상단에 있을 경우 lastScrollTop을 0으로 설정
