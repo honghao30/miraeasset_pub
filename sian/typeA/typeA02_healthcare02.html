@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/plugin/isSameOrBefore.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/locale/ko.min.js"></script> -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" /> 
   </head>
   <body>
     <div class="sian__wrap">
@@ -278,7 +278,7 @@
             <div>
               <div class="bar-wrap">
                 <div class="graph">
-                  <div class="grap-info orange" style="animation-delay: 0.9s"></div>
+                  <div class="grap-info orange" style="animation-delay: 0.8s"></div>
                 </div>
               </div>
             </div>
@@ -339,7 +339,7 @@
                 <div class="description">30일 동안 하루에 15,000걸음 걷기</div>
                 <div class="bar-wrap">
                   <div class="graph">
-                    <div class="grap-info green" style="animation-delay: 0.9s"></div>
+                    <div class="grap-info green"></div>
                   </div>
                   <div class="text">35%</div>
                 </div>
@@ -373,7 +373,7 @@
                 <div class="description">2주 동안 아침에 물 한 컵 마시기</div>
                 <div class="bar-wrap">
                   <div class="graph">
-                    <div class="grap-info blue" style="animation-delay: 1s"></div>
+                    <div class="grap-info blue"></div>
                   </div>
                   <div class="text">85%</div>
                 </div>
@@ -426,7 +426,7 @@
                 <div class="description">하루에 1,100kcal 먹기</div>
                 <div class="bar-wrap">
                   <div class="graph">
-                    <div class="grap-info yellow" style="animation-delay: 1.2s"></div>
+                    <div class="grap-info yellow"></div>
                   </div>
                   <div class="text">72%</div>
                 </div>
@@ -645,7 +645,13 @@
       </div>
     </div>
     <script>
-      document.querySelectorAll(".topline").forEach((button) => {
+      document.querySelectorAll(".btm-topline").forEach((button) => {
+        button.addEventListener("click", handleToggle);
+        button.addEventListener("touchstart", handleTouchStart);
+        button.addEventListener("touchmove", handleTouchMove);
+      });
+
+      document.querySelectorAll(".btm-bigtit").forEach((button) => {
         button.addEventListener("click", handleToggle);
         button.addEventListener("touchstart", handleTouchStart);
         button.addEventListener("touchmove", handleTouchMove);
@@ -732,8 +738,12 @@
       const observer = new IntersectionObserver(handleIntersection, options);
 
       const showMsgElement = document.querySelector(".btm-cont02.show-poistion .show-msg");
+      const barElement = document.querySelector(".btm-walkdes .bar-wrap .graph .grap-info.green");
       if (showMsgElement) {
         observer.observe(showMsgElement);
+      }
+      if (barElement) {
+        observer.observe(barElement);
       }
     </script>
 

@@ -345,7 +345,7 @@ header .logo img {
   padding: calc(0 / 16 * 1rem) calc(6 / 16 * 1rem);
 }
 .insurance-list .swiper-slide {
-  width: 75vw !important;
+  width: 75vw;
 }
 
 .main-bn-section {

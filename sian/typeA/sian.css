@@ -307,7 +307,7 @@ header .logo svg {
   padding: calc(64 / 16 * 1rem) calc(20 / 16 * 1rem) 0;
 }
 .tab-pane1s.health-producttab .swiper-slide {
-  width: 85.6vw !important;
+  width: 85.6vw;
 }
 
 /* 그래프 */
@@ -533,8 +533,8 @@ header .logo svg {
 .section.user-solution-board .board-des {
   color: #616161;
   font-family: "Pretendard";
-  font-size: 12px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 18px; /* 150% */
   letter-spacing: -0.24px;
 }
@@ -564,7 +564,6 @@ header .logo svg {
 }
 .section.user-solution-board .bar-wrap .graph .grap-info.orange {
   background: linear-gradient(to bottom, #ffa14d, #fe7800);
-  animation: bar-pos3 0.5s ease forwards;
 }
 
 .section.drinking-info {
@@ -602,9 +601,9 @@ header .logo svg {
 .section.drinking-info li .info .description {
   color: #616161;
   font-family: "Pretendard";
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 18px; /* 138.462% */
   letter-spacing: -0.26px;
 }
@@ -630,15 +629,14 @@ header .logo svg {
 }
 .section.drinking-info li .info .bar-wrap .graph .grap-info.green {
   background: linear-gradient(to bottom, #66dd81, #38bd56);
-  animation: bar-pos1 0.5s ease forwards;
 }
 .section.drinking-info li .info .bar-wrap .graph .grap-info.blue {
   background: linear-gradient(to bottom, #8bd5ff, #1faeff);
-  animation: bar-pos2 0.5s ease forwards;
+  /* animation: bar-pos2 0.5s ease forwards; */
 }
 .section.drinking-info li .info .bar-wrap .graph .grap-info.yellow {
   background: linear-gradient(to bottom, #ffe580, #ffcc0a);
-  animation: bar-pos3 0.5s ease forwards;
+  /* animation: bar-pos3 0.5s ease forwards; */
 }
 .section.drinking-info li .info .bar-wrap .text {
   color: #1e1e1e;
@@ -1172,7 +1170,7 @@ header .logo svg {
   font-family: "Pretendard";
   font-size: 16px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 25px; /* 156.25% */
   letter-spacing: -0.32px;
 }
@@ -1202,8 +1200,8 @@ header .logo svg {
   padding: calc(0 / 16 * 1rem) 0 calc(6 / 16 * 1rem);
 }
 .challenge-content .scroll-box .scroll-content {
-  gap: 0px;
-  padding: 0;
+  /* gap: 0px; */
+  /* padding: 0; */
 }
 .challenge-content .scroll-box .scroll-content img {
   width: 226px !important;
@@ -1979,7 +1977,7 @@ header .logo svg {
 }
 
 .swiper.card0100 .video__wrap {
-  position: relative;  
+  position: relative;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -1987,12 +1985,32 @@ header .logo svg {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 26px;
-  -moz-border-radius:12px;
-  -webkit-border-radius:12px;
+  -moz-border-radius: 26px;
+  -webkit-border-radius: 26px;
   overflow: hidden;
 }
 .w51 {
   width: 51px;
+}
+.show-poistion .drinking-info.animation-enter.fade-in li .info {
+  display: none;
+}
+.section.user-solution-board .bar-wrap .graph .grap-info.orange {
+  background: linear-gradient(to bottom, #ffa14d, #fe7800);
+  animation: bar-pos3 0.5s ease forwards;
+  animation-delay: 0.2s;
+}
+.section.drinking-info.animation-enter.fade-in li .info .bar-wrap .graph .grap-info.green {
+  animation: bar-pos1 0.5s ease forwards;
+  animation-delay: 0.2s;
+}
+.section.drinking-info.animation-enter.fade-in li .info .bar-wrap .graph .grap-info.blue {
+  animation: bar-pos2 0.5s ease forwards;
+  animation-delay: 0.2s;
+}
+.section.drinking-info.animation-enter.fade-in li .info .bar-wrap .graph .grap-info.yellow {
+  animation: bar-pos3 0.5s ease forwards;
+  animation-delay: 0.2s;
 }

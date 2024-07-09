@@ -27,7 +27,7 @@
 }
 .card-content__round-box.walk-wrap .show-msg {
   position: absolute;
-  bottom: -50%;
+  bottom: -64%;
   right: 0;
 }
 .fs-20 {
@@ -112,7 +112,7 @@ header {
 }
 .card-content__round-box.goal-achievement-rate .show-msg {
   position: absolute;
-  bottom: -8%;
+  bottom: -11%;
   right: 0;
   z-index: 1;
   /* animation-delay: 0s !important; */
@@ -163,6 +163,7 @@ header {
 .card-content__round-box.my-care-level {
   padding: calc(40 / 16 * 1rem) calc(0 / 16 * 1rem) calc(0 / 16 * 1rem);
   overflow: hidden;
+  margin-top: 50px;
 }
 .my-level-content {
   flex: 1;
@@ -190,7 +191,7 @@ header {
 .section.my_routine .show-msg {
   width: auto !important;
   position: absolute;
-  bottom: 12.2%;
+  bottom: 4.2%;
   right: 3%;
   z-index: 1;
 }
@@ -206,7 +207,7 @@ header {
 .section.record-routine .show-msg {
   width: auto !important;
   position: absolute;
-  bottom: -5%;
+  bottom: -8%;
   right: 3%;
   z-index: 1;
 }
@@ -228,7 +229,7 @@ header {
 .section.cando-list .show-msg {
   width: auto !important;
   position: absolute;
-  bottom: -3%;
+  bottom: -8%;
   right: 5%;
   z-index: 1;
 }
@@ -282,7 +283,7 @@ header {
 .section.family-manage .show-msg {
   width: auto !important;
   position: absolute;
-  bottom: 0;
+  bottom: -5%;
   right: 3%;
   z-index: 1;
 }

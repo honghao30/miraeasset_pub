@@ -3,22 +3,35 @@
     tabMenus('.tab-content');
 
     let lastScrollTop = 0;
+    let debounceTimeout;
+    
+    // 디바운스 함수
+    const debounce = (func, wait) => {
+        return function(...args) {
+            clearTimeout(debounceTimeout);
+            debounceTimeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    };
+    
+    // 스크롤 이벤트 관리 함수
     const scrollEventManage = () => {
         const Yoffset = window.pageYOffset || document.documentElement.scrollTop;
-
+    
         if (Yoffset > lastScrollTop) {
-            // downscroll code
-            console.log("scroll Down")
-            document.querySelector('header').classList.add('fix');        
-            document.querySelector('.fnb-wrap') && document.querySelector('.fnb-wrap').classList.add('hide');
+            // 스크롤 다운
+            document.querySelector('header').classList.add('fix');   
         } else {
-            console.log("scroll Up")
-            document.querySelector('header').classList.remove('fix');        
-            document.querySelector('.fnb-wrap') && document.querySelector('.fnb-wrap').classList.remove('hide');
+            // 스크롤 업
+            document.querySelector('header').classList.remove('fix');                     
         }
-        lastScrollTop = Yoffset <= 0 ? 0 : Yoffset;
-    }
-    window.addEventListener("scroll", scrollEventManage);
+    
+        lastScrollTop = Yoffset <= 0 ? 0 : Yoffset; // 페이지가 최상단에 있을 경우 lastScrollTop을 0으로 설정
+    };
+    
+    // 스크롤 이벤트에 디바운스 적용
+    window.addEventListener("scroll", debounce(scrollEventManage, 100));
+    
+    
 
 
     // 달력 스크립트    
