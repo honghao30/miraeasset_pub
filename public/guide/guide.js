@@ -12,12 +12,12 @@ window.addEventListener('load', function() {
                     // 원본 요소를 교체
                     el.outerHTML = tempDiv.innerHTML;
                     // 새로 삽입된 스크립트를 찾아서 실행
-                    // var scripts = tempDiv.getElementsByTagName('script');
-                    // for (var i = 0; i < scripts.length; i++) {
-                    //     var script = document.createElement('script');
-                    //     script.text = scripts[i].text;
-                    //     document.body.appendChild(script);
-                    // }
+                    var scripts = tempDiv.getElementsByTagName('script');
+                    for (var i = 0; i < scripts.length; i++) {
+                        var script = document.createElement('script');
+                        script.text = scripts[i].text;
+                        document.body.appendChild(script);
+                    }
                 }
             };
             xhttp.open('GET', includePath, true);
