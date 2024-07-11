@@ -17,40 +17,41 @@
                     <div class="page_tit_h2">리스트형</div>    
                     <div class="section_text_no_round">
                         <!-- 테이블 -->
-                        <div class="table__wrap">
-                            <table class="table table-list">
-                                <colgroup>
-                                    <col width="20%" />
-                                    <col width="20%" />
-                                    <col width="20%" />
-                                    <col width="20%" />
-                                    <col width="20%" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">이름</th>
-                                        <th scope="col">날짜</th>
-                                        <th scope="col">보험명</th>
-                                        <th scope="col">진료기록</th>
-                                        <th scope="col">링크</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>홍길동</td>
-                                        <td>2024.10.05</td>
-                                        <td>암보험</td>
-                                        <td>5</td>
-                                        <td><a href="#">바로가기</a></td>
-                                    </tr>                      
-                                </tbody>
-                            </table>
-                        </div>      
+                        <div class="sample-code">
+                            <div class="table__wrap">
+                                <table class="table table-list">
+                                    <colgroup>
+                                        <col width="20%" />
+                                        <col width="20%" />
+                                        <col width="20%" />
+                                        <col width="20%" />
+                                        <col width="20%" />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">이름</th>
+                                            <th scope="col">날짜</th>
+                                            <th scope="col">보험명</th>
+                                            <th scope="col">진료기록</th>
+                                            <th scope="col">링크</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>홍길동</td>
+                                            <td>2024.10.05</td>
+                                            <td>암보험</td>
+                                            <td>5</td>
+                                            <td><a href="#">바로가기</a></td>
+                                        </tr>                      
+                                    </tbody>
+                                </table>
+                            </div>     
+                        </div> 
                         <!-- 테이블 -->                          
-                        <pre class="code_view">
-                            createTable('table-list', 9, 5);
-                        </pre>
-                        * 데이터와 연동되는 반복되는 테이블의 경우 퍼블에서는 스크립트로 제어한다.
+                        <pre class="code_view"></pre>
+
+                        * 데이터와 연동되는 반복되는 테이블의 경우 퍼블에서는 스크립트로 제어한다. createTable('table-list', 9, 5);
                     </div>                    
                 </div>
                 <script>
@@ -85,29 +86,32 @@
                     <div class="page_tit_h2">세로형</div>    
                     <div class="section_text_no_round">
                         <!-- 테이블 -->
-                        <div class="table__wrap">
-                            <table class="table table-body-only">
-                                <colgroup>
-                                    <col width="20%" />
-                                    <col />
-                                </colgroup>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">항목</th>
-                                        <td>2024.10.05</td>
-                                    </tr>  
-                                    <tr>
-                                        <th scope="row">항목</th>
-                                        <td>2024.10.05</td>
-                                    </tr>  
-                                    <tr>
-                                        <th scope="row">항목</th>
-                                        <td>2024.10.05</td>
-                                    </tr>                                                                                              
-                                </tbody>
-                            </table>
-                        </div>      
-                        <!-- 테이블 -->                          
+                        <div class="sample-code">
+                            <div class="table__wrap">
+                                <table class="table table-body-only">
+                                    <colgroup>
+                                        <col width="20%" />
+                                        <col />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">항목</th>
+                                            <td>2024.10.05</td>
+                                        </tr>  
+                                        <tr>
+                                            <th scope="row">항목</th>
+                                            <td>2024.10.05</td>
+                                        </tr>  
+                                        <tr>
+                                            <th scope="row">항목</th>
+                                            <td>2024.10.05</td>
+                                        </tr>                                                                                              
+                                    </tbody>
+                                </table>
+                            </div>    
+                        </div>  
+                        <!-- 테이블 -->     
+                        <pre class="code_view"></pre>                     
                     </div>                    
                 </div>
                 <div class="section">
@@ -147,5 +151,6 @@
         </div>
     </div>
     <script src="../guide.js"></script>
+    <script src="../../assets/js/ui_common.js"></script>
 </body>
 </html>

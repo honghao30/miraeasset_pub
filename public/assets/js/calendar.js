@@ -1,4 +1,5 @@
-import dayjs from 'dayjs'
+// import dayjs from 'dayjs'
+
 class DateRangePicker {
     constructor(startDateId, endDateId) {
         this.startDateInput = document.getElementById(startDateId);
@@ -175,14 +176,19 @@ const addUserDataToCell = (cell, date) => {
 
 // 페이지 로드 시 createMonthlyCalendar 함수 호출
 createMonthlyCalendar('calendarContainer');
-// 주간
+
+
+// 달력 스크립트    
 const createWeeklyCalendar = (containerId) => {
     const container = document.getElementById(containerId);
 
     if (!container) {
-        console.error(`Element with id '${containerId}' not found.`);
+        // console.error(`Element with id '${containerId}' not found.`);
         return;
     }
+
+    // Day.js 한국어 로케일 설정
+    dayjs.locale('ko');
 
     // Day.js 플러그인 로드
     dayjs.extend(window.dayjs_plugin_isSameOrBefore);
@@ -190,12 +196,12 @@ const createWeeklyCalendar = (containerId) => {
     let currentDate = dayjs();
     displayWeeklyCalendar(currentDate);
 
-    container.querySelector('#prevWeek').addEventListener('click', function () {
+    container.querySelector('#prevWeek') && container.querySelector('#prevWeek').addEventListener('click', function () {
         currentDate = currentDate.subtract(1, 'week');
         displayWeeklyCalendar(currentDate);
     });
 
-    container.querySelector('#nextWeek').addEventListener('click', function () {
+    container.querySelector('#nextWeek') && container.querySelector('#nextWeek').addEventListener('click', function () {
         currentDate = currentDate.add(1, 'week');
         displayWeeklyCalendar(currentDate);
     });
@@ -214,19 +220,29 @@ const createWeeklyCalendar = (containerId) => {
         while (day.isSameOrBefore(endOfWeek)) {
             const listItem = document.createElement('li');
             const link = document.createElement('a');
+
             const dayDiv = document.createElement('div');
             dayDiv.classList.add('day');
             dayDiv.textContent = ` ${day.date()}`;
 
+            const weekLabel = document.createElement('div');
+            weekLabel.classList.add('label');
+            weekLabel.textContent = day.format('ddd'); // 한글 요일 추가
+
             // 일요일(0)과 토요일(6) 체크하여 'holiday' 클래스 추가
             if (day.day() === 0 || day.day() === 6) {
-                dayDiv.classList.add('holiday');
+                link.classList.add('holiday');
             }
 
-            link.href = '#';
-            link.appendChild(dayDiv);
+            link.href = '#none';
+            link.appendChild(weekLabel); // 요일 먼저 추가
+            link.appendChild(dayDiv); // 날짜 추가
             listItem.appendChild(link);
             weekDatesList.appendChild(listItem);
+
+            // 오늘 날짜 출력
+            const today = dayjs().format('YYYY-MM-DD');
+            document.querySelector('.detail-section .detail-day').innerText = today;    
 
             // 사용자 데이터 추가
             addUserDataToWeeklyLink(link);
@@ -239,22 +255,33 @@ const createWeeklyCalendar = (containerId) => {
                 });
             })(day);
 
+            // 오늘 날짜 체크하여 'today' 클래스 추가
+            if (day.isSame(dayjs(), 'day')) {
+                link.classList.add('today');
+            }
+
             day = day.add(1, 'day');
         }
     }
 };
 
 const handleWeeklyLinkClick = (day) => {
-    const selectedDay = day.format('YYYYMMDD');
-    document.querySelector('.detail-section').innerText = `${selectedDay} 일 등록한 모든 데이터`;
+    const selectedDay = day.format('YYYY-MM-DD');
+    const today = dayjs().format('YYYY-MM-DD');  // 여기서 today 변수 정의
+
+    if (selectedDay === today) {
+        document.querySelector('.detail-section').innerText = '오늘';
+    } else {
+        document.querySelector('.detail-section').innerText = selectedDay;
+    }
 };
 
-const addUserDataToWeeklyLink = (link) => {
+const addUserDataToWeeklyLink = (link) => {    
     const userData = document.createElement('div');
-    userData.classList.add('heart');
-    userData.textContent = '♣5♣'; // API에서 받은 데이터로 설정
-    link.appendChild(userData);
+    userData.classList.add('dot');
+    userData.textContent = ''; // API에서 받은 데이터로 설정
+    link.parentElement.appendChild(userData);
 };
-createWeeklyCalendar('calendarWeekly');
 
+createWeeklyCalendar('calendarWeekly');
 

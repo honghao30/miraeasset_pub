@@ -267,3 +267,100 @@ padding: 0 calc(6 / 16 * 1rem);
 .tab-pane1.is-active {
 display: block;
 }
+
+
+/* 주간 달력 */
+.calendar__wrap {
+    width: 100%;
+}
+.calendar__wrap .calendar__header {
+margin-top: calc(20 / 16 * 1rem);
+}
+.calendar__wrap .calendar__header .display-data {
+font-size: 16px;
+font-weight: 500;
+color: #242424;
+}
+.calendar__content {
+margin-top: calc(10 / 16 * 1rem);
+}
+.calendar__content ul {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.calendar__content li {
+width: calc(100% / 7);
+flex-direction: column;
+}
+.calendar__content li a {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+border-radius: 30px;
+height: 66.948px;
+background: #fff;
+}
+.calendar__content li .day {
+font-family: "Pretendard";
+color: #000;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: -0.32px;
+}
+.calendar__content li .label {
+color: #969696;
+text-align: center;
+font-family: "NanumSquare";
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: -0.24px;
+margin-bottom: 4px;
+}
+.calendar__content li a.today {
+background-color: #f58220;
+color: #fff;
+}
+.calendar__content li a.holiday .label {
+    color:red
+}
+.calendar__content li a.today .day,
+.calendar__content li a.today .label {
+color: #fff;
+}
+.detail-section {
+border-top: 1px solid #eaeaea;
+padding: 23px 16px;
+}
+.calendar__content li .dot {
+width: 7px;
+height: 7px;
+background-color: #f58220;
+border-radius: 50%;
+}
+.detail-day {
+color: #242424;
+font-size: 16px;
+font-weight: 500;
+margin-bottom: 12px;
+}
+.detail-section img {
+width: 183px;
+}
+.calendar__content .button__wrap {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 6px 0px;
+}
+.calendar__content .button__wrap img {
+width: 61px;
+}
+.calendar__content li .dot {
+margin: 8px auto 20px;
+}

@@ -64,7 +64,7 @@
 .site-name__wrap h1 {font-size: 26px;}
 .site-name__wrap .site-info {font-size: 16px;line-height: 16px;}
 
-.code_view { background-color: #ececec;margin: 16px 0; padding: 0; border-radius: 5px; overflow: auto; white-space: pre; font-family: monospace;position: relative;border: 1px solid #ccc;display: flex;flex-direction: column; } 
+.code_view { background-color: #ececec;margin: 16px 0; padding: 0; border-radius: 5px; overflow: auto; white-space: pre; font-family: monospace;position: relative;border: 1px solid #ccc;display: flex;flex-direction: column; white-space: break-spaces;} 
 .code_view::before {content: '';position: absolute;left:30px;top: 0;width: 1px;height: 100%;background: #ccc;}
 .code_line { display: block; height: 35px;line-height: 35px; } 
 .line_number { display: inline-block; width: 30px; text-align: center; margin-right: 20px; color: #888; }
