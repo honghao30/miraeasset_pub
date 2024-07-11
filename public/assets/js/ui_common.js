@@ -306,40 +306,38 @@ const ScrollEnterMain = () => {
 };
 
 ScrollEnterMain();
+
 let isAnimated = false;
 
 const displayAnimation = () => {
+    animateNumbers();
     if (!isAnimated) {
         animateNumbers();
-        isAnimated = true;
+        // isAnimated = true;
     }
 };
 // 위 아래 구분을 위한 스크립트
-// let lastScrollTop = 0;
-// const scrollEventManage = () => {
-// const Yoffset = window.pageYOffset || document.documentElement.scrollTop;
+let lastScrollTop = 0;
+const scrollEventManage = () => {
+const Yoffset = window.pageYOffset || document.documentElement.scrollTop;
 
-// if (Yoffset > lastScrollTop) {
-//     // downscroll code
-//     console.log("scroll Down")
-//     onDownScroll();
-// } else {
-//     console.log("scroll Up")
-//     onUpScroll();
-// }
-// lastScrollTop = Yoffset <= 0 ? 0 : Yoffset;
-// }
-// window.addEventListener("scroll", scrollEventManage);
+if (Yoffset > lastScrollTop) {
+    // downscroll code
+    console.log("scroll Down")
+    onDownScroll();
+} else {
+    console.log("scroll Up")
+    onUpScroll();
+}
+lastScrollTop = Yoffset <= 0 ? 0 : Yoffset;
+}
+window.addEventListener("scroll", scrollEventManage);
 // 위 아래 구분을 위한 스크립트====================
 
-// const onDownScroll = () => {
-    // Additional downscroll logic
-    // This function will be called when scrolling down
-    // Add your additional downscroll actions here
-// }
+const onDownScroll = () => {
+    
+}
 
-// const onUpScroll = () => {
-    // Additional upscroll logic
-    // This function will be called when scrolling up
-    // Add your additional upscroll actions here
-// }
+const onUpScroll = () => {
+
+}

@@ -76,42 +76,10 @@
                     <div  class="scard" style="height: 100px;background-color: #fff;border: 1px solid #ccc;margin: 30px 0;"></div>
                 </section> 
                 <section class="animation-enter"  scrollUp>
-                    <button type="button" id="startAnimationButton">시작</button>
                     <div  class="scard" style="height: 200px;background-color: #fff;border: 1px solid #ccc;margin: 30px 0;display: flex;align-items: center;justify-content: center;gap:15px;">
                         <div data-num="12333000" class="text-ani text-2xl font-semibold">0</div>
                         <div data-num="15333000" class="text-ani text-2xl font-semibold">0</div>
                         <div data-num="11333000" class="text-ani text-2xl font-semibold">0</div>
-                        <script>                            
-                            const ANIMATION_SPEED = 100;
-
-                            const animateNumbers = () => {
-                                const numberCounts = document.querySelectorAll('.text-ani');
-                                numberCounts.forEach(number => {
-                                    const num = parseInt(number.getAttribute('data-num'));
-                                    let count = 0;
-                                    const increment = Math.ceil(num / 100);
-
-                                    const updateNumber = () => {
-                                        count += increment;
-
-                                        if (count <= num) {
-                                            number.textContent = count.toLocaleString();
-                                            requestAnimationFrame(updateNumber);
-                                        } else {
-                                            number.textContent = num.toLocaleString();
-                                        }
-                                    };  
-                                    requestAnimationFrame(updateNumber);
-                                });
-                            };
-                            
-                            // document.addEventListener('DOMContentLoaded', animateNumbers);
-
-                            // 예를 들어 버튼 클릭 시에도 실행되도록 설정할 수 있습니다.
-                            const button = document.getElementById('startAnimationButton');
-                            button.addEventListener('click', animateNumbers);
-
-                        </script>
                     </div>
                 </section>                 
 
@@ -125,6 +93,6 @@
         </div>
     </div>
     <script src="../guide.js"></script>
-    <script src="../../assets/js/index.js"></script>
+    <script src="../../assets/js/ui_common.js"></script>
 </body>
 </html>

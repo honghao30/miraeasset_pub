@@ -42,19 +42,32 @@ window.addEventListener('load', function() {
         }
 
         // 메인 url
-        // const checkUrl = window.location.href;
-        // const links = document.querySelectorAll('.navgation__wrap--top li a')
-        // console.log(links)
-        // if(!checkUrl.includes('miraeasset')) {
-        //     links.forEach(link => {
-        //         const url = link.getAttribute('href');
-        //         console.log(url);
-        //         const newUrl = url.replace('/miraeasset','');
-        //         link.setAttribute('href',newUrl);
-        //     })
-        // }        
+        const checkUrl = window.location.href;
+        const links = document.querySelectorAll('.navgation__wrap--top li a')
+        console.log(links)
+        if(!checkUrl.includes('miraeasset')) {
+            links.forEach(link => {
+                const url = link.getAttribute('href');
+                console.log(url);
+                const newUrl = url.replace('/miraeasset','');
+                link.setAttribute('href',newUrl);
+            })
+        } 
 
+        const lnbList = document.querySelectorAll('.lnb_list li a');
+        const nowUrl = window.location.href;
+        const fileName = nowUrl.match(/\/([^\/]+\.html)$/)[1];
+        lnbList.forEach((el) => {
+            let elLink = el.href;
+            let urlMatch = elLink.match(/\/([^\/]+\.html)$/);      
+            let urlName = urlMatch ? urlMatch[1] : null;
+            console.log('비교 파일명', fileName, '주소', urlName);  
+            if (fileName === urlName) {
+                el.parentNode.classList.add('is-active');
+            }
+        });        
     }, 200); 
+    
     // 코드 미리보기
     const convertCodeSamples = () => {
         const codeSamples = document.querySelectorAll('.sample-code');
