@@ -268,6 +268,55 @@ padding: 0 calc(6 / 16 * 1rem);
 display: block;
 }
 
+/* /주간 달력 */
+.calendar__wrap {width: 100%;}
+.calendar__wrap .calendar__header {display: flex;align-items: center;justify-content: center;gap: 10px;}
+.calendar__content  {width: 100%;}
+.calendar__content table {width: 100%;}
+.calendar__content table th {
+    border:0;
+    border-bottom: 1px solid #EAEAEA;
+    text-align: center;
+    height: 50px;
+
+    font-family: 'Pretendard';
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    letter-spacing: -0.01em;
+    text-align: center;
+}
+.calendar__content table td {
+    border:0;
+    text-align: center;
+    height: 85px;
+
+    font-family: 'Pretendard';
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    letter-spacing: -0.01em;
+    text-align: center;
+}
+.gray {color: #ccc;}
+
+.calendar__content table th.holiday,
+.calendar__content table td.holiday {
+    color:red;
+}
+.calendar__content table td a {
+    padding: 10px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+}
+.calendar__content table td.today a {
+    background-color: #f58220;
+    color: #fff;
+
+}
 /* 주간 달력 */
 .calendar__wrap {
     width: 100%;
@@ -325,23 +374,19 @@ margin-bottom: 4px;
 background-color: #f58220;
 color: #fff;
 }
-.calendar__content li a.holiday .label {
+.calendar__content li a.holiday .label,
+.calendar__content li a.holiday .day {
     color:red
 }
 .calendar__content li a.today .day,
 .calendar__content li a.today .label {
-color: #fff;
+    color: #fff;
 }
 .detail-section {
-border-top: 1px solid #eaeaea;
-padding: 23px 16px;
+    border-top: 1px solid #eaeaea;
+    padding: 23px 16px;
 }
-.calendar__content li .dot {
-width: 7px;
-height: 7px;
-background-color: #f58220;
-border-radius: 50%;
-}
+
 .detail-day {
 color: #242424;
 font-size: 16px;
@@ -360,6 +405,26 @@ padding: 6px 0px;
 .calendar__content .button__wrap img {
 width: 61px;
 }
-.calendar__content li .dot {
-margin: 8px auto 20px;
+.health-data-wrap:not(:empty) {
+    margin: 10px 0;
+}
+.health-data-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+.health-data-wrap .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+}
+.health-data-wrap .dot.type-meal {
+    background: #F48221;    
+}
+.health-data-wrap .dot.type-work-out {
+    background: #7CE778;
+
+}
+.health-data-wrap .dot.type-nutrition {
+    background: #5CA7FF;
 }

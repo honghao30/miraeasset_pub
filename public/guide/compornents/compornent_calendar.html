@@ -14,16 +14,6 @@
             <div class="guide-cont">
                 <div class="page_tit_h1">달력 컴포넌트</div>                  
                 <div class="section">
-                    <style>
-                        input[type='date']::before {
-                        content: attr(placeholder); 
-                        width: 100%;
-                        height: 100%;
-                        }
-                        input[type='date']:valid::before {
-                        display: none; 
-                        }
-                    </style>                        
                     <div class="form-element__wrap">
                         <label for="code01" class="font-type-h5-bold">날자선택</label>
                         <span  class="form-element__inner input-type">
@@ -45,18 +35,6 @@
                     </div>
                 </div>
                 <div class="section">
-                    <style>
-                        .calendar__wrap {width: 100%;}
-                        .calendar__wrap .calendar__header {display: flex;align-items: center;justify-content: center;gap: 10px;}
-                        .calendar__content  {width: 100%;}
-                        .calendar__content table {width: 100%;}
-                        .calendar__content table th {border:1px solid var(--table-border-color);text-align: center;height: 35px;}
-                        .calendar__content table td {border:1px solid var(--table-border-color);text-align: center;height: 35px;}
-                        .gray {
-                            color: #ccc; /* 회색 텍스트 색상 */
-                        }
-                    </style>
-                    
                         <div class="page_tit_h2">월간 달력</div>
                         <div class="calendar__wrap" id="calendarContainer">
                             <div class="calendar__header">
@@ -68,13 +46,13 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th scope="col">일</th>
+                                            <th scope="col" class="holiday">일</th>
                                             <th scope="col">월</th>
                                             <th scope="col">화</th>
                                             <th scope="col">수</th>
                                             <th scope="col">목</th>
                                             <th scope="col">금</th>
-                                            <th scope="col">토</th>
+                                            <th scope="col" class="holiday">토</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -92,10 +70,8 @@
                 <div class="section">
                     <div class="page_tit_h2">주간 달력</div>
                     <div class="calendar__wrap" id="calendarWeekly">
-                        <div class="calendar__header">
-                            <button type="button" id="prevWeek">이전</button>
-                            <div class="display-data">2024년 6월 27일</div>
-                            <button type="button" id="nextWeek">다음</button>
+                        <div class="calendar__header">                            
+                            <div class="display-data">2024년 6월 27일</div>                            
                         </div>
                         <div class="calendar__content">
                             <ul id="weekDates"> </ul>
