@@ -216,3 +216,54 @@ body.modal-open {height: 100%;overflow: hidden;}
 .modal__wrap--bg.type-bottom.is-active .modal__wrap { bottom: 0; opacity: 1;}
 .modal__wrap--bg.type-right .modal__wrap {bottom: -100%; transition: right 0.3s, opacity 0.3s; right: -100%;top:0; width: 100%; opacity: 0;}
 .modal__wrap--bg.type-right.is-active .modal__wrap { right: 0; opacity: 1;width: 50%;}
+
+/* 탭 */
+.tab-btns {
+    padding: calc(12 / 16 * 1rem) calc(16 / 16 * 1rem);
+    overflow: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.tab-btns::-webkit-scrollbar {
+display: none; /* Chrome, Safari, Opera*/
+}
+.tab-btns .tab-button-list {
+display: flex;
+align-items: center;
+gap: 6px;
+}
+.tab-btns .tab-button-list li {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.tab-btns .tab-button-list li a:hover,
+.tab-btns .tab-button-list li a:focus,
+.tab-btns .tab-button-list li.is-active a {
+background-color: #f58220;
+color: #fff;
+}
+.tab-btns .tab-button-list li a:focus {
+border: 0;
+}
+.tab-btns .tab-button-list li a {
+padding: 10px 20px;
+border-radius: 50px;
+background: #f8f9fc;
+color: #8b929a;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+white-space: nowrap;
+font-family: "NanumSquare";
+}
+.tab-pane1s img {
+width: 100%;
+}
+.tab-pane1 {
+display: none;
+padding: 0 calc(6 / 16 * 1rem);
+}
+.tab-pane1.is-active {
+display: block;
+}

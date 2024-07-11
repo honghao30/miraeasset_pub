@@ -110,6 +110,7 @@ function tabMenus(tabGroupSelector) {
         tabPanes[index].classList.add('is-active');
     }
 }
+tabMenus('.tab-content');
 
 // UUID생성
 const generateUniqueId = () => {
