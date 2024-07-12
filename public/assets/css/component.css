@@ -35,6 +35,22 @@
 .pin-code input[type="password"] { background-color: #fff; border: none; border-bottom: thin solid gray; width: 20px; font-size: 24px; margin-bottom: 20px; margin-right: 5px;}
 .pin-dot .dot {width: 10px; height: 10px; background: darkgrey; border-radius: 100%; margin: 0 5px;display: inline-flex;}
 .pin-dot .dot.is-active {background: rgba(0,0,0,0.7);}
+.form-element__wrap .range-option__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+    width: 100%;
+}
+.form-element__wrap .range-option__wrap .radio-box {
+    width: fit-content;
+    white-space: nowrap;
+    width: 50%;
+}
+.form-element__wrap .range-option__wrap .input-multi {
+    flex:1;
+    justify-content: flex-end;
+}
+
 
 /* switch */
 .switch_wrap {position: relative;font-size: 14px;font-weight: 300;line-height: 14px;display: flex;align-items: center;}

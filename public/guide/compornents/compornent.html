@@ -162,7 +162,7 @@
                                     <label for="code02" class="font-type-h5-bold">지점명</label>
                                     <span  class="form-element__inner text-area">
                                         <textarea name="" id="code02" class="font-type-h5-regular" style="height: 119px;"></textarea>  
-                                        <p class="font-type-cont-regular text-count"><span class="count">0</span> / <span class="total">1000</span></p>                                  
+                                        <p class="font-type-cont-regular text-count"><span class="count">0</span> / <span class="total">1000</span> 1000</p>                                  
                                     </span>
                                 </div>
                             </div>
@@ -217,7 +217,7 @@
                         <div class="sample-code">
                             <div class="switch_wrap">
                                 <input type="checkbox">
-                                <label><span>항목 체크</span></label>
+                                <label><span>텍스트가 나오는 케이스</span></label>
                             </div>
                             <br>
                             <div class="switch_wrap">
@@ -236,12 +236,12 @@
                     <div class="section_text_no_round">
                         <!-- 코드 영역 -->
                         <div class="sample-code">
-                        <label class="font-type-h5-bold">PIN 입력</label>
+                        <label class="font-type-h5-bold">PIN 입력1</label>
                             <div class="input-multi pin-code">
-                                <input maxlength="1" type="password" >
-                                <input maxlength="1" type="password" >
-                                <input maxlength="1" type="password" >
-                                <input maxlength="1" type="password" >
+                                <input maxlength="1" class="pin-input" type="password" >
+                                <input maxlength="1" class="pin-input" type="password" >
+                                <input maxlength="1" class="pin-input"  type="password" >
+                                <input maxlength="1" class="pin-input" type="password" >
                             </div>    
                         </div>                       
                         <!-- 코드 영역 -->
@@ -255,8 +255,8 @@
                     <div class="section_text_no_round">
                         <!-- 코드 영역 -->
                         <div class="sample-code">
-                            <label class="font-type-h5-bold">PIN 입력</label>
-                            <div class="input-multi pin-dot">
+                            <label class="font-type-h5-bold">PIN 입력2</label>
+                            <div class="input-multi pin-dot" id="target">
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                                 <span class="dot"></span>
@@ -270,7 +270,9 @@
                         <!-- 코드 영역 -->
                         <pre class="code_view"> </pre>  
                         <p class="text">
-                            코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.
+                            코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.<br>
+                            솔루션이 아닌 경우 참고해서 커스텀 https://taeseungryu.github.io/sample/sampleView/keypad/keypad.html
+
                         </p>
                     </div> 
 
@@ -324,5 +326,6 @@
     </div>
     <script src="../guide.js"></script>
     <script src="../../assets/js/ui_common.js"></script>
+    <script src="../../assets/js/keypad.js"></script>
 </body>
 </html>

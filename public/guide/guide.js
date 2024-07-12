@@ -87,8 +87,7 @@ window.addEventListener('load', function() {
         const codeSamples = document.querySelectorAll('.sample-code');
         codeSamples.forEach(code => {
             let originCode = code.innerHTML;
-            originCode = originCode.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            console.log('기존', originCode);
+            originCode = originCode.replace(/</g, '&lt;').replace(/>/g, '&gt;');            
             const previewArea = code.nextElementSibling;
             previewArea.innerHTML = originCode;
         });

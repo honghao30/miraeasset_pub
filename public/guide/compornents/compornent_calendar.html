@@ -12,10 +12,10 @@
                 <div data-include-path="./cmp_side.html"></div>
             </div>            
             <div class="guide-cont">
-                <div class="page_tit_h1">달력 컴포넌트</div>                  
+                <div class="page_tit_h1">기본 달력 컴포넌트</div>                  
                 <div class="section">
                     <div class="form-element__wrap">
-                        <label for="code01" class="font-type-h5-bold">날자선택</label>
+                        <label for="code01" class="font-type-h5-bold">날자선택(기본)</label>
                         <span  class="form-element__inner input-type">
                             <input type="date" class="font-type-h5-regular" value="" name="datepicker"  placeholder="날짜 선택" id="datepicker" autocomplete="off" />
                         </span>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="section">
                     <div class="form-element__wrap">
-                        <label for="code01" class="font-type-h5-bold">기간선택</label>
+                        <label for="code01" class="font-type-h5-bold">기간선택(기본)</label>
                         <div class="input-multi">
                             <span  class="form-element__inner input-type">
                                 <input type="date" class="font-type-h5-regular" id="startDate" value="" placeholder="젓번째 항목" />
@@ -35,11 +35,44 @@
                     </div>
                 </div>
                 <div class="section">
+                    <div class="form-element__wrap">
+                        <label for="code01" class="font-type-h5-bold">기간선택(기본2)</label>
+                        <div class="range-option__wrap">
+                            <div class="radio-box">
+                                <label>
+                                    <input type="radio" name="type" value="1week" />
+                                    <span>1주일</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="type" value="1month" />
+                                    <span>1개월</span>
+                                </label>       
+                                <label>
+                                    <input type="radio" name="type" value="3month" />
+                                    <span>3개월</span>
+                                </label>   
+                                <label>
+                                    <input type="radio" name="type" value="6month" />
+                                    <span>6개월</span>
+                                </label>                                                                                        
+                            </div>  
+                            <div class="input-multi">
+                                <span  class="form-element__inner input-type">
+                                    <input type="date" class="font-type-h5-regular" id="startDate2" value="" placeholder="젓번째 항목" />
+                                </span>
+                                <span  class="form-element__inner input-type">
+                                    <input type="date" class="font-type-h5-regular"  id="endDate2" value="" placeholder="두번째 항목" />
+                                </span>  
+                            </div>                              
+                        </div>
+                    </div>
+                </div>                
+                <div class="section">
                         <div class="page_tit_h2">월간 달력</div>
                         <div class="calendar__wrap" id="calendarContainer">
                             <div class="calendar__header">
                                 <button type="button">이전</button>
-                                <div class="display-data">2024년 6월 27일</div>
+                                <div class="display-data"></div>
                                 <button type="button">다음</button>
                             </div>
                             <div class="calendar__content">

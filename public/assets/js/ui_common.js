@@ -309,11 +309,33 @@ let isAnimated = false;
 
 const displayAnimation = () => {
     animateNumbers();
+    backgroundChange();
     if (!isAnimated) {
         animateNumbers();
         // isAnimated = true;
     }
 };
+
+// 임시로 배경색변화를 만든 코드
+const backgroundChange = () => {
+    console.log('배경색 변화');
+    const bgElement = document.querySelector('.bg-change');
+    if (isElementInCenter(bgElement)) {
+        bgElement.style.backgroundColor = 'blue';
+    } else {
+        bgElement.style.backgroundColor = 'red';
+    }
+}
+const isElementInCenter = (el) => {
+    const elementRect = el.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const elementTop = elementRect.top;
+    const elementBottom = elementRect.bottom;
+
+    return elementTop <= viewportHeight / 3 && elementBottom >= viewportHeight / 3;
+};
+// ///임시로 배경색변화를 만든 코드
+
 // 위 아래 구분을 위한 스크립트
 let lastScrollTop = 0;
 const scrollEventManage = () => {
@@ -366,6 +388,7 @@ const checkInputFocus = () => {
     });
 };
 
+// text area 글자수 체크
 const checkTextArea = () => {
     const textareas = document.querySelectorAll('.form-element__inner textarea');
     textareas.forEach((textarea) => {
@@ -383,6 +406,22 @@ const checkTextArea = () => {
         });
     });
 }
+
+const focusNextInputOnMaxLength = (inputItems) => {
+    const inputs = document.querySelectorAll(inputItems);
+    console.log(inputs);
+    inputs.forEach((input, index, array) => {
+        input.addEventListener('input', () => {
+            if (input.value.length === parseInt(input.maxLength)) {
+                if (index < array.length - 1) {
+                    array[index + 1].focus();
+                }
+            }
+        });
+    });
+};
+
+focusNextInputOnMaxLength('.pin-code input');
 
 tabMenus('.tab-content');
 checkLabel()
