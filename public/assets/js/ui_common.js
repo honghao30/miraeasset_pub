@@ -87,7 +87,7 @@ const addCloseModalListeners = (target, openButton) => {
 };
 
 // 탭메뉴
-function tabMenus(tabGroupSelector) {
+const tabMenus = (tabGroupSelector) => {
     const tabGroup = document.querySelector(tabGroupSelector);
     if (!tabGroup) return; 
 
@@ -110,7 +110,6 @@ function tabMenus(tabGroupSelector) {
         tabPanes[index].classList.add('is-active');
     }
 }
-tabMenus('.tab-content');
 
 // UUID생성
 const generateUniqueId = () => {
@@ -156,7 +155,6 @@ const checkLabel = () => {
         }
     });
 }
-checkLabel()
 
 //숫자에 콤마
 const numComma = (num) => {
@@ -341,3 +339,52 @@ const onDownScroll = () => {
 const onUpScroll = () => {
 
 }
+
+// input 포커스 
+const checkInputFocus = () => {
+    const inputs = document.querySelectorAll('.form-element__inner input[type="text"]');
+    
+    const handleInputKeyup = (event) => {
+        const nextSibling = event.target.nextElementSibling;
+        if (nextSibling && nextSibling.classList.contains('btn-remove')) {
+            nextSibling.classList.add('is-show');
+        }
+    };
+
+    const handleBtnRemoveClick = (event) => {
+        const input = event.target.previousElementSibling;
+        input.value = '';
+        event.target.classList.remove('is-show');
+    };
+
+    inputs.forEach(input => {
+        input.addEventListener('keyup', handleInputKeyup);
+        const btnRemove = input.nextElementSibling;
+        if (btnRemove && btnRemove.classList.contains('btn-remove')) {
+            btnRemove.addEventListener('click', handleBtnRemoveClick);
+        }
+    });
+};
+
+const checkTextArea = () => {
+    const textareas = document.querySelectorAll('.form-element__inner textarea');
+    textareas.forEach((textarea) => {
+        textarea.addEventListener('input', () => {
+            const count = textarea.value.length;
+            const counter = textarea.nextElementSibling.querySelector('.count');
+            const total = parseInt(textarea.nextElementSibling.querySelector('.total').textContent);
+
+            if (counter) {
+                counter.textContent = count;
+                if (count > total) {
+                    textarea.value = textarea.value.substring(0, total); // 입력값을 total 길이로 자름
+                }
+            }
+        });
+    });
+}
+
+tabMenus('.tab-content');
+checkLabel()
+checkInputFocus();
+checkTextArea();

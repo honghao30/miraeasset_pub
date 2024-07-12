@@ -25,8 +25,17 @@ window.addEventListener('load', function() {
         }
     });
     setTimeout(() => {
+        // 함수 호출
+        activateNavItem();
+        updateMainUrl();
+        activateLnbItem();             
+    }, 200); 
+    
+    // 활성화할 네비게이션 항목 설정
+    const activateNavItem = () => {
         const location = window.location.href;
         const navList = document.querySelectorAll('.navgation__wrap--top li');        
+        
         if (location.includes('pub_list')) {
             navList[4].classList.add('is-active');
         } else if(location.includes('compornent')) {
@@ -37,37 +46,42 @@ window.addEventListener('load', function() {
             navList[0].classList.add('is-active');
         } else if(location.includes('js_guide')) {
             navList[2].classList.add('is-active');
-        } else {
-            return false;
         }
+    };
 
-        // 메인 url
+    // 메인 URL 체크 및 링크 수정
+    const updateMainUrl = () => {
         const checkUrl = window.location.href;
-        const links = document.querySelectorAll('.navgation__wrap--top li a')
-        console.log(links)
+        const links = document.querySelectorAll('.navgation__wrap--top li a');
+        
         if(!checkUrl.includes('miraeasset')) {
             links.forEach(link => {
                 const url = link.getAttribute('href');
-                console.log(url);
-                const newUrl = url.replace('/miraeasset','');
-                link.setAttribute('href',newUrl);
-            })
-        } 
+                const newUrl = url.replace('/miraeasset', '');
+                link.setAttribute('href', newUrl);
+            });
+        }
+    };
 
+    // 현재 페이지와 일치하는 LNB 항목 활성화
+    const activateLnbItem = () => {
         const lnbList = document.querySelectorAll('.lnb_list li a');
         const nowUrl = window.location.href;
-        const fileName = nowUrl.match(/\/([^\/]+\.html)$/)[1];
-        lnbList.forEach((el) => {
-            let elLink = el.href;
-            let urlMatch = elLink.match(/\/([^\/]+\.html)$/);      
-            let urlName = urlMatch ? urlMatch[1] : null;
-            console.log('비교 파일명', fileName, '주소', urlName);  
-            if (fileName === urlName) {
-                el.parentNode.classList.add('is-active');
-            }
-        });        
-    }, 200); 
-    
+        const fileNameMatch = nowUrl.match(/\/([^\/]+\.html)$/);
+        const fileName = fileNameMatch ? fileNameMatch[1] : null;
+
+        if (fileName) {
+            lnbList.forEach((el) => {
+                const elLink = el.href;
+                const urlMatch = elLink.match(/\/([^\/]+\.html)$/);      
+                const urlName = urlMatch ? urlMatch[1] : null;
+                
+                if (fileName === urlName) {
+                    el.parentNode.classList.add('is-active');
+                }
+            });
+        }
+    };
     // 코드 미리보기
     const convertCodeSamples = () => {
         const codeSamples = document.querySelectorAll('.sample-code');
@@ -144,4 +158,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
     xhr.send();
+
+
+    // 검색    
+    const inputSearch = document.querySelector('#search-box input[type="text"]');    
+    const tailWindCssTable = document.querySelector('#tailwindcss-list tbody');
+        
+    inputSearch && inputSearch.addEventListener('keyup', function() {    	 
+        const filterValue = inputSearch.value.toLowerCase();
+        const rows = tailWindCssTable.querySelectorAll('tr');
+        
+        //tr들 for문으로 순회
+        for (var i = 0; i < rows.length; i++) {
+            // 현재 순회중인 tr의 textContent를 소문자로 변경하여 rowText에 저장
+            var rowText = rows[i].textContent.toLowerCase();
+            // rowText가 filterValue를 포함하면, 해당 tr은 보여지게 하고, 그렇지 않으면 숨긴다.
+            if (rowText.includes(filterValue)) {
+                rows[i].style.display = '';
+            } else {
+                rows[i].style.display = 'none';
+            }
+        }
+    });    
+
+
 });   

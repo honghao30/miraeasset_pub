@@ -20,6 +20,16 @@
 .form-element__wrap .form-element__inner.select-wrap {position: relative;}
 .form-element__wrap .form-element__inner.select-wrap::after {content: '';width:24px;height:24px;background: url('../images/admin/icon-chevron-down.svg') no-repeat center; display: block;
     position: absolute;right: 10px;top: 50%;transform: translateY(-50%);}
+.form-element__wrap .form-element__inner .btn-remove {
+    display: none;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.form-element__wrap .form-element__inner .btn-remove.is-show {
+    display: block;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
 .form-element__wrap .form-element__inner .text-count {text-align: right;color:#AFB5BC;}
 .form-element__wrap .input-multi {display: flex;width: 100%;gap: 10px;align-items: center;}
 .pin-code input[type="password"] { background-color: #fff; border: none; border-bottom: thin solid gray; width: 20px; font-size: 24px; margin-bottom: 20px; margin-right: 5px;}
