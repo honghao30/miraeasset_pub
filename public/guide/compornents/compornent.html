@@ -256,7 +256,7 @@
                         <!-- 코드 영역 -->
                         <div class="sample-code">
                             <label class="font-type-h5-bold">PIN 입력2</label>
-                            <div class="input-multi pin-dot" id="target">
+                            <div class="input-multi pin-dot">
                                 <span class="dot"></span>
                                 <span class="dot"></span>
                                 <span class="dot"></span>
@@ -270,12 +270,19 @@
                         <!-- 코드 영역 -->
                         <pre class="code_view"> </pre>  
                         <p class="text">
-                            코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.<br>
-                            솔루션이 아닌 경우 참고해서 커스텀 https://taeseungryu.github.io/sample/sampleView/keypad/keypad.html
-
+                            코드 작성시 id와 for는 자동으로 스크립트로 처리 됩니다.<br>                            
                         </p>
                     </div> 
-
+                </div>
+                <div class="page_tit_h2">보안 키패드</div>
+                <div class="section_text_no_round" style="text-align: center;padding: 5rem;">
+                    <div style="display: inline-block;width: 325px;height: 325px;">
+                        <canvas id='canvas'  width="325" height="325"></canvas>
+                    </div>
+                    <br><br>
+                    
+                    <div id='target' style='border : 1px solid gray; padding: 1rem;'></div>
+                    <button onclick="refresh()">리프레쉬</button>
                 </div>
                 <div class="section">
                     <div class="page_tit_h2">API 명세서</div>    
