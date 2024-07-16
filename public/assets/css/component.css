@@ -20,8 +20,8 @@
 }
 .chip .ico {
     display: inline-flex;
-    width:6px;
-    height:6px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
 }
 .chip.primary-light {
@@ -35,22 +35,22 @@
 }
 .chip.bg-primary {
     background-color: var(--color-primary);
-    color:var(--color-white);
+    color: var(--color-white);
     font-weight: 800;
 }
 .chip.bg-white {
     background-color: var(--color-white);
-    color:var(--Neutral-09_424242);
+    color: var(--Neutral-09_424242);
     font-weight: 800;
 }
 .chip.bg-blue {
     background-color: var(--color-blue-full);
-    color:var(--color-white);
+    color: var(--color-white);
     font-weight: 800;
 }
 .chip.bg-violet {
     background-color: var(--color-bg-violet);
-    color:var(--color-white);
+    color: var(--color-white);
     font-weight: 800;
 }
 
@@ -68,8 +68,8 @@
 .button__wrap {
     display: flex;
     justify-content: center;
-    align-items: center; 
-    gap: 8px;   
+    align-items: center;
+    gap: 8px;
     width: 100%;
 }
 .button__wrap .btn {
@@ -151,15 +151,9 @@
     color: #000;
 }
 .form-element__wrap .form-element__inner input::placeholder {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
     color: #999;
 }
 .form-element__wrap .form-element__inner.input-disabled input:disabled {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
     color: #757575;
 }
 .form-element__wrap .form-element__inner.input-disabled {
@@ -213,7 +207,10 @@
     height: 100%;
     color: var(--color-basic10);
     resize: none;
-    font-family: "Pretendard", "Malgun Gothic", "맑은고딕", sans-serif;
+    font-family: var(--fontMain);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
 }
 .form-element__wrap .form-element__inner select {
     width: 100%;
@@ -256,7 +253,7 @@
 }
 .form-element__wrap .form-element__inner .text-count {
     text-align: right;
-    color: #afb5bc;
+    color: var(--color-basic5);
 }
 .form-element__wrap .input-multi {
     display: flex;
@@ -374,9 +371,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
     color: var(--dropdown-text-color);
     position: relative;
 }
@@ -399,19 +393,14 @@
     position: absolute;
     left: 0;
     top: 40px;
-    background-color: var(--dropdown-bg);
     width: 100%;
     display: none;
     z-index: 20;
-    border-radius: 0 0 var(--dropdown-border-radius) var(--dropdown-border-radius);
 }
 .dropdown-menu__wrap .dropdown_list.is-active {
     display: block;
 }
 .dropdown-menu__wrap .dropdown_list li button {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
     width: 100%;
     height: 100%;
     padding: 8px 16px;
@@ -419,19 +408,21 @@
     text-align: left;
     border-left: var(--dropdown-border);
     border-right: var(--dropdown-border);
+    background-color: var(--dropdown-bg);
 }
 .dropdown-menu__wrap .dropdown_list li:first-child button {
     border-top: 0;
 }
 .dropdown-menu__wrap .dropdown_list li:last-child button {
     border-bottom: var(--dropdown-border);
+    border-radius: 0 0 var(--dropdown-border-radius) var(--dropdown-border-radius);
 }
 .dropdown-menu__wrap .dropdown_list li:hover button {
     background-color: var(--dropdown-hover-bg);
     border-left: 1px solid var(--color-basic4);
     border-right: 1px solid var(--color-basic4);
 }
-.dropdown-menu__wrap .dropdown_list li.is-active {
+.dropdown-menu__wrap .dropdown_list li.is-active button {
     border-left: 1px solid var(--color-basic4);
     border-right: 1px solid var(--color-basic4);
     background-color: var(--dropdown-hover-bg);
