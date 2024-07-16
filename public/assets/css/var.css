@@ -49,11 +49,12 @@
     --table-td-text-left: left;
 
     /* dropdown */
-    --dropdown-border: 1px solid #d8dde9;
+    --dropdown-border: 1px solid #e8e8e8;
     --dropdown-bg: #fff;
-    --dropdown-hover-bg: #d8dde9;
-    --dropdown-text-color: #717b8a;
+    --dropdown-hover-bg: #efefef;
+    --dropdown-text-color: #000;
     --dropdown-arrow-size: 6px;
+    --dropdown-border-radius: 12px;
 }
 
 /* rem 사용 예시  */
