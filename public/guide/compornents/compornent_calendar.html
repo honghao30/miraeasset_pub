@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head></head>
-<body>
-    <div class="guide_wrap">
-        <div class="header__wrap">
-            <div data-include-path="../top_nav.html"></div>   
-            <div data-include-path="../site-name.html"></div>
-        </div>
-        <div class="guide-content__wrap lnb-type">
-            <div class="lnb-side__wrap">
-                <div data-include-path="./cmp_side.html"></div>
-            </div>            
-            <div class="guide-cont">
-                <div class="page_tit_h1">기본 달력 컴포넌트</div>                  
-                <div class="section">
-                    <div class="form-element__wrap">
-                        <label for="code01" class="font-type-h5-bold">날자선택(기본)</label>
-                        <span  class="form-element__inner input-type">
-                            <input type="date" class="font-type-h5-regular" value="" name="datepicker"  placeholder="날짜 선택" id="datepicker" autocomplete="off" />
-                        </span>
-                    </div>
+    <head></head>
+    <body>
+        <div class="guide_wrap">
+            <div class="header__wrap">
+                <div data-include-path="../top_nav.html"></div>
+                <div data-include-path="../site-name.html"></div>
+            </div>
+            <div class="guide-content__wrap lnb-type">
+                <div class="lnb-side__wrap">
+                    <div data-include-path="./cmp_side.html"></div>
                 </div>
-                <div class="section">
-                    <div class="form-element__wrap">
-                        <label for="code01" class="font-type-h5-bold">기간선택(기본)</label>
-                        <div class="input-multi">
-                            <span  class="form-element__inner input-type">
-                                <input type="date" class="font-type-h5-regular" id="startDate" value="" placeholder="젓번째 항목" />
+                <div class="guide-cont">
+                    <div class="page_tit_h1">기본 달력 컴포넌트</div>
+                    <div class="section">
+                        <div class="form-element__wrap">
+                            <label for="code01" class="font-type-h5-bold">날자선택(기본)</label>
+                            <span class="form-element__inner input-type">
+                                <input type="date" value="" name="datepicker" placeholder="날짜 선택" id="datepicker" autocomplete="off" />
                             </span>
-                            <span  class="form-element__inner input-type">
-                                <input type="date" class="font-type-h5-regular"  id="endDate" value="" placeholder="두번째 항목" />
-                            </span>  
-                        </div>  
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="form-element__wrap">
-                        <label for="code01" class="font-type-h5-bold">기간선택(기본2)</label>
-                        <div class="range-option__wrap">
-                            <div class="radio-box">
-                                <label>
-                                    <input type="radio" name="type" value="1week" />
-                                    <span>1주일</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="type" value="1month" />
-                                    <span>1개월</span>
-                                </label>       
-                                <label>
-                                    <input type="radio" name="type" value="3month" />
-                                    <span>3개월</span>
-                                </label>   
-                                <label>
-                                    <input type="radio" name="type" value="6month" />
-                                    <span>6개월</span>
-                                </label>                                                                                        
-                            </div>  
-                            <div class="input-multi">
-                                <span  class="form-element__inner input-type">
-                                    <input type="date" class="font-type-h5-regular" id="startDate2" value="" placeholder="젓번째 항목" />
-                                </span>
-                                <span  class="form-element__inner input-type">
-                                    <input type="date" class="font-type-h5-regular"  id="endDate2" value="" placeholder="두번째 항목" />
-                                </span>  
-                            </div>                              
                         </div>
                     </div>
-                </div>                
-                <div class="section">
+                    <div class="section">
+                        <div class="form-element__wrap">
+                            <label for="code01" class="font-type-h5-bold">기간선택(기본)</label>
+                            <div class="input-multi">
+                                <span class="form-element__inner input-type">
+                                    <input type="date" id="startDate" value="" placeholder="젓번째 항목" />
+                                </span>
+                                <span class="form-element__inner input-type">
+                                    <input type="date" id="endDate" value="" placeholder="두번째 항목" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="form-element__wrap">
+                            <label for="code01" class="font-type-h5-bold">기간선택(기본2)</label>
+                            <div class="range-option__wrap">
+                                <div class="radio-box">
+                                    <label>
+                                        <input type="radio" name="type" value="1week" />
+                                        <span>1주일</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="type" value="1month" />
+                                        <span>1개월</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="type" value="3month" />
+                                        <span>3개월</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="type" value="6month" />
+                                        <span>6개월</span>
+                                    </label>
+                                </div>
+                                <div class="input-multi">
+                                    <span class="form-element__inner input-type">
+                                        <input type="date" id="startDate2" value="" placeholder="젓번째 항목" />
+                                    </span>
+                                    <span class="form-element__inner input-type">
+                                        <input type="date" id="endDate2" value="" placeholder="두번째 항목" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
                         <div class="page_tit_h2">월간 달력</div>
                         <div class="calendar__wrap" id="calendarContainer">
                             <div class="calendar__header">
@@ -88,74 +88,69 @@
                                             <th scope="col" class="holiday">토</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
 
                         <div class="show-data-layer"></div>
-                        <script>
-
-                        </script>
-                    
-                </div>                
-                <div class="section">
-                    <div class="page_tit_h2">주간 달력</div>
-                    <div class="calendar__wrap" id="calendarWeekly">
-                        <div class="calendar__header">                            
-                            <div class="display-data">2024년 6월 27일</div>                            
+                        <script></script>
+                    </div>
+                    <div class="section">
+                        <div class="page_tit_h2">주간 달력</div>
+                        <div class="calendar__wrap" id="calendarWeekly">
+                            <div class="calendar__header">
+                                <div class="display-data">2024년 6월 27일</div>
+                            </div>
+                            <div class="calendar__content">
+                                <ul id="weekDates"></ul>
+                            </div>
                         </div>
-                        <div class="calendar__content">
-                            <ul id="weekDates"> </ul>
+                        <div class="detail-section">
+                            <div class="detail-day"></div>
+                            오늘 날짜에 해당하는 값
                         </div>
                     </div>
-                    <div class="detail-section">
-                        <div class="detail-day"></div>
-                        오늘 날짜에 해당하는 값
-                    </div>                     
+
+                    <div class="section">
+                        <div class="page_tit_h2">API 명세서</div>
+                        <div class="section_text_no_round">
+                            <!-- 테이블 -->
+                            <div class="table__wrap">
+                                <table class="table table-list sm">
+                                    <colgroup>
+                                        <col width="10%" />
+                                        <col width="" />
+                                        <col width="20%" />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-l">type</td>
+                                            <td class="text-l">table-list / body-only</td>
+                                            <td class="text-l"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- 테이블 -->
+
+                            * table 의 기본 명세서를 제공합니다.
+                        </div>
+                    </div>
                 </div>
-
-                <div class="section">
-                    <div class="page_tit_h2">API 명세서</div>    
-                    <div class="section_text_no_round">
-                        <!-- 테이블 -->
-                        <div class="table__wrap">
-                            <table class="table table-list sm">
-                                <colgroup>
-                                    <col width="10%" />                                    
-                                    <col width="" />
-                                    <col width="20%" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-l">type</td>
-                                        <td class="text-l">table-list / body-only</td>
-                                        <td class="text-l"></td>
-                                    </tr>                                     
-                                </tbody>
-                            </table>
-                        </div>      
-                        <!-- 테이블 -->                         
-
-                        * table 의 기본 명세서를 제공합니다.
-                    </div>                    
-                </div>                
-
             </div>
         </div>
-    </div>
-    <script src="../guide.js"></script>
-    <script src="../../assets/bundle/dayjs/dayjs.min.js"></script>
-    <script src="../../assets/bundle/dayjs/isSameOrBefore.js"></script>
-    <script src="../../assets/bundle/dayjs/ko.js"></script>
-    <script src="../../assets/js/calendar.js"></script>
-</body>
+        <script src="../guide.js"></script>
+        <script src="../../assets/bundle/dayjs/dayjs.min.js"></script>
+        <script src="../../assets/bundle/dayjs/isSameOrBefore.js"></script>
+        <script src="../../assets/bundle/dayjs/ko.js"></script>
+        <script src="../../assets/js/calendar.js"></script>
+    </body>
 </html>
