@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
         xhr.send();        
     } else {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/public/guide/header.html', true);
+        xhr.open('GET', 'https://miraeasse.netlify.app/public/guide/header.html', true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 // 기존 head 태그 제거            
