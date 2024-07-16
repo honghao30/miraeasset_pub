@@ -24,10 +24,41 @@
     --deviceWidth: 323px;
 
     /* font */
-    --fontMain: 'NanumSquare', 'Malgun Gothic', '맑은고딕', sans-serif;
-    
+    --fontMain: "NanumSquare", "Malgun Gothic", "맑은고딕", sans-serif;
 
+    /* table */
+    --table-border: 1px solid #e2e3e7;
+    --table-th-bg: #f9f9f9;
+    --th-font-size: 18px;
+    --th-line-height: 21px;
+    --th-ft-color: #222;
+    --th-font-weight: 600;
+    --th-align-c: center;
+    --th-height: 65px;
+    --th-padding-top-bottom: 22px;
+    --th-padding-side: 0px;
+    --table-border-color: #e2e3e7;
+    --td-ft-color: #5a5c5f;
+    --td-ft-size: 18px;
+    --td-ft-line-height: 21px;
+    --td-padding-top-bottom: 22px;
+    --td-padding-side: 0px;
+    --tbody-th-bg-color: #f9f9f9;
+    --tbody-th-side: 16px;
+    --tbody-td-side: 16px;
+    --table-td-text-left: left;
+
+    /* dropdown */
+    --dropdown-border: 1px solid #d8dde9;
+    --dropdown-bg: #fff;
+    --dropdown-hover-bg: #d8dde9;
+    --dropdown-text-color: #717b8a;
+    --dropdown-arrow-size: 6px;
 }
 
 /* rem 사용 예시  */
-.test {padding: calc(26 / var(--width) * var(--deviceWidth)) calc(30 / var(--width)* var(--deviceWidth));font-size: calc(26 / var(--width) * var(--deviceWidth));line-height: calc(28 / var(--width) * var(--deviceWidth));}
+.test {
+    padding: calc(26 / var(--width) * var(--deviceWidth)) calc(30 / var(--width) * var(--deviceWidth));
+    font-size: calc(26 / var(--width) * var(--deviceWidth));
+    line-height: calc(28 / var(--width) * var(--deviceWidth));
+}
