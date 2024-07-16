@@ -141,26 +141,13 @@ window.addEventListener('load', function() {
 // 공통영역 불러오기
 document.addEventListener("DOMContentLoaded", function() {
     const nowUrl = window.location.href;
-    if (nowUrl.includes('localhost')) {
+    const localUrl = '/guide/header.html';
+    const remoteUrl = 'https://miraeasse.netlify.app/public/guide/header.html';
+    const targetUrl = nowUrl.includes('localhost') ? localUrl : remoteUrl;
+    
+    function loadHeader(url) {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/guide/header.html', true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // 기존 head 태그 제거            
-                var existingHead = document.getElementsByTagName('head')[0];
-                if (existingHead) {
-                    existingHead.parentNode.removeChild(existingHead);
-                }
-                // 새로운 head 태그 추가
-                var headElement = document.createElement('head');
-                headElement.innerHTML = xhr.responseText;
-                document.documentElement.insertBefore(headElement, document.body);
-            }
-        };
-        xhr.send();        
-    } else {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://miraeasse.netlify.app/public/guide/header.html', true);
+        xhr.open('GET', url, true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 // 기존 head 태그 제거            
@@ -177,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
         xhr.send();
     }
     
-
+    loadHeader(targetUrl);  
 
     // 검색    
     const inputSearch = document.querySelector('#search-box input[type="text"]');    
