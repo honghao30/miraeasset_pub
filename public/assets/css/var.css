@@ -4,20 +4,20 @@
 @charset "utf-8";
 :root {
     /* color */
-    --color-primary: #1e90ff;
-    --color--secondary: #ffa800;
-    --color-black: #222;
-    --color-gray01: #5a5c5f;
-    --color-gray02: #909293;
-    --color-gray03: #afb5bc;
-    --color-gray04: #cfd4da;
-    --color-gray05: #e2e3e7;
-    --color-gray06: #eff0f2;
-    --color-gray07: #f8f9fa;
-    --color-point-danger: #ff4135;
-    --color-point-warning: #ff7a00;
-    --ma-key-orange: #f58220;
-    --ma-key-blue: #043b72;
+    --color-primary: #F58220;
+    --color-secondary: #043B72;
+    --color-white: #fff;
+
+    --color-basic10: #191F28;
+    --color-basic9: #424242;
+    --color-basic8: #616161;
+    --color-basic7: #757575;
+    --color-basic6: #999;
+    --color-basic5: #BDBDBD;
+    --color-basic4: #CCC;
+    --color-basic3:#E8E8E8;    
+    --color-basic2: #EFEFEF;    
+    --color-basic1: #FAFAFA;    
 
     /* base width */
     --width: 750;

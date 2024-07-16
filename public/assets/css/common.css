@@ -1,8 +1,24 @@
 /*
     공통값을 정의하는 css 
 */
+/* color class */
+.primary {color: var(--color-primary);}
+.secondary {color: var(--color-secondary);}
+.color-white {color: var(--color-white)}
+
 
 /* 폰트 */
+.heading-type1-font22 {font-size: calc(22 / 16 * 1rem);font-weight: 800;line-height: calc(28 / 16 * 1rem);}
+.heading-type2-font20 {font-size: calc(20 / 16 * 1rem);font-weight: 800;line-height: calc(26 / 16 * 1rem);}
+.heading-type3-font18 {font-size: calc(18 / 16 * 1rem);font-weight: 700;line-height: calc(18 / 16 * 1rem);}
+.body-type1-font16 {font-size: calc(16 / 16 * 1rem);font-weight: 400;line-height: calc(28 / 16 * 1rem);}
+.body-type2-font15 {font-size: calc(15 / 16 * 1rem);font-weight: 400;line-height: calc(20 / 16 * 1rem);}
+.body-type3-font14 {font-size: calc(14 / 16 * 1rem);font-weight: 400;line-height: calc(24 / 16 * 1rem);}
+.small-text-font13  {font-size: calc(13 / 16 * 1rem);font-weight: 400;line-height: calc(18 / 16 * 1rem);}
+.tooltip-font12  {font-size: calc(12 / 16 * 1rem);font-weight: 700;line-height: calc(18 / 16 * 1rem);}
+
+
+
 .font-type-h1 {font-size: 72px;font-weight: 800;line-height: 85px;}
 .font-type-h2 {font-size: 28px;font-weight: 700;line-height: 33px;}
 .font-type-h3 {font-size: 24px;font-weight: 700;line-height: 28px;}

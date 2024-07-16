@@ -4,7 +4,7 @@
 /* 레이아웃 */
 .guide_wrap {width: 100%;}
 .header__wrap {display:flex;flex-direction: column;}
-.navgation__wrap--top {display: flex;justify-content: flex-end;background: #246be8;}
+.navgation__wrap--top {display: flex;justify-content: flex-end;background: var(--color-secondary);}
 .navgation__wrap--top ul {display: flex;justify-content: flex-end;gap: 5px;align-items: center;padding: 0 32px;}
 .navgation__wrap--top ul li {padding-top: 5px;}
 .navgation__wrap--top ul li a {padding: 14px 20px 16px;font-size: 16px;color:#fff;display: block;}
@@ -42,6 +42,31 @@
 .description-list li::before {content: '';width: 3px;height: 3px;background-color: #c6c6c6;border-radius: 50%;position: absolute;display: block;left: 0;top: 7px;}
 .description-list li + li {margin-top: 8px;}
 
+/* 폰트 */
+.font-guide-example {
+    margin: 15px 0;    
+}
+.font-guide-example .title1 {
+    color: var(--color-basic10);    
+    font-size: 70px;    
+    font-weight: 800;        
+}
+.font-guide-example .title1 strong {
+    font-size: 26px;
+}
+.font-guide-example .title2 {
+    color: var(--color-basic5);    
+    font-size: 70px;    
+    font-weight: 800;        
+}
+.font-exsample-list {
+    margin: 20px 0;
+    text-align: center;
+}
+.font-exsample-list p + p {
+    margin-top: 10px;
+}
+
 .pub-list__content table {width: 100%;}
 .pub-list__content table thead th { background: #eee;padding: 4px 7px; color: #111; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; font-size: 13px;text-align: center;}
 .pub-list__content table tbody td { padding: 4px 7px; color: #111; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; font-size: 13px;text-align: center;}
@@ -69,15 +94,81 @@
 .code_line { display: block; height: 35px;line-height: 35px; } 
 .line_number { display: inline-block; width: 30px; text-align: center; margin-right: 20px; color: #888; }
 .code_view .code_line:nth-child(odd) {background: #fafafa;}
-/* 색상 */
-.color-box {width: 160px;height: 70px;color:#fff;border-radius: 6px;padding: 9px;font-size: 14px;font-weight: 100; margin-bottom: 20px;}
-.color-name {font-size: 16px;font-weight: 500;}
-.color-code {font-size: 13px;font-weight: 400;}
-.bg_primary {background-color: #0072BC;}
-.bg_grayscale {background-color: #C6C6C6;}
-.bg_second {background-color: #FF4949;}
-.bg_grayscale-50 {background-color: #EFF3F9;color:#222;}
 
+/* 색상 */
+.main-color {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 240px;
+}
+.main-color > div {
+    text-align: center;
+    width: 50%;
+    border: 1px solid var(--color-basic2);
+}
+.main-color .primary-color {    
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+.main-color .secondary-color {    
+    background-color: var(--color-secondary);
+    color: var(--color-white);    
+}
+
+
+.color-basic-list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;    
+}
+.color-basic-list li {
+    width: calc(100% / 5);
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.color-basic-list li:nth-child(1) {
+    background-color: var(--color-basic10);
+    color: var(--color-white);
+}
+.color-basic-list li:nth-child(2) {
+    background-color: var(--color-basic9);
+    color: var(--color-white);
+}
+.color-basic-list li:nth-child(3) {
+    background-color: var(--color-basic8);
+    color: var(--color-white);
+}
+.color-basic-list li:nth-child(4) {
+    background-color: var(--color-basic7);
+    color: var(--color-white);
+}
+.color-basic-list li:nth-child(5) {
+    background-color: var(--color-basic6);
+    color: var(--color-white);
+}
+.color-basic-list li:nth-child(6) {
+    background-color: var(--color-basic5);
+    color: var(--color-white);
+}
+.color-basic-list li:nth-child(7) {
+    background-color: var(--color-basic4);
+    color: var(--color-white);
+}
+.color-basic-list li:nth-child(8) {
+    background-color: var(--color-basic3);
+    color: var(--color-white);
+}
+.color-basic-list li:nth-child(9) {
+    background-color: var(--color-basic2);
+    color: var(--color-white);
+}
+.color-basic-list li:nth-child(10) {
+    background-color: var(--color-basic1);
+    color: var(--color-white);
+}
 /* // 하단바 */
 .bottom-nav__wrap {
     width: 100%;
