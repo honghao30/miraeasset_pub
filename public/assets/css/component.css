@@ -1,6 +1,133 @@
 /*
     컴포넌트를 정의하는 css 
 */
+/* 뱃지 */
+.chip__wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.chip {
+    display: inline-flex;
+    padding: 5px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 999px;
+    font-size: calc(12 / 16 * 1rem);
+    line-height: 18px;
+    font-weight: 400;
+}
+.chip .ico {
+    display: inline-flex;
+    width:6px;
+    height:6px;
+    border-radius: 50%;
+}
+.chip.primary-light {
+    background-color: var(--color-primary-light);
+}
+.chip.green-light {
+    background-color: var(--color-green-light);
+}
+.chip.blue-light {
+    background-color: var(--color-blue-light);
+}
+.chip.bg-primary {
+    background-color: var(--color-primary);
+    color:var(--color-white);
+    font-weight: 800;
+}
+.chip.bg-white {
+    background-color: var(--color-white);
+    color:var(--Neutral-09_424242);
+    font-weight: 800;
+}
+.chip.bg-blue {
+    background-color: var(--color-blue-full);
+    color:var(--color-white);
+    font-weight: 800;
+}
+.chip.bg-violet {
+    background-color: var(--color-bg-violet);
+    color:var(--color-white);
+    font-weight: 800;
+}
+
+.chip.primary-light .ico-dot {
+    background-color: var(--color-primary);
+}
+.chip.green-light .ico-dot {
+    background-color: var(--color-green-full);
+}
+.chip.bg-primary .ico-dot {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+/* 버튼 */
+.button__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 8px;   
+    width: 100%;
+}
+.button__wrap .btn {
+    width: calc(50% - 8px);
+}
+.btn {
+    font-family: var(--fontMain);
+    align-items: center;
+    border-radius: var(--border-radius-12);
+    margin: 0 auto;
+}
+.btn.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-size: calc(15 / 16 * 1rem);
+    font-weight: 800;
+    line-height: calc(20 / 16 * 1rem);
+    padding: calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
+}
+.btn.btn-primary:hover,
+.btn.btn-primary.is-active {
+    background-color: var(--color-primary-active);
+    color: var(--color-white);
+}
+.btn.btn-primary:disabled {
+    background-color: var(--color-basic5);
+    color: var(--color-primary-disabled);
+    cursor: default;
+    pointer-events: none;
+}
+.btn.btn-primary:only-child {
+    display: block;
+    width: 100%;
+}
+.btn.btn-line {
+    background-color: var(--color-white);
+    color: var(--color-basic8);
+    border: 1px solid var(--color-basic4);
+    font-size: calc(15 / 16 * 1rem);
+    font-weight: 800;
+    line-height: calc(20 / 16 * 1rem);
+    padding: calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
+}
+.btn.btn-line:only-child {
+    display: block;
+    width: 100%;
+}
+.btn.btn-line:hover,
+.btn.btn-line.is-active {
+    background-color: var(--color-basic2);
+    color: var(--color-basic8);
+}
+.btn.btn-line:disabled {
+    background-color: var(--color-basic2);
+    color: var(--color-basic5);
+    cursor: default;
+    pointer-events: none;
+}
 /* 폼요소 */
 .form-element__wrap {
     display: flex;

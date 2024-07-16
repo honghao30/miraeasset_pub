@@ -7,6 +7,7 @@
     --color-primary: #F58220;
     --color-secondary: #043B72;
     --color-white: #fff;
+    --blackwhite-black: #000;
 
     --color-basic10: #191F28;
     --color-basic9: #424242;
@@ -19,12 +20,29 @@
     --color-basic2: #EFEFEF;    
     --color-basic1: #FAFAFA;    
 
+    --color-primary-active: #C4681A;
+    --color-primary-disabled: #E0E0E0;
+
+    --Neutral-09_424242: #424242;
+
     /* base width */
     --width: 750;
     --deviceWidth: 323px;
 
     /* font */
     --fontMain: "NanumSquare", "Malgun Gothic", "맑은고딕", sans-serif;
+
+    /* effect */
+    --border-radius-12: 12px;
+
+    /* badge */
+    --color-primary-light: #FEF3E9;
+    --color-green-light: #F2FDF2;
+    --color-blue-light: #F2FAFD;
+    --color-green-full: #7CE778;
+    --color-blue-light: #F2FAFD;
+    --color-blue-full: #5CA7FF;
+    --color-bg-violet: #6A5ACD;
 
     /* table */
     --table-border: 1px solid #e2e3e7;
