@@ -90,9 +90,9 @@
 .site-name__wrap .site-info {font-size: 16px;line-height: 16px;}
 
 .code_view { background-color: #ececec;margin: 16px 0; padding: 0; border-radius: 5px; overflow: auto; white-space: pre; font-family: monospace;position: relative;border: 1px solid #ccc;display: flex;flex-direction: column; white-space: break-spaces;} 
-.code_view::before {content: '';position: absolute;left:30px;top: 0;width: 1px;height: 100%;background: #ccc;}
-.code_line { display: block; height: 35px;line-height: 35px; } 
-.line_number { display: inline-block; width: 30px; text-align: center; margin-right: 20px; color: #888; }
+/* .code_view::before {content: '';position: absolute;left:30px;top: 0;width: 1px;height: 100%;background: #ccc;} */
+.code_line { display: block; height: 35px;line-height: 35px; padding-left: 45px;position: relative;} 
+.line_number { display: inline-block; width: 30px; text-align: center;border-right: 1px solid #ccc; color: #888; height: 100%; position: absolute;left: 0px;top: 50%;transform: translateY(-50%);}
 .code_view .code_line:nth-child(odd) {background: #fafafa;}
 
 /* 색상 */
@@ -229,4 +229,18 @@ width: 100%;
 .bg-change {
     height: 500px;    
     transition: background-color 3s;
+}
+
+.button-example__wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+.button-example__wrap > div:not(.button__wrap) {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
