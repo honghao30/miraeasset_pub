@@ -1,3 +1,8 @@
+/***************************
+ * UI common function * 
+ ***************************/
+
+
 // 모달 열기
 const openModal = (event, type) => {
     const btn = event.target;

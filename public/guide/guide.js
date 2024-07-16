@@ -144,8 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
     xhr.open('GET', '/guide/header.html', true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // 기존 head 태그 제거
-            console.log("ㅇㅇㅇ")
+            // 기존 head 태그 제거            
             var existingHead = document.getElementsByTagName('head')[0];
             if (existingHead) {
                 existingHead.parentNode.removeChild(existingHead);

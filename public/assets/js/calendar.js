@@ -1,6 +1,3 @@
-// import dayjs from 'dayjs'
-
-
 // 기간선택
 const rangeOptionSelector = (start, end) => {
     const startDateInput = document.getElementById(start);
