@@ -54,9 +54,8 @@ window.addEventListener('load', function() {
                 // href 속성 값 변경
                 const changePath = () => {
                     if (hrefValue) {
-                        console.log(hrefValue);
+                        clearInterval(intervalId);
                         if (hrefValue.includes('public')) {
-                            console.log(hrefValue);
                             anchor.href = `https://miraeasse.netlify.app/${hrefValue}`;
                         } else {
                             anchor.href = `https://miraeasse.netlify.app/public/${hrefValue}`;
@@ -64,6 +63,7 @@ window.addEventListener('load', function() {
                     }
                     // src 속성 값 변경
                     if (srcValue) {
+                        clearInterval(intervalId);
                         if (srcValue.includes('public')) {
                             anchor.src = `https://miraeasse.netlify.app/${srcValue}`;
                         } else {
