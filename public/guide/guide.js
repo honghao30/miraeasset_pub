@@ -28,12 +28,24 @@ window.addEventListener('load', function() {
         const allAnchors = document.querySelectorAll('a');
         const allLinks = document.querySelectorAll('link');
         const allScriptsWithSrc = document.querySelectorAll('script[src]');
-        const allChangeTarget = [...allAnchors, ...allLinks, ...allScriptsWithSrc];
+        const allChangeTarget = [...allAnchors, ...allScriptsWithSrc];
         const nowUrl = window.location.href;
         const remoteUrl = nowUrl.indexOf('https://miraeasse.netlify.app/') !== -1;
-    
+        
+        allLinks.forEach(link => {
+            const linkValue = link.getAttribute('href'); 
+            if (remoteUrl) {
+                if (linkValue.includes('public')) {
+                    console.log(linkValue);
+                    link.href = `https://miraeasse.netlify.app/${linkValue}`;
+                } else {
+                    link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
+                }
+            }
+        });
+
         allChangeTarget.forEach(anchor => {
-            const hrefValue = anchor.getAttribute('href');
+            const hrefValue = anchor.getAttribute('href');            
             const srcValue = anchor.getAttribute('src');
     
             if (remoteUrl) {
