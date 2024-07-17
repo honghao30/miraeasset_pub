@@ -100,7 +100,7 @@ window.addEventListener('load', function() {
     setTimeout(() => {
         activateNavItem('.navigation__wrap--top li a');
         activateNavItem('.lnb-side__wrap li a');        
-    }, 200);
+    }, 300);
 
     convertCodeSamples();
     formatCodePreviews();
