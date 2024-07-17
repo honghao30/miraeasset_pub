@@ -40,11 +40,19 @@ window.addEventListener('load', function() {
                 console.log('원격이네');
                 // href 속성 값 변경
                 if (hrefValue) {
-                    anchor.href = `https://miraeasse.netlify.app/public/${hrefValue}`;
+                    if (hrefValue.includes('public')) {
+                        anchor.href = `https://miraeasse.netlify.app/${hrefValue}`;
+                    } else {
+                        anchor.href = `https://miraeasse.netlify.app/public/${hrefValue}`;
+                    }
                 }
                 // src 속성 값 변경
                 if (srcValue) {
-                    anchor.src = `https://miraeasse.netlify.app/public/${srcValue}`;
+                    if (srcValue.includes('public')) {
+                        anchor.src = `https://miraeasse.netlify.app/${srcValue}`;
+                    } else {
+                        anchor.src = `https://miraeasse.netlify.app/public/${srcValue}`;
+                    }
                 }
             }
         });
