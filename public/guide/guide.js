@@ -73,7 +73,7 @@ window.addEventListener('load', function() {
         console.log("함수 실행");
         const location = window.location.href;
         const navList = document.querySelectorAll('.navgation__wrap--top li');        
-        
+        console.log(location);
         if (location.includes('pub_list')) {
             console.log(location);
             navList[4].classList.add('is-active');
