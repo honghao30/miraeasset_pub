@@ -30,15 +30,25 @@ window.addEventListener('load', function() {
         const allScriptsWithSrc = document.querySelectorAll('script[src]');
         const allChangeTarget = [...allAnchors, ...allLinks, ...allScriptsWithSrc];
         const nowUrl = window.location.href;
-        const remoteUrl = nowUrl.indexOf('https://miraeasse.netlify.app/');
+        const remoteUrl = nowUrl.indexOf('https://miraeasse.netlify.app/') !== -1;
+    
         allChangeTarget.forEach(anchor => {
-            anchor.getAttribute('href' || 'src');
-            if(remoteUrl) {
+            const hrefValue = anchor.getAttribute('href');
+            const srcValue = anchor.getAttribute('src');
+    
+            if (remoteUrl) {
                 console.log('원격이네');
-                anchor.replace = `https://miraeasse.netlify.app/public${anchor}`;
+                // href 속성 값 변경
+                if (hrefValue) {
+                    anchor.href = `https://miraeasse.netlify.app/public/${hrefValue}`;
+                }
+                // src 속성 값 변경
+                if (srcValue) {
+                    anchor.src = `https://miraeasse.netlify.app/public/${srcValue}`;
+                }
             }
         });
-    }        
+    };     
     setTimeout(() => {
         // 함수 호출
         activateNavItem();
