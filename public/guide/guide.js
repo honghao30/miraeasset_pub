@@ -60,7 +60,7 @@ window.addEventListener('load', function() {
     setTimeout(() => {
         // 함수 호출
         activateNavItem();
-        updateMainUrl();
+        //updateMainUrl();
         activateLnbItem();             
     }, 200); 
     setTimeout(() => {
@@ -73,31 +73,36 @@ window.addEventListener('load', function() {
         const navList = document.querySelectorAll('.navgation__wrap--top li');        
         
         if (location.includes('pub_list')) {
+            console.log(location);
             navList[4].classList.add('is-active');
         } else if(location.includes('compornent')) {
             navList[3].classList.add('is-active');
+            console.log(location);
         } else if(location.includes('style_guide')) {
             navList[1].classList.add('is-active');
+            console.log(location);
         } else if(location.includes('rules')) {
             navList[0].classList.add('is-active');
+            console.log(location);
         } else if(location.includes('js_guide')) {
             navList[2].classList.add('is-active');
+            console.log(location);
         }
     };
 
     // 메인 URL 체크 및 링크 수정
-    const updateMainUrl = () => {
-        const checkUrl = window.location.href;
-        const links = document.querySelectorAll('.navgation__wrap--top li a');
+    // const updateMainUrl = () => {
+    //     const checkUrl = window.location.href;
+    //     const links = document.querySelectorAll('.navgation__wrap--top li a');
         
-        if(!checkUrl.includes('miraeasset')) {
-            links.forEach(link => {
-                const url = link.getAttribute('href');
-                const newUrl = url.replace('/miraeasset', '');
-                link.setAttribute('href', newUrl);
-            });
-        }
-    };
+    //     if(!checkUrl.includes('miraeasset')) {
+    //         links.forEach(link => {
+    //             const url = link.getAttribute('href');
+    //             const newUrl = url.replace('/miraeasset', '');
+    //             link.setAttribute('href', newUrl);
+    //         });
+    //     }
+    // };
 
     // 현재 페이지와 일치하는 LNB 항목 활성화
     const activateLnbItem = () => {
