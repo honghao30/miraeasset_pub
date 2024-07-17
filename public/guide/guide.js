@@ -41,12 +41,12 @@ window.addEventListener('load', function() {
                     let linkValue = link.getAttribute('href');
                     if (linkValue) {
                         linkValue = linkValue.replace(/^(\.\.\/)+/, '');
-
-                        if (linkValue.includes('public')) {
-                            link.href = `https://miraeasse.netlify.app/${linkValue}`;
-                        } else {
-                            link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
-                        }
+                        link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
+                        // if (linkValue.includes('public')) {
+                        //     link.href = `https://miraeasse.netlify.app/${linkValue}`;
+                        // } else {
+                        //     link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
+                        // }
                         console.log('Updated link:', link.href);
                         clearInterval(intervalId);
                     }
