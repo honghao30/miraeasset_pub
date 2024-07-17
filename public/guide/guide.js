@@ -38,36 +38,35 @@ window.addEventListener('load', function() {
     
             if (remoteUrl) {
                 console.log('원격이네 경로변경', allLinks);
+                let intervalId;
                 // href 속성 값 변경
-                if (hrefValue) {
-                    if (hrefValue.includes('public')) {
-                        anchor.href = `https://miraeasse.netlify.app/${hrefValue}`;
-                    } else {
-                        anchor.href = `https://miraeasse.netlify.app/public/${hrefValue}`;
+                const changePath = () => {
+                    if (hrefValue) {
+                        if (hrefValue.includes('public')) {
+                            anchor.href = `https://miraeasse.netlify.app/${hrefValue}`;
+                        } else {
+                            anchor.href = `https://miraeasse.netlify.app/public/${hrefValue}`;
+                        }
+                    }
+                    // src 속성 값 변경
+                    if (srcValue) {
+                        if (srcValue.includes('public')) {
+                            anchor.src = `https://miraeasse.netlify.app/${srcValue}`;
+                        } else {
+                            anchor.src = `https://miraeasse.netlify.app/public/${srcValue}`;
+                        }
                     }
                 }
-                // src 속성 값 변경
-                if (srcValue) {
-                    if (srcValue.includes('public')) {
-                        anchor.src = `https://miraeasse.netlify.app/${srcValue}`;
-                    } else {
-                        anchor.src = `https://miraeasse.netlify.app/public/${srcValue}`;
-                    }
-                }
+                intervalId = setInterval(changePath, 100);
             }
         });
     };     
     setTimeout(() => {
         // 함수 호출
-        activateNavItem();
-        //updateMainUrl();
+        activateNavItem();        
         activateLnbItem();       
         changeUrl();      
     }, 400); 
-    // setTimeout(() => {
-    //     // 함수 호출         
-    //     changeUrl();
-    // }, 400); 
     // 활성화할 네비게이션 항목 설정
     const activateNavItem = () => {        
         const location = window.location.href;
