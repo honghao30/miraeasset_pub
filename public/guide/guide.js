@@ -79,7 +79,7 @@ window.addEventListener('load', function() {
             const checkNavList = () => {
                 const navList = document.querySelectorAll('.navgation__wrap--top li a');
                 if (navList.length > 0) {                    
-                    console.log('navList가 준비되었습니다.', navList);
+                    console.log('경로','navList가 준비되었습니다.', navList);
                     clearInterval(intervalId); 
                     navList.forEach(nav => {
                         console.log(nav)
@@ -90,7 +90,7 @@ window.addEventListener('load', function() {
         }
         
 
-        console.log('메인경로', location, navList, remoteUrl);
+        //console.log('메인경로', location, navList, remoteUrl);
         if (location.includes('pub_list')) {
             console.log(location);
             navList[4].classList.add('is-active');
