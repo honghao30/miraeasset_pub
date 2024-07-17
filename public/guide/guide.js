@@ -25,6 +25,7 @@ window.addEventListener('load', function() {
         }
     });
     const changeUrl = () => {
+        console.log('함수실행')
         const allAnchors = document.querySelectorAll('a');
         const allLinks = document.querySelectorAll('link');
         const allScriptsWithSrc = document.querySelectorAll('script[src]');
@@ -74,39 +75,22 @@ window.addEventListener('load', function() {
         const location = window.location.href;
         const remoteUrl = location.includes('https://miraeasse.netlify.app/');
         const fileName = location.substring(location.lastIndexOf('/') + 1);
-        if (remoteUrl) {
-            let intervalId;
-            const checkNavList = () => {
-                const navList = document.querySelectorAll('.navgation__wrap--top li a');
-                if (navList.length > 0) {
-                    console.log('navList가 준비되었습니다.', navList,fileName);
-                    clearInterval(intervalId);
-                    navList.forEach(nav => {
-                        if (nav.href.includes(fileName)) {
-                            nav.parentElement.classList.add('is-active');
-                            console.log('활성화된 네비게이션', nav);
-                        }
-                    });                    
-                }
-            };
-            intervalId = setInterval(checkNavList, 100);
-        }
+        let intervalId;
+        const checkNavList = () => {
+            const navList = document.querySelectorAll('.navgation__wrap--top li a');
+            if (navList.length > 0) {
+                console.log('navList가 준비되었습니다.', navList,fileName);
+                clearInterval(intervalId);
+                navList.forEach(nav => {
+                    if (nav.href.includes(fileName)) {
+                        nav.parentElement.classList.add('is-active');
+                        console.log('활성화된 네비게이션', nav);
+                    }
+                });                    
+            }
+        };
+        intervalId = setInterval(checkNavList, 100);
     };
-    
-
-    // 메인 URL 체크 및 링크 수정
-    // const updateMainUrl = () => {
-    //     const checkUrl = window.location.href;
-    //     const links = document.querySelectorAll('.navgation__wrap--top li a');
-        
-    //     if(!checkUrl.includes('miraeasset')) {
-    //         links.forEach(link => {
-    //             const url = link.getAttribute('href');
-    //             const newUrl = url.replace('/miraeasset', '');
-    //             link.setAttribute('href', newUrl);
-    //         });
-    //     }
-    // };
 
     // 현재 페이지와 일치하는 LNB 항목 활성화
     const activateLnbItem = () => {
