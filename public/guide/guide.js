@@ -83,6 +83,11 @@ window.addEventListener('load', function() {
                     clearInterval(intervalId);
                     navList.forEach(nav => {
                         const pathMatch = nav.href.match(/\/([^\/]+\.html)$/);
+                        if(pathMatch.include(fileName)) {
+                            nav.classList.add('is-active');
+                            console.log('��성화된 ��비게이션', nav);
+                            return;
+                        }
                         console.log(nav, pathMatch);
                     });
                 }
@@ -93,22 +98,22 @@ window.addEventListener('load', function() {
         
 
         //console.log('메인경로', location, navList, remoteUrl);
-        if (location.includes('pub_list')) {
-            console.log(location);
-            navList[4].classList.add('is-active');
-        } else if(location.includes('compornent')) {
-            navList[3].classList.add('is-active');
-            console.log(location);
-        } else if(location.includes('style_guide')) {
-            navList[1].classList.add('is-active');
-            console.log(location);
-        } else if(location.includes('rules')) {
-            navList[0].classList.add('is-active');
-            console.log(location);
-        } else if(location.includes('js_guide')) {
-            navList[2].classList.add('is-active');
-            console.log(location);
-        }
+        // if (location.includes('pub_list')) {
+        //     console.log(location);
+        //     navList[4].classList.add('is-active');
+        // } else if(location.includes('compornent')) {
+        //     navList[3].classList.add('is-active');
+        //     console.log(location);
+        // } else if(location.includes('style_guide')) {
+        //     navList[1].classList.add('is-active');
+        //     console.log(location);
+        // } else if(location.includes('rules')) {
+        //     navList[0].classList.add('is-active');
+        //     console.log(location);
+        // } else if(location.includes('js_guide')) {
+        //     navList[2].classList.add('is-active');
+        //     console.log(location);
+        // }
     };
 
     // 메인 URL 체크 및 링크 수정
