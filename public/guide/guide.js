@@ -34,18 +34,23 @@ window.addEventListener('load', function() {
     
         if (remoteUrl) {
             allLinks.forEach(link => {
-                let linkValue = link.getAttribute('href'); 
-                if (linkValue) {
-                    // 맨 앞의 '../' 제거
-                    linkValue = linkValue.replace(/^(\.\.\/)+/, '');
-                    
-                    if (linkValue.includes('public')) {
-                        link.href = `https://miraeasse.netlify.app/${linkValue}`;
-                    } else {
-                        link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
+                const intervalId = setInterval(() => {
+                    let linkValue = link.getAttribute('href'); 
+                    if (linkValue) {
+                        // 맨 앞의 '../' 제거
+                        linkValue = linkValue.replace(/^(\.\.\/)+/, '');
+                        
+                        if (linkValue.includes('public')) {
+                            link.href = `https://miraeasse.netlify.app/${linkValue}`;
+                        } else {
+                            link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
+                        }
+                        console.log('Updated link:', link.href);
+    
+                        // 링크가 업데이트되었으므로 interval을 중지합니다.
+                        clearInterval(intervalId);
                     }
-                    console.log('Updated link:', link.href);
-                }
+                }, 100);
             });
     
             allChangeTarget.forEach(element => {
