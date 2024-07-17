@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(mixin.scss);
 /* 레이아웃 헤더 */
 .header__inner--nav {
   display: flex;
