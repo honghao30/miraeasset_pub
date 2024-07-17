@@ -36,7 +36,6 @@ window.addEventListener('load', function() {
             allLinks.forEach(link => {
                 const intervalId = setInterval(() => {
                     let linkValue = link.getAttribute('href');
-                    console.log('경로', linkValue);
                     if (linkValue) {
                         // 맨 앞의 '../' 제거
                         linkValue = linkValue.replace(/^(\.\.\/)+/, '');
@@ -46,7 +45,7 @@ window.addEventListener('load', function() {
                         } else {
                             link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
                         }
-                        console.log('Updated link:', link.href);
+                        console.log('업데이트 링크:', link.href);
     
                         // 링크가 업데이트되었으므로 interval을 중지합니다.
                         clearInterval(intervalId);
@@ -229,6 +228,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });    
-
+    changeUrl();
 
 });   
