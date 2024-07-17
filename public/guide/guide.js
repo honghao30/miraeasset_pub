@@ -30,10 +30,11 @@ window.addEventListener('load', function() {
         const allScriptsWithSrc = document.querySelectorAll('script[src]');
         const allChangeTarget = [...allAnchors, ...allLinks, ...allScriptsWithSrc];
         const nowUrl = window.location.href;
-        const remoteUrl = nowUrl.indexOf('http://');
+        const remoteUrl = nowUrl.indexOf('https://miraeasse.netlify.app/');
         allChangeTarget.forEach(anchor => {
             anchor.getAttribute('href' || 'src');
             if(remoteUrl) {
+                console.log('원격이네');
                 anchor.replace = `https://miraeasse.netlify.app/public${anchor}`;
             }
         });
