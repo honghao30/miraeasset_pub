@@ -73,13 +73,17 @@ window.addEventListener('load', function() {
         console.log("함수 실행");
         const location = window.location.href;
         const remoteUrl = location.indexOf('https://miraeasse.netlify.app/') !== -1;
+        const fileName = remoteUrl.substring(url.lastIndexOf('/') + 1);
         if (remoteUrl) {
             let intervalId;         
             const checkNavList = () => {
-                const navList = document.querySelectorAll('.navgation__wrap--top li');
+                const navList = document.querySelectorAll('.navgation__wrap--top li a');
                 if (navList.length > 0) {                    
-                    console.log('navList가 준비되었습니다.');
+                    console.log('navList가 준비되었습니다.', navList);
                     clearInterval(intervalId); 
+                    navList.forEach(nav => {
+                        console.log(nav, fileName)
+                    });
                 }
             };                    
             intervalId = setInterval(checkNavList, 100);
