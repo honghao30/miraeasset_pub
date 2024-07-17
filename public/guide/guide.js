@@ -72,8 +72,9 @@ window.addEventListener('load', function() {
     const activateNavItem = () => {
         console.log("함수 실행");
         const location = window.location.href;
+        const remoteUrl = location.indexOf('https://miraeasse.netlify.app/') !== -1;
         const navList = document.querySelectorAll('.navgation__wrap--top li');        
-        console.log('메인경로', location, navList);
+        console.log('메인경로', location, navList, remoteUrl);
         if (location.includes('pub_list')) {
             console.log(location);
             navList[4].classList.add('is-active');
