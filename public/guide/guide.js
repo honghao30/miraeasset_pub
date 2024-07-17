@@ -82,12 +82,11 @@ window.addEventListener('load', function() {
                     console.log('navList가 준비되었습니다.', navList,fileName);
                     clearInterval(intervalId);
                     navList.forEach(nav => {
-                        const pathMatch = nav.href.match(/\/([^\/]+\.html)$/);
-                        if (pathMatch && pathMatch[1] === fileName) {
+                        if (nav.href.includes(fileName)) {
                             nav.parentElement.classList.add('is-active');
                             console.log('활성화된 네비게이션', nav);
                         }
-                    });
+                    });                    
                 }
             };
             intervalId = setInterval(checkNavList, 100);
