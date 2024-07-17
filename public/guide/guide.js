@@ -42,7 +42,9 @@ window.addEventListener('load', function() {
                 // href 속성 값 변경
                 const changePath = () => {
                     if (hrefValue) {
+                        console.log(hrefValue);
                         if (hrefValue.includes('public')) {
+                            console.log(hrefValue);
                             anchor.href = `https://miraeasse.netlify.app/${hrefValue}`;
                         } else {
                             anchor.href = `https://miraeasse.netlify.app/public/${hrefValue}`;
