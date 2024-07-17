@@ -24,8 +24,7 @@ window.addEventListener('load', function() {
             xhttp.send();
         }
     });
-    const changeUrl = () => {
-        console.log('함수실행 경로변경1')
+    const changeUrl = () => {        
         const allAnchors = document.querySelectorAll('a');
         const allLinks = document.querySelectorAll('link');
         const allScriptsWithSrc = document.querySelectorAll('script[src]');
@@ -38,7 +37,7 @@ window.addEventListener('load', function() {
             const srcValue = anchor.getAttribute('src');
     
             if (remoteUrl) {
-                console.log('원격이네 경로변경');
+                console.log('원격이네 경로변경', allLinks);
                 // href 속성 값 변경
                 if (hrefValue) {
                     if (hrefValue.includes('public')) {
