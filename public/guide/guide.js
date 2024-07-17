@@ -35,6 +35,9 @@ window.addEventListener('load', function() {
         allLinks.forEach(link => {
             const linkValue = link.getAttribute('href'); 
             if (remoteUrl) {
+                // 맨 앞의 '../' 제거
+                linkValue = linkValue.replace(/^(\.\.\/)+/, '');
+            
                 if (linkValue.includes('public')) {
                     console.log(linkValue);
                     link.href = `https://miraeasse.netlify.app/${linkValue}`;
@@ -42,11 +45,12 @@ window.addEventListener('load', function() {
                     link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
                 }
             }
+            
         });
 
         allChangeTarget.forEach(anchor => {
-            const hrefValue = anchor.getAttribute('href');            
-            const srcValue = anchor.getAttribute('src');
+            const hrefValue = anchor.getAttribute('href').replace(/^(\.\.\/)+/, '');            
+            const srcValue = anchor.getAttribute('src').replace(/^(\.\.\/)+/, '');
     
             if (remoteUrl) {
                 console.log('원격이네 경로변경', allLinks);
