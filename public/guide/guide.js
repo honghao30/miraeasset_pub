@@ -78,8 +78,9 @@ window.addEventListener('load', function() {
             let intervalId;         
             const checkNavList = () => {
                 const navList = document.querySelectorAll('.navgation__wrap--top li a');
+                const pathMatch = navList.href.match(/\/([^\/]+\.html)$/);      
                 if (navList.length > 0) {                    
-                    console.log('경로','navList가 준비되었습니다.', navList);
+                    console.log('경로','navList가 준비되었습니다.', navList, fileName, pathMatch);
                     clearInterval(intervalId); 
                     navList.forEach(nav => {
                         console.log(nav)
