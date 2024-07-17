@@ -79,12 +79,12 @@ window.addEventListener('load', function() {
             const checkNavList = () => {
                 const navList = document.querySelectorAll('.navgation__wrap--top li a');
                 if (navList.length > 0) {
-                    console.log('navList가 준비되었습니다.', navList);
+                    console.log('navList가 준비되었습니다.', navList,fileName);
                     clearInterval(intervalId);
                     navList.forEach(nav => {
                         const pathMatch = nav.href.match(/\/([^\/]+\.html)$/);
                         if (pathMatch && pathMatch[1] === fileName) {
-                            nav.classList.add('is-active');
+                            nav.parentElement.classList.add('is-active');
                             console.log('활성화된 네비게이션', nav);
                         }
                     });
