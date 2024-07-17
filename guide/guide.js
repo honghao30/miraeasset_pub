@@ -26,29 +26,8 @@ window.addEventListener('load', function() {
     });
 
     // 네비게이션 항목 활성화 함수
-    const activateNavItem = () => {
-        const location = window.location.href;
-        const fileName = location.substring(location.lastIndexOf('/') + 1);
-        let intervalId;
-
-        const checkNavList = () => {
-            const navList = document.querySelectorAll('.navigation__wrap--top li a');
-            if (navList.length > 0) {
-                clearInterval(intervalId);
-                navList.forEach(nav => {
-                    if (nav.href.includes(fileName)) {
-                        nav.parentElement.classList.add('is-active');
-                    }
-                });
-            }
-        };
-
-        intervalId = setInterval(checkNavList, 100);
-    };
-
-    // LNB 항목 활성화 함수
-    const activateLnbItem = () => {
-        const lnbList = document.querySelectorAll('.lnb_list li a');
+    const activateNavItem = (targetUrl) => {
+        const lnbList = document.querySelectorAll(targetUrl);
         const nowUrl = window.location.href;
         const fileNameMatch = nowUrl.match(/\/([^\/]+\.html)$/);
         const fileName = fileNameMatch ? fileNameMatch[1] : null;
@@ -62,6 +41,7 @@ window.addEventListener('load', function() {
                 if (fileName === urlName) {
                     el.parentNode.classList.add('is-active');
                 }
+                
             });
         }
     };
@@ -118,8 +98,8 @@ window.addEventListener('load', function() {
     };
 
     setTimeout(() => {
-        activateNavItem();
-        activateLnbItem();        
+        activateNavItem('.navigation__wrap--top li a');
+        activateNavItem('.lnb-side__wrap li a');        
     }, 200);
 
     convertCodeSamples();
@@ -130,11 +110,10 @@ window.addEventListener('load', function() {
 document.addEventListener("DOMContentLoaded", function() {
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'header.html', true);
+    xhr.open('GET', '/guide/header.html', true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // 기존 head 태그 제거
-            console.log("ㅇㅇㅇ")
+            // 기존 head 태그 제거            
             var existingHead = document.getElementsByTagName('head')[0];
             if (existingHead) {
                 existingHead.parentNode.removeChild(existingHead);
