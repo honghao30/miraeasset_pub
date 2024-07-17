@@ -25,7 +25,7 @@ window.addEventListener('load', function() {
         }
     });
     const changeUrl = () => {
-        console.log('함수실행')
+        console.log('함수실행 경로변경1')
         const allAnchors = document.querySelectorAll('a');
         const allLinks = document.querySelectorAll('link');
         const allScriptsWithSrc = document.querySelectorAll('script[src]');
@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
             const srcValue = anchor.getAttribute('src');
     
             if (remoteUrl) {
-                console.log('원격이네');
+                console.log('원격이네 경로변경');
                 // href 속성 값 변경
                 if (hrefValue) {
                     if (hrefValue.includes('public')) {
@@ -70,21 +70,18 @@ window.addEventListener('load', function() {
     //     changeUrl();
     // }, 400); 
     // 활성화할 네비게이션 항목 설정
-    const activateNavItem = () => {
-        console.log("함수 실행");
+    const activateNavItem = () => {        
         const location = window.location.href;
         const remoteUrl = location.includes('https://miraeasse.netlify.app/');
         const fileName = location.substring(location.lastIndexOf('/') + 1);
         let intervalId;
         const checkNavList = () => {
             const navList = document.querySelectorAll('.navgation__wrap--top li a');
-            if (navList.length > 0) {
-                console.log('navList가 준비되었습니다.', navList,fileName);
+            if (navList.length > 0) {                
                 clearInterval(intervalId);
                 navList.forEach(nav => {
                     if (nav.href.includes(fileName)) {
-                        nav.parentElement.classList.add('is-active');
-                        console.log('활성화된 네비게이션', nav);
+                        nav.parentElement.classList.add('is-active');                        
                     }
                 });                    
             }
