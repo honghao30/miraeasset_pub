@@ -2,11 +2,11 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
-    entry: './src/js/index.js',
-    output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, 'public/assets/js'),
-    },
+    // entry: './src/js/index.js',
+    // output: {
+    //     filename: 'index.js',
+    //     path: path.resolve(__dirname, 'public/assets/js'),
+    // },
     module: {
         rules: [
             {
@@ -29,7 +29,7 @@ module.exports = {
         port: 3000,
         hot: true,
         open: true,
-        watchFiles: ['public/**/*', 'src/**/*'],
+        watchFiles: ['public/**/*', 'public/**/*'],
     },
     plugins: [
         new BrowserSyncPlugin(

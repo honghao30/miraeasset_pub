@@ -1,10 +1,10 @@
 {
     "watch": [
-        "src",
+        "public",
         ".env"
     ],
     "ext": "js,ts,json",
     "ignore": [
-        "src/**/*.spec.ts"  
+        "public/**/*.spec.ts"  
     ]
 }

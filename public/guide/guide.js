@@ -24,11 +24,26 @@ window.addEventListener('load', function() {
             xhttp.send();
         }
     });
+    const changeUrl = () => {
+        const allAnchors = document.querySelectorAll('a');
+        const allLinks = document.querySelectorAll('link');
+        const allScriptsWithSrc = document.querySelectorAll('script[src]');
+        const allChangeTarget = [...allAnchors, ...allLinks, ...allScriptsWithSrc];
+        const nowUrl = window.location.href;
+        const remoteUrl = nowUrl.indexOf('http://');
+        allChangeTarget.forEach(anchor => {
+            anchor.getAttribute('href' || 'src');
+            if(remoteUrl) {
+                anchor.replace = `https://miraeasse.netlify.app/public${anchor}`;
+            }
+        });
+    }        
     setTimeout(() => {
         // 함수 호출
         activateNavItem();
         updateMainUrl();
         activateLnbItem();             
+        changeUrl();
     }, 200); 
     
     // 활성화할 네비게이션 항목 설정
