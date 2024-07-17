@@ -70,6 +70,7 @@ window.addEventListener('load', function() {
     // }, 400); 
     // 활성화할 네비게이션 항목 설정
     const activateNavItem = () => {
+        console.log("함수 실행");
         const location = window.location.href;
         const navList = document.querySelectorAll('.navgation__wrap--top li');        
         
