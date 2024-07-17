@@ -54,9 +54,11 @@ window.addEventListener('load', function() {
         activateNavItem();
         updateMainUrl();
         activateLnbItem();             
-        changeUrl();
     }, 200); 
-    
+    setTimeout(() => {
+        // 함수 호출         
+        changeUrl();
+    }, 400); 
     // 활성화할 네비게이션 항목 설정
     const activateNavItem = () => {
         const location = window.location.href;
