@@ -24,61 +24,56 @@ window.addEventListener('load', function() {
             xhttp.send();
         }
     });
-    const changeUrl = () => {        
+    const changeUrl = () => {
         const allAnchors = document.querySelectorAll('a');
         const allLinks = document.querySelectorAll('link');
         const allScriptsWithSrc = document.querySelectorAll('script[src]');
         const allChangeTarget = [...allAnchors, ...allScriptsWithSrc];
         const nowUrl = window.location.href;
         const remoteUrl = nowUrl.indexOf('https://miraeasse.netlify.app/') !== -1;
-        
-        allLinks.forEach(link => {
-            const linkValue = link.getAttribute('href'); 
-            if (remoteUrl) {
-                // 맨 앞의 '../' 제거
-                linkValue = linkValue.replace(/^(\.\.\/)+/, '');
-            
-                if (linkValue.includes('public')) {
-                    console.log(linkValue);
-                    link.href = `https://miraeasse.netlify.app/${linkValue}`;
-                } else {
-                    link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
-                }
-            }
-            
-        });
-
-        allChangeTarget.forEach(anchor => {
-            const hrefValue = anchor.getAttribute('href').replace(/^(\.\.\/)+/, '');            
-            const srcValue = anchor.getAttribute('src').replace(/^(\.\.\/)+/, '');
     
-            if (remoteUrl) {
-                console.log('원격이네 경로변경', allLinks);
-                let intervalId;
-                // href 속성 값 변경
-                const changePath = () => {
-                    if (hrefValue) {
-                        clearInterval(intervalId);
-                        if (hrefValue.includes('public')) {
-                            anchor.href = `https://miraeasse.netlify.app/${hrefValue}`;
-                        } else {
-                            anchor.href = `https://miraeasse.netlify.app/public/${hrefValue}`;
-                        }
+        if (remoteUrl) {
+            allLinks.forEach(link => {
+                let linkValue = link.getAttribute('href'); 
+                if (linkValue) {
+                    // 맨 앞의 '../' 제거
+                    linkValue = linkValue.replace(/^(\.\.\/)+/, '');
+                    
+                    if (linkValue.includes('public')) {
+                        link.href = `https://miraeasse.netlify.app/${linkValue}`;
+                    } else {
+                        link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
                     }
-                    // src 속성 값 변경
-                    if (srcValue) {
-                        clearInterval(intervalId);
-                        if (srcValue.includes('public')) {
-                            anchor.src = `https://miraeasse.netlify.app/${srcValue}`;
-                        } else {
-                            anchor.src = `https://miraeasse.netlify.app/public/${srcValue}`;
-                        }
-                    }
+                    console.log('Updated link:', link.href);
                 }
-                intervalId = setInterval(changePath, 100);
-            }
-        });
-    };     
+            });
+    
+            allChangeTarget.forEach(element => {
+                let hrefValue = element.getAttribute('href');
+                let srcValue = element.getAttribute('src');
+    
+                if (hrefValue) {
+                    hrefValue = hrefValue.replace(/^(\.\.\/)+/, '');
+                    if (hrefValue.includes('public')) {
+                        element.href = `https://miraeasse.netlify.app/${hrefValue}`;
+                    } else {
+                        element.href = `https://miraeasse.netlify.app/public/${hrefValue}`;
+                    }
+                    console.log('Updated anchor href:', element.href);
+                }
+    
+                if (srcValue) {
+                    srcValue = srcValue.replace(/^(\.\.\/)+/, '');
+                    if (srcValue.includes('public')) {
+                        element.src = `https://miraeasse.netlify.app/${srcValue}`;
+                    } else {
+                        element.src = `https://miraeasse.netlify.app/public/${srcValue}`;
+                    }
+                    console.log('Updated script src:', element.src);
+                }
+            });
+        }
+    };
     setTimeout(() => {
         // 함수 호출
         activateNavItem();        
