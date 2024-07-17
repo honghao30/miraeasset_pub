@@ -48,7 +48,7 @@ window.addEventListener('load', function() {
                         //     link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
                         // }
                         console.log('Updated link:', link.href);
-                        clearInterval(intervalId);
+                        //clearInterval(intervalId);
                     }
                 }, 100);
             });
