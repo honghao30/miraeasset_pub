@@ -26,55 +26,55 @@ window.addEventListener('load', function() {
     });
 
     // URL 경로 변경 함수
-    const changeUrl = () => {
-        const allLinks = document.querySelectorAll('link[rel="stylesheet"]');
-        const allChangeTarget = [
-            ...document.querySelectorAll('a'),
-            ...document.querySelectorAll('script[src]')
-        ];
-        const nowUrl = window.location.href;
-        const remoteUrl = nowUrl.includes('https://miraeasse.netlify.app/');
+    // const changeUrl = () => {
+    //     const allLinks = document.querySelectorAll('link[rel="stylesheet"]');
+    //     const allChangeTarget = [
+    //         ...document.querySelectorAll('a'),
+    //         ...document.querySelectorAll('script[src]')
+    //     ];
+    //     const nowUrl = window.location.href;
+    //     const remoteUrl = nowUrl.includes('https://miraeasse.netlify.app/');
 
-        if (remoteUrl) {
-            allLinks.forEach(link => {
-                const intervalId = setInterval(() => {
-                    let linkValue = link.getAttribute('href');
-                    if (linkValue) {
-                        linkValue = linkValue.replace(/^(\.\.\/)+/, '');
-                        link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
-                        // if (linkValue.includes('public')) {
-                        //     link.href = `https://miraeasse.netlify.app/${linkValue}`;
-                        // } else {
-                        //     link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
-                        // }
-                        console.log('Updated link:', link.href);
-                        //clearInterval(intervalId);
-                    }
-                }, 100);
-            });
+    //     if (remoteUrl) {
+    //         allLinks.forEach(link => {
+    //             const intervalId = setInterval(() => {
+    //                 let linkValue = link.getAttribute('href');
+    //                 if (linkValue) {
+    //                     linkValue = linkValue.replace(/^(\.\.\/)+/, '');
+    //                     link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
+    //                     // if (linkValue.includes('public')) {
+    //                     //     link.href = `https://miraeasse.netlify.app/${linkValue}`;
+    //                     // } else {
+    //                     //     link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
+    //                     // }
+    //                     console.log('Updated link:', link.href);
+    //                     //clearInterval(intervalId);
+    //                 }
+    //             }, 100);
+    //         });
 
-            allChangeTarget.forEach(element => {
-                let hrefValue = element.getAttribute('href');
-                let srcValue = element.getAttribute('src');
+    //         allChangeTarget.forEach(element => {
+    //             let hrefValue = element.getAttribute('href');
+    //             let srcValue = element.getAttribute('src');
 
-                if (hrefValue) {
-                    hrefValue = hrefValue.replace(/^(\.\.\/)+/, '');
-                    element.href = hrefValue.includes('public') ?
-                        `https://miraeasse.netlify.app/${hrefValue}` :
-                        `https://miraeasse.netlify.app/public/${hrefValue}`;
-                    console.log('Updated anchor href:', element.href);
-                }
+    //             if (hrefValue) {
+    //                 hrefValue = hrefValue.replace(/^(\.\.\/)+/, '');
+    //                 element.href = hrefValue.includes('public') ?
+    //                     `https://miraeasse.netlify.app/${hrefValue}` :
+    //                     `https://miraeasse.netlify.app/public/${hrefValue}`;
+    //                 console.log('Updated anchor href:', element.href);
+    //             }
 
-                if (srcValue) {
-                    srcValue = srcValue.replace(/^(\.\.\/)+/, '');
-                    element.src = srcValue.includes('public') ?
-                        `https://miraeasse.netlify.app/${srcValue}` :
-                        `https://miraeasse.netlify.app/public/${srcValue}`;
-                    console.log('Updated script src:', element.src);
-                }
-            });
-        }
-    };
+    //             if (srcValue) {
+    //                 srcValue = srcValue.replace(/^(\.\.\/)+/, '');
+    //                 element.src = srcValue.includes('public') ?
+    //                     `https://miraeasse.netlify.app/${srcValue}` :
+    //                     `https://miraeasse.netlify.app/public/${srcValue}`;
+    //                 console.log('Updated script src:', element.src);
+    //             }
+    //         });
+    //     }
+    // };
 
     // 네비게이션 항목 활성화 함수
     const activateNavItem = () => {
@@ -83,7 +83,7 @@ window.addEventListener('load', function() {
         let intervalId;
 
         const checkNavList = () => {
-            const navList = document.querySelectorAll('.navgation__wrap--top li a');
+            const navList = document.querySelectorAll('.navigation__wrap--top li a');
             if (navList.length > 0) {
                 clearInterval(intervalId);
                 navList.forEach(nav => {
@@ -180,29 +180,24 @@ window.addEventListener('load', function() {
 
 // 공통 영역 불러오기
 document.addEventListener("DOMContentLoaded", function() {
-    const nowUrl = window.location.href;
-    const localUrl = '/guide/header.html';
-    const remoteUrl = 'https://miraeasse.netlify.app/public/guide/header.html';
-    const targetUrl = nowUrl.includes('localhost') ? localUrl : remoteUrl;
 
-    const loadHeader = (url) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const existingHead = document.getElementsByTagName('head')[0];
-                if (existingHead) {
-                    existingHead.parentNode.removeChild(existingHead);
-                }
-                const headElement = document.createElement('head');
-                headElement.innerHTML = xhr.responseText;
-                document.documentElement.insertBefore(headElement, document.body);
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'header.html', true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // 기존 head 태그 제거
+            console.log("ㅇㅇㅇ")
+            var existingHead = document.getElementsByTagName('head')[0];
+            if (existingHead) {
+                existingHead.parentNode.removeChild(existingHead);
             }
-        };
-        xhr.send();
+            // 새로운 head 태그 추가
+            var headElement = document.createElement('head');
+            headElement.innerHTML = xhr.responseText;
+            document.documentElement.insertBefore(headElement, document.body);
+        }
     };
-
-    loadHeader(targetUrl);
+    xhr.send();
 
     // 검색 기능
     const inputSearch = document.querySelector('#search-box input[type="text"]');
