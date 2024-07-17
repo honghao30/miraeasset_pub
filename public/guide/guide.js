@@ -72,7 +72,7 @@ window.addEventListener('load', function() {
     const activateNavItem = () => {
         console.log("함수 실행");
         const location = window.location.href;
-        const remoteUrl = location.indexOf('https://miraeasse.netlify.app/') !== -1;
+        const remoteUrl = location.includes('https://miraeasse.netlify.app/');
         const fileName = location.substring(location.lastIndexOf('/') + 1);
         if (remoteUrl) {
             let intervalId;
@@ -83,38 +83,17 @@ window.addEventListener('load', function() {
                     clearInterval(intervalId);
                     navList.forEach(nav => {
                         const pathMatch = nav.href.match(/\/([^\/]+\.html)$/);
-                        if(pathMatch.include(fileName)) {
+                        if (pathMatch && pathMatch[1] === fileName) {
                             nav.classList.add('is-active');
-                            console.log('��성화된 ��비게이션', nav);
-                            return;
+                            console.log('활성화된 네비게이션', nav);
                         }
-                        console.log(nav, pathMatch);
                     });
                 }
             };
             intervalId = setInterval(checkNavList, 100);
         }
-        
-        
-
-        //console.log('메인경로', location, navList, remoteUrl);
-        // if (location.includes('pub_list')) {
-        //     console.log(location);
-        //     navList[4].classList.add('is-active');
-        // } else if(location.includes('compornent')) {
-        //     navList[3].classList.add('is-active');
-        //     console.log(location);
-        // } else if(location.includes('style_guide')) {
-        //     navList[1].classList.add('is-active');
-        //     console.log(location);
-        // } else if(location.includes('rules')) {
-        //     navList[0].classList.add('is-active');
-        //     console.log(location);
-        // } else if(location.includes('js_guide')) {
-        //     navList[2].classList.add('is-active');
-        //     console.log(location);
-        // }
     };
+    
 
     // 메인 URL 체크 및 링크 수정
     // const updateMainUrl = () => {
