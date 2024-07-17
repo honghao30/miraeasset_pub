@@ -25,57 +25,6 @@ window.addEventListener('load', function() {
         }
     });
 
-    // URL 경로 변경 함수
-    // const changeUrl = () => {
-    //     const allLinks = document.querySelectorAll('link[rel="stylesheet"]');
-    //     const allChangeTarget = [
-    //         ...document.querySelectorAll('a'),
-    //         ...document.querySelectorAll('script[src]')
-    //     ];
-    //     const nowUrl = window.location.href;
-    //     const remoteUrl = nowUrl.includes('https://miraeasse.netlify.app/');
-
-    //     if (remoteUrl) {
-    //         allLinks.forEach(link => {
-    //             const intervalId = setInterval(() => {
-    //                 let linkValue = link.getAttribute('href');
-    //                 if (linkValue) {
-    //                     linkValue = linkValue.replace(/^(\.\.\/)+/, '');
-    //                     link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
-    //                     // if (linkValue.includes('public')) {
-    //                     //     link.href = `https://miraeasse.netlify.app/${linkValue}`;
-    //                     // } else {
-    //                     //     link.href = `https://miraeasse.netlify.app/public/${linkValue}`;
-    //                     // }
-    //                     console.log('Updated link:', link.href);
-    //                     //clearInterval(intervalId);
-    //                 }
-    //             }, 100);
-    //         });
-
-    //         allChangeTarget.forEach(element => {
-    //             let hrefValue = element.getAttribute('href');
-    //             let srcValue = element.getAttribute('src');
-
-    //             if (hrefValue) {
-    //                 hrefValue = hrefValue.replace(/^(\.\.\/)+/, '');
-    //                 element.href = hrefValue.includes('public') ?
-    //                     `https://miraeasse.netlify.app/${hrefValue}` :
-    //                     `https://miraeasse.netlify.app/public/${hrefValue}`;
-    //                 console.log('Updated anchor href:', element.href);
-    //             }
-
-    //             if (srcValue) {
-    //                 srcValue = srcValue.replace(/^(\.\.\/)+/, '');
-    //                 element.src = srcValue.includes('public') ?
-    //                     `https://miraeasse.netlify.app/${srcValue}` :
-    //                     `https://miraeasse.netlify.app/public/${srcValue}`;
-    //                 console.log('Updated script src:', element.src);
-    //             }
-    //         });
-    //     }
-    // };
-
     // 네비게이션 항목 활성화 함수
     const activateNavItem = () => {
         const location = window.location.href;
@@ -170,9 +119,8 @@ window.addEventListener('load', function() {
 
     setTimeout(() => {
         activateNavItem();
-        activateLnbItem();
-        changeUrl();
-    }, 400);
+        activateLnbItem();        
+    }, 200);
 
     convertCodeSamples();
     formatCodePreviews();

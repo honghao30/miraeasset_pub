@@ -22,13 +22,47 @@
                     <div class="section">
                         <div class="page_tit_h2">프로젝트 자료실</div>
                         <div class="section_text">
-                            <ul class="description-list">
-                                <li><a href="#">작업환경 설정</a></li>
-                                <li><a href="#">일정관리 시트</a></li>
+                            <ul class="description-list">                                
+                                <li><a href="https://docs.google.com/spreadsheets/d/1wTGeReQQvZI5j-FwGc_n3syX3Rhb-MdrQoPLgXp-MHM/edit?gid=0#gid=0" target="_blank">일정관리 시트</a></li>
                                 <li><a href="KSX3253모바일애플리케이션콘텐츠접근성지침2_0요약.docx" target="_blank">앱접근성 참고자료</a></li>
                             </ul>
                         </div>
                     </div>
+                    <div class="section">
+                        <div class="page_tit_h2">작업환경</div>
+                        <ul class="description-list mt-3">                                
+                            <li>퍼블 작업은 외부망에서 진행하며 내부망을 통해 개발팀과 공유를 한다.</li>                                                                
+                        </ul>
+                        <div class="heading-type3-font18 mt-4">외부망</div>
+                        <ul class="description-list mt-3">                                
+                            <li>git에서 clone을 한다.</li>
+                            <li>vscode의 필수 extension을 설치 한다.<br>
+                                - Live Serve<br>
+                                - Live Sass Compiler
+                            </li>
+                            <li>Live Sass Compiler 설정<br>
+                                1. VC에서 Ctrl + , 를 눌러 환경설정 파일 settings.json 열기<br>
+                                2. 설정 검색에서 sass 검색<br>
+                                3. 검색 후 Live Sass Compiler 선택<br>
+                                4. settings.json에서 편집 클릭
+                                <pre class="code_view">
+                                    "liveSassCompile.settings.includeItems": [
+                                        {
+                                            "format": "expanded",
+                                            "extensionName": ".css",
+                                            "savePath": null
+                                        },
+                                    ],
+                                    "liveSassCompile.settings.includeItems": [
+                                        "**/*.scss"
+                                    ],
+                                    "liveSassCompile.settings.generateMap": false
+                                </pre>                                
+                            </li>
+                            <li>검수 URL: <a href="https://miraeasse.netlify.app/" target="_blank">https://miraeasse.netlify.app/</a></li>
+                        </ul>
+                        <div class="heading-type3-font18 mt-4">내부망</div>
+                    </div>                    
                     <div class="section" id="sect1">
                         <div class="page_tit_h2">기본 가이드</div>
                         <div class="section_text">
