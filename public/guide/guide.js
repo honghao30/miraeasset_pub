@@ -35,11 +35,12 @@ window.addEventListener('load', function() {
         if (remoteUrl) {
             allLinks.forEach(link => {
                 const intervalId = setInterval(() => {
-                    let linkValue = link.getAttribute('href'); 
+                    let linkValue = link.getAttribute('href');
+                    console.log('경로', linkValue);
                     if (linkValue) {
                         // 맨 앞의 '../' 제거
                         linkValue = linkValue.replace(/^(\.\.\/)+/, '');
-                        
+    
                         if (linkValue.includes('public')) {
                             link.href = `https://miraeasse.netlify.app/${linkValue}`;
                         } else {
