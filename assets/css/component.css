@@ -331,53 +331,75 @@
     align-items: center;
 }
 .switch_wrap label {
-    margin-right: 4px;
+    margin-left: 4px;
 }
 .switch_wrap [type="checkbox"] {
     appearance: none;
     position: relative;
-    border: 2px solid #d8dde9;
-    border-radius: 20px;
-    width: 40px;
+    border-radius: 16px;
+    width: 36px;
     height: 20px;
-    opacity: 1;
     font-size: 14px;
-    background-color: #d8dde9;
+    background-color: var(--color-primary-disabled);
 }
 .switch_wrap [type="checkbox"]::before {
     content: "";
     position: absolute;
-    left: 1px;
+    left: 2px;
     top: 50%;
     transform: translateY(-50%);
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background-color: #fff;
     transition: left 250ms linear;
+    background-color: var(--color-white);
 }
 .switch_wrap [type="checkbox"]:checked {
-    background-color: #1293e7;
-    border-color: #1293e7;
+    background-color: var(--color-primary-netural);
 }
 .switch_wrap [type="checkbox"]:checked::before {
-    background-color: white;
-    left: 19px;
+    background-color: var(--color-primary);
+    left: 18px;
 }
 .switch_wrap [type="checkbox"]:disabled {
-    border-color: lightgray;
-    opacity: 0.7;
+    background-color: var(--color-basic3);
     cursor: not-allowed;
 }
 .switch_wrap [type="checkbox"]:disabled:before {
-    background-color: lightgray;
+    background-color: var(--color-basic5);
 }
 .switch_wrap [type="checkbox"]:disabled + span {
-    opacity: 0.7;
     cursor: not-allowed;
 }
 .switch_wrap input[type="checkbox"]:checked:after {
     background: none;
+}
+
+.switch_wrap.switch-type2 [type="checkbox"] {
+    width: 36px;
+    height: 12px;
+}
+.switch_wrap.switch-type2 [type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: left 250ms linear;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-basic3);
+}
+.switch_wrap.switch-type2 [type="checkbox"]:checked::before {
+    background-color: var(--color-primary);
+    border: 0;
+    left: 16px;
+}
+.switch_wrap.switch-type2 [type="checkbox"]:disabled:before {
+    background-color: var(--color-basic5);
+    border: 0;
 }
 
 /* 드롭다운 메뉴 */
