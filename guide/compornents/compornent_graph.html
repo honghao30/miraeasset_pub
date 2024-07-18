@@ -1,209 +1,183 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="utf-8">
-    <title>Publish Guide System</title>
-    <link rel="stylesheet" href="../guide.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/locales/ko.js"></script>
-</head>
-<body>
-    <div class="guide_wrap">
-        <div class="header__wrap">
-            <div data-include-path="../top_nav.html"></div>   
-            <div data-include-path="../site-name.html"></div>
-        </div>
-        <div class="guide-content__wrap lnb-type">
-            <div class="lnb-side__wrap">
-                <div data-include-path="./cmp_side.html"></div>
-            </div>            
-            <div class="guide-cont">
-                <div class="page_tit_h1">커스텀 그래프</div>
-                <div class="section">
-                    <div class="page_tit_h2">도넛형</div>
-                    <div class="section_text_no_round">
-                        <style>
-                            .half-donut {
-                                width: 300px;
-                                height: 150px;
-                                position: relative;
-                                text-align: center;
-                                font-size: 22px;
-                                font-weight: 600;
-                                border-radius: 150px 150px 0 0;
-                                overflow: hidden;
-                                color: var(--fill);
-                                display: flex;
-                                align-items: flex-end;
-                                justify-content: center;
-                                box-sizing: border-box;
-                            }
-                            .half-donut::before, .half-donut::after {
-                                content: '';
-                                width: 300px;
-                                height: 150px;
-                                border: 10px solid var(--fill);
-                                border-top: none;
-                                position: absolute;
-                                transform-origin: 50% 0% 0;
-                                border-radius: 0 0 300px 300px;
-                                box-sizing: border-box;
-                                left: 0;
-                                top: 100%;
-                            }
-                            .half-donut::before {
-                                border-color: rgba(0, 0, 0, .15);
-                                transform: rotate(180deg);
-                            }
-                            .half-donut::after {
-                                z-index: 3;
-                                transform: rotate(0deg);
-                            }
-                            .half-donut.animated::after {
-                                animation: fillGraphAnimation 2s ease-in forwards;
-                            }
-                            @keyframes fillGraphAnimation {
-                                from {
-                                    transform: rotate(0deg);
-                                }
-                                to {
-                                    transform: rotate(calc(1deg * (var(--percentage) * 1.8)));
-                                }
-                            }
-                            .half-donut:hover::after {
-                                opacity: .8;
-                                cursor: pointer;
-                            }
-                        </style>
-                        <div class="half-donut" id="halfDonut" style="--percentage: 90; --fill: #039BE5;">
-                            CSS3
+    <head>
+        <meta charset="utf-8" />
+        <title>Publish Guide System</title>
+        <link rel="stylesheet" href="../guide.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/locales/ko.js"></script>
+    </head>
+    <body>
+        <div class="guide_wrap">
+            <div class="header__wrap">
+                <div data-include-path="../top_nav.html"></div>
+                <div data-include-path="../site-name.html"></div>
+            </div>
+            <div class="guide-content__wrap lnb-type">
+                <div class="lnb-side__wrap">
+                    <div data-include-path="./cmp_side.html"></div>
+                </div>
+                <div class="guide-cont">
+                    <div class="page_tit_h1">커스텀 그래프</div>
+                    <div class="section">
+                        <div class="page_tit_h2">기본 원형 그래프</div>
+                        <div class="section_text_no_round">
+                            <div class="circlebar_total">
+                                <div class="circlebar_wrap">
+                                    <svg width="126" height="126" viewBox="0 0 140 140" class="circlebar-type1 circlebar-js1" data-value="65">
+                                        <circle r="60" cx="70" cy="70" class="circle-border"></circle>
+                                        <circle r="60" cx="70" cy="70" class="circle-progress"></circle>
+                                    </svg>
+                                    <p class="circlebar_txt">a</p>
+                                </div>
+                            </div>
                         </div>
-
-                        <script>
-                            window.onload = function() {
-                                setTimeout(function() {
-                                    document.getElementById('halfDonut').classList.add('animated');
-                                }, 100); // 0.1초 후 애니메이션 시작
-                            };
-                        </script>
-
+                    </div>
+                    <div class="section">
+                        <div class="page_tit_h2">100% 넘는 경우의 그래프</div>
+                        <div class="section_text_no_round">
+                            <div class="circlebar_total">
+                                <div class="circlebar_wrap">
+                                    <svg width="126" height="126" viewBox="0 0 140 140" class="circlebar-type2 circlebar-js2" data-value="165">
+                                        <circle r="60" cx="70" cy="70" class="circle-border"></circle>
+                                        <circle r="60" cx="70" cy="70" class="circle-progress"></circle>
+                                        <circle r="60" cx="70" cy="70" class="circle-overflow"></circle>
+                                    </svg>
+                                    <p class="circlebar_txt"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="page_tit_h2">하나의 원이나 나눠진 그래프</div>
+                        <div class="section_text_no_round">
+                            <p class="text">※ data-value : 92 이상의 경우, 91 수치와 동일하게 보여줌</p>
+                            <p class="text">1. 단일색상</p>
+                            <div class="circlebar_total">
+                                <div class="circlebar_wrap circle-combine">
+                                    <!-- 첫 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 data-circle circlebar-js3" data-value="95">
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress2"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress" style="stroke: var(--color-primary) !important"></circle>
+                                    </svg>
+                                    <!-- 두 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 empty-circle circlebar-js3" data-value="5">
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress"></circle>
+                                    </svg>
+                                    <p class="circlebar_txt"></p>
+                                </div>
+                            </div>
+                            <p class="text">2. 그라데이션</p>
+                            <div class="circlebar_total">
+                                <div class="circlebar_wrap circle-combine">
+                                    <!-- 첫 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 data-circle circlebar-js3" data-value="45">
+                                        <defs>
+                                            <linearGradient id="circleGradient" x1="0.75" y1="0" x2="0.25" y2="0.1">
+                                                <stop offset="0%" stop-color="#FFCA48" />
+                                                <stop offset="10%" stop-color="#FFCA48" />
+                                                <stop offset="30%" stop-color="#FBB142" />
+                                                <stop offset="50%" stop-color="#F6943B" />
+                                                <stop offset="100%" stop-color="#F6943B" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress2"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress" style="stroke: url(#circleGradient)"></circle>
+                                    </svg>
+                                    <!-- 두 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 empty-circle circlebar-js3" data-value="55">
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress"></circle>
+                                    </svg>
+                                    <p class="circlebar_txt"></p>
+                                </div>
+                            </div>
+                            <div class="circlebar_total">
+                                <div class="circlebar_wrap circle-combine">
+                                    <!-- 첫 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 data-circle circlebar-js3" data-value="90">
+                                        <defs>
+                                            <linearGradient id="circleGradient" x1="0.75" y1="0" x2="0.25" y2="0.1">
+                                                <stop offset="0%" stop-color="#FFCA48" />
+                                                <stop offset="10%" stop-color="#FFCA48" />
+                                                <stop offset="30%" stop-color="#FBB142" />
+                                                <stop offset="50%" stop-color="#F6943B" />
+                                                <stop offset="100%" stop-color="#F6943B" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress2"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress" style="stroke: url(#circleGradient)"></circle>
+                                    </svg>
+                                    <!-- 두 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 empty-circle circlebar-js3" data-value="10">
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress"></circle>
+                                    </svg>
+                                    <p class="circlebar_txt"></p>
+                                </div>
+                            </div>
+                            <div class="circlebar_total">
+                                <div class="circlebar_wrap circle-combine">
+                                    <!-- 첫 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 data-circle circlebar-js3" data-value="92">
+                                        <defs>
+                                            <linearGradient id="circleGradient" x1="0.75" y1="0" x2="0.25" y2="0.1">
+                                                <stop offset="0%" stop-color="#FFCA48" />
+                                                <stop offset="10%" stop-color="#FFCA48" />
+                                                <stop offset="30%" stop-color="#FBB142" />
+                                                <stop offset="50%" stop-color="#F6943B" />
+                                                <stop offset="100%" stop-color="#F6943B" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress2"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress" style="stroke: url(#circleGradient)"></circle>
+                                    </svg>
+                                    <!-- 두 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 empty-circle circlebar-js3" data-value="8">
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress"></circle>
+                                    </svg>
+                                    <p class="circlebar_txt"></p>
+                                </div>
+                            </div>
+                            <div class="circlebar_total">
+                                <div class="circlebar_wrap circle-combine">
+                                    <!-- 첫 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 data-circle circlebar-js3" data-value="95">
+                                        <defs>
+                                            <linearGradient id="circleGradient" x1="0.75" y1="0" x2="0.25" y2="0.1">
+                                                <stop offset="0%" stop-color="#FFCA48" />
+                                                <stop offset="10%" stop-color="#FFCA48" />
+                                                <stop offset="30%" stop-color="#FBB142" />
+                                                <stop offset="50%" stop-color="#F6943B" />
+                                                <stop offset="100%" stop-color="#F6943B" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress2"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress" style="stroke: url(#circleGradient)"></circle>
+                                    </svg>
+                                    <!-- 두 번째 원형 그래프 -->
+                                    <svg width="240" height="220" viewBox="0 0 240 220" class="circlebar-type3 empty-circle circlebar-js3" data-value="5">
+                                        <circle r="100" cx="120" cy="110" class="circle-border"></circle>
+                                        <circle r="100" cx="120" cy="110" class="circle-progress"></circle>
+                                    </svg>
+                                    <p class="circlebar_txt"></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="section">
-                    <div class="page_tit_h2">롤렛</div>
-                    <div class="section_text_no_round">
-
-                        <div class="roller__wrap">
-                            <div class="btn">Spin</div>
-                            <div class="roller-wheel"></div>
-                        </div>
-                        
-                        <script>
-    let rollerData = ['김치김밥', '참치김밥', '된장', '청국장', '자장면']; // 핀에 들어갈 내용 배열
-    let colorCode = ['#db7093', '#20b2aa', '#d63e92', '#daa520', '#ff340f']; // 각 핀의 배경색 배열
-
-    let wheel = document.querySelector(".roller-wheel");
-    let btn = document.querySelector(".btn");
-
-    // 핀 생성 및 설정 함수
-    function createPins() {
-        // 이전에 생성된 요소들을 모두 지웁니다.
-        wheel.innerHTML = '';
-
-        // rollerData 배열에서 빈 값 제거
-        rollerData = rollerData.filter(item => !!item.trim());
-
-        // colorCode 배열 길이 조정
-        colorCode = colorCode.slice(0, rollerData.length);
-
-        // 각 핀의 각도를 계산하여 설정합니다.
-        let angleStep = 360 / rollerData.length;
-        rollerData.forEach((item, index) => {
-            let angle = angleStep * index;
-            let pin = document.createElement('div');
-            pin.className = 'pin';
-            pin.style.transform = `rotate(${angle}deg)`; // 각도에 따라 핀의 위치를 설정합니다.
-            pin.style.setProperty('--clr', colorCode[index]);
-            pin.innerHTML = `<span>${item}</span>`;
-            wheel.appendChild(pin);
-        });
-    }
-
-    // 초기 핀 생성
-    createPins();
-
-    // Spin 버튼 클릭 시 동작
-    btn.onclick = function() {
-        let value = Math.ceil(Math.random() * 3600); // 회전할 각도를 랜덤으로 설정
-        wheel.style.transition = "transform 5s ease-in-out"; // 회전 애니메이션을 설정
-        wheel.style.transform = "rotate(" + value + "deg)"; // 핀을 회전시킵니다.
-    }
-                        </script>
-
-<style>
-.roller__wrap {position: relative; width: 500px; height:500px; display: flex; justify-content: center; align-items: center;margin:0 auto;}
-.btn {position: absolute; width: 100px; height: 100px; background: #fff; border-radius: 50%; border: 4px solid rgba(0,0,0,0.75); font-size: 1.6em; color: #333; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; display: flex; justify-content: center; align-items: center; user-select: none; cursor: pointer; z-index: 10;}
-.btn::before {content: ''; position: absolute; top: -50px; width: 40px; height: 54px; background: #fff; clip-path: polygon(50% 0%, 15% 100%, 85% 100%);}
-.roller-wheel {position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #333; border-radius: 50%; box-shadow: 0 0 0 5px #333; overflow: hidden; transition: transform 5s ease-in-out;}
-.pin {position: absolute; width: 50%; height: 50%; background: var(--clr); transform-origin: bottom right;clip-path: polygon(0 0, 60% 0, 100% 100%, 0 60%); display: flex; justify-content: center; align-items: center; user-select: none; cursor: pointer;}
-.pin span {position: relative; transform: rotate(45deg); font-size: 18px; color: #fff; font-weight: 500;}
-</style>
-
-
-                    </div>
-                    
-
-                </div>                
-                <div class="section">
-                    <div class="page_tit_h2">API 명세서</div>    
-                    <div class="section_text_no_round">
-                        <!-- 테이블 -->
-                        <div class="table__wrap">
-                            <table class="table table-list sm">
-                                <colgroup>
-                                    <col width="10%" />                                    
-                                    <col width="" />
-                                    <col width="20%" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-l">type</td>
-                                        <td class="text-l">input type(default text / password )</td>
-                                        <td class="text-l"></td>
-                                    </tr>                                     
-                                    <tr>
-                                        <td class="text-l">size</td>
-                                        <td class="text-l">form element size(default, sm, lg)</td>
-                                        <td class="text-l"></td>
-                                    </tr>     
-                                    <tr>
-                                        <td class="text-l">disabled</td>
-                                        <td class="text-l">disable the form element</td>
-                                        <td class="text-l"></td>
-                                    </tr>                                                                                                                                                                                                                                                              
-                                </tbody>
-                            </table>
-                        </div>      
-                        <!-- 테이블 -->                         
-
-                        * form element의 기본 명세서를 제공합니다.
-                    </div>                    
-                </div>
-
-
             </div>
         </div>
-    </div>
-    <script src="../guide.js"></script>
-    <script src="../../front_markup/resource/js/ui_common.js"></script>
-</body>
+        <script src="../guide.js"></script>
+        <script src="../../assets/js/ui_common.js"></script>
+        <script src="../../assets/js/graph_custom.js"></script>
+    </body>
 </html>
