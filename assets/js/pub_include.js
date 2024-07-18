@@ -1,8 +1,8 @@
+// 퍼블 작업시 공통 파일 호출
 document.addEventListener("DOMContentLoaded", function() {
     loadHeadMeta('../../front_markup/_inc/head_meta.html');
     loadIncludedHTML();
 });
-
 
 // 헤더 메타 불로오기
 const loadHeadMeta = url => {
