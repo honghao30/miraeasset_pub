@@ -1,8 +1,6 @@
 /***************************
  * UI common function * 
  ***************************/
-
-
 // 모달 열기
 const openModal = (event, type) => {
     const btn = event.target;
@@ -426,8 +424,23 @@ const focusNextInputOnMaxLength = (inputItems) => {
     });
 };
 
-focusNextInputOnMaxLength('.pin-code input');
+const bottomSheetHandle = () => {
+    const bottomSheetTrigger = document.querySelector('.btn-handle-sheet');    
+    bottomSheetTrigger && bottomSheetTrigger.addEventListener('click', () => {
+        document.querySelector('.type-handlebar').classList.toggle('is-collapsed');
+    });
+    const closeButton = document.querySelector('.btn-close-sheet');
+    closeButton && closeButton.addEventListener('click', () => {        
+        const bottomPos = closeButton.closest('.type-modal').clientHeight;
+        closeButton.closest('.type-modal').style.bottom = -bottomPos + 'px';
+        setTimeout(() => {
+            document.querySelector('.type-modal').classList.remove('is-collapsed');
+        },300);          
+    });
+}
+export default bottomSheetHandle;
 
+focusNextInputOnMaxLength('.pin-code input');
 tabMenus('.tab-content');
 checkLabel()
 checkInputFocus();
