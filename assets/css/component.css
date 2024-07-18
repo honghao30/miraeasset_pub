@@ -917,3 +917,165 @@ body.modal-open {
 .health-data-wrap .dot.type-nutrition {
     background: #5ca7ff;
 }
+/* graph */
+.circlebar_total {
+    display: flex;
+}
+.circlebar_wrap {
+    position: relative;
+    display: flex;
+}
+.circlebar_txt {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 30%;
+    color: #212121;
+    text-align: right;
+    font-family: NanumSquare;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 48px; /* 100% */
+    letter-spacing: -0.96px;
+}
+
+/* graph type1*/
+.circlebar-type1 .circle-border {
+    fill: none;
+    stroke: green;
+    stroke-width: 12;
+    opacity: 0.3;
+}
+.circlebar-type1 .circle-progress {
+    fill: none;
+    stroke: green;
+    stroke-width: 12;
+    animation: progressType1 2s ease-in-out forwards;
+    stroke-dasharray: 376.8;
+    stroke-dashoffset: 376.8;
+    transform-origin: center center;
+    transform: rotate(-90deg);
+    stroke-linecap: round;
+}
+
+.circlebar-type1 + .circlebar_txt {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: -0.96px;
+    left: 30%;
+}
+@keyframes progressType1 {
+    0% {
+        stroke-dashoffset: 376.8;
+    }
+    100% {
+        stroke-dashoffset: var(--barNum);
+    }
+}
+
+/* graph type2 */
+.circlebar-type2 .circle-border {
+    fill: none;
+    stroke: rgb(249, 197, 100);
+    stroke-width: 12;
+    opacity: 0.3;
+}
+.circlebar-type2 .circle-progress {
+    fill: none;
+    stroke: rgb(249, 197, 100);
+    stroke-width: 12;
+    animation: progressType2 2s ease-in-out forwards;
+    stroke-dasharray: 376.8;
+    stroke-dashoffset: 376.8;
+    transform-origin: center center;
+    transform: rotate(-90deg);
+    stroke-linecap: round;
+}
+.circlebar-type2 .circle-overflow {
+    fill: none;
+    stroke-width: 12;
+    animation: overflowType 2s ease-in-out forwards;
+    animation-delay: 1.5s;
+    stroke-dasharray: 376.8;
+    stroke-dashoffset: 376.8;
+    transform-origin: center center;
+    transform: rotate(-90deg);
+    stroke-linecap: round;
+}
+.circlebar-type2 + .circlebar_txt {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: -0.96px;
+    left: 25%;
+}
+@keyframes progressType2 {
+    0% {
+        stroke-dashoffset: 376.8;
+    }
+    100% {
+        stroke-dashoffset: var(--barNum);
+    }
+}
+@keyframes overflowType {
+    0% {
+        stroke-dashoffset: 376.8;
+        stroke: transparent;
+    }
+    100% {
+        stroke-dashoffset: var(--overflowBarNum);
+        stroke: rgb(246, 145, 13);
+    }
+}
+
+/* graph type3 */
+.circlebar-type3 .circle-border {
+    fill: none;
+    stroke: #ececec;
+    stroke-width: 20;
+}
+.circlebar-type3.data-circle .circle-progress,
+.circlebar-type3.data-circle .circle-progress2,
+.circlebar-type3.data-circle .circle-border {
+    fill: none;
+    stroke: #ececec;
+    stroke-width: 20;
+    transform-origin: center center;
+    transform: rotate(90deg);
+    stroke-linecap: round;
+}
+.circlebar-type3.data-circle .circle-border {
+    stroke: transparent;
+}
+.circlebar-type3.data-circle .circle-progress {
+    animation: combineType 2s ease-in-out forwards;
+}
+@keyframes combineType {
+    0% {
+        stroke-dashoffset: var(--initialDashOffset);
+    }
+    100% {
+        stroke-dashoffset: var(--barNum);
+        stroke: url(#circleGradient);
+    }
+}
+.circlebar-type3.empty-circle .circle-progress,
+.circlebar-type3.empty-circle .circle-border {
+    fill: none;
+    stroke: #ececec;
+    stroke-width: 20;
+    transform-origin: center center;
+    transform: rotate(270deg);
+    stroke-linecap: round;
+}
+.circlebar-type3.empty-circle .circle-progress {
+    stroke: transparent;
+}
+.data-circle {
+    position: absolute;
+    top: 0;
+}
