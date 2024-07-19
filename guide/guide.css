@@ -553,3 +553,26 @@ input[type="date"]::before {
 .green-color + .guidecolor-bg {
     background-color: var(--green-color);
 }
+.guide-switch {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+.guide-switchbox {
+    display: flex;
+    gap: 16px;
+}
+.guide-switchbox > div {
+    width: calc(100% / 3);
+}
+.guide-switchtit {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+}
+.guide-chkbox {
+    display: flex;
+}
+.guide-chkbox > div {
+    width: 50%;
+}
