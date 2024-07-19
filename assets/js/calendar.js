@@ -1,5 +1,5 @@
 // 기간선택
-const rangeOptionSelector = (start, end) => {
+export const rangeOptionSelector = (start, end) => {
     const startDateInput = document.getElementById(start);
     const endDateInput = document.getElementById(end);
     const radioButtons = document.querySelectorAll('input[name="type"]');
@@ -40,9 +40,7 @@ const rangeOptionSelector = (start, end) => {
     });
 };
 
-rangeOptionSelector('startDate2', 'endDate2');
-
-class DateRangePicker {
+export class DateRangePicker {
     constructor(startDateId, endDateId) {
         this.startDateInput = document.getElementById(startDateId);
         this.endDateInput = document.getElementById(endDateId);
@@ -79,11 +77,9 @@ class DateRangePicker {
     }
 }
 
-const calendar = new DateRangePicker('startDate', 'endDate');
-const calendar2 = new DateRangePicker('startDate2', 'endDate2');
 
 // 월간 달력
-const newMonthlyCalendar = (containerId, options) => {
+export const newMonthlyCalendar = (containerId, options) => {
     // 기본 옵션 설정
     const mergedOptions = {
         button: false,
@@ -260,7 +256,7 @@ const newMonthlyCalendar = (containerId, options) => {
     }
 };
 // 클릭 이벤트 처리 함수
-function handleLinkClick(date, day) {
+const handleLinkClick = (date, day) => {
     const selectedDay = dayjs(date).date(day).format('YYYYMMDD');
     document.querySelector('.show-data-layer').classList.add('is-show');
     document.querySelector('.show-data-layer').innerText = `${selectedDay} 날 등록한 모든 데이터`;
@@ -268,7 +264,7 @@ function handleLinkClick(date, day) {
 }
 
 // 사용자 데이터를 추가하는 함수
-function addUserDataToCell(cell, date) {
+const addUserDataToCell = (cell, data) => {
     const userData = document.createElement('div');
     userData.classList.add('health-data-wrap');
     userData.innerHTML = `
@@ -279,13 +275,10 @@ function addUserDataToCell(cell, date) {
     cell.appendChild(userData);
 }
 
-// 페이지 로드 시 newMonthlyCalendar 함수 호출
-newMonthlyCalendar('calendarContainer', { button: false, displayData: 'dropdown' });
-
 
 
 // 주간달력 스크립트    
-const createWeeklyCalendar = (containerId, options = {}) => {
+export const createWeeklyCalendar = (containerId, options = {}) => {
     const container = document.getElementById(containerId);
     const calendarHeader = container.querySelector('.calendar__header');
 
@@ -412,6 +405,4 @@ const addUserDataToWeeklyLink = (link) => {
     link.parentElement.appendChild(userData);
 };
 
-// Usage example with options
-createWeeklyCalendar('calendarWeekly', { button: true, displayDay: 'onlyToday' });
 
