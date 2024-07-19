@@ -48,10 +48,10 @@ const Yoffset = window.pageYOffset || document.documentElement.scrollTop;
 
 if (Yoffset > lastScrollTop) {
     // down scroll code
-    console.log("scroll Down")
+    // console.log("scroll Down")
     onDownScroll();
 } else {
-    console.log("scroll Up")
+    // console.log("scroll Up")
     onUpScroll();
 }
 lastScrollTop = Yoffset <= 0 ? 0 : Yoffset;

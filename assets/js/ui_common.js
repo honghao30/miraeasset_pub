@@ -52,6 +52,17 @@ export const numComma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
+// 부모 찾기
+export const searchIdx = (el, cls) => {
+    if (!el) {
+        return;
+    }
+    if (el.classList.contains(cls)) {
+        return el;
+    }
+    return searchIdx(el.parentElement, cls);
+}
+
 // text area 글자수 체크
 export const checkTextArea = () => {
     const textareas = document.querySelectorAll('.form-element__inner textarea');
