@@ -13,45 +13,59 @@
 }
 
 /* 폰트 */
-.heading-type1-font22 {
-    font-size: calc(22 / 16 * 1rem);
+.heading-type1-font44 {
+    font-size: calc(44 / 16 * 1rem);
     font-weight: 800;
     line-height: calc(28 / 16 * 1rem);
 }
-.heading-type2-font20 {
-    font-size: calc(20 / 16 * 1rem);
+.heading-type2-font40 {
+    font-size: calc(40 / 16 * 1rem);
     font-weight: 800;
-    line-height: calc(26 / 16 * 1rem);
+    line-height: calc(52 / 16 * 1rem);
 }
-.heading-type3-font18 {
-    font-size: calc(18 / 16 * 1rem);
+.heading-type3-font36 {
+    font-size: calc(36 / 16 * 1rem);
+    font-weight: 800;
+    line-height: calc(48 / 16 * 1rem);
+}
+[class*="body-type1-font32"] {
+    font-size: calc(32 / 16 * 1rem);
+    line-height: calc(56 / 16 * 1rem);
+    font-weight: 400;
+}
+.body-type1-font32-bold {
     font-weight: 700;
-    line-height: calc(18 / 16 * 1rem);
 }
-.body-type1-font16 {
-    font-size: calc(16 / 16 * 1rem);
+[class*="body-type2-font30"] {
+    font-size: calc(30 / 16 * 1rem);
+    line-height: calc(40 / 16 * 1rem);
     font-weight: 400;
-    line-height: calc(28 / 16 * 1rem);
 }
-.body-type2-font15 {
-    font-size: calc(15 / 16 * 1rem);
-    font-weight: 400;
-    line-height: calc(20 / 16 * 1rem);
-}
-.body-type3-font14 {
-    font-size: calc(14 / 16 * 1rem);
-    font-weight: 400;
-    line-height: calc(24 / 16 * 1rem);
-}
-.small-text-font13 {
-    font-size: calc(13 / 16 * 1rem);
-    font-weight: 400;
-    line-height: calc(18 / 16 * 1rem);
-}
-.tooltip-font12 {
-    font-size: calc(12 / 16 * 1rem);
+.body-type2-font30-bold {
     font-weight: 700;
-    line-height: calc(18 / 16 * 1rem);
+}
+[class*="body-type3-font28"] {
+    font-size: calc(28 / 16 * 1rem);
+    line-height: calc(40 / 16 * 1rem);
+    font-weight: 400;
+}
+.body-type3-font28-bold {
+    font-weight: 700;
+}
+[class*="small-text-font26"] {
+    font-size: calc(26 / 16 * 1rem);
+    line-height: calc(36 / 16 * 1rem);
+}
+.small-text-font26-bold {
+    font-weight: 700;
+}
+[class*="tooltip-font24"] {
+    font-size: calc(24 / 16 * 1rem);
+    line-height: calc(36 / 16 * 1rem);
+    font-weight: 700;
+}
+.tooltip-font24-extra {
+    font-weight: 800;
 }
 .input-type1-font14 {
     font-size: calc(14 / 16 * 1rem);

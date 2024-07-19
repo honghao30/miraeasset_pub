@@ -1,173 +1,229 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head></head>
-<body>
-    <div class="guide_wrap">
-        <div class="header__wrap">
-            <div data-include-path="top_nav.html"></div>  
-            <div data-include-path="site-name.html"></div>  
-        </div>
-        <div class="guide-content__wrap lnb-type">
-            <div class="lnb-side__wrap">
-                <ul class="lnb_list">
-                    <li><a href="#sect0">단위 계산</a></li>                                        
-                    <li><a href="#sect1">색상(Color)</a></li>                                        
-                    <li><a href="#sect2">폰트(Font)</a></li>
-                    <li><a href="#sect3">아이콘(Icon)</a></li>
-                    <li><a href="#sect4">배치(Layout)</a></li>                    
-                    <li><a href="#sect5">애니메이션(animation)</a></li>   
-                </ul>
+    <head></head>
+    <body>
+        <div class="guide_wrap">
+            <div class="header__wrap">
+                <div data-include-path="top_nav.html"></div>
+                <div data-include-path="site-name.html"></div>
             </div>
-            <div class="guide-cont">
-                <div class="page_tit_h1">스타일 가이드</div>
-                <div class="section" id="sect1">
-                    <div class="page_tit_h2">단위계산</div>
-                    <div class="section_text">
-                        <ul class="description-list">
-                            <li>Scss : rem 계산 mixin 을 사용한다. 예) rem(12px)  </li>
-                            <li>css : calc 함수를 사용하며 다음 공식 한다. calc(32 / 16 * 1rem) </li>
-                        </ul>
-                    </div>
+            <div class="guide-content__wrap lnb-type">
+                <div class="lnb-side__wrap">
+                    <ul class="lnb_list">
+                        <li><a href="#sect0">단위 계산</a></li>
+                        <li><a href="#sect1">색상(Color)</a></li>
+                        <li><a href="#sect2">폰트(Font)</a></li>
+                        <li><a href="#sect3">아이콘(Icon)</a></li>
+                        <li><a href="#sect4">배치(Layout)</a></li>
+                        <li><a href="#sect5">애니메이션(animation)</a></li>
+                    </ul>
                 </div>
-
-                <div class="section" id="sect1">
-                    <div class="page_tit_h2 mt-10">Main Color</div>
-                    <div class="section_text">
-                        <div class="main-color">
-                            <div class="primary-color flex items-center justify-center">
-                                Primary Color background type<br>--color-primary
-                            </div>
-                            <div class="secondary-color flex items-center justify-center">
-                                Secondary color background type<br>--color-secondary
-                            </div>                             
-                        </div>
-                        <div class="main-color">
-                            <div class="primary flex items-center justify-center">
-                                Primary Color front type<br>primary
-                            </div>
-                            <div class="secondary flex items-center justify-center">
-                                Secondary color  front type<br>secondary
-                            </div>                             
-                        </div>
-                        <div class="page_tit_h2 mt-10">Basic Color</div>
-                        <ul class="color-basic-list">
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color1<br>
-                                --color-basic10
-                            </li>
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color2<br>
-                                --color-basic9
-                            </li>
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color3<br>
-                                --color-basic8
-                            </li>
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color4<br>
-                                --color-basic7
-                            </li>
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color5<br>
-                                --color-basic6
-                            </li>   
-                            
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color6<br>
-                                --color-basic5
-                            </li>
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color7<br>
-                                --color-basic4
-                            </li>
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color8<br>
-                                --color-basic3
-                            </li>
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color9<br>
-                                --color-basic2
-                            </li>
-                            <li class="basic-color flex items-center justify-center">
-                                basic-color10<br>
-                                --color-basic1
-                            </li>                             
-                        </ul>
-
-                        <ul class="description-list mt-10">
-                            <li>미래에셋 로고의 컬러는 미래에셋 아이덴티티를 구성하는 중요한 요소로, 정확한 컬러 적용이 필요합니다.</li>
-                            <li>미래에셋 주컬러 2가지 색상을 활용하여 고객에게 미래에셋생명의 아이덴티티를 전달합니다.</li>
-                        </ul>
-                        
-                    </div>
-                </div>
-
-                <div class="section" id="sect2">
-                    <div class="page_tit_h2">폰트(Font)</div>
-                    <div class="section_text">
-                        <ul class="description-list">
-                            <li>Nanum Square는 디지털 환경의 시각 매체에서 사용하는 미래에셋생명의 공식 서체로써, 미래에셋그룹의 일관된 아이덴티티 표현을 위하여 해당폰트를 기본으로 사용한다.</li>
-                            <li>Nanum Square의 Extra Bold, Bold, Regular, Light 를 위계에 맞게 사용합니다.</li>
-                            <li>폰트는 나눔스퀘어 : var(--fontMain)</li>
-                        </ul>
-                        <div class="font-guide-example">
-                            <p class="title1">
-                                Nanum Square 
-                                <strong>extra bold, bold, regular</strong>
-                            </p>
-                            <p class="title2">
-                                원칙을 지키는 투자 미래에셋생명
-                            </p>
-                        </div>
-                        <div class="font-exsample-list">
-                            <p class="heading-type1-font22"> font-head-type1: Heading1 extra bold 22px L28</p>
-                            <p class="heading-type2-font20"> font-head-type2: Heading2 extra bold 20px L26</p>
-                            <p class="heading-type3-font18"> font-head-type3: Heading3 extra bold 18px L248</p>
-                            <p class="body-type1-font16"> body-type1-font16: Body1 regular 16px L28</p>
-                            <p class="body-type2-font15"> body-type2-font15: Body2 regular 15px L20</p>
-                            <p class="body-type3-font14"> body-type3-font14: Body3 regular 14px L24</p>
-                            <p class="small-text-font13"> small-text-font13: small text  regular 13px L28</p>
-                            <p class="tooltip-font12"> tooltip-font12: tooltip   bold  12px L18</p>
+                <div class="guide-cont">
+                    <div class="page_tit_h1">스타일 가이드</div>
+                    <div class="section" id="sect1">
+                        <div class="page_tit_h2">단위계산</div>
+                        <div class="section_text">
+                            <ul class="description-list">
+                                <li>Scss : rem 계산 mixin 을 사용한다. 예) rem(12px)</li>
+                                <li>css : calc 함수를 사용하며 다음 공식 한다. calc(32 / 16 * 1rem)</li>
+                            </ul>
                         </div>
                     </div>
-                </div>    
-                <div class="section" id="sect3">
-                    <div class="page_tit_h2">아이콘(Icon)</div>
-                    <div class="section_text">
+
+                    <div class="section" id="sect1">
+                        <div class="page_tit_h2 mt-10">Main Color</div>
+                        <div class="section_text">
+                            <div class="main-color">
+                                <div class="primary-color flex items-center justify-center">Primary Color background type<br />--color-primary</div>
+                                <div class="secondary-color flex items-center justify-center">Secondary color background type<br />--color-secondary</div>
+                            </div>
+                            <div class="main-color">
+                                <div class="primary flex items-center justify-center">Primary Color front type<br />primary</div>
+                                <div class="secondary flex items-center justify-center">Secondary color front type<br />secondary</div>
+                            </div>
+                            <div class="page_tit_h2 mt-10">Basic Color</div>
+                            <ul class="color-basic-list">
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color1<br />
+                                    --color-basic10 (#212121)
+                                </li>
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color2<br />
+                                    --color-basic9 (#424242)
+                                </li>
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color3<br />
+                                    --color-basic8 (#616161)
+                                </li>
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color4<br />
+                                    --color-basic7 (#757575)
+                                </li>
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color5<br />
+                                    --color-basic6 (#999)
+                                </li>
+
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color6<br />
+                                    --color-basic5 (#BDBDBD)
+                                </li>
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color7<br />
+                                    --color-basic4 (#CCC)
+                                </li>
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color8<br />
+                                    --color-basic3 (#E0e0e0)
+                                </li>
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color9<br />
+                                    --color-basic2 (#EFEFEF)
+                                </li>
+                                <li class="basic-color flex items-center justify-center">
+                                    basic-color10<br />
+                                    --color-basic1 (#FAFAFA)
+                                </li>
+                            </ul>
+
+                            <ul class="description-list mt-10">
+                                <li>미래에셋 로고의 컬러는 미래에셋 아이덴티티를 구성하는 중요한 요소로, 정확한 컬러를 적용한다.</li>
+                                <li>미래에셋 주컬러 2가지 색상을 활용하여 고객에게 미래에셋생명의 아이덴티티를 전달한다.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section" id="sect2">
+                        <div class="page_tit_h2">폰트(Font)</div>
+                        <div class="section_text">
+                            <ul class="description-list">
+                                <li>Nanum Square는 디지털 환경의 시각 매체에서 사용하는 미래에셋생명의 공식 서체로써, 미래에셋그룹의 일관된 아이덴티티 표현을 위하여 해당폰트를 기본으로 사용한다.</li>
+                                <li>Nanum Square의 Extra Bold, Bold, Regular를 위계에 맞게 사용한다.</li>
+                                <li>폰트는 나눔스퀘어 : var(--fontMain)</li>
+                            </ul>
+                            <div class="font-guide-example">
+                                <p class="title1">
+                                    Nanum Square
+                                    <strong>extra bold, bold, regular</strong>
+                                </p>
+                                <p class="title2">원칙을 지키는 투자 미래에셋생명</p>
+                            </div>
+                            <div class="font-exsample-list">
+                                <p class="heading-type1-font44">font-head-type1: Heading1 extra bold 44px L56</p>
+                                <p class="heading-type2-font40">font-head-type2: Heading2 extra bold 40px L52</p>
+                                <p class="heading-type3-font36">font-head-type3: Heading3 extra bold 36px L48</p>
+                                <p class="body-type1-font32">body-type1-font32: Body1 regular 32px L56</p>
+                                <p class="body-type1-font32-bold">body-type1-font32-bold: Body1 bold 32px L56</p>
+                                <p class="body-type2-font30">body-type2-font30: Body2 regular 30px L40</p>
+                                <p class="body-type2-font30-bold">body-type2-font30-bold: Body2 bold 30px L40</p>
+                                <p class="body-type3-font28">body-type3-font28: Body3 regular 28px L40</p>
+                                <p class="body-type3-font28-bold">body-type3-font28-bold: Body3 bold 28px L40</p>
+                                <p class="small-text-font26">small-text-font26: small text regular 26px L36</p>
+                                <p class="small-text-font26-bold">small-text-font26-bold: small text bold 26px L36</p>
+                                <p class="tooltip-font24">tooltip-font24: tooltip bold 24px L36</p>
+                                <p class="tooltip-font24-extra">tooltip-font24-extra: tooltip extra bold 24px L36</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section" id="sect2">
+                        <div class="page_tit_h2">텍스트 색상(Text Color)</div>
+                        <div class="section_text">
+                            <ul class="description-list">
+                                <li>컨텐츠의 중요도와 위계에 맞는 컬러를 사용하여 정돈되고 일관성 있는 화면을 제작한다.</li>
+                            </ul>
+                            <div class="font-exsample-list guidecolor-wrap">
+                                <div class="guidecolor-box">
+                                    <p class="guidecolor-tit">메인컨텐츠, 제목 <span>Primary Text</span></p>
+                                    <div class="guidecolor-list">
+                                        <div>
+                                            <div class="primary-color01">#000</div>
+                                            <div class="guidecolor-bg"></div>
+                                        </div>
+                                        <div>
+                                            <div class="primary-color02">#212121</div>
+                                            <div class="guidecolor-bg"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="guidecolor-box">
+                                    <p class="guidecolor-tit">컨텐츠 본문 <span>Secondary Text</span></p>
+                                    <div class="guidecolor-list">
+                                        <div>
+                                            <div class="secondary-color01">#424242</div>
+                                            <div class="guidecolor-bg"></div>
+                                        </div>
+                                        <div>
+                                            <div class="secondary-color02">#616161</div>
+                                            <div class="guidecolor-bg"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="guidecolor-box">
+                                    <p class="guidecolor-tit">비활성화 컨텐츠 <span>Disable Text</span></p>
+                                    <div class="guidecolor-list">
+                                        <div>
+                                            <div class="disabled-color">#999</div>
+                                            <div class="guidecolor-bg"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="guidecolor-box">
+                                    <p class="guidecolor-tit">위험도, 상태값 <span>Semantic colors, error</span></p>
+                                    <div class="guidecolor-list">
+                                        <div>
+                                            <div class="error-color">#FF4D4D</div>
+                                            <div class="guidecolor-bg"></div>
+                                        </div>
+                                        <div>
+                                            <div class="sucess-color">#5CA7FF</div>
+                                            <div class="guidecolor-bg"></div>
+                                        </div>
+                                        <div>
+                                            <div class="green-color">#7CE778</div>
+                                            <div class="guidecolor-bg"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section" id="sect3">
+                        <div class="page_tit_h2">아이콘(Icon)</div>
+                        <div class="section_text">
                             <ul class="description">
                                 <li>경로 : public\assets\img\icon</li>
                                 <li>png로 사용한다.</li>
                                 <li>export 시 4배수로 받기</li>
                                 <li>아이콘 명 : icon사이즈_아이콘색상.png (ex.right_icon24_wh.png)</li>
                             </ul>
+                        </div>
                     </div>
-                </div> 
 
-                <div class="section" id="sect4">
-                    <div class="page_tit_h2">배치(Layout)</div>
-                    <div class="section_text">
-                        내용
+                    <div class="section" id="sect4">
+                        <div class="page_tit_h2">배치(Layout)</div>
+                        <div class="section_text">내용</div>
                     </div>
-                </div> 
 
-                <div class="section" id="sect5">
-                    <div class="page_tit_h2">애니메이션(animation)</div>
-                    <div class="section_text">
-                        애니메이션 가이드이며 JS에서 실행 시점을 제어해야 한다.
-                        <pre class="code_view">
+                    <div class="section" id="sect5">
+                        <div class="page_tit_h2">애니메이션(animation)</div>
+                        <div class="section_text">
+                            애니메이션 가이드이며 JS에서 실행 시점을 제어해야 한다.
+                            <pre class="code_view">
             .slidedown {animation:slidedown 1s ease-out both;}
             @keyframes slidedown {
                 0% {opacity:0; transform:translateY(70px);}
                 100% {opacity:1; transform:translateY(0px);}
             }
-                        </pre>
-                        * 미리보기 상태의 코드는 예시이며 사용시 .css or .js 에 내용 참고 바람.
+                        </pre
+                            >
+                            * 미리보기 상태의 코드는 예시이며 사용시 .css or .js 에 내용 참고 바람.
+                        </div>
                     </div>
-                </div>                 
-
+                </div>
             </div>
         </div>
-    </div>
-    <script  type="module" src="guide.js"></script>
-</body>
+        <script type="module" src="guide.js"></script>
+    </body>
 </html>

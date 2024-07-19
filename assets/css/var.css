@@ -4,29 +4,31 @@
 @charset "utf-8";
 :root {
     /* color */
-    --color-primary: #F58220;
-    --color-secondary: #043B72;
+    --color-primary: #f58220;
+    --color-secondary: #043b72;
     --color-white: #fff;
     --color-black: #000;
 
-    --color-basic10: #191F28;
+    --color-basic10: #212121;
     --color-basic9: #424242;
     --color-basic8: #616161;
     --color-basic7: #757575;
     --color-basic6: #999;
-    --color-basic5: #BDBDBD;
-    --color-basic4: #CCC;
-    --color-basic3:#E8E8E8;    
-    --color-basic2: #EFEFEF;    
-    --color-basic1: #FAFAFA;    
+    --color-basic5: #bdbdbd;
+    --color-basic4: #ccc;
+    --color-basic3: #e0e0e0;
+    --color-basic2: #efefef;
+    --color-basic1: #fafafa;
 
-    --color-primary-active: #C4681A;
-    --color-primary-disabled: #E0E0E0;
-    --color-secondary-active: #021D39;
+    --color-primary-active: #c4681a;
+    --color-primary-disabled: #e0e0e0;
+    --color-secondary-active: #021d39;
     --color-secondary-disabled: #999;
     --Neutral-09_424242: #424242;
 
     --color-primary-netural: #ffe5cd;
+
+    --color-basic0: #f0f0f0;
     /* base width */
     --width: 750;
     --deviceWidth: 323px;
@@ -34,17 +36,22 @@
     /* font */
     --fontMain: "NanumSquare", "Malgun Gothic", "맑은고딕", sans-serif;
 
+    /* text color */
+    --error-color: #ff4d4d;
+    --sucess-color: #5ca7ff;
+    --green-color: #7ce778;
+
     /* effect */
     --border-radius-12: 12px;
 
     /* badge */
-    --color-primary-light: #FEF3E9;
-    --color-green-light: #F2FDF2;
-    --color-blue-light: #F2FAFD;
-    --color-green-full: #7CE778;
-    --color-blue-light: #F2FAFD;
-    --color-blue-full: #5CA7FF;
-    --color-bg-violet: #6A5ACD;
+    --color-primary-light: #fef3e9;
+    --color-green-light: #f2fdf2;
+    --color-blue-light: #f2fafd;
+    --color-green-full: #7ce778;
+    --color-blue-light: #f2fafd;
+    --color-blue-full: #5ca7ff;
+    --color-bg-violet: #6a5acd;
 
     /* table */
     --table-border: 1px solid #e2e3e7;
