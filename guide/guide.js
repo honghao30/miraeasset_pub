@@ -1,6 +1,43 @@
-// DOM이 완전히 로드된 후 실행
-window.addEventListener('load', function() {
-    // data-include-path 속성을 가진 모든 요소에 대해 콘텐츠 로드
+import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, handleDropdownMenu  } from '../assets/js/ui_common.js';
+import { ScrollEnterMain } from '../assets/js/scroll_event.js';
+
+// 공통 영역 불러오기
+document.addEventListener("DOMContentLoaded", function() {
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/guide/header.html', true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // 기존 head 태그 제거            
+            var existingHead = document.getElementsByTagName('head')[0];
+            if (existingHead) {
+                existingHead.parentNode.removeChild(existingHead);
+            }
+            // 새로운 head 태그 추가
+            var headElement = document.createElement('head');
+            headElement.innerHTML = xhr.responseText;
+            document.documentElement.insertBefore(headElement, document.body);
+        }
+    };
+    xhr.send();
+
+    // 검색 기능
+    const inputSearch = document.querySelector('#search-box input[type="text"]');
+    const tailWindCssTable = document.querySelector('#tailwindcss-list tbody');
+
+    if (inputSearch && tailWindCssTable) {
+        inputSearch.addEventListener('keyup', function() {
+            const filterValue = inputSearch.value.toLowerCase();
+            const rows = tailWindCssTable.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                const rowText = row.textContent.toLowerCase();
+                row.style.display = rowText.includes(filterValue) ? '' : 'none';
+            });
+        });
+    }
+
+    // 공통 include
     var allElements = document.getElementsByTagName('*');
     Array.prototype.forEach.call(allElements, function(el) {
         var includePath = el.dataset.includePath;
@@ -97,48 +134,25 @@ window.addEventListener('load', function() {
         }
     };
 
-    setTimeout(() => {
-        activateNavItem('.navigation__wrap--top li a');
-        activateNavItem('.lnb-side__wrap li a');        
-    }, 300);
 
+    // 함수 실행
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu__wrap');
+    dropdownMenus.forEach(menu => {
+        handleDropdownMenu(menu);
+    });
+    checkLabel();
+    checkTextArea();
+    checkInputFocus();
+    focusNextInputOnMaxLength('.pin-code input');
+    tabMenus('.tab-content');
+    ScrollEnterMain();    
     convertCodeSamples();
     formatCodePreviews();
-});
 
-// 공통 영역 불러오기
-document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(() => {
+        activateNavItem('.navigation__wrap--top li a');
+        activateNavItem('.lnb-side__wrap li a'); 
+        bottomSheetHandle();       
+    }, 300);
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/guide/header.html', true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // 기존 head 태그 제거            
-            var existingHead = document.getElementsByTagName('head')[0];
-            if (existingHead) {
-                existingHead.parentNode.removeChild(existingHead);
-            }
-            // 새로운 head 태그 추가
-            var headElement = document.createElement('head');
-            headElement.innerHTML = xhr.responseText;
-            document.documentElement.insertBefore(headElement, document.body);
-        }
-    };
-    xhr.send();
-
-    // 검색 기능
-    const inputSearch = document.querySelector('#search-box input[type="text"]');
-    const tailWindCssTable = document.querySelector('#tailwindcss-list tbody');
-
-    if (inputSearch && tailWindCssTable) {
-        inputSearch.addEventListener('keyup', function() {
-            const filterValue = inputSearch.value.toLowerCase();
-            const rows = tailWindCssTable.querySelectorAll('tr');
-
-            rows.forEach(row => {
-                const rowText = row.textContent.toLowerCase();
-                row.style.display = rowText.includes(filterValue) ? '' : 'none';
-            });
-        });
-    }
 });
