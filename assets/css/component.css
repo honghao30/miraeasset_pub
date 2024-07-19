@@ -69,8 +69,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 16px;
     width: 100%;
+}
+.button__wrap.twobtn-case02 .btn:first-child {
+    width: fit-content;
+    padding: 14px 24px;
+    margin: 0;
+    flex: 0 0 35%;
+}
+.button__wrap.twobtn-case02 .btn:last-child {
+    width: fit-content;
+    padding: 14px 24px;
+    margin: 0;
+    flex: 1;
 }
 .button__wrap .btn {
     width: calc(50% - 8px);
@@ -82,7 +94,7 @@
     margin: 0 auto;
 }
 .btn.btn-primary {
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     color: var(--color-white);
     font-size: calc(15 / 16 * 1rem);
     font-weight: 800;
@@ -91,12 +103,12 @@
 }
 .btn.btn-primary:hover,
 .btn.btn-primary.is-active {
-    background-color: var(--color-primary-active);
+    background-color: var(--color-secondary-active);
     color: var(--color-white);
 }
 .btn.btn-primary:disabled {
-    background-color: var(--color-basic5);
-    color: var(--color-primary-disabled);
+    background-color: var(--color-basic6);
+    color: var(--color-basic5);
     cursor: default;
     pointer-events: none;
 }
@@ -105,7 +117,7 @@
     width: 100%;
 }
 .btn.btn-secondary {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     color: var(--color-white);
     font-size: calc(15 / 16 * 1rem);
     font-weight: 800;
@@ -114,12 +126,12 @@
 }
 .btn.btn-secondary:hover,
 .btn.btn-secondary.is-active {
-    background-color: var(--color-secondary-active);
+    background-color: var(--color-primary-active);
     color: var(--color-white);
 }
 .btn.btn-secondary:disabled {
     background-color: var(--color-basic5);
-    color: var(--color-secondary-disabled);
+    color: var(--color-primary-disabled);
     cursor: default;
     pointer-events: none;
 }
@@ -127,7 +139,6 @@
     display: block;
     width: 100%;
 }
-
 .btn.btn-line {
     background-color: var(--color-white);
     color: var(--color-basic8);
@@ -143,11 +154,11 @@
 }
 .btn.btn-line:hover,
 .btn.btn-line.is-active {
-    background-color: var(--color-basic2);
+    background-color: var(--color-basic0);
     color: var(--color-basic8);
 }
 .btn.btn-line:disabled {
-    background-color: var(--color-basic2);
+    background-color: var(--color-basic0);
     color: var(--color-basic5);
     cursor: default;
     pointer-events: none;
@@ -264,6 +275,11 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+.form-element__wrap .form-element__inner .btn.btn-remove {
+    width: 24px;
+    height: 24px;
+    background: url("../img/icon/close_icon24_gr3.png") no-repeat;
 }
 .form-element__wrap .form-element__inner .btn-remove {
     display: none;
@@ -1100,4 +1116,29 @@ body.modal-open {
 .data-circle {
     position: absolute;
     top: 0;
+}
+/* 텍스트 색상 */
+.primary-color01 {
+    color: var(--color-black);
+}
+.primary-color02 {
+    color: var(--color-basic10);
+}
+.secondary-color01 {
+    color: var(--color-basic9);
+}
+.secondary-color02 {
+    color: var(--color-basic8);
+}
+.disabled-color {
+    color: var(--color-basic6);
+}
+.error-color {
+    color: var(--error-color);
+}
+.sucess-color {
+    color: var(--sucess-color);
+}
+.green-color {
+    color: var(--green-color);
 }
