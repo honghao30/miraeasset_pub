@@ -14,8 +14,8 @@ const checkPublishingFile = () => {
 document.addEventListener('DOMContentLoaded', ()=> {
     const isPublishingEnvironment = checkPublishingFile();
     const executionTimer = isPublishingEnvironment ? 200 : 0;
-    const dropdownMenus = document.querySelectorAll('.dropdown-menu__wrap');
 
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu__wrap');
     dropdownMenus.forEach(menu => {
         handleDropdownMenu(menu);
     });
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     checkInputFocus();
     focusNextInputOnMaxLength('.pin-code input');
     tabMenus('.tab-content');
-    ScrollEnterMain();
+    ScrollEnterMain();    
 
     // dom 로딩시간 체크 필요한 경우
     setTimeout(() => {
