@@ -171,6 +171,9 @@
     gap: 10px;
     width: 100%;
 }
+.form-element__wrap.txtarea_wrap {
+    gap: 0;
+}
 .form-element__wrap .form-element__inner {
     width: 100%;
     border: 1px solid #e8e8e8;
@@ -247,6 +250,9 @@
     font-weight: 400;
     line-height: 20px;
 }
+.form-element__wrap.txtarea_wrap .text-area + .txtarea-noti {
+    margin-top: calc(4 / 16 * 1rem);
+}
 .form-element__wrap .form-element__inner select {
     width: 100%;
     border: 0;
@@ -280,6 +286,7 @@
     width: 24px;
     height: 24px;
     background: url("../img/icon/close_icon24_gr3.png") no-repeat;
+    background-size: cover;
 }
 .form-element__wrap .form-element__inner .btn-remove {
     display: none;
@@ -541,9 +548,7 @@
     transform: rotate(180deg);
 }
 
-/* 
-    table
-*/
+/* table */
 .table__wrap {
     margin: 0;
     width: 100%;
@@ -1141,4 +1146,152 @@ body.modal-open {
 }
 .green-color {
     color: var(--green-color);
+}
+.txtarea-noti {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
+.form-element__wrap.txtarea-error .text-area {
+    border: 1px solid var(--error-color);
+    background: var(--color-primary-light);
+}
+.form-element__wrap.txtarea-error .form-element__inner textarea {
+    background: var(--color-primary-light);
+}
+.txtarea-error .txtarea-noti {
+    display: flex;
+    align-items: center;
+}
+.txtarea-error .txtarea-noti::before {
+    width: 24px;
+    height: 24px;
+    background: url("../img/icon/error_icon24_red.png") no-repeat;
+    background-size: cover;
+    content: "";
+    display: inline-block;
+    margin-right: 4px;
+}
+.form-element__wrap.txtarea_wrap .txtarea-disabled {
+    background: #f5f5f5;
+}
+/* 라디오박스 */
+.radio-box {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* 가이드에 없어서 임의로 작업 */
+}
+.radio-box label {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* 가이드에 없어서 임의로 작업 */
+}
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 0 2px var(--color-basic4) inset;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+input[type="radio"]:checked {
+    background-color: var(--color-primary);
+    box-shadow: 0 0 0 3px #fff inset;
+    border: 2px solid var(--color-primary);
+}
+input[type="radio"]:disabled {
+    background-color: var(--color-basic2);
+    box-shadow: 0 0 0 2px #e8e8e8 inset;
+}
+/* 라디오박스 */
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    gap: 8px; /* 가이드에 없어서 임의로 작업 */
+}
+.checkbox input[type="checkbox"] {
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    font-size: initial;
+    clip: rect(0 0 0 0);
+}
+.checkbox .ch-mark {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-basic4);
+    border-radius: 50%;
+    position: relative;
+}
+.checkbox .ch-mark::before {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9.5px;
+    background-color: var(--color-basic4);
+    border-radius: 50%;
+    background: url("../img/icon/check_icon_wh.png") center center no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 27%;
+}
+.checkbox input[type="checkbox"]:checked + .ch-mark {
+    background-color: var(--color-primary);
+}
+.checkbox input[type="checkbox"]:disabled + .ch-mark {
+    background-color: var(--color-basic3);
+    cursor: not-allowed;
+}
+.checkbox input[type="checkbox"]:disabled + .ch-mark::before {
+    background: url("../img/icon/check_icon_gr.png") center center no-repeat;
+    background-size: 100%;
+}
+.checkbox.main-chkbox20-secondary .ch-mark {
+    background-color: #163b6e;
+}
+.checkbox.main-chkbox20-grey .ch-mark {
+    background-color: #a2b1c5;
+}
+.checkbox[class*="main-chkbox24"] {
+    width: 24px;
+    height: 24px;
+}
+.checkbox.main-chkbox24-primary .ch-mark {
+    background-color: var(--color-primary);
+}
+.checkbox.main-chkbox24-line .ch-mark {
+    background-color: var(--color-white);
+    box-shadow: 0 0 0 2px var(--color-basic5) inset;
+}
+/* 20240719 Main event checked, disabeld 디자인 없음 */
+.checkbox.main-chkbox20-secondary input[type="checkbox"]:checked + .ch-mark,
+.checkbox.main-chkbox20-secondary input[type="checkbox"]:disabled + .ch-mark {
+    background-color: #163b6e;
+}
+.checkbox.main-chkbox20-grey input[type="checkbox"]:checked + .ch-mark,
+.checkbox.main-chkbox20-grey input[type="checkbox"]:disabled + .ch-mark {
+    background-color: #a2b1c5;
+}
+.checkbox.main-chkbox24-primary input[type="checkbox"]:checked + .ch-mark,
+.checkbox.main-chkbox24-primary input[type="checkbox"]:disabled + .ch-mark {
+    background-color: var(--color-primary);
+}
+.checkbox.main-chkbox24-line input[type="checkbox"]:checked + .ch-mark,
+.checkbox.main-chkbox24-line input[type="checkbox"]:disabled + .ch-mark {
+    background-color: var(--color-white);
+    box-shadow: 0 0 0 2px var(--color-basic5) inset;
+}
+.checkbox.main-chkbox24-line input[type="checkbox"] + .ch-mark::before,
+.checkbox.main-chkbox24-line input[type="checkbox"]:checked + .ch-mark::before,
+.checkbox.main-chkbox24-line input[type="checkbox"]:disabled + .ch-mark::before {
+    background: url("../img/icon/check_icon_gr2.png") center center no-repeat;
+    background-size: 100%;
 }
