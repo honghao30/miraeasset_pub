@@ -934,6 +934,58 @@
         "end_date": "",
         "screen_type": "",
         "memo": ""
+    },
+    {
+        "condition": "진행대기", 
+        "depth1": "",
+        "depth2": "신체지수 체크",
+        "depth3": "",
+        "wbs_id": "screen_main",
+        "file_link": "/front_markup/",
+        "worker": "",
+        "start_date": "",
+        "end_date": "",
+        "screen_type": "",
+        "memo": ""
+    },
+    {
+        "condition": "진행대기", 
+        "depth1": "",
+        "depth2": "",
+        "depth3": "날짜 선택 팝업",
+        "wbs_id": "screen_main",
+        "file_link": "/front_markup/",
+        "worker": "",
+        "start_date": "",
+        "end_date": "",
+        "screen_type": "",
+        "memo": ""
+    },
+    {
+        "condition": "진행대기", 
+        "depth1": "",
+        "depth2": "",
+        "depth3": "신체지수 기록 팝업",
+        "wbs_id": "screen_main",
+        "file_link": "/front_markup/",
+        "worker": "",
+        "start_date": "",
+        "end_date": "",
+        "screen_type": "",
+        "memo": ""
+    },
+    {
+        "condition": "진행대기", 
+        "depth1": "",
+        "depth2": "걷기",
+        "depth3": "",
+        "wbs_id": "screen_main",
+        "file_link": "/front_markup/",
+        "worker": "",
+        "start_date": "",
+        "end_date": "",
+        "screen_type": "",
+        "memo": ""
     }
     
 
