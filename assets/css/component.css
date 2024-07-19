@@ -1302,3 +1302,33 @@ input[type="radio"]:disabled {
     background: url("../img/icon/check_icon_gr2.png") center center no-repeat;
     background-size: 100%;
 }
+/* 말풍선 */
+[class*="bubble-"] {
+    background-color: var(--color-primary);
+    border-radius: 12px;
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+}
+.bubble-single {
+    max-width: 592px;
+    min-width: auto;
+    width: fit-content;
+    position: relative;
+    padding: 5px 12px;
+}
+/* .bubble-single:after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    background: url("../img/icon/icon_triangle_or.png") center center no-repeat;
+    background-size: 100%;
+    margin-top: -4px;
+}
+.bubble-top:after {
+    margin-top: -4px;
+    transform: rotate(180deg);
+    right: -14%;
+} */
