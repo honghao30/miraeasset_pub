@@ -53,12 +53,14 @@
     color: var(--color-white);
     font-weight: 800;
 }
-
 .chip.primary-light .ico-dot {
     background-color: var(--color-primary);
 }
 .chip.green-light .ico-dot {
     background-color: var(--color-green-full);
+}
+.chip.blue-light .ico-dot {
+    background-color: var(--color-blue-full);
 }
 .chip.bg-primary .ico-dot {
     background-color: var(--color-primary);
