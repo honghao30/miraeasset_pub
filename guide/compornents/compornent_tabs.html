@@ -1,126 +1,101 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head></head>
-<body>
-    <div class="guide_wrap">
-        <div class="header__wrap">
-            <div data-include-path="../top_nav.html"></div>   
-            <div data-include-path="../site-name.html"></div>
-        </div>
-        <div class="guide-content__wrap lnb-type">
-            <div class="lnb-side__wrap">
-                <div data-include-path="./cmp_side.html"></div>
-            </div>            
-            <div class="guide-cont">
-                <div class="page_tit_h1">탭 가이드</div>
-                <div class="section">
-                    <div class="page_tit_h2">기본 유형</div>    
-                    <div class="section_text_no_round">
-                        <div class="sample-code">
-                            <!-- 탭 -->
-                            <div class="tab-content">
-                                <div class="tab-btns">
-                                    <ul class="tab-button-list">
-                                        <li class="is-active"><a href="#">#전체</a></li>
-                                        <li><a href="#">#관심소식</a></li>
-                                        <li><a href="#">#스크랩</a></li>
-                                        <li><a href="#">#변액</a></li>
-                                        <li><a href="#">연금</a></li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane1s">
-                                    <div class="tab-pane1 is-active">
-                                        탭1
-                                    </div>
-                                    <div class="tab-pane1">
-                                        탭2
-                                    </div>
-                                    <div class="tab-pane1">
-                                        탭3
-                                    </div>
-                                    <div class="tab-pane1">
-                                        탭4
-                                    </div>
-                                    <div class="tab-pane1">
-                                        탭5
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 탭 -->
-                        </div>
-                        <pre class="code_view"></pre>                       
-                    </div>                    
-                </div>       
-                
-
-                
-                <div class="section">
-                    <div class="page_tit_h2">API 명세서</div>    
-                    <div class="section_text_no_round">
-                        <!-- 테이블 -->
-                        <div class="table__wrap">
-                            <table class="table table-list sm">
-                                <colgroup>
-                                    <col width="10%" />                                    
-                                    <col width="" />
-                                    <col width="20%" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-l">type</td>
-                                        <td class="text-l">button type(default button / submit)</td>
-                                        <td class="text-l"></td>
-                                    </tr>                                     
-                                    <tr>
-                                        <td class="text-l">size</td>
-                                        <td class="text-l">button size(default, sm, lg)</td>
-                                        <td class="text-l"></td>
-                                    </tr>     
-                                    <tr>
-                                        <td class="text-l">disabled</td>
-                                        <td class="text-l">disable the button</td>
-                                        <td class="text-l"></td>
-                                    </tr>     
-                                    <tr>
-                                        <td class="text-l">circle</td>
-                                        <td class="text-l">circle button</td>
-                                        <td class="text-l"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-l">icon</td>
-                                        <td class="text-l">icon component(icon direction, icon only)</td>
-                                        <td class="text-l"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-l">link</td>
-                                        <td class="text-l">link button</td>
-                                        <td class="text-l"></td>
-                                    </tr>     
-                                    <tr>
-                                        <td class="text-l">button group</td>
-                                        <td class="text-l">.flex-between, .flex-end, .flex-start</td>
-                                        <td class="text-l"></td>
-                                    </tr>                                                                                                                                                                                                                                                                      
-                                </tbody>
-                            </table>
-                        </div>      
-                        <!-- 테이블 -->                         
-
-                        * 버튼의 기본 명세서를 제공합니다.
-                    </div>                    
+    <head></head>
+    <body>
+        <div class="guide_wrap">
+            <div class="header__wrap">
+                <div data-include-path="../top_nav.html"></div>
+                <div data-include-path="../site-name.html"></div>
+            </div>
+            <div class="guide-content__wrap lnb-type">
+                <div class="lnb-side__wrap">
+                    <div data-include-path="./cmp_side.html"></div>
                 </div>
-
+                <div class="guide-cont">
+                    <div class="page_tit_h1">탭 가이드</div>
+                    <div class="section">
+                        <div>
+                            <div class="page_tit_h2">기본 유형</div>
+                            <div class="section_text_no_round">
+                                <div class="sample-code">
+                                    <!-- 탭 -->
+                                    <div class="tab-content">
+                                        <div class="tab-btns">
+                                            <ul class="tab-button-list">
+                                                <li class="is-active"><a href="#">#전체</a></li>
+                                                <li><a href="#">#관심소식</a></li>
+                                                <li><a href="#">#스크랩</a></li>
+                                                <li><a href="#">#변액</a></li>
+                                                <li><a href="#">연금</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane1s">
+                                            <div class="tab-pane1 is-active">탭1</div>
+                                            <div class="tab-pane1">탭2</div>
+                                            <div class="tab-pane1">탭3</div>
+                                            <div class="tab-pane1">탭4</div>
+                                            <div class="tab-pane1">탭5</div>
+                                        </div>
+                                    </div>
+                                    <!-- 탭 -->
+                                </div>
+                                <pre class="code_view"></pre>
+                                <p class="text">탭이 많을 경우 : 뒤쪽 탭 클릭 시 center 이동할 수 있음(js: scrollIntoView)</p>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <div class="page_tit_h2">탭 많은 유형</div>
+                            <div class="section_text_no_round">
+                                <div class="sample-code">
+                                    <!-- 탭 -->
+                                    <div class="tab-content">
+                                        <div class="tab-btns" style="max-width: 700px">
+                                            <ul class="tab-button-list">
+                                                <li class="is-active"><a href="#">#전체</a></li>
+                                                <li><a href="#">#관심소식</a></li>
+                                                <li><a href="#">#스크랩</a></li>
+                                                <li><a href="#">#변액</a></li>
+                                                <li><a href="#">연금</a></li>
+                                                <li><a href="#">연금</a></li>
+                                                <li><a href="#">연금</a></li>
+                                                <li><a href="#">연금</a></li>
+                                                <li><a href="#">연금</a></li>
+                                                <li><a href="#">연금</a></li>
+                                                <li><a href="#">연금</a></li>
+                                                <li><a href="#">연금</a></li>
+                                                <li><a href="#">연금</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane1s">
+                                            <div class="tab-pane1 is-active">탭1</div>
+                                            <div class="tab-pane1">탭2</div>
+                                            <div class="tab-pane1">탭3</div>
+                                            <div class="tab-pane1">탭4</div>
+                                            <div class="tab-pane1">탭5</div>
+                                            <div class="tab-pane1">탭6</div>
+                                            <div class="tab-pane1">탭7</div>
+                                            <div class="tab-pane1">탭8</div>
+                                            <div class="tab-pane1">탭9</div>
+                                            <div class="tab-pane1">탭10</div>
+                                            <div class="tab-pane1">탭11</div>
+                                            <div class="tab-pane1">탭12</div>
+                                            <div class="tab-pane1">탭13</div>
+                                        </div>
+                                    </div>
+                                    <!-- 탭 -->
+                                </div>
+                                <pre class="code_view"></pre>
+                                <p class="text">
+                                    탭이 많을 경우 : 뒤쪽 탭 클릭 시 center 이동할 수 있음(js: scrollIntoView) <br />
+                                    화면 구현을 위해 max-width를 inner style로 넣음 (작업 시 삭제)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <script  type="module" src="../guide.js"></script>
-    <!-- <script src="../../assets/js/ui_common.js"></script> -->
-</body>
+        <script type="module" src="../guide.js"></script>
+        <!-- <script src="../../assets/js/ui_common.js"></script> -->
+    </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>Publish Guide System</title>
+        <link rel="stylesheet" href="../guide.css" />
+    </head>
+    <body>
+        <div class="guide_wrap">
+            <div class="header__wrap">
+                <div data-include-path="../top_nav.html"></div>
+                <div data-include-path="../site-name.html"></div>
+            </div>
+            <div class="guide-content__wrap lnb-type">
+                <div class="lnb-side__wrap">
+                    <div data-include-path="./cmp_side.html"></div>
+                </div>
+                <div class="guide-cont">
+                    <div class="page_tit_h1">말풍선 가이드</div>
+                    <div class="section">
+                        <div class="section_text_no_round">
+                            <ul class="description-list">
+                                <li>툴팁은 특정 컨텐츠를 강조하거나 이용 안내를 위해 가변적 형태로 노출한다.</li>
+                                <li>컨텐츠의 흐름을 방해하지 않는 내에서 눈에 띌 수 있도록 간단한 인터렉션 효과를 삽입한다.</li>
+                            </ul>
+                        </div>
+                        <div class="section_text_no_round" style="margin-top: 2.5rem">
+                            <div class="sample-code">
+                                <div class="page_tit_h1">Singleline</div>
+                                <p class="font-type-h6-bold mt-3">- width 가변 max 592px</p>
+                                <div>
+                                    <div class="bubble-single bubble-top">말풍선1</div>
+                                    <div class="bubble-single bubble-btm">말풍선2</div>
+                                    <div class="bubble-single bubble-left">말풍선3</div>
+                                    <div class="bubble-single bubble-right">말풍선3</div>
+                                </div>
+                            </div>
+                            <!-- 코드 영역 -->
+                            <pre class="code_view"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="../guide.js"></script>
+        <!-- <script src="../../assets/js/ui_common.js"></script> -->
+    </body>
+</html>

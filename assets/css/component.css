@@ -1206,6 +1206,7 @@ input[type="radio"]:checked {
 input[type="radio"]:disabled {
     background-color: var(--color-basic2);
     box-shadow: 0 0 0 2px #e8e8e8 inset;
+    cursor: not-allowed;
 }
 /* 라디오박스 */
 .checkbox {
@@ -1255,6 +1256,10 @@ input[type="radio"]:disabled {
 .checkbox input[type="checkbox"]:disabled + .ch-mark::before {
     background: url("../img/icon/check_icon_gr.png") center center no-repeat;
     background-size: 100%;
+    cursor: not-allowed;
+}
+.checkbox input[type="checkbox"]:disabled ~ .checkbox-label {
+    cursor: not-allowed;
 }
 .checkbox.main-chkbox20-secondary .ch-mark {
     background-color: #163b6e;
@@ -1297,3 +1302,33 @@ input[type="radio"]:disabled {
     background: url("../img/icon/check_icon_gr2.png") center center no-repeat;
     background-size: 100%;
 }
+/* 말풍선 */
+[class*="bubble-"] {
+    background-color: var(--color-primary);
+    border-radius: 12px;
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+}
+.bubble-single {
+    max-width: 592px;
+    min-width: auto;
+    width: fit-content;
+    position: relative;
+    padding: 5px 12px;
+}
+/* .bubble-single:after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    background: url("../img/icon/icon_triangle_or.png") center center no-repeat;
+    background-size: 100%;
+    margin-top: -4px;
+}
+.bubble-top:after {
+    margin-top: -4px;
+    transform: rotate(180deg);
+    right: -14%;
+} */

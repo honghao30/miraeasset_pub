@@ -608,3 +608,11 @@ input[type="date"]::before {
 .guide-chkbox > div {
     width: 50%;
 }
+.guide-graph {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 0;
+}
+.guide-graph > div {
+    width: 50%;
+}
