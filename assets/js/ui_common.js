@@ -271,7 +271,7 @@ export const handleDropdownMenu = (menu) => {
 }
 
 // 모달 열기
-const openModal = (event, type) => {
+export const openModal = (event, type) => {
     const btn = event.target;
     const modalId = btn.getAttribute('modal-id');
     const target = document.getElementById(modalId);
@@ -295,7 +295,7 @@ const openModal = (event, type) => {
         }        
     }, 300); 
 };
-
+window.openModal = openModal;
 // 모달 외부 클릭 이벤트 핸들러
 document.addEventListener("click", function(e) {    
     if (e.target.classList.contains('modal__wrap--bg')) {
@@ -309,7 +309,7 @@ document.addEventListener("click", function(e) {
 });
 
 //모달창 닫기
-const closeModal = (event, openButton) => {
+export const closeModal = (event, openButton) => {
     const btn = event.currentTarget;
     const activeModal = btn.closest('.modal__wrap--bg');
     if (activeModal) {
@@ -330,7 +330,7 @@ const closeModal = (event, openButton) => {
         }, 300);
     }
 };
-
+window.closeModal = closeModal;
 // 접근성 탭 이동
 const tabEvent = (btn, el) => {
     const isModalOpen = el.classList.contains('is-active');
