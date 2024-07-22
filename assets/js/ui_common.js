@@ -140,28 +140,26 @@ export const bottomSheetHandle = () => {
 
 // 탭메뉴
 export const tabMenus = (tabGroupSelector) => {
-    const tabGroup = document.querySelector(tabGroupSelector);
-    if (!tabGroup) return; 
+    const tabGroups = document.querySelectorAll(tabGroupSelector);
+    if (!tabGroups.length) return;
 
-    const tabButtons = tabGroup.querySelectorAll('.tab-button-list li a');
-    const tabPanes = tabGroup.querySelectorAll('.tab-pane1');
+    tabGroups.forEach(tabGroup => {
+        const tabTigers = tabGroup.querySelectorAll('.tab-button-list li a');
+        const tabPanes = tabGroup.querySelectorAll('.tab-pane1s > div');
 
-    if (!tabButtons.length || !tabPanes.length) return; 
+        tabTigers.forEach((tab, index) => {
+            tab.addEventListener('click', (event) => {
+                event.preventDefault();
 
-    tabButtons.forEach((button, index) => {
-        button.addEventListener('click', event => {
-            event.preventDefault();
-            handleTabClick(index);
+                tabTigers.forEach(btn => btn.parentElement.classList.remove('is-active'));
+                tab.parentElement.classList.add('is-active');
+
+                tabPanes.forEach(pane => pane.classList.remove('is-active'));
+                tabPanes[index].classList.add('is-active');
+            });
         });
     });
-
-    function handleTabClick(index) {
-        tabButtons.forEach(btn => btn.parentElement.classList.remove('is-active'));
-        tabButtons[index].parentElement.classList.add('is-active');
-        tabPanes.forEach(pane => pane.classList.remove('is-active'));
-        tabPanes[index].classList.add('is-active');
-    }
-}
+};
 
 // dot pin
 export const checkDotPin = (pw) => {
@@ -356,4 +354,31 @@ const addCloseModalListeners = (target, openButton) => {
     closeButtons.forEach(button => {
         button.addEventListener('click', (event) => closeModal(event, openButton));
     });
+};
+
+
+// 클래스 추가/삭제
+export const setCls = (el, cls, type) => {
+    type !== 'remove' ? el.classList.add(cls) : el.classList.remove(cls);
+};
+
+// 형제 찾기
+export const searchSiblings = (el) => [...el.parentElement.children].filter(e => e !== el);
+
+// 토글
+export const openToggleBox = (el) => {
+    const _toggles = el.dataset.toggle;
+    const _trueText = el.dataset.truetext;
+    const _falseText = el.dataset.falsetext;
+    const _target = el.parentNode;
+
+    if (_target.classList.contains('toggle__wrap')) {
+        if (_target.classList.contains(_toggles)) {
+            _target.classList.remove(_toggles);
+            if(_trueText) el.innerText = _trueText;
+        } else {
+            _target.classList.add(_toggles);
+            if(_falseText) el.innerText = _falseText;
+        }
+    }
 };
