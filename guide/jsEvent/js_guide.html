@@ -15,8 +15,9 @@
             <div class="lnb-side__wrap">
                 <ul class="lnb_list">
                     <li class="is-active"><a href="#sect1">소스파일 기본</a></li>                                                            
-                    <li><a href="#sect2">함수 안내</a></li>             
+                    <li><a href="#sect2">함수 안내</a></li>      
                     <li><a href="scrollEvent.html" target="_blank">스크롤 예시</a></li>                                    
+                    <li><a href="infinityScroll.html" target="_blank">무한 스크롤</a></li>    
                 </ul>
             </div>
             <div class="guide-cont">
@@ -37,7 +38,7 @@
                     <div class="page_tit_h2">함수 안내</div>
                     <table class="table table-list sm my-4">
                         <colgroup>
-                            <col width="40%" />
+                            <col width="30%" />
                             <col width="" />
                         </colgroup>
                         <thead>
@@ -49,9 +50,48 @@
                         <tbody>
                             <tr>
                                 <td>handleDropdownMenu</td>
-                                <td>커스텀 드랍다운 제어 .dropdown-menu__wrap </td>
+                                <td class="text-l">커스텀 드랍다운 제어 .dropdown-menu__wrap </td>
                             </tr>
-
+                            <tr>
+                                <td>generateUniqueId</td>
+                                <td class="text-l">UniqueId 아이디를 생성 해준다. </td>
+                            </tr>
+                            <tr>
+                                <td>numComma</td>
+                                <td class="text-l">숫자에 콤마를 찍어준다. </td>
+                            </tr>
+                            <tr>
+                                <td>checkTextArea</td>
+                                <td class="text-l">form요소에 입력 테스트 카운터 한다. count, total클래스가 가진 엘리먼트 필수 존재해야 한다. </td>
+                            </tr> 
+                            <tr>
+                                <td>checkInputFocus</td>
+                                <td class="text-l">input의 삭제 버튼 노출시키는 스크립트로 btn-remove 클래스를 가진 버튼이 존재해야 동작함. </td>
+                            </tr>     
+                            <tr>
+                                <td>bottomSheetHandle</td>
+                                <td class="text-l">bottom sheet를 제어하는 함수, 닫기 버튼이 있는 경우는 type-modal 클래스를 붙인다.</td>
+                            </tr>        
+                            <tr>
+                                <td>tabMenus</td>
+                                <td class="text-l">탭메뉴 스크립트로 실행은 tabMenus('classname')으로 하며 index.js 에서 실행부분만 추가한다.</td>
+                            </tr>    
+                            <tr>
+                                <td>animateNumbers</td>
+                                <td class="text-l">숫자 애니메이션</td>
+                            </tr>    
+                            <tr>
+                                <td>openModal</td>
+                                <td class="text-l">모달창 열고 닫는 함수로, <br>트리거는 onclick="openModal(event)" modal-id="basic", target은  id="basic" 로 구성한다. </td>
+                            </tr>  
+                            <tr>
+                                <td>scroll_event</td>
+                                <td class="text-l">
+                                    스크롤시 발생하는 모든 이벤트를 처리하는 함수, <br>
+                                    기본으로 페이지 로드시 애니메이션 처리<br>
+                                    displayAnimation 함수에서 추가적인 실행 함수 처리
+                                </td>
+                            </tr>                                                                                                                                                                                                                  
                         </tbody>
                     </table>
                 </div>    

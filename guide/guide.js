@@ -1,5 +1,6 @@
 import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, handleDropdownMenu  } from '../assets/js/ui_common.js';
 import { ScrollEnterMain } from '../assets/js/scroll_event.js';
+import { circleGraphType1 } from '../assets/js/graph_custom.js';
 
 // 공통 영역 불러오기
 document.addEventListener("DOMContentLoaded", function() {
@@ -148,6 +149,9 @@ document.addEventListener("DOMContentLoaded", function() {
     ScrollEnterMain();    
     convertCodeSamples();
     formatCodePreviews();
+
+    // 커스텀 챠트
+    circleGraphType1('.circlebar-js1', 75);
 
     setTimeout(() => {
         activateNavItem('.navigation__wrap--top li a');

@@ -1,5 +1,6 @@
 import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, handleDropdownMenu } from '../js/ui_common.js';
 import { ScrollEnterMain } from '../js/scroll_event.js';
+import { circleGraphType1 } from '../js/graph_custom.js';
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from '../js/calendar.js';
 
 // 퍼블 환경일 경우 settimeout을 지정.
@@ -34,6 +35,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     newMonthlyCalendar('calendarContainer', { button: false, displayData: 'dropdown' });
     createWeeklyCalendar('calendarWeekly', { button: true, displayDay: 'onlyToday' });
+    
+    // 커스텀 챠트
+    circleGraphType1('.circlebar-js1', 75);
     
     // dom 로딩시간 체크 필요한 경우
     setTimeout(() => {

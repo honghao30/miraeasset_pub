@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head></head>
+<body>
+    <div class="guide_wrap">
+        <div class="header__wrap">
+            <div data-include-path="../top_nav.html"></div>   
+            <div data-include-path="../site-name.html"></div>
+        </div>
+        <div class="guide-content__wrap">         
+            <div class="guide-cont">
+                <div class="page_tit_h1">무한 스크롤</div>
+                <style>
+                    .content-list {
+                        margin-top: 20px;
+                    }
+                    .infinity-list li {
+                        padding: 20px;
+                        border: 1px solid #ccc;
+                        margin-bottom: 10px;
+                    }
+                    .loading {
+                        text-align: center;
+                        padding: 30px;
+                        font-size: 1.2em;
+                        color: #888;
+                    }
+                </style>
+                <div class="type-infinity mt-10">
+                    <ul class="infinity-list">
+                        <!-- Initial content -->
+                        <li><a href="js_guide.html">content 1</a></li>
+                        <li><a href="js_guide.html">Content 2</a></li>
+                        <li><a href="js_guide.html">Content 3</a></li>
+                        <li><a href="js_guide.html">Content 4</a></li>
+                        <li><a href="js_guide.html">Content 5</a></li>                                      
+                    </ul>
+                    <div class="loading scroll-target">Loading more content...</div>
+                </div>                
+                <!-- //스크롤 컨텐츠 -->
+                <script type="module">                    
+                    import { savePageState, restorePageState, infiniteScroll } from "../../assets/js/ui_common.js";
+
+                    document.addEventListener('DOMContentLoaded', () => {
+                        restorePageState();
+                        infiniteScroll();
+                    });
+
+                    window.addEventListener('beforeunload', savePageState);
+
+                    // Save page state on link clicks
+                    document.addEventListener('click', event => {
+                        if (event.target.tagName === 'A' && event.target.href) {
+                            savePageState();
+                        }
+                    });
+
+                    // Restore page state on popstate (back/forward navigation)
+                    window.addEventListener('popstate', restorePageState);
+
+                </script>                
+            </div>
+        </div>
+    </div>
+    <script  type="module" src="../guide.js"></script>    
+</body>
+</html>

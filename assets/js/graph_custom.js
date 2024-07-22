@@ -1,19 +1,19 @@
-const circleGraphType1 = () => {
+export const circleGraphType1 = (el, dataValue) => {
     // 01. 기본 원형 그래프
-    const svgType1 = document.querySelector(".circlebar-js1");
+    const svgType1 = document.querySelector(el);
     if (svgType1) {
         const progressCircleType1 = svgType1.querySelector(".circle-progress");
-        const dataValueType1 = svgType1.getAttribute("data-value");
+        // const dataValueType1 = svgType1.getAttribute("data-value");
         const radiusType1 = 60;
         const circumferenceType1 = 2 * Math.PI * radiusType1;
-        const offsetType1 = circumferenceType1 * (1 - dataValueType1 / 100);
+        const offsetType1 = circumferenceType1 * (1 - dataValue / 100);
 
         progressCircleType1.style.setProperty("--barNum", offsetType1);
         progressCircleType1.style.strokeDashoffset = offsetType1;
 
         const textElement = svgType1.parentElement.querySelector(".circlebar_txt");
         if (textElement) {
-            textElement.textContent = `${dataValueType1}%`;
+            textElement.textContent = `${dataValue}%`;
         }
     }
 };

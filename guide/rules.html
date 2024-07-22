@@ -35,7 +35,9 @@
                         </ul>
                         <div class="heading-type3-font18 mt-4">외부망</div>
                         <ul class="description-list mt-3">                                
-                            <li>git에서 clone을 한다. (폴더는 바탕화면에 생성한다.)</li>
+                            <li>git에서 clone을 한다. <strong>(폴더는 바탕화면에 생성한다.)</strong><br>
+                                live Serve실행시 프로젝트 폴더 기준 http://localhost:8080 이런식으로 열리기에 이중 폴더는 오류 발생한다.
+                            </li>
                             <li>vscode의 필수 extension을 설치 한다.<br>
                                 - Live Serve<br>
                                 - Live Sass Compiler
@@ -62,6 +64,36 @@
                             <li>검수 URL: <a href="https://miraeasse.netlify.app/" target="_blank">https://miraeasse.netlify.app/</a></li>
                         </ul>
                         <div class="heading-type3-font18 mt-4">내부망</div>
+                        <ul class="description-list mt-3">                                
+                            <li>vs코드 확장 설치<br>
+                                - vscode 에서 설정(톱니바퀴)>Command Pallete(명령팔레트 Ctrl + Shift + P) <br>
+                                - Install from VSIX 검색(확장 폴더 선택)
+                            </li>
+                            <li>프로젝트 폴더 생성<br>
+                                - 바탕화면에 폴더를 생성 후 복사해온 파일을 복사해 넣는다.<br>
+                                - live Serve실행시 프로젝트 폴더 기준 http://localhost:8080 이런식으로 열리기에 이중 폴더는 오류 발생한다.
+                            </li>
+                            <li>Live Sass Compiler 설정<br>
+                                1. VC에서 Ctrl + , 를 눌러 환경설정 파일 settings.json 열기<br>
+                                2. 설정 검색에서 sass 검색<br>
+                                3. 검색 후 Live Sass Compiler 선택<br>
+                                4. settings.json에서 편집 클릭
+                                <pre class="code_view">
+                                    "liveSassCompile.settings.includeItems": [
+                                        {
+                                            "format": "expanded",
+                                            "extensionName": ".css",
+                                            "savePath": null
+                                        },
+                                    ],
+                                    "liveSassCompile.settings.includeItems": [
+                                        "**/*.scss"
+                                    ],
+                                    "liveSassCompile.settings.generateMap": false
+                                </pre>                                
+                            </li>
+                            <li></li>
+                        </ul>
                     </div>                    
                     <div class="section" id="sect1">
                         <div class="page_tit_h2">기본 가이드</div>
@@ -83,7 +115,14 @@
 
                     <div class="section" id="sect2">
                         <div class="page_tit_h2">폴더 구조</div>
-                        <div class="section_text">내용</div>
+                        <div class="section_text">
+                            <img src="../assets/img/temp.png" alt="" />
+                            <ul class="description-list mt-10">
+                                <li>assets 폴더는 css/js가 위치하며 bundle 폴더는 외부 플러그인 모음</li>
+                                <li>html파일은 front_markup 폴더에 위치한다.</li>
+                                <li>html의 공통영역(예: header.footer) 등은 front_markup 내 _inc 디렉토리에 위치한다. </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="section" id="sect3">

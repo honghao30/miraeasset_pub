@@ -382,3 +382,67 @@ export const openToggleBox = (el) => {
         }
     }
 };
+
+//infinite scroll
+let observer;
+
+export const savePageState = () => {
+    const contentList = document.querySelector('.infinity-list');
+    const itemCount = contentList.children.length;                        
+    sessionStorage.setItem('itemCount', itemCount);
+};
+
+export const restorePageState = () => {
+    const itemCount = sessionStorage.getItem('itemCount');
+    console.log('Restoring page state, itemCount:', itemCount); // Debugging
+    const contentList = document.querySelector('.infinity-list');
+
+    if (itemCount !== null) {                            
+        const currentItemCount = contentList.children.length;
+        console.log('Current item count:', currentItemCount); // Debugging
+
+        if (currentItemCount < itemCount) {                                
+            loadMoreContent(itemCount - currentItemCount);
+        }
+    }
+};
+
+export const infiniteScroll = () => {
+    observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {                                    
+                loadMoreContent().then(hasMoreContent => {
+                    if (!hasMoreContent) {                                            
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.9 });
+
+    const targetElement = document.querySelector('.scroll-target');
+    if (targetElement) {
+        observer.observe(targetElement);
+    }
+};
+
+const loadMoreContent = async (count = 5) => {
+    const contentList = document.querySelector('.infinity-list');
+    let hasMoreContent = true;  
+    const newItemsCount = Math.min(count, 3);  
+
+    for (let i = 0; i < newItemsCount; i++) {
+        const newContent = document.createElement('li');
+        const newContentLink = document.createElement('a');
+        newContentLink.setAttribute('href', 'js_guide.html');
+        newContentLink.textContent = `New Content ${contentList.children.length + 1}`;
+        newContent.appendChild(newContentLink);
+        contentList.appendChild(newContent);
+    }
+
+    if (newItemsCount < count) {
+        hasMoreContent = false;  // No more content to load
+    }
+
+    return hasMoreContent;
+};
