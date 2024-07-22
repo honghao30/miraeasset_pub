@@ -1,4 +1,4 @@
-import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, handleDropdownMenu } from '../js/ui_common.js';
+import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu } from '../js/ui_common.js';
 import { ScrollEnterMain } from '../js/scroll_event.js';
 import { circleGraphType1 } from '../js/graph_custom.js';
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from '../js/calendar.js';
@@ -18,10 +18,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const isPublishingEnvironment = checkPublishingFile();
     const executionTimer = isPublishingEnvironment ? 200 : 0;
 
-    const dropdownMenus = document.querySelectorAll('.dropdown-menu__wrap');
-    dropdownMenus.forEach(menu => {
-        handleDropdownMenu(menu);
-    });
+    dropdownMenu('.dropdown-menu__wrap')
+    // const dropdownMenus = document.querySelectorAll('.dropdown-menu__wrap');
+    // dropdownMenus.forEach(menu => {
+    //     handleDropdownMenu(menu);
+    // });
     checkLabel();
     checkTextArea();
     checkInputFocus();

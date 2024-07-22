@@ -234,45 +234,48 @@ const animateNumber = (element, count, increment, target) => {
 };
 
 //dropdown menu  
-export const handleDropdownMenu = (menu) => {
-    const selectedOptionButton = menu.querySelector('.btn-dropdown');
-    const optionList = menu.querySelectorAll('.dropdown_list li button');
+export const dropdownMenu = (menuSelector) => {   
+    const dropdownMenus = document.querySelectorAll(menuSelector); 
 
-    function toggleMenu() {        
-        dropdownMenus.forEach(m => {
-            if (m !== menu) {
-                m.classList.remove('is-active');
-                m.querySelector('.btn-dropdown').classList.remove('is-active');
-                m.querySelector('.dropdown_list').classList.remove('is-active');
-            }
-        });                        
-        menu.classList.toggle('is-active');
-        selectedOptionButton.classList.toggle('is-active');
-        selectedOptionButton.nextElementSibling.classList.toggle('is-active');
-    }
+    dropdownMenus.forEach(menu => {
+        const trigger = menu.querySelector('.btn-dropdown');
+        const siblings = getNextSibling(trigger); 
 
-    selectedOptionButton.addEventListener('click', toggleMenu);
-    optionList.forEach(option => {
-        option.addEventListener('click', () => {
-            const selectedValue = option.getAttribute('data-option');
-            selectedOptionButton.textContent = selectedValue;
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            const isActive = trigger.classList.toggle('is-active');                       
+            siblings.classList.toggle('is-active', isActive);
+        });
 
-            menu.querySelectorAll('.dropdown_list li').forEach(item => {
-                item.classList.remove('is-active');
+        const optionList = menu.querySelectorAll('.dropdown_list li button');
+        optionList.forEach(option => {
+            option.addEventListener('click', () => {
+                const selectedValue = option.getAttribute('data-option');
+                trigger.textContent = selectedValue;
+
+                menu.querySelectorAll('.dropdown_list li').forEach(item => {
+                    item.classList.remove('is-active');
+                });
+
+                option.parentElement.classList.add('is-active');
+                trigger.classList.remove('is-active');
+                siblings.classList.remove('is-active');
             });
-
-            option.parentElement.classList.add('is-active');
-            toggleMenu();
         });
     });
-    document.addEventListener("click", function(e) {
-        if (menu.classList.contains('is-active') && !e.target.closest('.dropdown-menu__wrap')) {
-            menu.classList.remove('is-active');
-            selectedOptionButton.classList.remove('is-active');
-            selectedOptionButton.nextElementSibling.classList.remove('is-active');
-        }
+
+    document.addEventListener("click", function(e) {        
+        dropdownMenus.forEach(menu => {
+            const trigger = menu.querySelector('.btn-dropdown');
+            const siblings = getNextSibling(trigger);
+
+            if (!menu.contains(e.target) && !e.target.closest('.btn-dropdown')) {                
+                trigger.classList.remove('is-active');
+                siblings.classList.remove('is-active');
+            }
+        });
     });
-}
+};
 
 // 모달 열기
 export const openModal = (event, type) => {
@@ -369,7 +372,10 @@ export const setCls = (el, cls, type) => {
 };
 
 // 형제 찾기
-export const searchSiblings = (el) => [...el.parentElement.children].filter(e => e !== el);
+export const getNextSibling = (el) => {
+    if (!el || !el.parentElement) return null; // 요소가 없거나 부모가 없는 경우 null 반환
+    return el.nextElementSibling;
+};
 
 // 토글
 export const openToggleBox = (el) => {
