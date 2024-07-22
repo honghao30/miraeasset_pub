@@ -1,4 +1,4 @@
-import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, handleDropdownMenu  } from '../assets/js/ui_common.js';
+import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu  } from '../assets/js/ui_common.js';
 import { ScrollEnterMain } from '../assets/js/scroll_event.js';
 import { circleGraphType1 } from '../assets/js/graph_custom.js';
 
@@ -136,11 +136,11 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
 
-    // 함수 실행
-    const dropdownMenus = document.querySelectorAll('.dropdown-menu__wrap');
-    dropdownMenus.forEach(menu => {
-        handleDropdownMenu(menu);
-    });
+    // 함수 실행    
+    dropdownMenu('.dropdown-menu__wrap')
+    // dropdownMenus.forEach(menu => {
+    //     handleDropdownMenu(menu);
+    // });
     checkLabel();
     checkTextArea();
     checkInputFocus();
