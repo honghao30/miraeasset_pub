@@ -616,3 +616,9 @@ input[type="date"]::before {
 .guide-graph > div {
     width: 50%;
 }
+.guide-bubble {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    margin-top: 20px;
+}

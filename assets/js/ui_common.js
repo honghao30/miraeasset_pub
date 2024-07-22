@@ -143,19 +143,25 @@ export const tabMenus = (tabGroupSelector) => {
     const tabGroups = document.querySelectorAll(tabGroupSelector);
     if (!tabGroups.length) return;
 
-    tabGroups.forEach(tabGroup => {
-        const tabTigers = tabGroup.querySelectorAll('.tab-button-list li a');
-        const tabPanes = tabGroup.querySelectorAll('.tab-pane1s > div');
+    tabGroups.forEach((tabGroup) => {
+        const tabTigers = tabGroup.querySelectorAll(".tab-button-list li a");
+        const tabPanes = tabGroup.querySelectorAll(".tab-pane1s > div");
 
         tabTigers.forEach((tab, index) => {
-            tab.addEventListener('click', (event) => {
+            tab.addEventListener("click", (event) => {
                 event.preventDefault();
 
-                tabTigers.forEach(btn => btn.parentElement.classList.remove('is-active'));
-                tab.parentElement.classList.add('is-active');
+                tabTigers.forEach((btn) => btn.parentElement.classList.remove("is-active"));
+                tab.parentElement.classList.add("is-active");
 
-                tabPanes.forEach(pane => pane.classList.remove('is-active'));
-                tabPanes[index].classList.add('is-active');
+                tabPanes.forEach((pane) => pane.classList.remove("is-active"));
+                tabPanes[index].classList.add("is-active");
+
+                tab.parentElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "center",
+                });
             });
         });
     });
