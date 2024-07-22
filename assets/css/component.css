@@ -842,12 +842,13 @@ body.modal-open {
     color: red;
 }
 .calendar__content table td a {
-    padding: 10px;
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    display: block;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .calendar__content table td.today a {
     background-color: #f58220;
