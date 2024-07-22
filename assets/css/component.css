@@ -746,6 +746,7 @@ body.modal-open {
     overflow: auto;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+    width: 100%;
 }
 .tab-btns::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
