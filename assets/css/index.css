@@ -1,8 +1,9 @@
-@import url('../bundle/tailwindcss/tailwind-all.css');
+@import url("../bundle/tailwindcss/tailwind-all.css");
 
-@import url('var.css');
-@import url('font.css');
-@import url('reset.css');
-@import url('common.css');
-@import url('component.css');
-@import url('layout.css');
+@import url("var.css");
+@import url("font.css");
+@import url("reset.css");
+@import url("common.css");
+@import url("component.css");
+@import url("layout.css");
+@import url("../bundle/swiper.min.css");
