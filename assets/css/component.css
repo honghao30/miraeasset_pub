@@ -1303,32 +1303,113 @@ input[type="radio"]:disabled {
     background-size: 100%;
 }
 /* 말풍선 */
-[class*="bubble-"] {
-    background-color: var(--color-primary);
+[class*="bubble-type"] {
     border-radius: 12px;
     color: var(--color-white);
     font-size: 12px;
     font-weight: 700;
     line-height: 18px;
 }
-.bubble-single {
+[class*="bubble-type"]:not(.bubble-type03).bubble-right {
+    border-top-right-radius: 0;
+}
+[class*="bubble-type"]:not(.bubble-type03).bubble-left {
+    border-top-left-radius: 0;
+}
+.bubble-orange [class*="bubble-type"] {
+    background-color: var(--color-primary);
+}
+.bubble-orange .triangle {
+    position: relative;
+    background-color: var(--color-primary);
+}
+.bubble-black [class*="bubble-type"] {
+    background-color: var(--Neutral-09_424242);
+}
+.bubble-black .triangle {
+    position: relative;
+    background-color: var(--Neutral-09_424242);
+}
+.bubble-type01 {
     max-width: 592px;
     min-width: auto;
     width: fit-content;
     position: relative;
     padding: 5px 12px;
 }
-/* .bubble-single:after {
+.bubble-type02 {
+    width: 592px;
+    position: relative;
+    padding: 5px 12px;
+}
+.bubble-type03 {
+    width: fit-content;
+    position: relative;
+    padding: 3px 10px;
+}
+.bubble-box {
+    position: relative;
+    display: inline-flex;
+}
+.triangle-icon {
+    position: absolute;
+}
+.triangle:before,
+.triangle:after {
     content: "";
     position: absolute;
-    width: 14px;
-    height: 10px;
-    background: url("../img/icon/icon_triangle_or.png") center center no-repeat;
-    background-size: 100%;
-    margin-top: -4px;
+    background-color: inherit;
 }
-.bubble-top:after {
-    margin-top: -4px;
+.triangle,
+.triangle:before,
+.triangle:after {
+    width: 10px;
+    height: 10px;
+    border-top-right-radius: 50%;
+}
+.triangle {
+    transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
+}
+.triangle:before {
+    transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707) translate(0, -50%);
+}
+.triangle:after {
+    transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+}
+.bubble-top + .triangle-icon {
+    top: -20%;
+    right: 45%;
+}
+.bubble-btm + .triangle-icon {
+    bottom: -20%;
+    right: 45%;
     transform: rotate(180deg);
-    right: -14%;
-} */
+}
+.bubble-left + .triangle-icon {
+    top: 0;
+    left: 0;
+}
+.bubble-right + .triangle-icon {
+    top: 0;
+    right: 0;
+    transform: rotate(270deg);
+}
+.bubble-type02.bubble-top + .triangle-icon {
+    top: -10%;
+    right: 50%;
+}
+.bubble-type02.bubble-btm + .triangle-icon {
+    bottom: -10%;
+    right: 50%;
+}
+.bubble-type03.bubble-right + .triangle-icon {
+    top: 50%;
+    margin-top: -7px;
+    right: 3%;
+    transform: rotate(290deg);
+    z-index: -1;
+}
+.bubble-left + .triangle-icon .triangle,
+.bubble-right + .triangle-icon .triangle {
+    transform: none;
+}
