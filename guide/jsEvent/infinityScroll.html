@@ -46,16 +46,13 @@
                         infiniteScroll();
                     });
 
-                    window.addEventListener('beforeunload', savePageState);
-
-                    // Save page state on link clicks
+                    // 링크 타고 이동 후 뒤로가리로 다시 올때 
+                    window.addEventListener('beforeunload', savePageState);                    
                     document.addEventListener('click', event => {
                         if (event.target.tagName === 'A' && event.target.href) {
                             savePageState();
                         }
                     });
-
-                    // Restore page state on popstate (back/forward navigation)
                     window.addEventListener('popstate', restorePageState);
 
                 </script>                
