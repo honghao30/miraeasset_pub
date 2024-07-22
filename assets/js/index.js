@@ -2,6 +2,7 @@ import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputO
 import { ScrollEnterMain } from '../js/scroll_event.js';
 import { circleGraphType1 } from '../js/graph_custom.js';
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from '../js/calendar.js';
+import { swiperCustom } from "../js/swiper_custom.js";
 
 // 퍼블 환경일 경우 settimeout을 지정.
 const checkPublishingFile = () => {
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     focusNextInputOnMaxLength('.pin-code input');
     tabMenus('.tab-content');
     ScrollEnterMain();    
+    swiperCustom();
 
     // 달력
     rangeOptionSelector('startDate2', 'endDate2');
