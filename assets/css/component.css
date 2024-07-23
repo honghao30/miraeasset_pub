@@ -1415,3 +1415,49 @@ input[type="radio"]:disabled {
 .bubble-right + .triangle-icon .triangle {
     transform: none;
 }
+/* swiper - pagination-black */
+.swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-black {
+    bottom: -6px;
+}
+.swiper-pagination-black .swiper-pagination-bullet-active {
+    opacity: var(--color-primary-disabled);
+    background: var(--color-basic10);
+}
+/* swiper : pagination 있는 경우 */
+.pagination-card .swiper {
+    padding-bottom: 24px;
+}
+/* swiper : 공통 */
+.card-video video,
+.swiper .swiper-slide img {
+    width: 100%;
+}
+/* swiper play 버튼 임시 작업 */
+
+.swiper-status-wrap {
+    display: flex;
+    position: relative;
+    width: fit-content;
+    gap: 8px;
+    margin: 0 auto;
+}
+.swiper-status-wrap .btn-wrap {
+    display: inline-flex;
+}
+.btn-play {
+    width: 24px;
+    height: 24px;
+    background: url("../../assets/img/test/pasue_test.png") no-repeat center center; /* default 값 : pasue 버튼 */
+    background-size: contain;
+}
+.btn-play.on {
+    width: 24px;
+    height: 24px;
+    background: url("../../assets/img/test/play_test.png") no-repeat center center;
+    background-size: contain;
+}
+.swiper-status-wrap .swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-black {
+    bottom: auto;
+    width: auto;
+    position: relative;
+}
