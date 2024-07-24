@@ -133,6 +133,9 @@
                     
                             tbody.appendChild(row);
                         });
+
+                        // 하이라이팅 함수 호출
+                        RowHighlighting('.pub-list__content');
                     }
 
                     statusFilter.addEventListener('change', function() {
@@ -178,7 +181,25 @@
 
 
                 })
-                .catch(error => console.error('Error loading JSON:', error));             
+                .catch(error => console.error('Error loading JSON:', error));           
+                
+                // 확인한 링크 하이라이팅
+                function RowHighlighting(containerSelector) {
+                    let activeRow = null;
+                    const container = document.querySelector(containerSelector);
+                    const links = container.querySelectorAll('.pub-list__content table a');
+
+                    links.forEach(link => {
+                        link.addEventListener('click', function(event) {
+                            if (activeRow) {
+                                activeRow.classList.remove('on');
+                            }
+                            const row = this.closest('tr');
+                            row.classList.add('on');
+                            activeRow = row;
+                        });
+                    });
+                }
         });
     </script>
 </body>
