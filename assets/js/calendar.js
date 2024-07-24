@@ -280,12 +280,12 @@ const addUserDataToCell = (cell, data) => {
 // 주간달력 스크립트    
 export const createWeeklyCalendar = (containerId, options = {}) => {
     const container = document.getElementById(containerId);
-    const calendarHeader = container.querySelector('.calendar__header');
-
     if (!container) {
         // console.error(`Element with id '${containerId}' not found.`);
         return;
     }
+
+    const calendarHeader = container.querySelector('.calendar__header');
 
     // Day.js 한국어 로케일 설정
     dayjs.locale('ko');

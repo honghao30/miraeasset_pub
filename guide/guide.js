@@ -1,6 +1,7 @@
 import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu  } from '../assets/js/ui_common.js';
 import { ScrollEnterMain } from '../assets/js/scroll_event.js';
 import { circleGraphType1 } from '../assets/js/graph_custom.js';
+import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from '../assets/js/calendar.js';
 
 // 공통 영역 불러오기
 document.addEventListener("DOMContentLoaded", function() {
@@ -150,6 +151,14 @@ document.addEventListener("DOMContentLoaded", function() {
     convertCodeSamples();
     formatCodePreviews();
 
+    // 달력
+    rangeOptionSelector('startDate2', 'endDate2');
+    const calendar = new DateRangePicker('startDate', 'endDate');
+    const calendar2 = new DateRangePicker('startDate2', 'endDate2');
+
+    newMonthlyCalendar('calendarContainer', { button: false, displayData: 'dropdown' });
+    createWeeklyCalendar('calendarWeekly', { button: true, displayDay: 'onlyToday' });
+    
     // 커스텀 챠트
     circleGraphType1('.circlebar-js1', 75);
 

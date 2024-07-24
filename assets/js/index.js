@@ -19,10 +19,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const executionTimer = isPublishingEnvironment ? 200 : 0;
 
     dropdownMenu('.dropdown-menu__wrap')
-    // const dropdownMenus = document.querySelectorAll('.dropdown-menu__wrap');
-    // dropdownMenus.forEach(menu => {
-    //     handleDropdownMenu(menu);
-    // });
     checkLabel();
     checkTextArea();
     checkInputFocus();
