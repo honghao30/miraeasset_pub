@@ -2,17 +2,28 @@
 @import url("../assets/css/index.css");
 
 /* 레이아웃 */
+html{
+    scroll-behavior: smooth;
+}
 .guide_wrap {
     width: 100%;
 }
 .header__wrap {
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: auto;
+    padding: 0 calc(16 / 16 * 1rem);
 }
 .navigation__wrap--top {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     background: var(--color-secondary);
+}
+.navigation__wrap--top h1{
+    padding-left:32px;
 }
 .navigation__wrap--top ul {
     display: flex;
@@ -31,8 +42,8 @@
     display: block;
 }
 .navigation__wrap--top ul li.is-active a {
-    background: #fff;
-    color: #222;
+    background: #e67602;
+    color: #ffffff;
 }
 
 .guide-content__wrap {
@@ -85,9 +96,12 @@
 .guide-content__wrap.lnb-type .guide-cont {
     flex: 1;
 }
+.guide-content__wrap.lnb-type .guide-cont .section{
+    scroll-margin-top:140px;
+}
 .page_tit_h1 {
     font-size: 24px;
-    font-weight: 700;
+    font-weight:800;
     line-height: 24px;
     color: #222;
 }
@@ -218,29 +232,37 @@
 .font-exsample-list p + p {
     margin-top: 10px;
 }
-
 .pub-list__content table {
     width: 100%;
 }
 .pub-list__content table thead th {
-    background: #eee;
-    padding: 4px 7px;
+    padding: 7px;
     color: #111;
-    border-bottom: 1px solid #ccc;
-    border-left: 1px solid #ccc;
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #000;
     font-size: 13px;
     text-align: center;
 }
 .pub-list__content table tbody td {
     padding: 4px 7px;
     color: #111;
-    border-bottom: 1px solid #ccc;
-    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
     font-size: 13px;
     text-align: center;
 }
+.pub-list__content table tbody td a{
+    color:#3190fc;
+    font-weight:bold;
+}
+.pub-list__content table tbody tr.on td{
+    background:#fff600
+}
 .pub-list__content table tbody td.text-l {
     text-align: left;
+}
+.pub-list__content table tbody tr:hover{
+    background-color:#f9f9e7;
 }
 .pub-list__content table thead tr td:first-child {
     border-left: 0;
@@ -271,9 +293,11 @@
 }
 .pub-ing-display__board .display-data ul {
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
-
+.pub-ing-display__board .display-data ul strong{
+    color:#3190fc;
+}
 /* 커스텀 데이터 */
 .custom-graph__wrap {
     display: flex;
@@ -307,14 +331,14 @@
 .custom-graph__wrap .custom-graph__bar .data-type3 {
     background-color: yellow;
 }
-
 .site-name__wrap {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 16px 32px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e67602;
     gap: 16px;
+    background-color: #ffffff;
 }
 .site-name__wrap h1 {
     font-size: 26px;
