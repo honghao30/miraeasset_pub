@@ -1,4 +1,4 @@
-import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu, headerNavActive } from "../js/ui_common.js";
+import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu } from "../js/ui_common.js";
 import { ScrollEnterMain } from "../js/scroll_event.js";
 import { circleGraphType1 } from "../js/graph_custom.js";
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from "../js/calendar.js";
@@ -49,24 +49,4 @@ document.addEventListener('DOMContentLoaded', ()=> {
     setTimeout(() => {
         bottomSheetHandle();
     }, executionTimer);
-
-    // head_gnb 페이지에서만 headerNavActive() 불러오기
-    const includeElements = document.querySelectorAll("[data-include-path]");
-
-    includeElements.forEach(async (element) => {
-        const includePath = element.getAttribute("data-include-path");
-
-        if (includePath === "./_inc/head_gnb.html") {
-            try {
-                const response = await fetch(includePath);
-                const html = await response.text();
-                element.innerHTML = html;
-
-                // 로드가 완료된 후에 호출
-                headerNavActive();
-            } catch (error) {
-                console.error("Error loading include:", error);
-            }
-        }
-    });
 });
