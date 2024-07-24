@@ -2,7 +2,7 @@ import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputO
 import { ScrollEnterMain } from "../js/scroll_event.js";
 import { circleGraphType1 } from "../js/graph_custom.js";
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from "../js/calendar.js";
-import { swiperCustom } from "../js/swiper_custom.js";
+import { swiperCustom, SlideVideo } from "../js/swiper_custom.js";
 
 // 퍼블 환경일 경우 settimeout을 지정.
 const checkPublishingFile = () => {
@@ -37,6 +37,25 @@ document.addEventListener('DOMContentLoaded', ()=> {
         pagination: {
             el: '.swiper-pagination-black',
             clickable: true,
+        },
+    });
+    const swiper2 = swiperCustom(".cardjs-video01", 1, {
+        pagination: {
+            el: ".swiper-pagination-black",
+            clickable: true,
+        },
+        on: {
+            slideChange: function () {
+                SlideVideo(swiper2);
+            },
+        },
+    });
+    const swiper3 = swiperCustom(".cardjs-video02", 1, {
+        pagination: false,
+        on: {
+            slideChange: function () {
+                SlideVideo(swiper2);
+            },
         },
     });
     // const isSwiperPage = () => {        

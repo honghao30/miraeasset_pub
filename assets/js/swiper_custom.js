@@ -8,6 +8,10 @@ export const swiperCustom = (selector, perView, additionalOptions = {}) => {
 
     // 사용될 스와이퍼 함수
     const initSwiper = (selector, options) => {
+        // Swiper가 정의되어 있는지 확인
+        if (typeof Swiper === "undefined") {
+            return;
+        }
         return new Swiper(selector, {
             ...commonOptions, // 공통 스와이퍼 옵션
             ...options, // 커스텀할 스와이퍼 옵션
@@ -24,10 +28,12 @@ export const swiperCustom = (selector, perView, additionalOptions = {}) => {
     return swiperInstance;
 };
 
-const handleSlideChange = (swiperInstance) => {
+// 자동 재생하기, 슬라이드 넘겼을 때 기존 슬라이드 멈추기, 재생 버튼 클릭 시 재생하기
+export const SlideVideo = (swiperInstance) => {
     if (!swiperInstance || !swiperInstance.el) {
         return;
     }
+
     const videos = swiperInstance.el.querySelectorAll(".swiper-slide video");
 
     // 모든 영상 멈추기
@@ -42,21 +48,10 @@ const handleSlideChange = (swiperInstance) => {
     }
 
     // 스와이퍼 넘겼을 때, 재생 버튼 리셋을 위해
-    // 재생버튼 없는 경우도 있기 때문에 조건문 사용
     const playButton = swiperInstance.el.querySelector(".btn-play");
+
     if (playButton) {
         playButton.classList.remove("on");
-    }
-};
-
-const handlePlayButtonClick = (swiperInstance) => {
-    if (!swiperInstance || !swiperInstance.el) {
-        return;
-    }
-    const playButton = swiperInstance.el.querySelector(".btn-play");
-
-    // 재생버튼 없는 경우도 있기 때문에 조건문 사용
-    if (playButton) {
         // 재생버튼 클릭했을 때
         playButton.addEventListener("click", function () {
             const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
@@ -67,11 +62,11 @@ const handlePlayButtonClick = (swiperInstance) => {
                 if (activeVideo.paused) {
                     activeVideo.play(); // 재생
                     playButton.classList.remove("on"); // play btn 제거
-                    console.log(`video ${[swiperInstance.activeIndex]} slide playing`);
+                    // console.log(`video ${[swiperInstance.activeIndex]} slide playing`);
                 } else {
                     activeVideo.pause(); // 멈추기
                     playButton.classList.add("on"); // pause btn 제거
-                    console.log(`video ${[swiperInstance.activeIndex]} slide paused`);
+                    // console.log(`video ${[swiperInstance.activeIndex]} slide paused`);
                 }
             }
         });
