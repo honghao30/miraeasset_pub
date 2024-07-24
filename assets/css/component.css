@@ -1491,3 +1491,17 @@ input[type="radio"]:disabled {
     background-size: contain;
     display: inline-flex;
 }
+.txt-wrap {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+}
+.swiper-tit {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 26px;
+    color: var(--color-white);
+}
+.chip + .swiper-tit {
+    margin-top: 8px;
+}
