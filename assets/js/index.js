@@ -25,7 +25,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
     focusNextInputOnMaxLength('.pin-code input');
     tabMenus('.tab-content');
     ScrollEnterMain();    
-    swiperCustom();
+    
+
+    const isSwiperPage = () => {        
+        return document.querySelector('.cardjs-01, .cardjs-02, .cardjs-03, .cardjs-video01, .cardjs-video02') !== null;
+    }    
+    if (isSwiperPage()) {
+        swiperCustom();
+    }    
 
     // 달력
     rangeOptionSelector('startDate2', 'endDate2');

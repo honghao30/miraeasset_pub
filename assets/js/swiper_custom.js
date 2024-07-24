@@ -69,6 +69,9 @@ export const swiperCustom = () => {
 };
 
 const handleSlideChange = (swiperInstance) => {
+    if(!swiperInstance || !swiperInstance.el) {
+        return;
+    }
     const videos = swiperInstance.el.querySelectorAll(".swiper-slide video");
 
     // 모든 영상 멈추기
@@ -91,6 +94,9 @@ const handleSlideChange = (swiperInstance) => {
 };
 
 const handlePlayButtonClick = (swiperInstance) => {
+    if (!swiperInstance || !swiperInstance.el) {
+        return;
+    }
     const playButton = swiperInstance.el.querySelector(".btn-play");
 
     // 재생버튼 없는 경우도 있기 때문에 조건문 사용
