@@ -1,34 +1,40 @@
 export const swiperCustom = () => {
-    var swiperCard01 = new Swiper(".cardjs-01", {
-        slidesPerView: 1.12,
+    // 공통 스와이퍼 옵션 정의
+    const commonOptions = {
         spaceBetween: 12,
         parallax: true,
         watchOverflow: true, //pagination 1개 일 경우, 숨김
+    };
+
+    // 사용될 스와이퍼 함수
+    const initSwiper = (selector, options) => {
+        return new Swiper(selector, {
+            ...commonOptions, // 공통 스와이퍼
+            ...options, // 커스텀할 스와이퍼
+        });
+    };
+
+    const swiperCard01 = initSwiper(".cardjs-01", {
+        slidesPerView: 1.12,
         pagination: {
             el: ".swiper-pagination-black",
             clickable: true,
         },
     });
-    var swiperCard02 = new Swiper(".cardjs-02", {
+
+    const swiperCard02 = initSwiper(".cardjs-02", {
         slidesPerView: 1.5,
-        spaceBetween: 12,
-        parallax: true,
         pagination: false,
-        watchOverflow: true,
     });
-    var swiperCard03 = new Swiper(".cardjs-03", {
+
+    const swiperCard03 = initSwiper(".cardjs-03", {
         slidesPerView: 2,
-        spaceBetween: 12,
-        parallax: true,
         pagination: false,
-        watchOverflow: true,
     });
-    var swiperCardVideo01 = new Swiper(".cardjs-video01", {
+
+    const swiperCardVideo01 = initSwiper(".cardjs-video01", {
         slidesPerView: 1,
-        spaceBetween: 12,
-        parallax: true,
         initialSlide: 0,
-        watchOverflow: true,
         pagination: {
             el: ".swiper-pagination-black",
             clickable: true,
@@ -39,76 +45,73 @@ export const swiperCustom = () => {
         },
         on: {
             slideChange: function () {
-                const videos = document.querySelectorAll(".cardjs-video01 .swiper-slide video");
-
-                // 모든 영상 멈추기
-                videos.forEach((video) => video.pause());
-
-                const activeSlide = swiperCardVideo01.slides[swiperCardVideo01.activeIndex];
-                const activeVideo = activeSlide.querySelector("video");
-
-                // 현재 활성화된 슬라이드 영상 재생
-                if (activeVideo) {
-                    activeVideo.play();
-                }
-
-                // 재생 버튼
-                const playButton = document.querySelector(".btn-play");
-                playButton.classList.remove("on"); // 다음페이지 넘어갔을 때 이중클래스 on이 살아있어서
-
-                logVideoStates(videos);
+                handleSlideChange(swiperCardVideo01);
             },
         },
     });
-    var swiperCardVideo02 = new Swiper(".cardjs-video02", {
+
+    const swiperCardVideo02 = initSwiper(".cardjs-video02", {
         slidesPerView: 1,
-        spaceBetween: 12,
-        parallax: true,
         initialSlide: 0,
-        watchOverflow: true,
         pagination: {
             el: ".swiper-pagination-black",
             clickable: true,
         },
         on: {
             slideChange: function () {
-                const videos = document.querySelectorAll(".cardjs-video02 .swiper-slide video");
-
-                // 모든 영상 멈추기
-                videos.forEach((video) => video.pause());
-
-                const activeSlide = swiperCardVideo02.slides[swiperCardVideo02.activeIndex];
-                const activeVideo = activeSlide.querySelector("video");
-                // 현재 활성화된 슬라이드 영상 재생
-                if (activeVideo) {
-                    activeVideo.play();
-                }
+                handleSlideChange(swiperCardVideo02);
             },
         },
     });
-    // start : 재생버튼 관련 내용
-    const playButton = document.querySelector(".btn-play");
-    // 재생 버튼 클릭 시
-    playButton.addEventListener("click", function () {
-        const activeSlide = swiperCardVideo01.slides[swiperCardVideo01.activeIndex];
-        const activeVideo = activeSlide.querySelector("video");
-        // 현재 활성화된 슬라이드 영상이라면
-        if (activeVideo) {
-            // 현재 활성화된 슬라이드가 멈춰져있다면
-            if (activeVideo.paused) {
-                // 현재 활성화된 슬라이드 재생시키기
-                activeVideo.play();
-                // pasue icon 제거
-                playButton.classList.remove("on");
-                console.log(`video ${[swiperCardVideo01.activeIndex]} 슬라이드 재생`);
-            } else {
-                // 현재 활성화된 슬라이드 멈추기
-                activeVideo.pause();
-                // play icon 제거
-                playButton.classList.add("on");
-                console.log(`video ${[swiperCardVideo01.activeIndex]} 슬라이드 멈춤`);
+
+    handlePlayButtonClick(swiperCardVideo01);
+    handlePlayButtonClick(swiperCardVideo02);
+};
+
+const handleSlideChange = (swiperInstance) => {
+    const videos = swiperInstance.el.querySelectorAll(".swiper-slide video");
+
+    // 모든 영상 멈추기
+    videos.forEach((video) => video.pause());
+
+    const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
+    const activeVideo = activeSlide.querySelector("video");
+
+    // 현재 활성화된 영상 슬라이드 재생하기
+    if (activeVideo) {
+        activeVideo.play();
+    }
+
+    // 스와이퍼 넘겼을 때, 재생 버튼 리셋을 위해
+    // 재생버튼 없는 경우도 있기 때문에 조건문 사용
+    const playButton = swiperInstance.el.querySelector(".btn-play");
+    if (playButton) {
+        playButton.classList.remove("on");
+    }
+};
+
+const handlePlayButtonClick = (swiperInstance) => {
+    const playButton = swiperInstance.el.querySelector(".btn-play");
+
+    // 재생버튼 없는 경우도 있기 때문에 조건문 사용
+    if (playButton) {
+        // 재생버튼 클릭했을 때
+        playButton.addEventListener("click", function () {
+            const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
+            const activeVideo = activeSlide.querySelector("video");
+            // 현재 활성화된 영상 슬라이드  있다면
+            if (activeVideo) {
+                // 현재 활성화된 영상 슬라이드가 멈춰있다면
+                if (activeVideo.paused) {
+                    activeVideo.play(); // 재생
+                    playButton.classList.remove("on"); // play btn 제거
+                    console.log(`video ${[swiperInstance.activeIndex]} slide playing`);
+                } else {
+                    activeVideo.pause(); // 멈추기
+                    playButton.classList.add("on"); // pause btn 제거
+                    console.log(`video ${[swiperInstance.activeIndex]} slide paused`);
+                }
             }
-        }
-    });
-    // end : 재생버튼 관련 내용
+        });
+    }
 };
