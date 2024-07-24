@@ -1461,3 +1461,33 @@ input[type="radio"]:disabled {
     width: auto;
     position: relative;
 }
+/* swiper 안에 heart btn */
+.heart-swiper {
+    position: relative;
+}
+.heart-wrap .heart-box {
+    position: absolute;
+    top: 21px;
+    right: 21px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heart-wrap .heart-box .heart-btn {
+    width: 14px;
+    height: 14px;
+    background: url("../img/icon/heart_icon14_gr.png") no-repeat center center;
+    background-size: contain;
+    display: inline-flex;
+}
+.heart-wrap .heart-box .heart-btn.on {
+    width: 14px;
+    height: 14px;
+    background: url("../img/icon/heart_icon14_red.png") no-repeat center center;
+    background-size: contain;
+    display: inline-flex;
+}
