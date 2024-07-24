@@ -1,31 +1,82 @@
-export const swiperCustom = (selector, perView, additionalOptions = {}) => {
+export const swiperCustom = (selector, perView) => {
     // 공통 스와이퍼 옵션 정의
     const commonOptions = {
         spaceBetween: 12,
         parallax: true,
-        watchOverflow: true, // pagination 1개일 경우 숨김
+        watchOverflow: true, //pagination 1개 일 경우, 숨김
     };
 
     // 사용될 스와이퍼 함수
     const initSwiper = (selector, options) => {
         return new Swiper(selector, {
-            ...commonOptions, // 공통 스와이퍼 옵션
-            ...options, // 커스텀할 스와이퍼 옵션
+            ...commonOptions, // 공통 스와이퍼
+            ...options, // 커스텀할 스와이퍼
         });
     };
+    const swiperCard00 = initSwiper(".cardjs-00", {
+        slidesPerView: 1,
+        pagination: {
+            el: ".swiper-pagination-black",
+            clickable: true,
+        },
+    });    
 
-    // Swiper 초기화
-    const swiperInstance = initSwiper(selector, {
-        slidesPerView: perView,
-        ...additionalOptions, // 추가 옵션
+    const swiperCard01 = initSwiper(".cardjs-01", {
+        slidesPerView: 1.12,
+        pagination: {
+            el: ".swiper-pagination-black",
+            clickable: true,
+        },
     });
 
-    // Swiper 인스턴스 반환
-    return swiperInstance;
+    const swiperCard02 = initSwiper(".cardjs-02", {
+        slidesPerView: 1.5,
+        pagination: false,
+    });
+
+    const swiperCard03 = initSwiper(".cardjs-03", {
+        slidesPerView: 2,
+        pagination: false,
+    });
+
+    const swiperCardVideo01 = initSwiper(".cardjs-video01", {
+        slidesPerView: 1,
+        initialSlide: 0,
+        pagination: {
+            el: ".swiper-pagination-black",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".cardjs-video01 .swiper-button-next",
+            prevEl: ".cardjs-video01 .swiper-button-prev",
+        },
+        on: {
+            slideChange: function () {
+                handleSlideChange(swiperCardVideo01);
+            },
+        },
+    });
+
+    const swiperCardVideo02 = initSwiper(".cardjs-video02", {
+        slidesPerView: 1,
+        initialSlide: 0,
+        pagination: {
+            el: ".swiper-pagination-black",
+            clickable: true,
+        },
+        on: {
+            slideChange: function () {
+                handleSlideChange(swiperCardVideo02);
+            },
+        },
+    });
+
+    handlePlayButtonClick(swiperCardVideo01);
+    handlePlayButtonClick(swiperCardVideo02);
 };
 
 const handleSlideChange = (swiperInstance) => {
-    if (!swiperInstance || !swiperInstance.el) {
+    if(!swiperInstance || !swiperInstance.el) {
         return;
     }
     const videos = swiperInstance.el.querySelectorAll(".swiper-slide video");

@@ -26,13 +26,25 @@ document.addEventListener('DOMContentLoaded', ()=> {
     tabMenus('.tab-content');
     ScrollEnterMain();    
     
-
-    const isSwiperPage = () => {        
-        return document.querySelector('.cardjs-01, .cardjs-02, .cardjs-03, .cardjs-video01, .cardjs-video02') !== null;
-    }    
-    if (isSwiperPage()) {
-        swiperCustom();
-    }    
+    const swiper0 = swiperCustom('.calendar-swiper', 1.12, {
+        pagination: false,
+        navigation: {
+            nextEl: ".calendar-swiper .swiper-button-next",
+            prevEl: ".calendar-swiper .swiper-button-prev",
+        }
+    });    
+    const swiper1 = swiperCustom('.cardjs-01', 1.12, {
+        pagination: {
+            el: '.swiper-pagination-black',
+            clickable: true,
+        },
+    });
+    // const isSwiperPage = () => {        
+    //     return document.querySelector('.cardjs-00, .cardjs-01, .cardjs-02, .cardjs-03, .cardjs-video01, .cardjs-video02') !== null;
+    // }    
+    // if (isSwiperPage()) {
+    //     swiperCustom();
+    // }    
 
     // 달력
     rangeOptionSelector('startDate2', 'endDate2');
