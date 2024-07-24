@@ -25,7 +25,7 @@ export const swiperCustom = (selector, perView, additionalOptions = {}) => {
 };
 
 const handleSlideChange = (swiperInstance) => {
-    if(!swiperInstance || !swiperInstance.el) {
+    if (!swiperInstance || !swiperInstance.el) {
         return;
     }
     const videos = swiperInstance.el.querySelectorAll(".swiper-slide video");
