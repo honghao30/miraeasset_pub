@@ -88,8 +88,13 @@
                 })();            
             </script>
             <div style="height: 500px;">
-                <input id="pi_input" type="range" min="0" max="3.14" step="any" />
+                <input id="pi_input" type="range" min="0" max="17.14" step="any" />
                 <p>Value: <output id="value"></output></p>
+                <style>
+                    input[type="range"] {
+                        writing-mode: vertical-lr;
+                        }
+                </style>
                 <script>
                     const value = document.querySelector("#value");
                     const input = document.querySelector("#pi_input");
