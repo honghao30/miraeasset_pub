@@ -15,7 +15,7 @@ html{
     top: 0;
     z-index: 10;
     height: auto;
-    padding: 0 calc(16 / 16 * 1rem);
+    padding: 0;
 }
 .navigation__wrap--top {
     display: flex;
