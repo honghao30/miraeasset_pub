@@ -363,11 +363,11 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
         let move_y = end_yPos - start_yPos;
         let elapsed_time = end_time - start_time;
         if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
-            if (move_x < 0) {
-                currentDate = currentDate.subtract(1, 'week');
+            if (move_x < 0) {                
+                currentDate = currentDate.add(1, 'week');
                 displayWeeklyCalendar(currentDate);
             } else {
-                currentDate = currentDate.add(1, 'week');
+                currentDate = currentDate.subtract(1, 'week');
                 displayWeeklyCalendar(currentDate);
             }
         }
