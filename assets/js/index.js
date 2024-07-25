@@ -32,17 +32,23 @@ document.addEventListener('DOMContentLoaded', ()=> {
             nextEl: ".calendar-swiper .swiper-button-next",
             prevEl: ".calendar-swiper .swiper-button-prev",
         }
-    });    
+    });
+    
     const swiper1 = swiperCustom('.cardjs-01', 1.12, {
         pagination: {
             el: '.swiper-pagination-black',
             clickable: true,
         },
     });
+
     const swiper2 = swiperCustom(".cardjs-video01", 1, {
         pagination: {
             el: ".swiper-pagination-black",
             clickable: true,
+        },
+        navigation: {
+            nextEl: ".cardjs-video01 .swiper-button-next",
+            prevEl: ".cardjs-video01 .swiper-button-prev",
         },
         on: {
             slideChange: function () {
@@ -51,6 +57,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         },
     });
     SlideVideoPlayBtn(swiper2);
+
     const swiper3 = swiperCustom(".cardjs-video02", 1, {
         pagination: false,
         on: {
