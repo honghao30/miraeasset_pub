@@ -12,30 +12,41 @@
                 <div data-include-path="./cmp_side.html"></div>
             </div>            
             <div class="guide-cont">
-                <div class="page_tit_h1">컴포넌트 가이드</div>
+                <div class="page_tit_h1">차트 가이드</div>
                 <div class="section">
                     <div class="section_text">소스 사이트 : https://demo.riamore.net/HTML5demo/chart/index.html</div>
                 </div>
                 <script src="https://www.riamore.net/HTML5demo/chart/LicenseKey/rMateChartH5License.js"></script>
                 <script src="https://www.riamore.net/HTML5demo/chart/rMateChartH5/JS/rMateChartH5.js"></script>
-                <link rel="stylesheet" href="https://www.riamore.net/HTML5demo/chart/rMateChartH5/Assets/Css/rMateChartH5.css"/>                
+                <link rel="stylesheet" href="https://www.riamore.net/HTML5demo/chart/rMateChartH5/Assets/Css/rMateChartH5.css"/>
+                <div class="section" style="margin-top: 2.5rem">
+                    <div class="page_tit_h2">column chart</div>
+                    <div id="chartHolder" style="margin-top: 50px; width:100%; height:300px;">
+
+                    </div>
+                </div>
+
                 <script type="text/javascript">
                     rMateChartH5.create("chart1", "chartHolder", "", "100%", "100%");
                     var layoutStr =
                         '<rMateChart backgroundColor="#FFFFFF" borderStyle="none">'
                             +'<Options>'
-                                +'<Caption text="" />'
+                                +'<Caption text="체중기록" />'
                             +'</Options>'
                             +'<SeriesInterpolate id="ss"/>'
-                            +'<NumberFormatter id="numfmt" useThousandsSeparator="true"/>'
-                            +'<Column2DChart showDataTips="false" gutterRight="10" columnWidthRatio="0.5" >'
+                            +'<Column2DChart seriesMouseOverAction="none" showDataTips="false" columnRadiusRatio="1">'
                                 +'<series>'
-                                    +'<Column2DSeries labelPosition="outside" yField="kg" displayName="weight" itemRenderer="SemiCircleColumnItemRenderer" showValueLabels="[3]" showDataEffect="{ss}" color="#ffffff" labelBoxWidthOffset="15" labelBoxHeightOffset="5" labelBackgroundColor="#F58220" labelBorderRadius="15" outsideLabelYOffset="-10">'
+                                    +'<Column2DSeries labelPosition="outside" yField="kg" displayName="weight"  showValueLabels="[3]" showDataEffect="{ss}" color="#ffffff" labelBoxWidthOffset="15" labelBoxHeightOffset="5" labelBackgroundColor="#F58220" labelBorderRadius="15" outsideLabelYOffset="-10">'
                                         +'<fills>'
                                             +'<SolidColor color="#E0E0E0"/>'
                                             +'<SolidColor color="#E0E0E0"/>'
                                             +'<SolidColor color="#E0E0E0"/>'
-                                            +'<SolidColor color="#F58220"/>'
+                                            +'<LinearGradient angle="90">'
+                                                +'<entries>'
+                                                    +'<GradientEntry color="#FFA05B" ratio="0.2"/>'
+                                                    +'<GradientEntry color="#FF720D" ratio="1"/>'
+                                                +'</entries>'
+                                            +'</LinearGradient>'
                                             +'<SolidColor color="#E0E0E0"/>'
                                         +'</fills>'
                                     +'</Column2DSeries>'
@@ -51,19 +62,17 @@
         
                         // 차트 데이터
                         var chartData =
-                        [{"day":"12일","kg":52},
+                        [{"day":"12일","kg":30},
                         {"day":"13일","kg":50},
                         {"day":"14일","kg":50},
                         {"day":"15일","kg":55},
-                        {"day":"16일","kg":60},];
+                        {"day":"16일","kg":70},];
                         rMateChartH5.calls("chart1", {
                             "setLayout" : layoutStr,
                             "setData" : chartData
                     });
                 </script>
-                <div id="chartHolder" style="margin-top: 50px; width:100%; height:300px;">
-
-                </div>
+                
         </div>
     </div>
     <script type="module" src="../guide.js"></script>
