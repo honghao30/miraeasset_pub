@@ -796,6 +796,22 @@ body.modal-open {
 .calendar__wrap {
     width: 100%;
 }
+.calendar__wrap .weekly-cal__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+}
+.calendar__wrap .weekly-cal__header  li {
+    text-align: center;
+}
+.calendar__wrap .weekly-cal__header  li.today {
+    font-weight: 700;
+    color:var(--color-primary);
+}
+.calendar__wrap .weekly-cal__header  li.holiday {
+    color: red;
+}
 .calendar__wrap .calendar__header {
     display: flex;
     align-items: center;
