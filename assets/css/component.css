@@ -1505,3 +1505,21 @@ input[type="radio"]:disabled {
 .chip + .swiper-tit {
     margin-top: 8px;
 }
+/* 컴포넌트 테스트여서 디자인 없음 이러한 경우 생기면 커스텀 진행 필요 */
+.swiper-pagination.swiper-pagination-progressbar.swiper-pagination-horizontal {
+    bottom: 0;
+    top: auto;
+}
+.pagination-card .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    opacity: var(--color-primary-disabled);
+    background: var(--color-basic10);
+}
+ /* progressbar 스타일 */
+.swiper-pagination-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: var(--color-basic10);
+    transition: width 0.2s;
+}

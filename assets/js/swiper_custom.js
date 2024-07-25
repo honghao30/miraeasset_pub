@@ -28,7 +28,7 @@ export const swiperCustom = (selector, perView, additionalOptions = {}) => {
     return swiperInstance;
 };
 
-// 자동 재생하기, 슬라이드 넘겼을 때 기존 슬라이드 멈추기, 재생 버튼 클릭 시 재생하기
+// 자동 재생하기, 슬라이드 넘겼을 때 기존 슬라이드 멈추기
 export const SlideVideo = (swiperInstance) => {
     if (!swiperInstance || !swiperInstance.el) {
         return;
@@ -37,7 +37,10 @@ export const SlideVideo = (swiperInstance) => {
     const videos = swiperInstance.el.querySelectorAll(".swiper-slide video");
 
     // 모든 영상 멈추기
-    videos.forEach((video) => video.pause());
+    videos.forEach((video) => {
+        video.pause();
+        video.currentTime = 0;
+    });
 
     const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
     const activeVideo = activeSlide.querySelector("video");
@@ -46,12 +49,16 @@ export const SlideVideo = (swiperInstance) => {
     if (activeVideo) {
         activeVideo.play();
     }
+    const playButton = swiperInstance.el.querySelector(".btn-play");
+    if (playButton) {
+        playButton.classList.remove("on"); // 버튼 클릭 후 스와이퍼 넘겼을 때 버튼 상태는 초기화 되지 않아서 제거함
+    }
+};
 
-    // 스와이퍼 넘겼을 때, 재생 버튼 리셋을 위해
+export const SlideVideoPlayBtn = (swiperInstance) => {
     const playButton = swiperInstance.el.querySelector(".btn-play");
 
     if (playButton) {
-        playButton.classList.remove("on");
         // 재생버튼 클릭했을 때
         playButton.addEventListener("click", function () {
             const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];

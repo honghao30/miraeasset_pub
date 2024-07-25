@@ -2,7 +2,7 @@ import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputO
 import { ScrollEnterMain } from "../js/scroll_event.js";
 import { circleGraphType1 } from "../js/graph_custom.js";
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from "../js/calendar.js";
-import { swiperCustom, SlideVideo } from "../js/swiper_custom.js";
+import { swiperCustom, SlideVideo, SlideVideoPlayBtn } from "../js/swiper_custom.js";
 
 // 퍼블 환경일 경우 settimeout을 지정.
 const checkPublishingFile = () => {
@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             },
         },
     });
+    SlideVideoPlayBtn(swiper2);
     const swiper3 = swiperCustom(".cardjs-video02", 1, {
         pagination: false,
         on: {
@@ -58,12 +59,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
             },
         },
     });
-    // const isSwiperPage = () => {        
-    //     return document.querySelector('.cardjs-00, .cardjs-01, .cardjs-02, .cardjs-03, .cardjs-video01, .cardjs-video02') !== null;
-    // }    
-    // if (isSwiperPage()) {
-    //     swiperCustom();
-    // }    
 
     // 달력
     rangeOptionSelector('startDate2', 'endDate2');
