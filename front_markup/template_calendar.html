@@ -22,11 +22,12 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
                 </div>      
-                <!-- <div class="calendar__wrap" id="calendarContainer">
+                <div class="calendar__wrap" id="page-cal">
                     <div class="calendar__header">
-                        <button type="button">이전</button>
+                        <button type="button" class="btn-prev-month">이전</button>
                         <div class="display-data"></div>
-                        <button type="button">다음</button>
+                        <button type="button" class="btn-next-month">다음</button>
+                        <button type="button" class="btn-show-today">오늘</button>
                     </div>
                     <div class="calendar__content">
                         <table>
@@ -44,7 +45,29 @@
                             <tbody></tbody>
                         </table>
                     </div>
-                </div>                 -->
+                </div>      
+                <script type="module">
+                    import { newMonthlyCalendar, createWeeklyCalendar } from "/assets/js/calendar.js";
+                    newMonthlyCalendar('page-cal', { button: true, displayData: 'default' });
+                </script>
+            </div>
+
+            <div style="height: 500px;">
+                <input id="pi_input" type="range" min="0" max="17.14" step="any" />
+                <p>Value: <output id="value"></output></p>
+                <style>
+                    input[type="range"] {
+                        writing-mode: vertical-lr;
+                        }
+                </style>
+                <script>
+                    const value = document.querySelector("#value");
+                    const input = document.querySelector("#pi_input");
+                    value.textContent = input.value;
+                    input.addEventListener("input", (event) => {
+                    value.textContent = event.target.value;
+                    });
+                </script>                    
             </div>
             <div class="weekly-calendar">
             </div>            

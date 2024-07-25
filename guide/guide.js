@@ -136,6 +136,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
+    // 날짜별 데이터 가져오기
+    // const handleDayClick = newMonthlyCalendar();
+    // console.log(handleDayClick);
+    const getDayDetailInfo = () => {
+        console.log(selectedDay)
+        const displayLayer = document.querySelector('.show-data-layer')
+        if (!displayLayer) {        
+            return;
+        }
+        displayLayer.classList.add('is-show');
+        displayLayer.innerText = `${selectedDay} 날 등록한 모든 데이터`;    
+    }
 
     // 함수 실행    
     dropdownMenu('.dropdown-menu__wrap')
@@ -155,8 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
     rangeOptionSelector('startDate2', 'endDate2');
     const calendar = new DateRangePicker('startDate', 'endDate');
     const calendar2 = new DateRangePicker('startDate2', 'endDate2');
-
-    newMonthlyCalendar('calendarContainer', { button: false, displayData: 'dropdown' });
+    
     createWeeklyCalendar('calendarWeekly', { button: true, displayDay: 'onlyToday' });
     
     // 커스텀 챠트

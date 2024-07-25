@@ -80,67 +80,117 @@ export class DateRangePicker {
 
 // 월간 달력
 export const newMonthlyCalendar = (containerId, options) => {
-    // 기본 옵션 설정
     const mergedOptions = {
         button: false,
         displayData: 'default',
+        dayClickCallback: null,
         ...options
     };
 
     const container = document.getElementById(containerId);
-
     if (!container) {
         return;
     }
 
-    // 현재 날짜로 초기화
     let currentDate = dayjs();
 
-    // 초기 달력 표시
+    // 화면 로드 시 오늘 날짜 데이터를 불러오고 표시
+    if (mergedOptions.dayClickCallback) {
+        mergedOptions.dayClickCallback(currentDate.format('YYYYMMDD'));
+    }
+
     displayCalendar(currentDate);
 
-    // 이전 달력 보기 버튼 클릭 이벤트
+    container.querySelector('.calendar__header .btn-show-today') && container.querySelector('.calendar__header .btn-show-today').addEventListener('click', function () {
+        currentDate = dayjs();
+        displayCalendar(currentDate);
+        if (mergedOptions.dayClickCallback) {
+            mergedOptions.dayClickCallback(currentDate.format('YYYYMMDD'));
+        }
+    });
+
     if (mergedOptions.button) {
-        container.querySelector('.calendar__header button:first-child').addEventListener('click', function () {
+        container.querySelector('.calendar__header .btn-prev-month') && container.querySelector('.calendar__header .btn-prev-month').addEventListener('click', function () {
             currentDate = currentDate.subtract(1, 'month');
             displayCalendar(currentDate);
         });
 
-        // 다음 달력 보기 버튼 클릭 이벤트
-        container.querySelector('.calendar__header button:last-child').addEventListener('click', function () {
+        container.querySelector('.calendar__header .btn-next-month') && container.querySelector('.calendar__header .btn-next-month').addEventListener('click', function () {
             currentDate = currentDate.add(1, 'month');
             displayCalendar(currentDate);
         });
     } else {
-        // 버튼을 숨기는 처리
         const buttons = container.querySelectorAll('.calendar__header button');
         buttons.forEach(button => button.style.display = 'none');
     }
 
-    // 날짜 정보 표시 방식에 따라 처리
+    const handleTouchStart = (event) => {
+        start_xPos = event.touches[0].pageX;
+        start_yPos = event.touches[0].pageY;
+        start_time = new Date();
+    };
+
+    const handleTouchEnd = (event) => {
+        const end_xPos = event.changedTouches[0].pageX;
+        const end_yPos = event.changedTouches[0].pageY;
+        const end_time = new Date();
+        let move_x = end_xPos - start_xPos;
+        let move_y = end_yPos - start_yPos;
+        let elapsed_time = end_time - start_time;
+        if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
+            if (move_x < 0) {
+                currentDate = currentDate.add(1, 'month');
+                displayCalendar(currentDate);
+            } else {
+                currentDate = currentDate.subtract(1, 'month');
+                displayCalendar(currentDate);
+            }
+        }
+    };
+
+    const min_horizontal_move = 30;
+    const max_vertical_move = 30;
+    const within_ms = 1000;
+
+    let start_xPos;
+    let start_yPos;
+    let start_time;
+
+    container && container.addEventListener('touchstart', handleTouchStart);
+    container && container.addEventListener('touchend', handleTouchEnd);
+
+    const buildDropdownOptions = (currentDate) => {
+        const select = document.createElement('select');
+        for (let i = 0; i < 15; i++) {
+            const optionDate = currentDate.subtract(i, 'month');
+            const optionValue = optionDate.format('YYYY-MM');
+            const optionText = optionDate.format('YYYY년 M월');
+            const option = document.createElement('option');
+            option.value = optionValue;
+            option.textContent = optionText;
+            select.appendChild(option);
+        }
+        return select;
+    };
+
     if (mergedOptions.displayData === 'dropdown') {
-        // 드롭다운으로 표시하는 경우 처리 (예: select 태그 등)
         const displayData = container.querySelector('.display-data');
         const select = buildDropdownOptions(currentDate);
-        displayData.innerHTML = ''; // 기존 내용 초기화
-        displayData.appendChild(select); // select 요소 추가
+        displayData.innerHTML = '';
+        displayData.appendChild(select);
 
-        // 선택된 값 변경 시 달력 업데이트
         select.addEventListener('change', function(event) {
             const selectedValue = event.target.value;
             currentDate = dayjs(selectedValue);
-            displayCalendar(currentDate); // 달력 업데이트 함수 호출
+            displayCalendar(currentDate);
         });
     }
 
-    // 달력을 표시하는 함수
     function displayCalendar(date) {
         const displayData = container.querySelector('.display-data');
         const tableBody = container.querySelector('.calendar__content tbody');
 
-        // 연도와 월 표시 업데이트
         if (mergedOptions.displayData === 'dropdown') {
-            // 드롭다운 값 업데이트
             const select = displayData.querySelector('select');
             if (select) {
                 select.value = date.format('YYYY-MM');
@@ -149,25 +199,16 @@ export const newMonthlyCalendar = (containerId, options) => {
             displayData.textContent = date.format('YYYY년 M월');
         }
 
-        // 현재 달의 첫째 날의 요일과 마지막 날의 날짜
         const firstDayOfMonth = date.startOf('month').day();
         const daysInMonth = date.daysInMonth();
-
-        // 이전 달의 마지막 날의 날짜
         const lastDayOfPrevMonth = date.subtract(1, 'month').endOf('month').date();
-
-        // 다음 달의 첫째 날의 날짜
-        date.add(1, 'month'); // 다음 달로 다시 설정
+        date.add(1, 'month');
         const firstDayOfNextMonth = date.startOf('month').date();
 
-        // 테이블 초기화
         tableBody.innerHTML = '';
-
-        // 첫째 날의 요일에 따라 테이블 시작 위치 설정
         let dayIndex = 0;
         let row = tableBody.insertRow();
 
-        // 첫째 날 이전의 빈 칸에 이전 달의 날짜 채우기
         for (let i = 0; i < firstDayOfMonth; i++) {
             const cell = row.insertCell();
             const prevMonthDay = lastDayOfPrevMonth - (firstDayOfMonth - i - 1);
@@ -179,7 +220,6 @@ export const newMonthlyCalendar = (containerId, options) => {
             dayIndex++;
         }
 
-        // 날짜 채우기
         for (let day = 1; day <= daysInMonth; day++) {
             const cell = row.insertCell();
             const link = document.createElement('a');
@@ -187,33 +227,30 @@ export const newMonthlyCalendar = (containerId, options) => {
             link.textContent = day;
             cell.appendChild(link);
 
-            // 사용자 데이터 추가 함수 호출
             addUserDataToCell(cell, date.date(day));
 
-            // 클릭 이벤트 리스너 등록
             link.addEventListener('click', (event) => {
                 event.preventDefault();
-                handleLinkClick(date, day); // 외부 함수 호출
+                const selectedDay = handleDayClick(date, day);
+                if (mergedOptions.dayClickCallback) {
+                    mergedOptions.dayClickCallback(selectedDay);
+                }
             });
 
-            // 오늘 날짜에 today 클래스 추가
             if (date.date(day).isSame(dayjs(), 'day')) {
                 cell.classList.add('today');
             }
 
-            // 일요일, 토요일일 경우 클래스 추가
             const weekday = (firstDayOfMonth + day - 1) % 7;
             if (weekday === 0 || weekday === 6) {
                 cell.classList.add('holiday');
             }
 
-            // 일주일이 다 차면 새로운 행 생성
             if (++dayIndex % 7 === 0 && day < daysInMonth) {
                 row = tableBody.insertRow();
             }
         }
 
-        // 다음 달의 첫째 날짜로 채우기
         let nextMonthDay = 1;
         while (dayIndex % 7 !== 0) {
             const cell = row.insertCell();
@@ -226,7 +263,6 @@ export const newMonthlyCalendar = (containerId, options) => {
             nextMonthDay++;
         }
 
-        // 마지막 날 이후에 빈 칸 추가
         const remainingCells = 7 - (dayIndex % 7);
         if (remainingCells !== 7) {
             for (let i = 0; i < remainingCells; i++) {
@@ -236,50 +272,44 @@ export const newMonthlyCalendar = (containerId, options) => {
         }
     }
 
-    // 드롭다운 옵션 생성 함수
-    function buildDropdownOptions(currentDate) {
-        const select = document.createElement('select');
-
-        // 현재 날짜 기준으로 과거 15개월을 생성
-        for (let i = 0; i < 15; i++) {
-            const optionDate = currentDate.subtract(i, 'month');
-            const optionValue = optionDate.format('YYYY-MM');
-            const optionText = optionDate.format('YYYY년 M월');
-            
-            const option = document.createElement('option');
-            option.value = optionValue;
-            option.textContent = optionText;
-            select.appendChild(option);
-        }
-
-        return select;
-    }
+    const handleDayClick = (date, day) => {
+        const selectedDay = dayjs(date).date(day).format('YYYYMMDD');
+        return selectedDay;
+    };
 };
-// 클릭 이벤트 처리 함수
-const handleLinkClick = (date, day) => {
-    const selectedDay = dayjs(date).date(day).format('YYYYMMDD');
-    document.querySelector('.show-data-layer').classList.add('is-show');
-    document.querySelector('.show-data-layer').innerText = `${selectedDay} 날 등록한 모든 데이터`;
-    console.log(selectedDay);
-}
 
 // 사용자 데이터를 추가하는 함수
-const addUserDataToCell = (cell, data) => {
-    const userData = document.createElement('div');
-    userData.classList.add('health-data-wrap');
-    userData.innerHTML = `
-        <div class="dot type-meal"></div>
-        <div class="dot type-work-out"></div>
-        <div class="dot type-nutrition"></div>
-    `;
-    cell.appendChild(userData);
+const addCalendarData = (cell, userData) => {
+    const healthDataEl = document.createElement('div');
+    healthDataEl.classList.add('health-data-wrap');
+    healthDataEl.innerHTML = userData;
+    cell.appendChild(healthDataEl);    
 }
 
+export const addUserDataToCell = async (cell, date) => {    
+    try {
+        // const response = await fetch('');
+        // const userData = await response.json();
 
+        // 예시 데이터 추가 (API 응답 형식에 맞게 변경하세요)
+        const healthDataHTML = `
+            <div class="dot type-meal"></div>
+            <div class="dot type-work-out"></div>
+            <div class="dot type-nutrition"></div>
+        `;
+
+        // API로부터 받은 데이터를 사용하여 사용자 데이터 추가
+        addCalendarData(cell, healthDataHTML);
+
+    } catch (error) {
+        console.error('사용자 데이터를 불러오는 중 오류가 발생했습니다:', error);
+    }
+}
 
 // 주간달력 스크립트    
 export const createWeeklyCalendar = (containerId, options = {}) => {
-    const container = document.getElementById(containerId);
+    const container = document.getElementById(containerId);    
+
     if (!container) {
         // console.error(`Element with id '${containerId}' not found.`);
         return;
