@@ -81,11 +81,12 @@
                     <div class="section_text_no_round">
                         <div class="sample-code">
                             <div class="page_tit_h2">월간 달력</div>
-                            <div class="calendar__wrap" id="calendarContainer">
+                            <div class="calendar__wrap" id="guide-template">
                                 <div class="calendar__header">
-                                    <button type="button">이전</button>
+                                    <button type="button" class="btn-prev-month">이전</button>
                                     <div class="display-data"></div>
-                                    <button type="button">다음</button>
+                                    <button type="button" class="btn-next-month">다음</button>
+                                    <button type="button" class="btn-show-today">오늘</button>
                                 </div>
                                 <div class="calendar__content">
                                     <table>
@@ -106,7 +107,27 @@
                             </div>
 
                             <div class="show-data-layer"></div>
-                            <script></script>
+                            <script type="module">
+                                import { newMonthlyCalendar } from "../../assets/js/calendar.js";                                
+                                const showSelectDayInfo = (selectedDay) => {
+                                    const displayLayer = document.querySelector('.show-data-layer');                                    
+                                    if (!displayLayer) {        
+                                        return;
+                                    }
+                                    displayLayer.classList.add('is-show');
+                                    displayLayer.innerText = `${selectedDay} 날 등록한 모든 데이터`;
+                                    console.log(selectedDay);
+                                };
+                                newMonthlyCalendar('guide-template', { 
+                                    button: true, 
+                                    displayData: 'default', 
+                                    dayClickCallback: showSelectDayInfo 
+                                });
+
+                                // 초기 로딩 시 오늘 날짜 데이터를 표시
+                                const today = dayjs().format('YYYYMMDD');
+                                showSelectDayInfo(today);
+                            </script>                            
                         </div>
                         <pre class="code_view"></pre>
                     </div>
