@@ -142,12 +142,12 @@ export const newMonthlyCalendar = (containerId, options) => {
             if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
                 if (move_x < 0) {
                     alert("타임머신 후진~~~~~~~~~~~~~~~~");
-                    currentDate = currentDate.subtract(1, 'month');
-                    displayCalendar(currentDate);                    
-                } else {
-                    alert("타임머신 앞으로~~~~~~~~~~~~~~~~");
                     currentDate = currentDate.add(1, 'month');
                     displayCalendar(currentDate);
+                } else {
+                    alert("타임머신 앞으로~~~~~~~~~~~~~~~~");
+                    currentDate = currentDate.subtract(1, 'month');
+                    displayCalendar(currentDate);                    
                 }
             }
         }
