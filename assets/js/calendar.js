@@ -117,6 +117,43 @@ export const newMonthlyCalendar = (containerId, options) => {
         buttons.forEach(button => button.style.display = 'none');
     }
 
+        // 터치 이벤트를 위한 처리
+        var min_horizontal_move = 30;
+        var max_vertical_move = 30;
+        var within_ms = 1000;
+    
+        var start_xPos;
+        var start_yPos;
+        var start_time;
+        function touch_start(event) {
+            start_xPos = event.touches[0].pageX;
+            start_yPos = event.touches[0].pageY;
+            start_time = new Date();
+        }
+    
+    
+        function touch_end(event) {
+            var end_xPos = event.changedTouches[0].pageX;
+            var end_yPos = event.changedTouches[0].pageY;
+            var end_time = new Date();
+            let move_x = end_xPos - start_xPos;
+            let move_y = end_yPos - start_yPos;
+            let elapsed_time = end_time - start_time;
+            if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
+                if (move_x < 0) {
+                    //alert("left");
+                } else {
+                    //alert("right");
+                }
+            }
+        }
+    
+        const content = document.getElementById('page-cal');
+        content & content.addEventListener('touchstart', touch_start);
+        content & content.addEventListener('touchend', touch_end);
+
+    // 터치 이벤트를 위한 처리
+
     // 날짜 정보 표시 방식에 따라 처리
     if (mergedOptions.displayData === 'dropdown') {
         // 드롭다운으로 표시하는 경우 처리 (예: select 태그 등)
@@ -258,8 +295,12 @@ export const newMonthlyCalendar = (containerId, options) => {
 // 클릭 이벤트 처리 함수
 const handleLinkClick = (date, day) => {
     const selectedDay = dayjs(date).date(day).format('YYYYMMDD');
-    document.querySelector('.show-data-layer').classList.add('is-show');
-    document.querySelector('.show-data-layer').innerText = `${selectedDay} 날 등록한 모든 데이터`;
+    const displayLayer = document.querySelector('.show-data-layer')
+    if (!displayLayer) {        
+        return;
+    }
+    displayLayer.classList.add('is-show');
+    displayLayer.innerText = `${selectedDay} 날 등록한 모든 데이터`;
     console.log(selectedDay);
 }
 
@@ -275,7 +316,7 @@ const addUserDataToCell = (cell, data) => {
     cell.appendChild(userData);
 }
 
-
+ 
 
 // 주간달력 스크립트    
 export const createWeeklyCalendar = (containerId, options = {}) => {
