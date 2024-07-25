@@ -461,7 +461,7 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
             // 오늘 날짜 체크하여 'today' 클래스 추가
             if (day.isSame(dayjs(), 'day')) {
                 link.classList.add('today');
-                weekLabel.classList.add('holiday');
+                weekLabel.classList.add('today');
             }
 
             day = day.add(1, 'day');
