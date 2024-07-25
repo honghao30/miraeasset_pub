@@ -141,11 +141,11 @@ export const newMonthlyCalendar = (containerId, options) => {
             let elapsed_time = end_time - start_time;
             if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
                 if (move_x < 0) {
-                    //alert("left");
+                    alert("타임머신 후진~~~~~~~~~~~~~~~~");
                     currentDate = currentDate.subtract(1, 'month');
                     displayCalendar(currentDate);                    
                 } else {
-                    //alert("right");
+                    alert("타임머신 앞으로~~~~~~~~~~~~~~~~");
                     currentDate = currentDate.add(1, 'month');
                     displayCalendar(currentDate);
                 }
