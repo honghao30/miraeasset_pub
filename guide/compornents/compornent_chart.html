@@ -24,35 +24,44 @@
                     var layoutStr =
                         '<rMateChart backgroundColor="#FFFFFF" borderStyle="none">'
                             +'<Options>'
-                            +'<Caption text="My First Chart" fontSize="20"/>'
-                            +'<Legend/>'
+                                +'<Caption text="" />'
                             +'</Options>'
-                            +'<Column2DChart showDataTips="true">'
-                            +'<horizontalAxis>'
-                                +'<CategoryAxis categoryField="Month"/>'
-                            +'</horizontalAxis>'
-                            +'<verticalAxis>'
-                                +'<LinearAxis maximum="10"/>'
-                            +'</verticalAxis>'
-                            +'<series>'
-                                +'<Column2DSeries labelPosition="outside" yField="2011" displayName="2011"/>'
-                            +'</series>'
+                            +'<SeriesInterpolate id="ss"/>'
+                            +'<NumberFormatter id="numfmt" useThousandsSeparator="true"/>'
+                            +'<Column2DChart showDataTips="false" gutterRight="10" columnWidthRatio="0.5" >'
+                                +'<series>'
+                                    +'<Column2DSeries labelPosition="outside" yField="kg" displayName="weight" itemRenderer="SemiCircleColumnItemRenderer" showValueLabels="[3]" showDataEffect="{ss}" color="#ffffff" labelBoxWidthOffset="15" labelBoxHeightOffset="5" labelBackgroundColor="#F58220" labelBorderRadius="15" outsideLabelYOffset="-10">'
+                                        +'<fills>'
+                                            +'<SolidColor color="#E0E0E0"/>'
+                                            +'<SolidColor color="#E0E0E0"/>'
+                                            +'<SolidColor color="#E0E0E0"/>'
+                                            +'<SolidColor color="#F58220"/>'
+                                            +'<SolidColor color="#E0E0E0"/>'
+                                        +'</fills>'
+                                    +'</Column2DSeries>'
+                                +'</series>'
+                                +'<horizontalAxis>'
+                                    +'<CategoryLinearAxis id="hAxis" categoryField="day"/>'
+                                +'</horizontalAxis>'
+                                +'<verticalAxis>'
+                                    +'<LinearAxis tickCount="3" />'
+                                +'</verticalAxis>'
                             +'</Column2DChart>'
                         +'</rMateChart>';
+        
+                        // 차트 데이터
                         var chartData =
-                        [{"Month":"Jan", "2011":2.4},
-                        {"Month":"Feb", "2011":3.8},
-                        {"Month":"Mar", "2011":8.1},
-                        {"Month":"Apr", "2011":5.1},
-                        {"Month":"May", "2011":2.1},
-                        {"Month":"Jun", "2011":5.2},
-                        {"Month":"Jul", "2011":4.2}];
+                        [{"day":"12일","kg":52},
+                        {"day":"13일","kg":50},
+                        {"day":"14일","kg":50},
+                        {"day":"15일","kg":55},
+                        {"day":"16일","kg":60},];
                         rMateChartH5.calls("chart1", {
-                        "setLayout" : layoutStr,
-                        "setData" : chartData
-                        });
+                            "setLayout" : layoutStr,
+                            "setData" : chartData
+                    });
                 </script>
-                <div id="chartHolder" style="margin-top: 50px; width:100%; height:400px;">
+                <div id="chartHolder" style="margin-top: 50px; width:100%; height:300px;">
 
                 </div>
         </div>
