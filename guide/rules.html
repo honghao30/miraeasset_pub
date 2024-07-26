@@ -15,6 +15,7 @@
                         <li><a href="#sect3">파일 구조</a></li>
                         <li><a href="#sect4">CSS & SCSS</a></li>
                         <li><a href="#sect5">Javascript </a></li>
+                        <li><a href="#sect6">화면 및 컨트롤러</a></li>
                     </ul>
                 </div>
                 <div class="guide-cont">
@@ -3587,6 +3588,31 @@
                                 </li>
                                 <li>공통함수는 ui_common.js 에서 작성하고 export 한다. 함수가 필요한 파일에서 import 해서 사용하면 된다.</li>
                                 <li>js 가이드 참고</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section" id="sect6">
+                        <div class="page_tit_h2">화면 및 컨트롤러</div>
+                        <div class="section_text">
+                            <div class="page_tit_h3">화면(JS포함) : DHC-업무구분-일련번호(000)-화면유형</div>
+                            <div class="page_tit_h3">컨트롤러 : DHC-업무구분-000</div><br />
+                            <ul class="description-list">
+                                <li>업무구분<br />
+                                    - CO : 공통(로그인, 통합홈, 권한, 온보딩 등)<br />
+                                    - PV : 설정(APP 설정 등)<br />
+                                    - MP : 마이페이지(회원등급 안내, 1:1문의, 개인정보관리 등)<br />
+                                    - HT : 헬스케어서비스(건강캘린더, 운동기록, 식사기록 등)
+                                </li>
+                                <li>일련번호<br />
+                                    - 000 : 업무구분별 메인화면 순차적으로 부여여
+                                </li>
+                                <li>화면유형<br />
+                                    - M : 메인(메인이 다수인 경우 일련번호 000, 001, ~ )<br />
+                                    - P0 : 팝업(팝업이 다수인 경우 P0, P1, ~ )<br />
+                                    - D0 : 디비전(디비전이 다수인 경우 D0, D1, ~)<br />
+                                    - T0 : 탭(탭 다수인 경우 T0, T1, ~)
+                                </li>
                             </ul>
                         </div>
                     </div>

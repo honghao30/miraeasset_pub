@@ -4,24 +4,22 @@
 <body>
     <div class="wrap">
         <div data-include-path="./_inc/head_sub.html"></div>
+        <style>
+            .calendar-swiper .swiper-slide,
+            .calendar-swiper .swiper-slide ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }              
+            .calendar-swiper .swiper-slide>div,
+            .calendar-swiper .swiper-slide>ul>li {
+                text-align: center;
+                width: calc(100% / 7);
+            }
+        </style>        
         <div class="content">
-            <div class="month-calendar">
-                <div class="swiper calendar-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">Slide 1</div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
-                        <div class="swiper-slide">Slide 4</div>
-                        <div class="swiper-slide">Slide 5</div>
-                        <div class="swiper-slide">Slide 6</div>
-                        <div class="swiper-slide">Slide 7</div>
-                        <div class="swiper-slide">Slide 8</div>
-                        <div class="swiper-slide">Slide 9</div>
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                </div>      
+            <div class="month-calendar">    
                 <div class="calendar__wrap" id="page-cal">
                     <div class="calendar__header">
                         <button type="button" class="btn-prev-month">이전</button>
@@ -45,33 +43,63 @@
                             <tbody></tbody>
                         </table>
                     </div>
-                </div>      
+                </div>     
+                <div class="weekly-calendar">
+                    <div class="calendar__wrap" id="calendarWeekly2">
+                        <div class="calendar__header">
+                            <div class="display-data">2024년 6월 27일</div>
+                        </div>
+                        <div class="calendar__content">
+                            <ul class="weekly-cal__header" id="weeklyLabels"></ul>
+                            <ul id="weekDates"></ul>
+                            <div class="swiper calendar-swiper">
+                                <div class="swiper-wrapper">
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>    
+                    <div class="detail-section">
+                        <div class="detail-day"></div>
+                        오늘 날짜에 해당하는 값
+                    </div>                
+                </div>     
                 <script type="module">
                     import { newMonthlyCalendar, createWeeklyCalendar } from "/assets/js/calendar.js";
+                    import { swiperCustom, SlideVideo, SlideVideoPlayBtn } from "/assets/js/swiper_custom.js";
+
                     newMonthlyCalendar('page-cal', { button: true, displayData: 'default' });
+                    createWeeklyCalendar('calendarWeekly2', { button: false, displayDay: 'none', userSwiping: true });
+                    const swiper = swiperCustom('.calendar-swiper', 1, {
+                        pagination: false, 
+                        spaceBetween: 0,  
+                        slidesPerGroup: 1, 
+                        lazyLoading: true,	
+                        lazyLoadingInPrevNext: true,   
+                        observeParents: true,
+                        observeSlideChildren: true,
+                        observer: true,     
+                        on: {
+                            slideNextTransitionEnd: (swiper) => {
+                                console.log('SWIPED RIGHT')
+                            },
+                            slidePrevTransitionEnd: (swiper) => {
+                                console.log('SWIPED LEFT')
+                            }
+                        }            
+                    });
+                    swiper.slideTo(3);
                 </script>
             </div>
 
-            <div style="height: 500px;">
-                <input id="pi_input" type="range" min="0" max="17.14" step="any" />
-                <p>Value: <output id="value"></output></p>
-                <style>
-                    input[type="range"] {
-                        writing-mode: vertical-lr;
-                        }
-                </style>
-                <script>
-                    const value = document.querySelector("#value");
-                    const input = document.querySelector("#pi_input");
-                    value.textContent = input.value;
-                    input.addEventListener("input", (event) => {
-                    value.textContent = event.target.value;
-                    });
-                </script>                    
-            </div>
-            <div class="weekly-calendar">
-            </div>            
-        </div>
+            <style>
+                .draglist {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;position: absolute;left: 50%;transform: translateX(-50%);
+                }
+            </style>
+            
+           <a href="template_drag-test.html">template_drag-test.html</a>
     </div>    
     <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
     <script type="module" src="/assets/js/pub_include.js"></script>

@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
     tabMenus('.tab-content');
     ScrollEnterMain();    
     
-    const swiper0 = swiperCustom('.calendar-swiper', 1.12, {
-        pagination: false,
-        navigation: {
-            nextEl: ".calendar-swiper .swiper-button-next",
-            prevEl: ".calendar-swiper .swiper-button-prev",
-        }
-    });
+    // const swiper0 = swiperCustom('.calendar-swiper', 1.12, {
+    //     pagination: false,
+    //     navigation: {
+    //         nextEl: ".calendar-swiper .swiper-button-next",
+    //         prevEl: ".calendar-swiper .swiper-button-prev",
+    //     }
+    // });
     
     const swiper1 = swiperCustom('.cardjs-01', 1.12, {
         pagination: {
@@ -56,13 +56,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
             },
         },
     });
-    SlideVideoPlayBtn(swiper2);
+    // SlideVideoPlayBtn(swiper2);
 
     const swiper3 = swiperCustom(".cardjs-video02", 1, {
         pagination: false,
         on: {
             slideChange: function () {
-                SlideVideo(swiper2);
+                // SlideVideo(swiper2);
             },
         },
     });
