@@ -196,6 +196,7 @@
     font-weight: 800;
     line-height: calc(28 / 16 * 1rem);
     letter-spacing: -0.02em;
+    word-break: keep-all;
 }
 .mainhome_wrap .mainhealth-eachbox .mainhealth-ani {
     width: fit-content;
