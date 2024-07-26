@@ -36,7 +36,7 @@
                             +'<SeriesInterpolate id="ss"/>'
                             +'<Column2DChart seriesMouseOverAction="none" showDataTips="false" columnRadiusRatio="1">'
                                 +'<series>'
-                                    +'<Column2DSeries labelPosition="outside" yField="kg" displayName="weight"  showValueLabels="[3]" showDataEffect="{ss}" color="#ffffff" labelBoxWidthOffset="15" labelBoxHeightOffset="5" labelBackgroundColor="#F58220" labelBorderRadius="15" outsideLabelYOffset="-10">'
+                                    +'<Column2DSeries labelPosition="outside" yField="kg" displayName="weight"  showValueLabels="[3]" showDataEffect="{ss}" color="#ffffff" labelBoxWidthOffset="15" labelBoxHeightOffset="8" labelBackgroundColor="#F58220" labelBorderRadius="15" outsideLabelYOffset="-20" styleName="fs14" >'
                                         +'<fills>'
                                             +'<SolidColor color="#E0E0E0"/>'
                                             +'<SolidColor color="#E0E0E0"/>'
@@ -52,12 +52,15 @@
                                     +'</Column2DSeries>'
                                 +'</series>'
                                 +'<horizontalAxis>'
-                                    +'<CategoryLinearAxis id="hAxis" categoryField="day"/>'
+                                    +'<CategoryLinearAxis id="hAxis" categoryField="day" />'
                                 +'</horizontalAxis>'
                                 +'<verticalAxis>'
                                     +'<LinearAxis tickCount="3" />'
                                 +'</verticalAxis>'
                             +'</Column2DChart>'
+                            +'<Style>'
+                                +'.fs14{fontSize:14px; }'
+                            +'</Style>'
                         +'</rMateChart>';
         
                         // 차트 데이터
@@ -71,8 +74,7 @@
                             "setLayout" : layoutStr,
                             "setData" : chartData
                     });
-                </script>
-                
+            </script>
         </div>
     </div>
     <script type="module" src="../guide.js"></script>
