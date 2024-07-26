@@ -1481,14 +1481,14 @@ input[type="radio"]:disabled {
     width: 14px;
     height: 14px;
     background: url("../img/icon/heart_icon14_gr.png") no-repeat center center;
-    background-size: contain;
+    background-size: 100%;
     display: inline-flex;
 }
 .heart-wrap .heart-box .heart-btn.on {
     width: 14px;
     height: 14px;
     background: url("../img/icon/heart_icon14_red.png") no-repeat center center;
-    background-size: contain;
+    background-size: 100%;
     display: inline-flex;
 }
 .txt-wrap {
