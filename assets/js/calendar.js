@@ -308,8 +308,7 @@ export const addUserDataToCell = async (cell, date) => {
 
 // 주간달력 스크립트    
 export const createWeeklyCalendar = (containerId, options = {}) => {
-    const container = document.getElementById(containerId);    
-
+    const container = document.getElementById(containerId); 
     if (!container) {        
         return;
     }
@@ -388,6 +387,7 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
         const displayData = container.querySelector('.display-data');
         const weekDatesList = container.querySelector('#weekDates');
         const weeklyLabels = container.querySelector('#weeklyLabels');
+        const swipingContainer = container.querySelector('.swiper-wrapper');
 
         // 요소가 존재하는지 확인
         if (!displayData || !weekDatesList || !weeklyLabels) {            
@@ -397,7 +397,7 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
         const startOfWeek = date.startOf('week');
         const endOfWeek = date.endOf('week');
 
-        // 오늘 날짜를 보여줄지 한주의 시작일과 종료일을 보여줄지 선택
+        // 제목 사용시 오늘 날짜를 보여줄지 한주의 시작일과 종료일을 보여줄지 선택
         if (options.displayDay === 'WeeklyRange') {
             displayData.textContent = `${startOfWeek.format('YYYY년 M월 D일')} - ${endOfWeek.format('M월 D일')}`;
         } else if (options.displayDay === 'onlyToday') {
@@ -414,57 +414,119 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
 
         let day = startOfWeek;
 
-        while (day.isSameOrBefore(endOfWeek)) {
-            // 요일 표시
-            const weekLabel = document.createElement('li');
-            weekLabel.classList.add('label');
-            weekLabel.textContent = day.format('ddd'); // 한글 요일 추가
-            weeklyLabels.appendChild(weekLabel);
+        // 일주일 날짜를 담을 div 생성 및 슬라이드 추가
+        if (options.userSwiping) {
+            const slideItem = document.createElement('div');
+            slideItem.classList.add('swiper-slide');
+            const darListUl = document.createElement('ul');
+            slideItem.appendChild(darListUl);
+            swipingContainer.appendChild(slideItem);
 
-            // 날짜 표시
-            const listItem = document.createElement('li');
-            const link = document.createElement('a');
+            while (day.isSameOrBefore(endOfWeek)) {
+                // 요일 표시
+                const weekLabel = document.createElement('li');
+                weekLabel.classList.add('label');
+                weekLabel.textContent = day.format('ddd'); // 한글 요일 추가
+                weeklyLabels.appendChild(weekLabel);
 
-            const dayDiv = document.createElement('div');
-            dayDiv.classList.add('day');
-            dayDiv.textContent = `${day.date()}`;
+                // 날짜 표시
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                
+                const dayDiv = document.createElement('div');
+                dayDiv.classList.add('day');
+                dayDiv.textContent = `${day.date()}`;
 
-            // 일요일(0)과 토요일(6) 체크하여 'holiday' 클래스 추가
-            if (day.day() === 0 || day.day() === 6) {
-                link.classList.add('holiday');
-                weekLabel.classList.add('holiday');
+                // 일요일(0)과 토요일(6) 체크하여 'holiday' 클래스 추가
+                if (day.day() === 0 || day.day() === 6) {
+                    link.classList.add('holiday');
+                    weekLabel.classList.add('holiday');
+                }
+
+                link.href = '#none';            
+                link.appendChild(dayDiv); // 날짜 추가
+                listItem.appendChild(link);           
+                darListUl.appendChild(listItem);
+
+                // 오늘 날짜 출력
+                const today = dayjs().format('YYYY-MM-DD');
+
+                if(!options.deTailView === false || !options.deTailView === '') {
+                    document.querySelector('.detail-section .detail-day').innerText = today;    
+                }            
+
+                // 사용자 데이터 추가
+                addUserDataToWeeklyLink(link);
+
+                // 클릭 이벤트 리스너 추가
+                (function(currentDay) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        handleWeeklyLinkClick(currentDay);
+                    });
+                })(day);
+
+                // 오늘 날짜 체크하여 'today' 클래스 추가
+                if (day.isSame(dayjs(), 'day')) {
+                    link.classList.add('today');
+                    weekLabel.classList.add('today');
+                }
+
+                day = day.add(1, 'day');
             }
+        } else {
+            while (day.isSameOrBefore(endOfWeek)) {
+                // 요일 표시
+                const weekLabel = document.createElement('li');
+                weekLabel.classList.add('label');
+                weekLabel.textContent = day.format('ddd'); // 한글 요일 추가
+                weeklyLabels.appendChild(weekLabel);
 
-            link.href = '#none';            
-            link.appendChild(dayDiv); // 날짜 추가
-            listItem.appendChild(link);           
-            weekDatesList.appendChild(listItem);
+                // 날짜 표시
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                
+                const dayDiv = document.createElement('div');
+                dayDiv.classList.add('day');
+                dayDiv.textContent = `${day.date()}`;
 
-            // 오늘 날짜 출력
-            const today = dayjs().format('YYYY-MM-DD');
+                // 일요일(0)과 토요일(6) 체크하여 'holiday' 클래스 추가
+                if (day.day() === 0 || day.day() === 6) {
+                    link.classList.add('holiday');
+                    weekLabel.classList.add('holiday');
+                }
 
-            if(!options.deTailView === false || !options.deTailView === '') {
-                document.querySelector('.detail-section .detail-day').innerText = today;    
-            }            
+                link.href = '#none';            
+                link.appendChild(dayDiv); // 날짜 추가
+                listItem.appendChild(link);           
+                weekDatesList.appendChild(listItem);
 
-            // 사용자 데이터 추가
-            addUserDataToWeeklyLink(link);
+                // 오늘 날짜 출력
+                const today = dayjs().format('YYYY-MM-DD');
 
-            // 클릭 이벤트 리스너 추가
-            (function(currentDay) {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    handleWeeklyLinkClick(currentDay);
-                });
-            })(day);
+                if(!options.deTailView === false || !options.deTailView === '') {
+                    document.querySelector('.detail-section .detail-day').innerText = today;    
+                }            
 
-            // 오늘 날짜 체크하여 'today' 클래스 추가
-            if (day.isSame(dayjs(), 'day')) {
-                link.classList.add('today');
-                weekLabel.classList.add('today');
+                // 사용자 데이터 추가
+                addUserDataToWeeklyLink(link);
+
+                // 클릭 이벤트 리스너 추가
+                (function(currentDay) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        handleWeeklyLinkClick(currentDay);
+                    });
+                })(day);
+
+                // 오늘 날짜 체크하여 'today' 클래스 추가
+                if (day.isSame(dayjs(), 'day')) {
+                    link.classList.add('today');
+                    weekLabel.classList.add('today');
+                }
+
+                day = day.add(1, 'day');
             }
-
-            day = day.add(1, 'day');
         }
     }
 };

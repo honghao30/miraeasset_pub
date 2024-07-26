@@ -38,6 +38,10 @@
                         <div class="calendar__content">
                             <ul class="weekly-cal__header" id="weeklyLabels"></ul>
                             <ul id="weekDates"></ul>
+                            <div class="swiper calendar-swiper">
+                                <div class="swiper-wrapper">
+                                </div>
+                            </div>                            
                         </div>
                     </div>    
                     <div class="detail-section">
@@ -46,12 +50,15 @@
                     </div>                
                 </div>     
                 <style>
-                    .calendar-swiper .swiper-slide {
+                    .calendar-swiper .swiper-slide,
+                    .calendar-swiper .swiper-slide ul {
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
+                        width: 100%;
                     }              
-                    .calendar-swiper .swiper-slide>div {
+                    .calendar-swiper .swiper-slide>div,
+                    .calendar-swiper .swiper-slide>ul>li {
                         text-align: center;
                         width: calc(100% / 7);
                     }
@@ -67,11 +74,10 @@
                         spaceBetween: 0,  
                         slidesPerGroup: 1, 
                         lazyLoading: true,	
-                        lazyLoadingInPrevNext: true,                    
-                        navigation: {
-                            nextEl: ".calendar-swiper .swiper-button-next",
-                            prevEl: ".calendar-swiper .swiper-button-prev",
-                        }
+                        lazyLoadingInPrevNext: true,   
+                        observeParents: true,
+                        observeSlideChildren: true,
+                        observer: true,                 
                     });
                 </script>
             </div>
