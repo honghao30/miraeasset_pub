@@ -26,14 +26,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
     tabMenus('.tab-content');
     ScrollEnterMain();    
     
-    // const swiper0 = swiperCustom('.calendar-swiper', 1.12, {
-    //     pagination: false,
-    //     navigation: {
-    //         nextEl: ".calendar-swiper .swiper-button-next",
-    //         prevEl: ".calendar-swiper .swiper-button-prev",
-    //     }
-    // });
-    
     const swiper1 = swiperCustom(".cardjs-01", 1.12, {
         pagination: {
             el: ".swiper-pagination-black",
