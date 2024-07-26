@@ -20,59 +20,211 @@
                 <script src="https://www.riamore.net/HTML5demo/chart/rMateChartH5/JS/rMateChartH5.js"></script>
                 <link rel="stylesheet" href="https://www.riamore.net/HTML5demo/chart/rMateChartH5/Assets/Css/rMateChartH5.css"/>
                 <div class="section" style="margin-top: 2.5rem">
-                    <div class="page_tit_h2">column chart</div>
+                    <div class="page_tit_h2">column chart - 그라데이션, columnWidth 해상도에 맞게 유동적</div>
                     <div id="chartHolder" style="margin-top: 50px; width:500px; height:300px;">
 
                     </div>
                 </div>
 
+                <div class="section" style="margin-top: 3rem">
+                    <div class="page_tit_h2">column chart - 단일색상,  columnWidth 고정</div>
+                    <div id="chartHolder02" style="margin-top: 50px; width:500px; height:300px;">
+
+                    </div>
+                </div>
+
+                <div class="section" style="margin-top: 3rem">
+                    <div class="page_tit_h2">column chart - 모션x, 배경이미지 타입 : backgroundElements</div>
+                    <div id="chartHolder03" style="margin-top: 50px; width:500px; height:350px;">
+
+                    </div>
+                </div>
+
                 <script type="text/javascript">
+                    //기본타입
                     rMateChartH5.create("chart1", "chartHolder", "", "100%", "100%");
                     var layoutStr =
                         '<rMateChart backgroundColor="#FFFFFF" borderStyle="none">'
-                            +'<Options>'
-                                +'<Caption text="체중기록" />'
-                            +'</Options>'
-                            +'<SeriesInterpolate id="ss"/>'
-                            +'<Column2DChart seriesMouseOverAction="none" showDataTips="false" columnRadiusRatio="1">'
-                                +'<series>'
-                                    +'<Column2DSeries labelPosition="outside" yField="kg" displayName="weight"  showValueLabels="[3]" showDataEffect="{ss}" color="#ffffff" labelBoxWidthOffset="15" labelBoxHeightOffset="8" labelBackgroundColor="#F58220" labelBorderRadius="15" outsideLabelYOffset="-20" styleName="fs14" >'
-                                        +'<fills>'
-                                            +'<SolidColor color="#E0E0E0"/>'
-                                            +'<SolidColor color="#E0E0E0"/>'
-                                            +'<SolidColor color="#E0E0E0"/>'
-                                            +'<LinearGradient angle="90">'
-                                                +'<entries>'
-                                                    +'<GradientEntry color="#FFA05B" ratio="0.2"/>'
-                                                    +'<GradientEntry color="#FF720D" ratio="1"/>'
-                                                +'</entries>'
-                                            +'</LinearGradient>'
-                                            +'<SolidColor color="#E0E0E0"/>'
-                                        +'</fills>'
-                                    +'</Column2DSeries>'
-                                +'</series>'
-                                +'<horizontalAxis>'
-                                    +'<CategoryLinearAxis id="hAxis" categoryField="day" />'
-                                +'</horizontalAxis>'
-                                +'<verticalAxis>'
-                                    +'<LinearAxis tickCount="3" />'
-                                +'</verticalAxis>'
-                            +'</Column2DChart>'
-                            +'<Style>'
-                                +'.fs14{fontSize:14px; }'
-                            +'</Style>'
-                        +'</rMateChart>';
-        
-                        // 차트 데이터
-                        var chartData =
-                        [{"day":"12일","kg":30},
-                        {"day":"13일","kg":50},
-                        {"day":"14일","kg":50},
-                        {"day":"15일","kg":55},
-                        {"day":"16일","kg":70},];
-                        rMateChartH5.calls("chart1", {
-                            "setLayout" : layoutStr,
-                            "setData" : chartData
+                            + '<Options>'
+                                + '<Caption text="체중기록" />'
+                            + '</Options>'
+                            +'<CurrencyFormatter id="nft" currencySymbol="kg" alignSymbol="right"/>'
+                            + '<Column2DChart seriesMouseOverAction="none" showDataTips="false" columnRadiusRatio="1">'
+                                + '<series>'
+                                    + '<Column2DSeries labelPosition="outside" yField="weight" showValueLabels="[3]" color="#ffffff" labelBoxWidthOffset="15" labelBoxHeightOffset="8" labelBackgroundColor="#F58220" labelBorderRadius="15" outsideLabelYOffset="-20"  formatter="{nft}" styleName="fs">'
+                                        + '<fills>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                            + '<LinearGradient angle="90">'
+                                                + '<entries>'
+                                                    + '<GradientEntry color="#FFA05B" ratio="0.2"/>'
+                                                    + '<GradientEntry color="#FF720D" ratio="1"/>'
+                                                + '</entries>'
+                                            + '</LinearGradient>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                        + '</fills>'
+                                        +'<showDataEffect>'
+                                            +'<SeriesInterpolate duration="1200" elementOffset="60"/>'
+                                        +'</showDataEffect>'
+                                    + '</Column2DSeries>'
+                                + '</series>'
+                                +'<backgroundElements>'
+                                    +'<GridLines direction="horizontal" horizontalChangeCount="1" horizontalTickAligned="true" showBorderStroke="false">'
+                                        +'<horizontalStroke>'
+                                            +'<Stroke color="#EFEFEF" weight="1"/>'
+                                            /* color:색깔 alpha:투명도 weight:굵기 */
+                                        +'</horizontalStroke>'
+                                    +'</GridLines>'
+                                +'</backgroundElements>'
+                                + '<horizontalAxis>'
+                                    + '<CategoryLinearAxis categoryField="day" />'
+                                + '</horizontalAxis>'
+                                + '<verticalAxis>'
+                                    + '<LinearAxis tickCount="3" labelJsFunction="labelFunc" />'
+                                + '</verticalAxis>'
+                            + '</Column2DChart>'
+                            + '<Style>'
+                                + '.fs{fontSize:14px; font-weight:800}'
+                            + '</Style>'
+                        + '</rMateChart>';
+
+                    // Custom
+                    function labelFunc(id,value){
+                        return value+"kg";
+                    }
+
+                    // Chart data
+                    var chartData = [
+                        {"day":"12일","weight":30},
+                        {"day":"13일","weight":50},
+                        {"day":"14일","weight":50},
+                        {"day":"15일","weight":58},
+                        {"day":"16일","weight":65}
+                    ];
+
+                    rMateChartH5.calls("chart1", {
+                        "setLayout": layoutStr,
+                        "setData": chartData
+                    });
+
+
+                    //단일색상
+                    rMateChartH5.create("chart2", "chartHolder02", "", "100%", "100%");
+                    var layoutStr =
+                        '<rMateChart backgroundColor="#FFFFFF" borderStyle="none">'
+                            +'<CurrencyFormatter id="nft" currencySymbol="kg" alignSymbol="right"/>'
+                            + '<Column2DChart seriesMouseOverAction="none" showDataTips="false" columnRadiusRatio="1" columnWidthRatio="1" columnWidthMinRatio="10" maxColumnWidth="10">'
+                                //요게 들어가면 해상도와 상관없이 바 두께 고정임 columnWidthMinRatio="10" maxColumnWidth="10"
+                                + '<series>'
+                                    + '<Column2DSeries labelPosition="outside" yField="weight" showValueLabels="[3]" color="#ffffff" labelBoxWidthOffset="15" labelBoxHeightOffset="8" labelBackgroundColor="#043b72" labelBorderRadius="5" outsideLabelYOffset="-20"  formatter="{nft}" styleName="fs">'
+                                        + '<fills>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                            + '<SolidColor color="#043b72"/>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                        + '</fills>'
+                                        +'<showDataEffect>'
+                                            +'<SeriesInterpolate duration="1200" elementOffset="60"/>'
+                                        +'</showDataEffect>'
+                                    + '</Column2DSeries>'
+                                + '</series>'
+                                +'<backgroundElements>'
+                                    +'<GridLines direction="horizontal" horizontalChangeCount="1" horizontalTickAligned="true" showBorderStroke="false">'
+                                        +'<horizontalStroke>'
+                                            +'<Stroke color="#EFEFEF" weight="1"/>'
+                                            /* color:색깔 alpha:투명도 weight:굵기 */
+                                        +'</horizontalStroke>'
+                                    +'</GridLines>'
+                                +'</backgroundElements>'
+                                + '<horizontalAxis>'
+                                    + '<CategoryLinearAxis categoryField="day" />'
+                                + '</horizontalAxis>'
+                                + '<verticalAxis>'
+                                    + '<LinearAxis tickCount="3" labelJsFunction="labelFunc" />'
+                                + '</verticalAxis>'
+                            + '</Column2DChart>'
+                            + '<Style>'
+                                + '.fs{fontSize:14px; font-weight:800}'
+                            + '</Style>'
+                        + '</rMateChart>';
+
+                    // Custom
+                    function labelFunc(id,value){
+                        return value+"kg";
+                    }
+
+                    // Chart data
+                    var chartData = [
+                        {"day":"12일","weight":30},
+                        {"day":"13일","weight":50},
+                        {"day":"14일","weight":50},
+                        {"day":"15일","weight":58},
+                        {"day":"16일","weight":35}
+                    ];
+
+                    rMateChartH5.calls("chart2", {
+                        "setLayout": layoutStr,
+                        "setData": chartData
+                    });
+
+                    //배경추가
+                    rMateChartH5.create("chart3", "chartHolder03", "", "100%", "100%");
+                    var layoutStrBg =
+                        '<rMateChart backgroundColor="#FFFFFF" borderStyle="none">'
+                            +'<CurrencyFormatter id="nft" currencySymbol="kg" alignSymbol="right"/>'
+                            
+                            + '<Column2DChart seriesMouseOverAction="none" showDataTips="false" columnRadiusRatio="1">'
+                                + '<series>'
+                                    + '<Column2DSeries labelPosition="outside" yField="weight" showValueLabels="[3]" color="#ffffff" labelBoxWidthOffset="15" labelBoxHeightOffset="8" labelBackgroundColor="#F58220" labelBorderRadius="15" outsideLabelYOffset="-20"  formatter="{nft}" styleName="fs">'
+                                        + '<fills>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                            + '<LinearGradient angle="90">'
+                                                + '<entries>'
+                                                    + '<GradientEntry color="#FFA05B" ratio="0.2"/>'
+                                                    + '<GradientEntry color="#FF720D" ratio="1"/>'
+                                                + '</entries>'
+                                            + '</LinearGradient>'
+                                            + '<SolidColor color="#E0E0E0"/>'
+                                        + '</fills>'
+                                    + '</Column2DSeries>'
+                                + '</series>'
+                                + '<horizontalAxis>'
+                                    + '<CategoryLinearAxis categoryField="day" />'
+                                + '</horizontalAxis>'
+                                + '<verticalAxis>'
+                                    + '<LinearAxis tickCount="3" labelJsFunction="labelFunc" />'
+                                + '</verticalAxis>'
+
+                                +'<backgroundElements>'
+                                    +'<CanvasImage source="https://png.pngtree.com/background/20220714/original/pngtree-big-isolated-cartoon-style-happy-young-man-picture-image_1607882.jpg" maintainAspectRatio="false" alpha="1"/>'
+                                +'</backgroundElements>'
+                            + '</Column2DChart>'
+                            + '<Style>'
+                                + '.fs{fontSize:14px; font-weight:800}'
+                            + '</Style>'
+                        + '</rMateChart>';
+
+                    // Custom
+                    function labelFunc(id,value){
+                        return value+"kg";
+                    }
+
+                    // Chart data
+                    var chartData = [
+                        {"day":"12일","weight":40},
+                        {"day":"13일","weight":50},
+                        {"day":"14일","weight":50},
+                        {"day":"15일","weight":50},
+                        {"day":"16일","weight":39}
+                    ];
+
+                    rMateChartH5.calls("chart3", {
+                        "setLayout": layoutStrBg,
+                        "setData": chartData
                     });
             </script>
         </div>
