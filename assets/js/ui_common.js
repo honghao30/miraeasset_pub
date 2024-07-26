@@ -419,13 +419,16 @@ export const restorePageState = () => {
     }
 };
 
+let totalLoadedItems = 0; // 총 로드된 아이템 수를 추적
+const maxItems = 100; // 로드할 최대 아이템 수
+
 export const infiniteScroll = () => {
-    observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {                                    
+            if (entry.isIntersecting) {
                 loadMoreContent().then(hasMoreContent => {
-                    if (!hasMoreContent) {                                            
-                        observer.unobserve(entry.target);
+                    if (!hasMoreContent) {
+                        observer.unobserve(entry.target); // 더 이상 로드할 콘텐츠가 없으면 관찰 중지
                     }
                 });
             }
@@ -440,20 +443,25 @@ export const infiniteScroll = () => {
 
 const loadMoreContent = async (count = 5) => {
     const contentList = document.querySelector('.infinity-list');
-    let hasMoreContent = true;  
-    const newItemsCount = Math.min(count, 3);  
+    let hasMoreContent = true;
+
+    // 남은 아이템 수를 계산
+    const remainingItems = maxItems - totalLoadedItems;
+    const newItemsCount = Math.min(count, remainingItems);
 
     for (let i = 0; i < newItemsCount; i++) {
         const newContent = document.createElement('li');
         const newContentLink = document.createElement('a');
         newContentLink.setAttribute('href', 'js_guide.html');
-        newContentLink.textContent = `New Content ${contentList.children.length + 1}`;
+        newContentLink.textContent = `New Content ${totalLoadedItems + 1}`;
         newContent.appendChild(newContentLink);
         contentList.appendChild(newContent);
+        totalLoadedItems++; // 총 로드된 아이템 수 증가
     }
 
-    if (newItemsCount < count) {
-        hasMoreContent = false;  // No more content to load
+    // 더 이상 로드할 아이템이 없으면 hasMoreContent를 false로 설정
+    if (totalLoadedItems >= maxItems) {
+        hasMoreContent = false;
     }
 
     return hasMoreContent;

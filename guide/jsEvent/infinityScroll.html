@@ -46,7 +46,7 @@
                         infiniteScroll();
                     });
 
-                    // 링크 타고 이동 후 뒤로가리로 다시 올때 
+                    // 링크 타고 이동 후 뒤로 갔다가 다시 올때 
                     window.addEventListener('beforeunload', savePageState);                    
                     document.addEventListener('click', event => {
                         if (event.target.tagName === 'A' && event.target.href) {
