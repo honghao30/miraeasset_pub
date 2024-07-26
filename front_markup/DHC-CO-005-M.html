@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head></head>
+    <body>
+        <div class="wrap">
+            <div data-include-path="./_inc/head_gnb.html"></div>
+            <div class="content mainhome_wrap">
+                <!-- Welcome Message -->
+                <!-- 01. 비회원시-닉네임/이름미표시
+                    02. 계약회원시–이름표시
+                    03. 헬스케어회원시–닉네임표시
+                    04. 계약회원& 헬스케어회원시–닉네임우선표시 -->
+                <div class="main-welcome">
+                    <h3 class="main-font20-exbold"><span>베니보리</span>님, 안녕하세요.</h3>
+                </div>
+                <!-- 나의계약정보노출 : 펀드 & 신탁데이터 있을경우 -->
+                <div class="main-contract_wrap">
+                    <div class="maincontract-box main-whbox">
+                        <div class="maincontract-top">
+                            <p class="main-font18-exbold">나의 계약</p>
+                            <a href="#" class="btn-link"><i></i></a> <!-- Mlife메인으로이동 -->
+                        </div>
+                        <dl class="maincontract-middle">
+                            <div>
+                                <dt class="main-font14-bold">보험 &변액</dt>
+                                <dd class="main-font18-exbold">2건</dd>
+                            </div>
+                            <div>
+                                <dt class="main-font14-bold">퇴직연금</dt>
+                                <dd class="main-font18-exbold">1건</dd>
+                            </div>
+                            <div>
+                                <dt class="main-font14-bold">펀드&신탁</dt>
+                                <dd class="main-font18-exbold">0건</dd>
+                            </div>
+                        </dl>
+                        <div class="maincontract-btm" href="#">
+                            <p class="main-font14-bold">부족한 보험이 있는지 확인해볼까요?</p>
+                            <a href="#" class="btn-link-wh"><i></i></a> <!-- 보장보험페이지이동 -->
+                        </div>
+                    </div>
+                    <!-- 나의계약정보노출 : 펀드 & 신탁데이터 없을경우 -->
+                    <!-- <div class="maincontract-box main-whbox">
+                        <div class="maincontract-top">
+                            <p class="main-font18-exbold">나의 계약</p>
+                            <a href="#" class="btn-link"><i></i></a>
+                        </div>
+                        <dl class="maincontract-middle box-w50">
+                            <div>
+                                <dt class="main-font14-bold">보험 &변액</dt>
+                                <dd class="main-font18-exbold">2건</dd>
+                            </div>
+                            <div>
+                                <dt class="main-font14-bold">퇴직연금</dt>
+                                <dd class="main-font18-exbold">1건</dd>
+                            </div>
+                        </dl>
+                        <div class="maincontract-btm" href="#">
+                            <p class="main-font14-bold">부족한 보험이 있는지 확인해볼까요?</p>
+                            <a href="#" class="btn-link-wh"><i></i></a>
+                        </div>
+                    </div> -->
+                    <!-- 나의계약정보노출 : 나의계약정보가없는경우(로그인유도배너)노출 -->
+                    <!-- <div class="maincontract-loginbox main-whbox">
+                        <div class="maincontract-top">
+                            <p class="main-font13-bold">미래에셋에 오신 것을 환영합니다.</p>
+                        </div>
+                        <div class="maincontract-middle">
+                            <p class="main-font18-exbold">
+                                <a href="#" class="login-underline">로그인</a> 하시고,<br/>
+                                나의 계약을 한 번에 보세요!
+                            </p>
+                        </div>
+                        <div class="maincontract-btm" href="#">
+                            <a href="#" class="login-circle">로그인</a>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- 보험메뉴 -->
+                <div class="main-insurance_wrap">
+                    <div class="maininsurance-box main-whbox">
+                        <p class="main-font18-exbold">보험 메뉴</p>
+                        <ul class="insurance-menu">
+                            <li class="insurance-each01">
+                                <a href="#"> 
+                                    <img src="../assets/img/icon/insurance_menu_icon01.png" alt="계약정보 아이콘">
+                                </a> <!-- M-life 계약정보상 세페이지 이동 -->
+                                <p>계약정보</p>
+                            </li>
+                            <li class="insurance-each02">
+                                <a>
+                                    <img src="../assets/img/icon/insurance_menu_icon02.png" alt="즉시납입 아이콘">
+                                </a> <!-- M-life 즉시납입 상세페이지 이동 -->
+                                <p>즉시납입</p>
+                            </li>
+                            <li class="insurance-each03">
+                                <a>
+                                    <img src="../assets/img/icon/insurance_menu_icon03.png" alt="보험대출 아이콘">
+                                </a> <!-- M-life 보험대출 상세페이지 이동 -->
+                                <p>보험대출</p>
+                            </li>
+                            <li class="insurance-each04">
+                                <a>
+                                    <img src="../assets/img/icon/insurance_menu_icon04.png" alt="증명서발행 아이콘">
+                                </a> <!-- M-life 증명서발행 상세페이 이동 -->
+                                <p>증명서발행</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 헬스케어콘텐츠 -->
+                <div class="main-health_wrap" style="padding-top: 50px;">
+                    <p class="main-font20-exbold">건강증진을 위한<br /> 헬스케어 서비스 출시</p>
+                    <div class="mainhealth-box">
+                        <a class="mainhealth-eachbox" href="#">
+                            <p>걸어서 세계여행</p>
+                            <div class="mainhealth-ani">
+                                <img src="../assets/img/icon/main_health_icon01.png" alt="지구 아이콘" class="earth-icon">
+                            </div>
+                        </a> <!-- 로그인 시 : 헬스케어내해당페이지로이동 / 비로그인 시 : 인증페이지이동후가입여부체크 -->
+                        <a class="mainhealth-eachbox" href="#">
+                            <p>건강 루틴 받기</p>
+                            <div class="mainhealth-ani">
+                                <img src="../assets/img/icon/main_health_icon02.png" alt="아령 아이콘" class="dumbbell-icon">
+                            </div>
+                        </a> <!-- 로그인 시 : 헬스케어내추천루틴시작페이지이동 / 비로그인 시 : 인증페이지이동후가입여부체크 -->
+                        <a class="mainhealth-eachbox" href="#">
+                            <p>셀프 루틴 설정 </p>
+                            <div class="mainhealth-ani">
+                                <img src="../assets/img/icon/main_health_icon03.png" alt="달력 아이콘" class="calendar-icon">
+                            </div>
+                        </a> <!-- 로그인 시 : 셀프로설정할수있는루틴목록페이지이동 / 비로그인 시 : 인증페이지이동후가입여부체크 -->
+                        <a class="mainhealth-eachbox" href="#">
+                            <p>영양제맞춤</p>
+                            <div class="mainhealth-ani">
+                                <img src="../assets/img/icon/main_health_icon04.png" alt="약 아이콘" class="medicine-icon">
+                                <!-- <div class="mainhealth-ani-total">
+                                    <img src="../assets/img/icon/main_health_icon04_01.png" alt="약 아이콘" class="medicine-icon01">
+                                    <img src="../assets/img/icon/main_health_icon04_02.png" alt="약 아이콘" class="medicine-icon02">
+                                </div> -->
+                            </div>
+                        </a> <!-- 로그인 시 : 영양제등록/관리페이지로이동 / 비로그인 시 : 인증페이지이동후가입여부체크 -->
+                    </div>
+                </div>
+                <!-- 스마트라이프콘텐츠영역 -->
+                <div class="main-smart_wrap">
+                    <div class="swipertop-box">
+                        <p class="main-font20-exbold">스마트 라이프</p>
+                        <a href="#" class="more-btn"><i></i>더 보기</a> <!-- Mlife 스마트라이프목록페이지 이동 -->
+                    </div>
+                    <div class="swiper-card heart-swiper">
+                        <div class="swiper cardjs-01">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="../../assets/img/test/test_card01_02.png" alt="" />
+                                    <div class="heart-wrap">
+                                        <button class="heart-box" type="button">
+                                            <!-- on 이중클래스 사용 : 빨간색 하트 아이콘으로 바뀜 -->
+                                            <span class="heart-btn on"></span>
+                                        </button>
+                                    </div>
+                                    <div class="txt-wrap">
+                                        <span class="chip bg-white">라이프</span>
+                                        <p class="swiper-tit">살 빠지는 식사 순서?</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="../../assets/img/test/test_card01_01.png" alt="" />
+                                    <div class="heart-wrap">
+                                        <button class="heart-box" type="button">
+                                            <!-- on 이중클래스 사용 : 빨간색 하트 아이콘으로 바뀜 -->
+                                            <span class="heart-btn"></span>
+                                        </button>
+                                    </div>
+                                    <div class="txt-wrap">
+                                        <span class="chip bg-white">운동</span>
+                                        <p class="swiper-tit">소화에 도움이 되는 액티비티</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 온라인보험몰메인에노출되고있는좋은보험노출 -->
+                <div class="main-product_wrap">
+                    <div class="swipertop-box">
+                        <p class="main-font20-exbold">좋은 보험</p>
+                        <a href="#" class="more-btn"><i></i>더 보기</a>
+                    </div>
+                    <div class="swiper-card">
+                        <div class="swiper cardjs-product product-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="product-box number-one">
+                                        <div class="product-ranking"><span>1위</span></div>
+                                        <dl class="product-inner">
+                                            <dt class="main-font24-exbold">여성미니암보험</dt>
+                                            <dd class="main-font14-bold">여성 3대 암포함 주요암 보장</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-box">
+                                        <div class="product-ranking"><span>2위</span></div>
+                                        <dl class="product-inner">
+                                            <dt class="main-font24-exbold">치아보험</dt>
+                                            <dd class="main-font14-bold">비흡연시</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script type="module" src="/assets/js/pub_include.js"></script>
+        <script type="module" src="/assets/js/index.js"></script>
+        <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
+        <script type="module" src="/assets/js/gnb_include.js"></script>
+        <script type="text/javascript" src="../../assets/bundle/swiper-bundle.min.js"></script>
+    </body>
+</html>
