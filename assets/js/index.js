@@ -34,11 +34,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
     //     }
     // });
     
-    const swiper1 = swiperCustom('.cardjs-01', 1.12, {
+    const swiper1 = swiperCustom(".cardjs-01", 1.12, {
         pagination: {
-            el: '.swiper-pagination-black',
+            el: ".swiper-pagination-black",
             clickable: true,
         },
+        slidesOffsetAfter: 16,
     });
 
     const swiper2 = swiperCustom(".cardjs-video01", 1, {
@@ -65,6 +66,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 // SlideVideo(swiper2);
             },
         },
+    });
+
+    const swiper4 = swiperCustom(".cardjs-product", 1.4, {
+        pagination: false,
+        slidesOffsetAfter: 16,
     });
 
     // 달력
