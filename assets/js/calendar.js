@@ -306,7 +306,7 @@ export const addUserDataToCell = async (cell, date) => {
     }
 } 
 
-// 주간달력 스크립트    
+// 주간달력
 export const createWeeklyCalendar = (containerId, options = {}) => {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -317,14 +317,13 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
 
     // Day.js 한국어 로케일 설정
     dayjs.locale('ko');
-
-    // Day.js 플러그인 로드
     dayjs.extend(window.dayjs_plugin_isSameOrBefore);
 
     let currentDate = dayjs();
+    
     displayWeeklyCalendar(currentDate);
 
-    // Check if 'button' option is enabled
+    // 캘린더 헤더에 이전달,다음달 버튼 설정
     if (options.button) {
         const prevButton = document.createElement('button');
         prevButton.id = 'prevWeek';
@@ -345,9 +344,11 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
             currentDate = currentDate.add(1, 'week');
             displayWeeklyCalendar(currentDate);
         });
+
+        
     }
 
-    // 터치 이벤트
+    // 터치 이벤트 제어, 좌우 버튼 사용 체크시 드래그 기능 사용 가능
     const handleTouchStart = (event) => {
         start_xPos = event.touches[0].pageX;
         start_yPos = event.touches[0].pageY;
@@ -417,7 +418,7 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
 
         // 일주일 날짜를 담을 div 생성 및 슬라이드 추가
         if (options.userSwiping) {
-            let pastDay = startOfWeek.subtract(3, 'week');
+            let pastDay = startOfWeek.subtract(20, 'week');
             while (pastDay.isSameOrBefore(startOfWeek.subtract(1, 'week'))) {
                 const slideItem = document.createElement('div');
                 slideItem.classList.add('swiper-slide');
@@ -442,6 +443,8 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
                     }
         
                     pastDay = pastDay.add(1, 'day');
+                // 사용자 데이터 추가
+                    addUserDataToWeeklyLink(link);
                 }
                 slideItem.appendChild(pastWeekUl);
             }
