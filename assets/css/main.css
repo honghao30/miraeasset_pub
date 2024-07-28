@@ -3,42 +3,52 @@
     padding: 0 calc(16 / 16 * 1rem);
 }
 /* common */
-.mainhome_wrap .main-font13-bold {
+.main_wrap .main-font13-bold {
     font-size: calc(13 / 16 * 1rem);
     font-weight: 700;
     line-height: calc(14 / 16 * 1rem);
 } 
-.mainhome_wrap .main-font14-bold {
+.main_wrap .main-font14-bold {
     font-size: calc(14 / 16 * 1rem);
     font-weight: 700;
     line-height: calc(20 / 16 * 1rem);
     letter-spacing: -0.02em;
 } 
-.mainhome_wrap .main-font18-exbold {
+.main_wrap .main-font18-exbold {
     font-size: calc(18 / 16 * 1rem);
     font-weight: 800;
     line-height: calc(20 / 16 * 1rem);
     letter-spacing: -0.02em;
 }
-.mainhome_wrap .main-font24-exbold {
+.main_wrap .main-font24-exbold {
     font-size: calc(24 / 16 * 1rem);
     font-weight: 800;
     line-height: calc(30 / 16 * 1rem);
 } 
-.mainhome_wrap .main-font20-exbold {
+.main_wrap .main-font20-exbold {
     font-size: calc(20 / 16 * 1rem);
     font-weight: 800;
     line-height: calc(28 / 16 * 1rem);
     letter-spacing: -0.02em;
 } 
-.main-contract_wrap, .main-insurance_wrap, .main-health_wrap {
+.main_wrap .main-font20-bold {
+    font-size: calc(20 / 16 * 1rem);
+    font-weight: 700;
+    line-height: calc(26 / 16 * 1rem);
+} 
+.main_wrap .main-font40-exbold {
+    font-size: calc(40 / 16 * 1rem);
+    font-weight: 800;
+    line-height: calc(40 / 16 * 1rem);
+} 
+.main-contract_wrap, .main-insurance_wrap {
     padding: 0 calc(16 / 16 * 1rem);
 }
 .main-contract_wrap {
     margin-bottom: calc(16 / 16 * 1rem);
 }
 /* custom */
-.mainhome_wrap .main-whbox {
+.main-whbox {
     border-radius: 20px;
     width: 100%;
     box-shadow: 0px 3px 12px 0px #0000001A;
@@ -253,7 +263,7 @@
 }
 .mainhome_wrap .main-health_wrap {
     position: relative;
-    padding-bottom: calc(50 / 16 * 1rem);
+    padding: calc(50 / 16 * 1rem) calc(16 / 16 * 1rem);
     overflow: hidden;
 }
 /* .mainhome_wrap .main-health_wrap::before {
@@ -364,7 +374,71 @@
     margin-top: calc(8 / 16 * 1rem);
     color: var(--color-basic7);
 }
-
+/* 헬스 메인 */
+.mainhealth_wrap .level_wrap {
+    padding: 0  calc(16 / 16 * 1rem);
+}
+.mainhealth_wrap .level-box{
+    padding: calc(24 / 16 * 1rem);
+}
+.mainhealth_wrap .level-barbox {
+    position: relative;
+    width: 100%;
+    padding-top: calc(24 / 16 * 1rem);
+}
+.mainhealth_wrap .level-bar {
+    position: relative;
+    width: 100%;
+    display: block;
+    border-radius: calc(24 / 16 * 1rem);
+    height: calc(26 / 16 * 1rem);
+    background: linear-gradient(90deg, #DC5248 0%, #FBEB56 50.81%, #5DE68C 99%);
+    margin-bottom: calc(13 / 16 * 1rem);
+}
+.mainhealth_wrap .level-bar::after {
+    position: absolute;
+    content: '';
+    width: calc(2 / 16 * 1rem);
+    height: calc(26 / 16 * 1rem);
+    background: url("../img/icon/main_dashed.png") no-repeat center center;
+    background-size: cover;
+    top: 0;
+    right: 50%;
+}
+.mainhealth_wrap .my-level {
+    display: block;
+    height: calc(26 / 16 * 1rem);
+    border-right: calc(2 / 16 * 1rem) solid #424242;
+    background: transparent;
+    animation: myLevelMove 1.8s ease forwards;
+}
+.myposition {
+    display: none;
+    opacity: 0;
+    position: relative;
+    animation: opacityLevel 1.5s linear forwards;
+}
+.myposition::after {
+    width: 100%;
+    display: block;
+    width: calc(56 / 16 * 1rem);
+    height: calc(34 / 16 * 1rem);
+    background: url("../img/icon/main_mylevel_icon56.png") no-repeat center center;
+    background-size: cover;
+    content: '';
+    position: absolute;
+    right: calc(-29 / 16 * 1rem);
+    top: calc(-37 / 16 * 1rem);
+}
+.mainhealth_wrap .level-list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    bottom: calc(0 / 16 * 1rem);
+}
+.mainhealth_wrap .level-bar p.main-font14-bold {
+    letter-spacing: 0;
+}
 /* keyframe common */
 @keyframes icon-rotation360 {
     0% {
@@ -381,18 +455,28 @@
     25%, 75% {
         transform: rotate(10.12deg);
     }
-    /* 0%, 100% {
-        transform: rotate(-10.12deg);
-    }
-    50% {
-        transform: rotate(10.12deg);
-    } */
 }
 @keyframes icon-sale {
-  0% {
-    transform: scale(1) rotate(-33.03deg);
-  }
-  100% {
-    transform: scale(1.1) rotate(-33.03deg);
-  }
+    0% {
+        transform: scale(1) rotate(-33.03deg);
+    }
+    100% {
+        transform: scale(1.1) rotate(-33.03deg);
+    }
+}
+@keyframes myLevelMove {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: var(--level-width, 60%);
+    }
+}
+@keyframes opacityLevel {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

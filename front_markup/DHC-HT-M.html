@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head></head>
+    <body>
+        <div class="wrap main_wrap">
+            <div data-include-path="./_inc/head_gnb.html"></div>
+            <div class="content mainhealth_wrap">
+                <!-- 건강점수/ 등급별혜택 -->
+                <div class="level_wrap">
+                    <div class="level-box main-whbox">
+                        <div class="level-top">
+                            <p class="main-font20-bold"><strong class="main-font40-exbold">5</strong>등급</p>
+                            <!-- GC케어서비스로진입할수있는영역 필요할 거 같아서 박스로 감싸놓음  -->
+                        </div>
+                        <div class="level-barbox">
+                            <div class="level-bar">
+                                <div class="my-level" style="width: 60%;"><span class="myposition"></span></div>
+                            </div>
+                            <div class="level-list">
+                                <p class="main-font14-bold">9등급</p>
+                                <p class="main-font14-bold">평균 5등급</p>
+                                <p class="main-font14-bold">1등급</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script type="module" src="/assets/js/pub_include.js"></script>
+        <script type="module" src="/assets/js/index.js"></script>
+        <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
+        <script type="module" src="/assets/js/gnb_include.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                    const myLevel = document.querySelector('.my-level');
+                    const myPosition = document.querySelector('.myposition');
+                    const newWidth = '60%'; // 이 값을 데이터에 따라 동적으로 설정
+                    myLevel.style.setProperty('--level-width', newWidth);
+                    myLevel.style.width = newWidth; // 즉시 반영
+
+                    setTimeout(() => {
+                        myPosition.style.display = "block";
+                        myPosition.style.opacity = "1";
+                    }, 1800); // 애니메이션이 끝나는 시간 1800ms
+                });
+        </script>
+    </body>
+</html>
