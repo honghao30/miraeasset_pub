@@ -307,6 +307,14 @@ export const addUserDataToCell = async (cell, date) => {
 } 
 
 // 주간달력
+/************************
+ * day.js 필수, swiping 기능 사용지 swiper 
+ * startDate: '2024.01',  시작 년도 설정가능(예: 회원가입 일 이후) 
+ * button: false, 이전 다음 버튼 사용여부
+ * displayDay: 'none', 타이틀에 날짜 표시 onlyToday, WeeklyRange, onlyMonthly, none
+ * userSwiping: true  스와이핑 기능 사용
+ ************************/
+import { swiperCustom, SlideVideo, SlideVideoPlayBtn } from "/assets/js/swiper_custom.js";
 export const createWeeklyCalendar = (containerId, options = {}) => {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -320,10 +328,16 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
     dayjs.extend(window.dayjs_plugin_isSameOrBefore);
 
     let currentDate = dayjs();
-    
+    const weeksCount = displayWeeklyCalendar(currentDate); // 최초 호출시 weeksCount 반환
+
+    if (options.swiperOptions) {
+        const swiper = swiperCustom('.calendar-swiper', 1, options.swiperOptions);
+        swiper.slideTo(weeksCount);
+    }
+
     displayWeeklyCalendar(currentDate);
 
-    // 캘린더 헤더에 이전달,다음달 버튼 설정
+    // 캘린더 헤더에 이전달, 다음달 버튼 설정
     if (options.button) {
         const prevButton = document.createElement('button');
         prevButton.id = 'prevWeek';
@@ -344,45 +358,44 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
             currentDate = currentDate.add(1, 'week');
             displayWeeklyCalendar(currentDate);
         });
-
-        
     }
 
-    // 터치 이벤트 제어, 좌우 버튼 사용 체크시 드래그 기능 사용 가능
-    const handleTouchStart = (event) => {
-        start_xPos = event.touches[0].pageX;
-        start_yPos = event.touches[0].pageY;
-        start_time = new Date();
-    };
+    if (!options.userSwiping) {
+        const handleTouchStart = (event) => {
+            start_xPos = event.touches[0].pageX;
+            start_yPos = event.touches[0].pageY;
+            start_time = new Date();
+        };
 
-    const handleTouchEnd = (event) => {
-        const end_xPos = event.changedTouches[0].pageX;
-        const end_yPos = event.changedTouches[0].pageY;
-        const end_time = new Date();
-        let move_x = end_xPos - start_xPos;
-        let move_y = end_yPos - start_yPos;
-        let elapsed_time = end_time - start_time;
-        if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
-            if (move_x < 0) {
-                currentDate = currentDate.add(1, 'week');
-                displayWeeklyCalendar(currentDate);
-            } else {
-                currentDate = currentDate.subtract(1, 'week');
-                displayWeeklyCalendar(currentDate);
+        const handleTouchEnd = (event) => {
+            const end_xPos = event.changedTouches[0].pageX;
+            const end_yPos = event.changedTouches[0].pageY;
+            const end_time = new Date();
+            let move_x = end_xPos - start_xPos;
+            let move_y = end_yPos - start_yPos;
+            let elapsed_time = end_time - start_time;
+            if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
+                if (move_x < 0) {
+                    currentDate = currentDate.add(1, 'week');
+                    displayWeeklyCalendar(currentDate);
+                } else {
+                    currentDate = currentDate.subtract(1, 'week');
+                    displayWeeklyCalendar(currentDate);
+                }
             }
-        }
-    };
+        };
 
-    const min_horizontal_move = 30;
-    const max_vertical_move = 30;
-    const within_ms = 1000;
+        const min_horizontal_move = 30;
+        const max_vertical_move = 30;
+        const within_ms = 1000;
 
-    let start_xPos;
-    let start_yPos;
-    let start_time;
+        let start_xPos;
+        let start_yPos;
+        let start_time;
 
-    container && container.addEventListener('touchstart', handleTouchStart);
-    container && container.addEventListener('touchend', handleTouchEnd);
+        container && container.addEventListener('touchstart', handleTouchStart);
+        container && container.addEventListener('touchend', handleTouchEnd);
+    }
 
     function displayWeeklyCalendar(date) {
         const displayData = container.querySelector('.display-data');
@@ -398,12 +411,16 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
         const startOfWeek = date.startOf('week');
         const endOfWeek = date.endOf('week');
         const todayDayIndex = dayjs().day(); // 오늘의 요일 인덱스
+        const futureLimit = options.futureLimit || 6;  // 기본값 6주
+        const endLimitDay = startOfWeek.add(futureLimit, 'weeks');
 
         // 제목 사용시 오늘 날짜를 보여줄지 한주의 시작일과 종료일을 보여줄지 선택
         if (options.displayDay === 'WeeklyRange') {
             displayData.textContent = `${startOfWeek.format('YYYY년 M월 D일')} - ${endOfWeek.format('M월 D일')}`;
         } else if (options.displayDay === 'onlyToday') {
             displayData.textContent = dayjs().format('YYYY-MM-DD');
+        } else if (options.displayDay === 'onlyMonthly') {
+            displayData.textContent = dayjs().format('YYYY-MM');
         } else if (options.displayDay === 'none') {
             displayData.textContent = '';
         }
@@ -414,11 +431,21 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
             weeklyLabels.innerHTML = '';
         }
 
-        let day = startOfWeek;        
+        let day = startOfWeek;      
+        let weeksCount;
+        if (options.startDate) {
+            const calcWeeksCount = () => {
+                let startDate = dayjs(options.startDate); // startDate를 dayjs 객체로 변환
+                const calculateWeeksBetween = (startDate, endDate) => endDate.diff(startDate, 'weeks');
+                return calculateWeeksBetween(startDate, startOfWeek);
+            };
+            weeksCount = calcWeeksCount(); // weeksCount 값을 계산하여 할당            
+        }
 
         // 일주일 날짜를 담을 div 생성 및 슬라이드 추가
-        if (options.userSwiping) {
-            let pastDay = startOfWeek.subtract(20, 'week');
+        if (options.userSwiping) {                 
+            let pastDay = startOfWeek.subtract(weeksCount, 'week');
+            console.log(pastDay)
             while (pastDay.isSameOrBefore(startOfWeek.subtract(1, 'week'))) {
                 const slideItem = document.createElement('div');
                 slideItem.classList.add('swiper-slide');
@@ -441,10 +468,25 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
                     if (pastDay.day() === dayjs().day()) {
                         link.classList.add('today');
                     }
-        
+                    if (pastDay.day() === 0 || pastDay.day() === 6) {
+                        link.classList.add('holiday');                        
+                    }
                     pastDay = pastDay.add(1, 'day');
-                // 사용자 데이터 추가
-                    addUserDataToWeeklyLink(link);
+
+                    // 사용자 데이터 추가
+                    if (typeof options.addUserDataToWeeklyLink === 'function') {
+                        options.addUserDataToWeeklyLink(link);
+                    }
+
+                    // 클릭 이벤트 리스너 추가
+                    (function (currentDay) {
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            if (typeof options.handleWeeklyLinkClick === 'function') {
+                                options.handleWeeklyLinkClick(currentDay); // 전달된 클릭 함수 사용
+                            }
+                        });
+                    })(pastDay);                  
                 }
                 slideItem.appendChild(pastWeekUl);
             }
@@ -487,7 +529,7 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
                     link.classList.add('today');
                     weekLabel.classList.add('today');
                 }
-        
+
                 // 오늘 날짜 출력
                 const today = dayjs().format('YYYY-MM-DD');
                 if (options.deTailView !== false && options.deTailView !== '') {
@@ -495,18 +537,29 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
                 }
         
                 // 사용자 데이터 추가
-                addUserDataToWeeklyLink(link);
-        
+                if (typeof options.addUserDataToWeeklyLink === 'function') {
+                    options.addUserDataToWeeklyLink(link);
+                }                
+
                 // 클릭 이벤트 리스너 추가
                 (function (currentDay) {
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
-                        handleWeeklyLinkClick(currentDay);
+                        if (typeof options.handleWeeklyLinkClick === 'function') {
+                            options.handleWeeklyLinkClick(currentDay); // 전달된 클릭 함수 사용
+                        }
                     });
                 })(day);
         
                 day = day.add(1, 'day');
             }
+
+            let futureLimit = options.futureLimit;
+            let lastWeek = startOfWeek.add(futureLimit, 'week');
+            while (lastWeek.isSameOrBefore(startOfWeek.add(1, 'week'))) {
+                console.log(lastWeek, futureLimit)
+            }
+
         } else {
             while (day.isSameOrBefore(endOfWeek)) {
                 // 요일 표시
@@ -539,52 +592,28 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
                     link.classList.add('today');
                     weekLabel.classList.add('today');
                 }
-        
-                // 오늘 날짜 출력
-                const today = dayjs().format('YYYY-MM-DD');
-                if (options.deTailView !== false && options.deTailView !== '') {
-                    document.querySelector('.detail-section .detail-day').innerText = today;
-                }
-        
+
                 // 사용자 데이터 추가
-                addUserDataToWeeklyLink(link);
-        
+                if (typeof options.addUserDataToWeeklyLink === 'function') {
+                    options.addUserDataToWeeklyLink(link);
+                }                
+
                 // 클릭 이벤트 리스너 추가
                 (function (currentDay) {
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
-                        handleWeeklyLinkClick(currentDay);
+                        if (typeof options.handleWeeklyLinkClick === 'function') {
+                            options.handleWeeklyLinkClick(currentDay); // 전달된 클릭 함수 사용
+                        }
                     });
                 })(day);
         
                 day = day.add(1, 'day');
             }
-        }                        
+        } 
+        return weeksCount;                       
     }
+
+    return displayWeeklyCalendar(currentDate);
 };
-
-
-
-const handleWeeklyLinkClick = (day) => {
-    const selectedDay = day.format('YYYY-MM-DD');
-    const today = dayjs().format('YYYY-MM-DD');
-
-    if (selectedDay === today) {
-        document.querySelector('.detail-section').innerText = '오늘';
-    } else {
-        document.querySelector('.detail-section').innerText = selectedDay;
-    }
-};
-
-const addUserDataToWeeklyLink = (link) => {    
-    const userData = document.createElement('div');
-    userData.classList.add('health-data-wrap');
-    userData.innerHTML = `
-        <div class="dot type-meal"></div>
-        <div class="dot type-work-out"></div>
-        <div class="dot type-nutrition"></div>
-    `; 
-    link.parentElement.appendChild(userData);
-};
-
 
