@@ -544,7 +544,8 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
                 // 클릭 이벤트 리스너 추가
                 (function (currentDay) {
                     link.addEventListener('click', (e) => {
-                        e.preventDefault();                        
+                        e.preventDefault();
+                        console.log('클릭');
                         if (typeof options.handleWeeklyLinkClick === 'function') {
                             options.handleWeeklyLinkClick(currentDay); // 전달된 클릭 함수 사용
                         }
