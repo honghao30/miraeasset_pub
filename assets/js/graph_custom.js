@@ -13,7 +13,7 @@ export const circleGraphType1 = (el, dataValue) => {
 
         const textElement = svgType1.parentElement.querySelector(".circlebar_txt");
         if (textElement) {
-            textElement.textContent = `${dataValue}%`;
+            textElement.textContent = `${dataValue}`;
         }
     }
 };
@@ -43,7 +43,7 @@ const circleGraphType2 = () => {
 
         const textElement = svgType2.parentElement.querySelector(".circlebar_txt");
         if (textElement) {
-            textElement.textContent = `${dataValueType2}%`;
+            textElement.textContent = `${dataValueType2}`;
         }
     }
 };
@@ -64,7 +64,7 @@ const circleGraphType3 = () => {
             let dataValue = parseFloat(svg.getAttribute("data-value"));
             const textElement = svg.parentElement.querySelector(".circlebar_txt");
             if (textElement) {
-                textElement.textContent = `${dataValue}%`;
+                textElement.textContent = `${dataValue}`;
             }
             // 92 이상일 경우 data-value를 91로 설정
             if (dataValue >= 92) {
