@@ -314,7 +314,7 @@ export const addUserDataToCell = async (cell, date) => {
  * displayDay: 'none', 타이틀에 날짜 표시 onlyToday, WeeklyRange, onlyMonthly, none
  * userSwiping: true  스와이핑 기능 사용
  ************************/
-import { swiperCustom, SlideVideo, SlideVideoPlayBtn } from "/assets/js/swiper_custom.js";
+import { swiperCustom } from "/assets/js/swiper_custom.js";
 export const createWeeklyCalendar = (containerId, options = {}) => {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -328,14 +328,22 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
     dayjs.extend(window.dayjs_plugin_isSameOrBefore);
 
     let currentDate = dayjs();
-    const weeksCount = displayWeeklyCalendar(currentDate); // 최초 호출시 weeksCount 반환
-
+    const weeksCount = displayWeeklyCalendar(currentDate) + 5; // 최초 호출시 weeksCount 반환
+    
     if (options.swiperOptions) {
+        options.swiperOptions.on = {
+            slideNextTransitionEnd: (swiper) => {
+                console.log('SWIPED RIGHT');
+            },
+            slidePrevTransitionEnd: (swiper) => {
+                console.log('SWIPED LEFT');
+            }
+        };
+
         const swiper = swiperCustom('.calendar-swiper', 1, options.swiperOptions);
         swiper.slideTo(weeksCount);
     }
 
-    displayWeeklyCalendar(currentDate);
 
     // 캘린더 헤더에 이전달, 다음달 버튼 설정
     if (options.button) {
@@ -402,35 +410,45 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
         const weekDatesList = container.querySelector('#weekDates');
         const weeklyLabels = container.querySelector('#weeklyLabels');
         const swipingContainer = container.querySelector('.swiper-wrapper');
-
+    
         // 요소가 존재하는지 확인
         if (!displayData || !weekDatesList || !weeklyLabels || (options.userSwiping && !swipingContainer)) {
             return;
         }
-
-        const startOfWeek = date.startOf('week');
-        const endOfWeek = date.endOf('week');
+    
+        // 주의 시작일을 설정
+        const weekStartDay = options.weekStart === 1 ? '일' : '월';
+        const startOfWeek = date.startOf('week', weekStartDay);
+        const endOfWeek = date.endOf('week', weekStartDay);
         const todayDayIndex = dayjs().day(); // 오늘의 요일 인덱스
-        const futureLimit = options.futureLimit; 
-        const endLimitDay = startOfWeek.add(futureLimit, 'weeks');
-
+        const futureLimit = options.futureLimit;
+        const endLimitDay = endOfWeek.add(futureLimit, 'weeks');
+        
+        let pastStartDay = options.startDate;        
+        let firstStart = dayjs(pastStartDay, 'YYYY.M').startOf('month');
+        let currentDay = endLimitDay.startOf('week');
+    
         // 제목 사용시 오늘 날짜를 보여줄지 한주의 시작일과 종료일을 보여줄지 선택
-        if (options.displayDay === 'WeeklyRange') {
-            displayData.textContent = `${startOfWeek.format('YYYY년 M월 D일')} - ${endOfWeek.format('M월 D일')}`;
-        } else if (options.displayDay === 'onlyToday') {
-            displayData.textContent = dayjs().format('YYYY-MM-DD');
-        } else if (options.displayDay === 'onlyMonthly') {
-            displayData.textContent = dayjs().format('YYYY-MM');
-        } else if (options.displayDay === 'none') {
-            displayData.textContent = '';
-        }
-
+        const displayDateTitle = (type) => {
+            if (type === 'WeeklyRange') {
+                displayData.textContent = `${startOfWeek.format('YYYY년 M월 D일')} - ${endOfWeek.format('M월 D일')}`;
+            } else if (type === 'onlyToday') {
+                displayData.textContent = dayjs().format('YYYY-MM-DD');
+            } else if (type === 'onlyMonthly') {
+                displayData.textContent = dayjs().format('YYYY-MM');
+            } else if (type === 'none') {
+                displayData.textContent = '';
+            }
+        };        
+        
+        displayDateTitle(options.displayDay);
+    
         // 요소를 비우기 전에 존재하는지 확인
         if (weekDatesList && weeklyLabels) {
             weekDatesList.innerHTML = '';
             weeklyLabels.innerHTML = '';
         }
-
+    
         let day = startOfWeek;      
         let weeksCount;
         if (options.startDate) {
@@ -441,42 +459,73 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
             };
             weeksCount = calcWeeksCount(); // weeksCount 값을 계산하여 할당            
         }
-
-        // 일주일 날짜를 담을 div 생성 및 슬라이드 추가
-        if (options.userSwiping) {                 
-            let pastDay = startOfWeek.subtract(weeksCount, 'week');
-            while (pastDay.isSameOrBefore(startOfWeek.subtract(1, 'week'))) {
+        let totalCount = weeksCount + futureLimit;
+        let setDay = startOfWeek.subtract(totalCount, 'week');
+        let pastDay = startOfWeek.subtract(weeksCount, 'week');
+    
+        if (options.userSwiping) {      
+            console.log('시작일', firstStart, '종료일', endLimitDay, totalCount, setDay, pastDay);
+            while (day.isSameOrBefore(endOfWeek)) {
+                // 요일 표시
+                const weekLabel = document.createElement('li');
+                weekLabel.classList.add('label');
+                weekLabel.textContent = day.format('ddd'); // 한글 요일 추가
+                weeklyLabels.appendChild(weekLabel);
+    
+                // // 일요일(0)과 토요일(6) 체크하여 'holiday' 클래스 추가
+                if (day.day() === 0 || day.day() === 6) {
+                    weekLabel.classList.add('holiday');                    
+                }
+    
+                // // 오늘의 날짜에 'today' 클래스 추가
+                if (day.isSame(dayjs(), 'day')) {                    
+                    weekLabel.classList.add('today');
+                }
+    
+                day = day.add(1, 'day');
+            }
+            while (setDay.isSameOrBefore(endLimitDay.subtract(1, 'week'))) {
+                // 한 주의 데이터를 담을 slideItem 생성
                 const slideItem = document.createElement('div');
                 slideItem.classList.add('swiper-slide');
                 swipingContainer.appendChild(slideItem);
         
-                const pastWeekUl = document.createElement('ul');
-                for (let i = 0; i < 7; i++) {
-                    const pastDateItem = document.createElement('li');
+                // 한 주의 날짜 리스트를 담을 dayListUl 생성
+                const dayListUl = document.createElement('ul');
+                slideItem.appendChild(dayListUl);
+        
+                // 한 주의 요일 및 날짜 생성
+                for (let i = 0; i < 7; i++) {    
+                    // 날짜를 담을 li 생성
+                    const listItem = document.createElement('li');
                     const link = document.createElement('a');
-                    const dayDiv = document.createElement('div');
-        
-                    dayDiv.classList.add('day');
-                    dayDiv.textContent = pastDay.format('DD');
                     link.href = '#none';
-                    link.appendChild(dayDiv);
-                    pastDateItem.appendChild(link);
-                    pastWeekUl.appendChild(pastDateItem);
         
-                    // 오늘의 요일에 해당하는 날짜에 'today' 클래스 추가
-                    if (pastDay.day() === dayjs().day()) {
-                        link.classList.add('today');
+                    // 날짜 표시
+                    const dayDiv = document.createElement('div');
+                    dayDiv.classList.add('day');
+                    dayDiv.textContent = setDay.format('DD'); // 날짜 표시
+        
+                    // link 안에 dayDiv 추가
+                    link.appendChild(dayDiv);
+                    listItem.appendChild(link);
+                    dayListUl.appendChild(listItem);
+        
+                    // 일요일(0)과 토요일(6) 체크하여 'holiday' 클래스 추가
+                    if (setDay.day() === 0 || setDay.day() === 6) {                        
+                        dayDiv.classList.add('holiday');
                     }
-                    if (pastDay.day() === 0 || pastDay.day() === 6) {
-                        link.classList.add('holiday');                        
+        
+                    // 오늘의 날짜에 'today' 클래스 추가
+                    if (setDay.day() === dayjs().day()) {                    
+                        dayDiv.classList.add('today');
                     }
-                    pastDay = pastDay.add(1, 'day');
-
+    
                     // 사용자 데이터 추가
                     if (typeof options.addUserDataToWeeklyLink === 'function') {
                         options.addUserDataToWeeklyLink(link);
-                    }
-
+                    }     
+    
                     // 클릭 이벤트 리스너 추가
                     (function (currentDay) {
                         link.addEventListener('click', (e) => {
@@ -486,119 +535,18 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
                                 console.log(currentDay)
                             }
                         });
-                    })(pastDay);                  
+                    })(setDay);                 
+                    
+                    // 다음 날짜로 이동
+                    setDay = setDay.add(1, 'day');
                 }
-                slideItem.appendChild(pastWeekUl);
             }
-        
-            const slideItem = document.createElement('div');
-            slideItem.classList.add('swiper-slide');
-            swipingContainer.appendChild(slideItem);
-        
-            const darListUl = document.createElement('ul');
-            slideItem.appendChild(darListUl);
-        
-            while (day.isSameOrBefore(endOfWeek)) {
-                // 요일 표시
-                const weekLabel = document.createElement('li');
-                weekLabel.classList.add('label');
-                weekLabel.textContent = day.format('ddd'); // 한글 요일 추가
-                weeklyLabels.appendChild(weekLabel);
-        
-                // 날짜 표시
-                const listItem = document.createElement('li');
-                const link = document.createElement('a');
-        
-                const dayDiv = document.createElement('div');
-                dayDiv.classList.add('day');
-                dayDiv.textContent = `${day.date()}`;
-        
-                // 일요일(0)과 토요일(6) 체크하여 'holiday' 클래스 추가
-                if (day.day() === 0 || day.day() === 6) {
-                    link.classList.add('holiday');
-                    weekLabel.classList.add('holiday');
-                }
-        
-                link.href = '#none';
-                link.appendChild(dayDiv); // 날짜 추가
-                listItem.appendChild(link);
-                darListUl.appendChild(listItem);
-        
-                // 오늘의 요일에 해당하는 날짜에 'today' 클래스 추가
-                if (day.day() === dayjs().day()) {
-                    link.classList.add('today');
-                    weekLabel.classList.add('today');
-                }
-
-                // 오늘 날짜 출력
-                const today = dayjs().format('YYYY-MM-DD');
-                if (options.deTailView !== false && options.deTailView !== '') {
-                    document.querySelector('.detail-section .detail-day').innerText = today;
-                }
-        
-                // 사용자 데이터 추가
-                if (typeof options.addUserDataToWeeklyLink === 'function') {
-                    options.addUserDataToWeeklyLink(link);
-                }                
-
-                // 클릭 이벤트 리스너 추가
-                (function (currentDay) {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        console.log('클릭');
-                        if (typeof options.handleWeeklyLinkClick === 'function') {
-                            options.handleWeeklyLinkClick(currentDay); // 전달된 클릭 함수 사용
-                        }
-                    });
-                })(day);
-        
-                day = day.add(1, 'day');
-            }
-
-            while (day.isSameOrBefore(endLimitDay)) {
-                const slideItem = document.createElement('div');
-                slideItem.classList.add('swiper-slide');
-                swipingContainer.appendChild(slideItem);
-        
-                const futureWeekUl = document.createElement('ul');
-                for (let i = 0; i < 7; i++) {
-                    const futureDateItem = document.createElement('li');
-                    const link = document.createElement('a');
-                    const dayDiv = document.createElement('div');
-        
-                    dayDiv.classList.add('day');
-                    dayDiv.textContent = day.format('DD');
-                    link.href = '#none';
-                    link.appendChild(dayDiv);
-                    futureDateItem.appendChild(link);
-                    futureWeekUl.appendChild(futureDateItem);
-        
-                    // 오늘의 요일에 해당하는 날짜에 'today' 클래스 추가
-                    if (day.day() === dayjs().day()) {
-                        link.classList.add('today');
-                    }
-                    if (day.day() === 0 || day.day() === 6) {
-                        link.classList.add('holiday');                        
-                    }
-                    day = day.add(1, 'day');
-
-                    // 사용자 데이터 추가
-                    if (typeof options.addUserDataToWeeklyLink === 'function') {
-                        options.addUserDataToWeeklyLink(link);
-                    }
-
-                    // 클릭 이벤트 리스너 추가
-                    (function (currentDay) {
-                        link.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            if (typeof options.handleWeeklyLinkClick === 'function') {
-                                options.handleWeeklyLinkClick(currentDay); // 전달된 클릭 함수 사용
-                            }
-                        });
-                    })(day);                  
-                }
-                slideItem.appendChild(futureWeekUl);
-            }
+    
+            // 오늘 날짜 출력
+            const todayDate = dayjs().format('YYYY-MM-DD');
+            if (options.deTailView !== false && options.deTailView !== '') {
+                document.querySelector('.detail-section .detail-day').innerText = todayDate;
+            }   
         } else {
             while (day.isSameOrBefore(endOfWeek)) {
                 // 요일 표시
@@ -631,12 +579,12 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
                     link.classList.add('today');
                     weekLabel.classList.add('today');
                 }
-
+    
                 // 사용자 데이터 추가
                 if (typeof options.addUserDataToWeeklyLink === 'function') {
                     options.addUserDataToWeeklyLink(link);
                 }                
-
+    
                 // 클릭 이벤트 리스너 추가
                 (function (currentDay) {
                     link.addEventListener('click', (e) => {
@@ -652,8 +600,7 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
         } 
         return weeksCount;                       
     }
-
-    return displayWeeklyCalendar(currentDate);
+    
 };
 
 
