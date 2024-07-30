@@ -64,12 +64,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
         slidesOffsetAfter: 16,
     });
 
-    const swiper5 = swiperCustom(".cardjs-routine", 1.5, {
+    const swiper5 = swiperCustom(".cardjs-routine", 1.37, {
         pagination: {
             el: ".swiper-pagination-black",
             clickable: true,
         },
-        slidesOffsetAfter: 16,
+        slidesOffsetAfter: 16
     });
 
     // 달력

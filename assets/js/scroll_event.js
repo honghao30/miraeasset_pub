@@ -6,6 +6,7 @@ let isAnimated = false;
 
 export const ScrollEnterMain = () => {
     const scrollElements = document.querySelectorAll(".animation-enter");
+    const bubbleElements = document.querySelectorAll(".anibubble_wrap");
 
     if (!scrollElements) return;
 
@@ -15,6 +16,9 @@ export const ScrollEnterMain = () => {
     const hideScrollElement = (element) => {
         element.classList.remove("fade-in", "left-enter-effect", "right-enter-effect", "shadow-effect", "scroll-up");
     };
+
+    const displayBubbleElement = (element) => element.classList.add("bubble-js");
+    const hideBubbleElement = (element) => element.classList.remove("bubble-js");
 
     const handleScrollAnimation = () => {
         scrollElements.forEach((el) => {
@@ -27,6 +31,14 @@ export const ScrollEnterMain = () => {
                 displayAnimation();                           
             } else if (elementOutofView(el)) {
                 hideScrollElement(el);                
+            }
+        });
+
+        bubbleElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayBubbleElement(el);
+            } else if (elementOutofView(el)) {
+                hideBubbleElement(el);
             }
         });
     };

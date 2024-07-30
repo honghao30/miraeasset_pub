@@ -1021,7 +1021,12 @@ body.modal-open {
     transform: rotate(-90deg);
     stroke-linecap: round;
 }
-
+.circlebar_total.animation-enter .circle-progress {
+    animation: none;
+}
+.circlebar_total.animation-enter.fade-in .circle-progress {
+    animation: progressType1 2s ease-in-out forwards;
+}
 .circlebar-type1 + .circlebar_txt {
     font-size: 24px;
     font-style: normal;
@@ -1430,6 +1435,24 @@ input[type="radio"]:disabled {
 .bubble-left + .triangle-icon .triangle,
 .bubble-right + .triangle-icon .triangle {
     transform: none;
+}
+.bubble-type01.bubble-right-center, .bubble-type01.bubble-left-center  {
+    border-radius: calc(16 / 16 * 1rem);
+}
+.bubble-type01.bubble-right-center + .triangle-icon {
+    top: 33%;
+    transform: rotate(90deg);
+    z-index: -1;
+    position: absolute;
+    right: -3%;
+}
+.bubble-type01.bubble-left-center + .triangle-icon {
+    top: 47%;
+    margin-top: -1%;
+    transform: rotate(150deg);
+    z-index: -1;
+    position: absolute;
+    left: 0;
 }
 /* swiper - pagination-black */
 .swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-black {
