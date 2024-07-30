@@ -1002,7 +1002,6 @@ body.modal-open {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 30%;
     color: #212121;
     text-align: right;
     font-family: NanumSquare;
@@ -1011,6 +1010,8 @@ body.modal-open {
     font-weight: 800;
     line-height: 48px; /* 100% */
     letter-spacing: -0.96px;
+    width: 100%;
+    text-align: center;
 }
 
 /* graph type1*/
@@ -1025,8 +1026,8 @@ body.modal-open {
     stroke: green;
     stroke-width: 12;
     animation: progressType1 2s ease-in-out forwards;
-    stroke-dasharray: 376.8;
-    stroke-dashoffset: 376.8;
+    stroke-dasharray: var(--barWidth);
+    stroke-dashoffset: var(--barWidth);
     transform-origin: center center;
     transform: rotate(-90deg);
     stroke-linecap: round;
@@ -1043,11 +1044,10 @@ body.modal-open {
     font-weight: 800;
     line-height: 24px;
     letter-spacing: -0.96px;
-    left: 30%;
 }
 @keyframes progressType1 {
     0% {
-        stroke-dashoffset: 376.8;
+        stroke-dashoffset: var(--barWidth);
     }
     100% {
         stroke-dashoffset: var(--barNum);
@@ -1066,8 +1066,8 @@ body.modal-open {
     stroke: rgb(249, 197, 100);
     stroke-width: 12;
     animation: progressType2 2s ease-in-out forwards;
-    stroke-dasharray: 376.8;
-    stroke-dashoffset: 376.8;
+    stroke-dasharray: var(--barOverWidth);
+    stroke-dashoffset: var(--barOverWidth);
     transform-origin: center center;
     transform: rotate(-90deg);
     stroke-linecap: round;
@@ -1077,8 +1077,8 @@ body.modal-open {
     stroke-width: 12;
     animation: overflowType 2s ease-in-out forwards;
     animation-delay: 1.5s;
-    stroke-dasharray: 376.8;
-    stroke-dashoffset: 376.8;
+    stroke-dasharray: var(--barOverWidth);
+    stroke-dashoffset: var(--barOverWidth);
     transform-origin: center center;
     transform: rotate(-90deg);
     stroke-linecap: round;
@@ -1089,11 +1089,10 @@ body.modal-open {
     font-weight: 800;
     line-height: 24px;
     letter-spacing: -0.96px;
-    left: 25%;
 }
 @keyframes progressType2 {
     0% {
-        stroke-dashoffset: 376.8;
+        stroke-dashoffset: var(--barOverWidth);
     }
     100% {
         stroke-dashoffset: var(--barNum);
@@ -1101,7 +1100,7 @@ body.modal-open {
 }
 @keyframes overflowType {
     0% {
-        stroke-dashoffset: 376.8;
+        stroke-dashoffset: var(--barOverWidth);
         stroke: transparent;
     }
     100% {
