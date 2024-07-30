@@ -17,6 +17,8 @@
                 text-align: center;
                 width: calc(100% / 7);
             }
+            .calendar__header .display-data:empty,
+            .calendar__content ul:empty {display: none;}
         </style>        
         <div class="content">
             <div class="month-calendar">    
@@ -47,7 +49,7 @@
                 <div class="weekly-calendar">
                     <div class="calendar__wrap" id="calendarWeekly2">
                         <div class="calendar__header">
-                            <div class="display-data">2024년 6월 27일</div>
+                            <div class="display-data"></div>
                         </div>
                         <div class="calendar__content">
                             <ul class="weekly-cal__header" id="weeklyLabels"></ul>
@@ -58,48 +60,56 @@
                             </div>                            
                         </div>
                     </div>    
+                
                     <div class="detail-section">
                         <div class="detail-day"></div>
                         오늘 날짜에 해당하는 값
                     </div>                
                 </div>     
                 <script type="module">
-                    import { newMonthlyCalendar, createWeeklyCalendar } from "/assets/js/calendar.js";
-                    import { swiperCustom, SlideVideo, SlideVideoPlayBtn } from "/assets/js/swiper_custom.js";
+                    import { newMonthlyCalendar, createWeeklyCalendar } from "/assets/js/calendar.js";                    
 
                     newMonthlyCalendar('page-cal', { button: true, displayData: 'default' });
-                    createWeeklyCalendar('calendarWeekly2', { button: false, displayDay: 'none', userSwiping: true });
-                    const swiper = swiperCustom('.calendar-swiper', 1, {
-                        pagination: false, 
-                        spaceBetween: 0,  
-                        slidesPerGroup: 1, 
-                        lazyLoading: true,	
-                        lazyLoadingInPrevNext: true,   
-                        observeParents: true,
-                        observeSlideChildren: true,
-                        observer: true,     
-                        on: {
-                            slideNextTransitionEnd: (swiper) => {
-                                console.log('SWIPED RIGHT')
-                            },
-                            slidePrevTransitionEnd: (swiper) => {
-                                console.log('SWIPED LEFT')
-                            }
-                        }            
+                    //사용자 데이터 추가 부분
+                    const addUserDataToWeeklyLink = (link) => {    
+                        const userData = document.createElement('div');
+                        userData.classList.add('health-data-wrap');
+                        userData.innerHTML = `
+                            <div class="dot type-meal"></div>
+                            <div class="dot type-work-out"></div>
+                            <div class="dot type-nutrition"></div>
+                        `; 
+                        link.parentElement.appendChild(userData);
+                    };  
+                    //날짜 클릭 이벤트
+                    const handleWeeklyLinkClick = (day) => {
+                        const selectedDay = day.format('YYYY-MM-DD');
+                        const today = dayjs().format('YYYY-MM-DD');   
+                        document.querySelector('.detail-section .detail-day').innerText = selectedDay;
+                    };
+                    createWeeklyCalendar('calendarWeekly2', { 
+                        startDate: '2024.01',       
+                        futureLimit: 5,                                         
+                        button: false, 
+                        displayDay: 'onlyMonthly', 
+                        userSwiping: true,
+                        weekStart: 1,
+                        addUserDataToWeeklyLink,
+                        handleWeeklyLinkClick,
+                        swiperOptions: {
+                            pagination: false, 
+                            spaceBetween: 0,  
+                            slidesPerGroup: 1, 
+                            loop: false,
+                            lazyLoading: true,    
+                            lazyLoadingInPrevNext: true,   
+                            observeParents: true,
+                            observeSlideChildren: true,
+                            observer: true,
+                        } 
                     });
-                    swiper.slideTo(21);
                 </script>
             </div>
-
-            <style>
-                .draglist {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;position: absolute;left: 50%;transform: translateX(-50%);
-                }
-            </style>
-            
-           <a href="template_drag-test.html">template_drag-test.html</a>
     </div>    
     <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
     <script type="module" src="/assets/js/pub_include.js"></script>

@@ -931,6 +931,16 @@ body.modal-open {
 .calendar__content li a.holiday .day {
     color: red;
 }
+.calendar__content li a .day.today {
+    background-color: #f58220;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+}
+.calendar__content li a  .day.holiday .label,
+.calendar__content li a  .day.holiday {
+    color: red;
+}
 .calendar__content li a.today .day,
 .calendar__content li a.today .label {
     color: #fff;
