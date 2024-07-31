@@ -1029,7 +1029,7 @@ body.modal-open {
     stroke-dasharray: var(--barWidth);
     stroke-dashoffset: var(--barWidth);
     transform-origin: center center;
-    transform: rotate(-90deg);
+    transform: rotate(-120deg);
     stroke-linecap: round;
 }
 .circlebar_total.animation-enter .circle-progress {
@@ -1539,10 +1539,11 @@ input[type="radio"]:disabled {
     background-size: 100%;
     display: inline-flex;
 }
-.txt-wrap {
+.heart-swiper .txt-wrap {
     position: absolute;
     bottom: 24px;
     left: 20px;
+    width: calc(100% - 40px);
 }
 .swiper-tit {
     font-size: 20px;

@@ -6,11 +6,11 @@
             <div data-include-path="./_inc/head_gnb.html"></div>
             <div class="content mainhealth_wrap">
                 <!-- 건강점수/ 등급별혜택 -->
-                <div class="level_wrap" style="height: 800px;">
+                <div class="level_wrap">
                     <div class="level-box main-whbox">
                         <div class="level-top">
                             <p class="main-font20-bold"><strong class="main-font40-exbold">5</strong>등급</p>
-                            <!-- GC케어서비스로진입할수있는영역 필요할 거 같아서 박스로 감싸놓음  -->
+                            <i class="level-icon"></i>
                         </div>
                         <div class="level-barbox">
                             <div class="level-bar">
@@ -24,189 +24,18 @@
                         </div>
                     </div>
                 </div>
-                <!-- 건강+ (GC 케어서비스상세서비스노출영역) -->
-                <!-- 상단아이콘(건강+)  Tab시노출콘텐츠(GC케어) -->
-                <!-- 추천루틴노출영역(알고리즘에의한루틴노출영역)  -->
-                <div class="recommend_routine_wrap animation-enter">
-                    <div class="anibubble_wrap anibubble-right">
-                        <div class="bubble-wrap">
-                            <div class="bubble-box bubble-orange">
-                                <div class="bubble-type01 bubble-right-center">추천루틴을 확인해보세요!</div>
-                                <div class="triangle-icon">
-                                    <div class="triangle"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bubble-img">
-                            <img src="../assets/img/main/main_character01.png" alt="">
-                        </div>
-                    </div>
-                    <div class="anibubble_wrap anibubble-left">
-                        <div class="bubble-img">
-                            <img src="../assets/img/main/main_character02.png" alt="">
-                        </div>
-                        <div class="bubble-wrap">
-                            <div class="bubble-box bubble-orange">
-                                <div class="bubble-type01 bubble-left">루틴의 끝이 보이고 있어요!</div>
-                                <div class="triangle-icon">
-                                    <div class="triangle"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="anibubble_wrap anibubble-opacity">
-                        <div class="bubble-wrap">
-                            <div class="bubble-box bubble-orange">
-                                <div class="bubble-type01 bubble-right">지금처럼만 하면 1위를 유지할 수 있어요</div>
-                                <div class="triangle-icon">
-                                    <div class="triangle"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bubble-img">
-                            <img src="../assets/img/main/main_character01.png" alt="">
-                        </div>
-                    </div>
-                    <!-- <div class="anibubble_wrap anibubble-opacity02">
-                        <div class="bubble-wrap">
-                            <div class="bubble-box bubble-orange">
-                                <div class="bubble-type01 bubble-right">지금처럼만 하면 1위를 유지할 수 있어요</div>
-                                <div class="triangle-icon">
-                                    <div class="triangle"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bubble-img">
-                            <img src="../assets/img/main/main_character01.png" alt="">
-                        </div>
-                    </div> -->
-                    <div class="animation-title">
-                        <p class="main-font18-exbold02">추천루틴</p>
-                        <div class="anibubble_wrap anibubble-opacity02">
-                        <div class="bubble-wrap">
-                            <div class="bubble-box bubble-orange">
-                                <div class="bubble-type01 bubble-left">똑똑한 AI가 추천하는 루틴</div>
-                                <div class="triangle-icon">
-                                    <div class="triangle"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="swiper-card pagination-card routine-swiper" style="padding-left: 16px;">
-                        <div class="swiper cardjs-routine">
-                            <div class="swiper-wrapper">
-                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
-                                    <div class="routine-top">
-                                        <div class="chip bg-primary">10일 미션</div>
-                                        <!-- 진행 중 -->
-                                        <div class="routine-chk ing"></div>
-                                    </div>
-                                    <div class="routine-middle">
-                                        <div class="routine-img w179">
-                                            <img src="../assets/img/main/main_routine_01.png" alt="">
-                                        </div>
-                                        <div class="routine-tit">
-                                            <p class="routine-bigtit">아침에 일찍 일어나기</p>
-                                            <p class="routine-subtit">8일차 80% 달성</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
-                                    <div class="routine-top">
-                                        <div class="chip bg-primary">7일 미션</div>
-                                        <!-- 진행 미진행 -->
-                                        <div class="routine-chk not-ing"></div>
-                                    </div>
-                                    <div class="routine-middle">
-                                        <div class="routine-img w167">
-                                            <img src="../assets/img/main/main_routine_02.png" alt="">
-                                        </div>
-                                        <div class="routine-tit">
-                                            <p class="routine-bigtit">밀가루 먹지 않기</p>
-                                            <p class="routine-subtit">3일차 0% 달성</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
-                                    <div class="routine-top">
-                                        <div class="chip bg-primary">14일 미션</div>
-                                        <!-- 진행 미진행 -->
-                                        <div class="routine-chk not-ing"></div>
-                                    </div>
-                                    <div class="routine-middle">
-                                        <div class="routine-img">
-                                            <img src="../assets/img/main/main_routine_03.png" alt="">
-                                        </div>
-                                        <div class="routine-tit">
-                                            <p class="routine-bigtit">한시간 러닝하기</p>
-                                            <p class="routine-subtit">7일차 55% 달성</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
-                                    <div class="routine-top">
-                                        <div class="chip bg-primary">7일 미션</div>
-                                        <!-- 진행 미진행 -->
-                                        <div class="routine-chk not-ing"></div>
-                                    </div>
-                                    <div class="routine-middle">
-                                        <div class="routine-img">
-                                            <img src="../assets/img/main/main_routine_02.png" alt="">
-                                        </div>
-                                        <div class="routine-tit">
-                                            <p class="routine-bigtit">밀가루 먹지 않기</p>
-                                            <p class="routine-subtit">3일차 0% 달성</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
-                                    <div class="routine-top">
-                                        <div class="chip bg-primary">7일 미션</div>
-                                        <!-- 진행 미진행 -->
-                                        <div class="routine-chk not-ing"></div>
-                                    </div>
-                                    <div class="routine-middle">
-                                        <div class="routine-img">
-                                            <img src="../assets/img/main/main_routine_02.png" alt="">
-                                        </div>
-                                        <div class="routine-tit">
-                                            <p class="routine-bigtit">밀가루 먹지 않기</p>
-                                            <p class="routine-subtit">3일차 0% 달성</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
-                                    <div class="routine-top">
-                                        <div class="chip bg-primary">7일 미션</div>
-                                        <!-- 진행 미진행 -->
-                                        <div class="routine-chk not-ing"></div>
-                                    </div>
-                                    <div class="routine-middle">
-                                        <div class="routine-img">
-                                            <img src="../assets/img/main/main_routine_02.png" alt="">
-                                        </div>
-                                        <div class="routine-tit">
-                                            <p class="routine-bigtit">밀가루 먹지 않기</p>
-                                            <p class="routine-subtit">3일차 0% 달성</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-pagination swiper-pagination-black"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 활동지수노출벤토카드(기본카드노출) -->
-                <div class="myactive_wrap animation-enter">
-                    <p class="main-font18-exbold03"><span>베니보리</span> 님의 활동 요약</p>
-                    <!-- 신규회원및활동기록을 하지않은 사용자 활동카드 : 등록및연동으로 이어질수있도록 등록하기/기록하기/연동하기 텍스트노출 (작업 필요) -->
+                <!-- 활동지수노출벤토카드(기본카드노출) : 활동 등록 -->
+                <!-- ※ 활동 등록 하지 않았을 경우 : 작업필요 -->
+                <div class="myactive_wrap">
+                    <p class="main-font18-exbold"><span>베니보리</span> 님의 활동 요약</p>
                     <div class="myactive-box">
                         <div class="myactive-col01">
+                            <!-- 01. 활동지수노출벤토카드 > 칼로리 -->
                             <div class="myactive-cal">
                                 <div class="myactive-top">
                                     칼로리
-                                    <i class="myactive-icon"></i>
+                                    <!-- <a href="#" class="btn-link-wh myactive-icon"><i></i></a> -->
+                                    <i class="active-icon--cal"></i>
                                 </div>
                                 <div class="circlebar_total animation-enter">
                                     <div class="circlebar_wrap">
@@ -221,15 +50,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="myactive-weight" style="height: auto;">
+                            <!-- <div class="myactive-weight" style="height: auto;">
                                 <div class="myactive-top">
                                     체중
-                                    <a href="#" class="btn-link myactive-icon"><i></i></a>
+                                    <i class="weight-icon"></i>
                                 </div>
                                 <p class="myactive-result">58<span class="unit-txt">kg</span></p>
-                                <!-- 그래프 -->
                                 <div class="weight-chart weight-Chjs01">
-                                    <!-- 375px 화면 기준으로 높이 75px이 최대임 -->
                                     <div class="chart-box" style="height: 20vw;"> 
                                         <div class="weight-bar01"></div>
                                         <div class="weight-bar02"></div>
@@ -245,12 +72,14 @@
                                         <p>5</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- vw 안쓰고 체중 -->
+                            <!-- 02. 활동지수노출벤토카드 > 체중 -->
                             <div class="myactive-weight">
                                 <div class="myactive-top">
                                     체중
-                                    <a href="#" class="btn-link myactive-icon"><i></i></a>
+                                    <!-- <a href="#" class="btn-link myactive-icon"><i></i></a> -->
+                                    <i class="active-icon--weight"></i>
                                 </div>
                                 <p class="myactive-result">58<span class="unit-txt">kg</span></p>
                                 <!-- 그래프 -->
@@ -272,25 +101,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="myactive-nutr">
+                            <!-- 03. 활동지수노출벤토카드 > 영양제 -->
+                            <div class="myactive-vita">
                                 <div class="myactive-top">
                                     영양제
-                                    <a href="#" class="btn-link myactive-icon"><i></i></a>
+                                    <!-- <a href="#" class="btn-link myactive-icon"><i></i></a> -->
+                                    <i class="active-icon--vita"></i>
                                 </div>
                                 <p class="myactive-result">비타민 C</p>
-                                <!-- 아이콘 -->
-                                <div></div>
-                            </div>
-                            <div class="myactive-add">
+                                <!-- <div>아이콘</div> -->
                             </div>
                         </div>
                         <div class="myactive-col02">
+                            <!-- 04. 활동지수노출벤토카드 > 운동 -->
                             <div class="myactive-exercise">
                                 <div class="myactive-top">
                                     운동
-                                    <a href="#" class="btn-link myactive-icon"><i></i></a>
+                                    <!-- <a href="#" class="btn-link myactive-icon"><i></i></a> -->
+                                    <i class="active-icon--health"></i>
                                 </div>
                                 <div class="exercise-box">
+                                    <p class="myactive-result">60<span class="unit-txt">분</span></p>
+                                </div>
+                                <!-- <div class="exercise-box">
                                     <div>
                                         <p>시간</p>
                                         <p class="myactive-result">30<span class="unit-txt">분</span></p>
@@ -299,11 +132,10 @@
                                         <p>걷기</p>
                                         <p class="myactive-result">5,303</p>
                                     </div>
-                                </div>
-                                <!-- 아이콘 -->
-                                <div></div>
+                                </div> 
+                                <div>아이콘</div>-->
                             </div>
-                            <div class="myactive-meal">
+                            <!-- <div class="myactive-meal">
                                 <div class="myactive-top">
                                     식사
                                     <a href="#" class="btn-link myactive-icon"><i></i></a>
@@ -326,26 +158,439 @@
                                         <p class="myactive-result">1500<span class="unit-txt">Kcal</span></p>
                                     </div>
                                 </div>
-                                <!-- 아이콘 -->
                                 <div></div>
-                            </div>
+                            </div> -->
+                            <!-- 05. 활동지수노출벤토카드 > 물 -->
                             <div class="myactive-water">
                                 <div class="myactive-top">
                                     물
-                                    <a href="#" class="btn-link myactive-icon"><i></i></a>
+                                    <!-- <a href="#" class="btn-link myactive-icon"><i></i></a> -->
                                 </div>
                                 <p class="myactive-result">900<span class="unit-txt">ml</span></p>
-                                <!-- 아이콘 -->
-                                <div></div>
+                                <div class="water-animation">
+                                    <i class="icon-water"></i>
+                                </div>
                             </div>
+                            <!-- 06. 활동지수노출벤토카드 > 컨디션 -->
                             <div class="myactive-condi">
                                 <div class="myactive-top">
                                     컨디션
-                                    <a href="#" class="btn-link myactive-icon"><i></i></a>
+                                    <!-- <a href="#" class="btn-link myactive-icon"><i></i></a> -->
+                                    <i class="active-icon--condition"></i>
                                 </div>
-                                <p class="myactive-result">아주 좋아</p>
-                                <!-- 아이콘 -->
-                                <div></div>
+                                <p class="myactive-result">아주 <br/>좋아</p>
+                                <!-- <div>아이콘</div> -->
+                            </div>
+                            <!-- 07. 활동지수노출벤토카드 > 추가 -->
+                            <a class="myactive-add"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 건강 + (GC 케어서비스상세서비스노출영역) -->
+                <!-- 상단아이콘(건강+)  Tab시노출콘텐츠(GC케어) -->
+                <!-- 추천 루틴 말풍선 : 시작 말풍선 -->
+                <div class="anibubble_wrap anibubble-right bubble-routine">
+                    <div class="bubble-wrap">
+                        <div class="bubble-box bubble-orange">
+                            <div class="bubble-type01 bubble-right">추천루틴을 확인해보세요!</div>
+                            <div class="triangle-icon">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bubble-img">
+                        <img src="../assets/img/main/main_character01.png" alt="캐릭터">
+                    </div>
+                </div>
+                <!-- 추천루틴노출영역(알고리즘에의한루틴노출영역)  -->
+                <div class="recommend_routine_wrap animation-enter">
+                    <div class="swipertop-box animation-title">
+                        <p class="main-font18-exbold">추천루틴</p>
+                        <!-- <div class="anibubble_wrap anibubble-opacity02">
+                            <div class="bubble-wrap">
+                                <div class="bubble-box bubble-orange">
+                                    <div class="bubble-type01 bubble-left">똑똑한 AI가 추천하는 루틴</div>
+                                    <div class="triangle-icon">
+                                        <div class="triangle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="swiper-card pagination-card routine-swiper">
+                        <div class="swiper cardjs-routine swiper-routine">
+                            <div class="swiper-wrapper">
+                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
+                                    <div class="routine-top">
+                                        <div class="chip bg-primary">10일 미션</div>
+                                        <!-- 진행 중 -->
+                                        <div class="routine-chk ing"></div>
+                                    </div>
+                                    <div class="routine-middle">
+                                        <div class="routine-img w179">
+                                            <img src="../assets/img/main/main_routine_01.png" alt="">
+                                        </div>
+                                        <div class="routine-tit">
+                                            <p class="main-font20-exbold02 routine-bigtit">아침에 일찍 일어나기</p>
+                                            <p class="main-font14-bold routine-subtit">8일차 80% 달성</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
+                                    <div class="routine-top">
+                                        <div class="chip bg-primary">7일 미션</div>
+                                        <!-- 진행 미진행 -->
+                                        <div class="routine-chk not-ing"></div>
+                                    </div>
+                                    <div class="routine-middle">
+                                        <div class="routine-img w167">
+                                            <img src="../assets/img/main/main_routine_02.png" alt="">
+                                        </div>
+                                        <div class="routine-tit">
+                                            <p class="main-font20-exbold02 routine-bigtit">밀가루 먹지 않기</p>
+                                            <p class="main-font14-bold routine-subtit">3일차 0% 달성</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
+                                    <div class="routine-top">
+                                        <div class="chip bg-primary">14일 미션</div>
+                                        <!-- 진행 미진행 -->
+                                        <div class="routine-chk not-ing"></div>
+                                    </div>
+                                    <div class="routine-middle">
+                                        <div class="routine-img">
+                                            <img src="../assets/img/main/main_routine_03.png" alt="">
+                                        </div>
+                                        <div class="routine-tit">
+                                            <p class="main-font20-exbold02 routine-bigtit">한시간 러닝하기</p>
+                                            <p class="main-font14-bold routine-subtit">7일차 55% 달성</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
+                                    <div class="routine-top">
+                                        <div class="chip bg-primary">7일 미션</div>
+                                        <!-- 진행 미진행 -->
+                                        <div class="routine-chk not-ing"></div>
+                                    </div>
+                                    <div class="routine-middle">
+                                        <div class="routine-img">
+                                            <img src="../assets/img/main/main_routine_02.png" alt="">
+                                        </div>
+                                        <div class="routine-tit">
+                                            <p class="main-font20-exbold02 routine-bigtit">밀가루 먹지 않기</p>
+                                            <p class="main-font14-bold routine-subtit">3일차 0% 달성</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
+                                    <div class="routine-top">
+                                        <div class="chip bg-primary">7일 미션</div>
+                                        <!-- 진행 미진행 -->
+                                        <div class="routine-chk not-ing"></div>
+                                    </div>
+                                    <div class="routine-middle">
+                                        <div class="routine-img">
+                                            <img src="../assets/img/main/main_routine_02.png" alt="">
+                                        </div>
+                                        <div class="routine-tit">
+                                            <p class="main-font20-exbold02 routine-bigtit">밀가루 먹지 않기</p>
+                                            <p class="main-font14-bold routine-subtit">3일차 0% 달성</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
+                                    <div class="routine-top">
+                                        <div class="chip bg-primary">7일 미션</div>
+                                        <!-- 진행 미진행 -->
+                                        <div class="routine-chk not-ing"></div>
+                                    </div>
+                                    <div class="routine-middle">
+                                        <div class="routine-img">
+                                            <img src="../assets/img/main/main_routine_02.png" alt="">
+                                        </div>
+                                        <div class="routine-tit">
+                                            <p class="main-font20-exbold02 routine-bigtit">밀가루 먹지 않기</p>
+                                            <p class="main-font14-bold routine-subtit">3일차 0% 달성</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="swiper-pagination swiper-pagination-black"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 추천 루틴 말풍선 : 종료 말풍선 -->
+                <div class="anibubble_wrap anibubble-left bubble-routine02">
+                    <div class="bubble-img char-green">
+                        <img src="../assets/img/main/main_character02.png" alt="캐릭터">
+                    </div>
+                    <div class="bubble-wrap">
+                        <div class="bubble-box bubble-orange">
+                            <div class="bubble-type01 bubble-left">루틴의 끝이 보이고 있어요!</div>
+                            <div class="triangle-icon">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- v1.0 기준) 식단 기록중 영역  -->
+                <div class="mainmeal_wrap animation-enter">
+                    <div class="mainmeal-title">
+                        <p class="main-font18-exbold">나의 식단을 기록중이에요</p>
+                        <div class="mainmeal-more">
+                            <div class="bubble-wrap">
+                                <div class="bubble-box bubble-black">
+                                    <div class="bubble-type03 bubble-right">기록하세요</div>
+                                    <div class="triangle-icon">
+                                        <div class="triangle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="more-btn-gr"><i></i></a> <!-- 식사기록페이지로 이동 -->
+                        </div>
+                    </div>
+                    <div class="mainmeal-box">
+                        <div class="mainmeal-each morning">
+                            <div class="mainmeal-img">
+                                <img src="../assets/img/main/main_morning_icon.png" alt="식사기록 아침 메뉴 아이콘">
+                            </div>
+                            <div class="mainmeal-des">
+                                <p class="main-font20-exbold02 mainmeal-kind">아침</p>
+                                <div class="mainmeal-result">
+                                    <div class="result-chk"></div>
+                                    <p>먹었어요 <span>(3)</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mainmeal-each launch">
+                            <div class="mainmeal-img">
+                                <img src="../assets/img/main/main_lanuch_icon.png" alt="식사기록 아침 메뉴 아이콘">
+                            </div>
+                            <div class="mainmeal-des">
+                                <p class="main-font20-exbold02 mainmeal-kind">점심</p>
+                                <!-- 안먹은 경우 : none-meal 이중추가 -->
+                                <div class="mainmeal-result none-meal">
+                                    <div class="result-chk"></div>
+                                    <p>안 먹었어요 <span>(0)</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mainmeal-each launch">
+                            <div class="mainmeal-img">
+                                <img src="../assets/img/main/main_dinner_icon.png" alt="식사기록 아침 메뉴 아이콘">
+                            </div>
+                            <div class="mainmeal-des">
+                                <p class="main-font20-exbold02 mainmeal-kind">저녁</p>
+                                <!-- 안먹은 경우 : none-meal 이중추가 -->
+                                <div class="mainmeal-result none-meal">
+                                    <div class="result-chk"></div>
+                                    <p>안 먹었어요 <span>(0)</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mainmeal-each launch">
+                            <div class="mainmeal-img">
+                                <img src="../assets/img/main/main_dessert_icon.png" alt="식사기록 아침 메뉴 아이콘">
+                            </div>
+                            <div class="mainmeal-des">
+                                <p class="main-font20-exbold02 mainmeal-kind">간식</p>
+                                <!-- 안먹은 경우 : none-meal 이중추가 -->
+                                <div class="mainmeal-result none-meal">
+                                    <div class="result-chk"></div>
+                                    <p>안 먹었어요 <span>(0)</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 챌린지 : 걸어서 세계 여행  -->
+                <div class="mainchal_wrap animation-enter">
+                    <div class="mainchal-mine">
+                        <p class="main-font26-thin">열심히 걷는 당신이 <br />
+                            <strong class="main-font26-bold">세계 여행의 주인공!!</strong>
+                        </p>
+                        <div class="mainchal-img">
+                            <img src="../assets/img/main/main_challenge_character.png" alt="도전 캐릭터 01">
+                        </div>
+                        <div class="mainchal-myranking">
+                            <!-- 등수 및 걸음수 긴 경우 w값 넘침 -->
+                            <dl>
+                                <div class="myranking-box">
+                                    <dt class="main-font14-normal">현재등수</dt>
+                                    <dd><strong>1</strong>위</dd>
+                                </div>
+                                <div class="mywalking-box">
+                                    <dt class="main-font14-normal">누적걸음수</dt>
+                                    <dd><strong>860,800</strong></dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <!-- 참여하지 않았을 경우 (디자인 수급필요) -->
+                        <div class="mainchal-myranking">
+                            <p>세계 유명한 랜드마크를 정복해 보세요</p>
+                            <a>지금 바로 참여!</a>
+                        </div>
+                    </div>
+                    <div class="anibubble_wrap anibubble-right bubble-routine">
+                        <div class="bubble-wrap">
+                            <div class="bubble-box bubble-orange">
+                                <div class="bubble-type01 bubble-right">지금처럼만 하면 1위를 유지할 수 있어요</div>
+                                <div class="triangle-icon">
+                                    <div class="triangle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bubble-img">
+                            <img src="../assets/img/main/main_character01.png" alt="캐릭터">
+                        </div>
+                    </div>
+                    <div class="mainchal-ranking">
+                        <p class="main-font18-exbold">지구별 여행자들 랭킹!!</p>
+                        <!-- <div>
+                            <ul class="totalranking-wrap">
+                                <li>
+                                    <div class="totalranking-box">
+                                        <div class="ranking-left">
+                                            <img src="../assets/img/main/main_ranking_badge01.png" alt="뱃지 1">
+                                        </div>
+                                        <div class="ranking-right">
+                                            <div>
+                                                <div class="ranking-chip winner">Winner</div>
+                                                <div class="ranking-detail">
+                                                    <div class="ranking-detail_info">
+                                                        <strong>1위</strong>
+                                                        <p>느린걸음 시드니</p>
+                                                    </div>
+                                                    <div class="ranking-detail_walk">
+                                                        <p>현재 걸음 수 <strong>8,342</strong></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a class="ranking-btn"></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="totalranking-box">
+                                        <div class="ranking-left">
+                                            <img src="../assets/img/main/main_ranking_badge02.png" alt="뱃지 2">
+                                        </div>
+                                        <div class="ranking-right">
+                                            <div>
+                                                <div class="ranking-chip">2nd</div>
+                                                <div class="ranking-detail">
+                                                    <div class="ranking-detail_info">
+                                                        <strong>1위</strong>
+                                                        <p>느린걸음 시드니</p>
+                                                    </div>
+                                                    <div class="ranking-detail_walk">
+                                                        <p>현재 걸음 수 <strong>8,342</strong></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a class="ranking-btn"></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="totalranking-box">
+                                        <div class="ranking-left">
+                                            <img src="../assets/img/main/main_ranking_badge03.png" alt="뱃지 3">
+                                        </div>
+                                        <div class="ranking-right">
+                                            <div>
+                                                <div class="ranking-chip">3rd</div>
+                                                <div class="ranking-detail">
+                                                    <div class="ranking-detail_info">
+                                                        <strong>1위</strong>
+                                                        <p>느린걸음 시드니</p>
+                                                    </div>
+                                                    <div class="ranking-detail_walk">
+                                                        <p>현재 걸음 수 <strong>8,342</strong></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a class="ranking-btn"></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div> -->
+                        <div>
+                            <div class="swiper-card pagination-card">
+                                <div class="swiper cardjs-ranking">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="totalranking-box">
+                                                <div class="ranking-left">
+                                                    <img src="../assets/img/main/main_ranking_badge01.png" alt="뱃지 1">
+                                                </div>
+                                                <div class="ranking-right">
+                                                    <div>
+                                                        <div class="ranking-chip winner">Winner</div>
+                                                        <div class="ranking-detail">
+                                                            <div class="ranking-detail_info">
+                                                                <strong>1위</strong>
+                                                                <p>느린걸음 시드니</p>
+                                                            </div>
+                                                            <div class="ranking-detail_walk">
+                                                                <p>현재 걸음 수 <strong>8,342</strong></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a class="ranking-btn"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="totalranking-box">
+                                                <div class="ranking-left">
+                                                    <img src="../assets/img/main/main_ranking_badge02.png" alt="뱃지 2">
+                                                </div>
+                                                <div class="ranking-right">
+                                                    <div>
+                                                        <div class="ranking-chip">2nd</div>
+                                                        <div class="ranking-detail">
+                                                            <div class="ranking-detail_info">
+                                                                <strong>1위</strong>
+                                                                <p>느린걸음 시드니</p>
+                                                            </div>
+                                                            <div class="ranking-detail_walk">
+                                                                <p>현재 걸음 수 <strong>8,342</strong></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a class="ranking-btn"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="totalranking-box">
+                                                <div class="ranking-left">
+                                                    <img src="../assets/img/main/main_ranking_badge03.png" alt="뱃지 3">
+                                                </div>
+                                                <div class="ranking-right">
+                                                    <div>
+                                                        <div class="ranking-chip">3rd</div>
+                                                        <div class="ranking-detail">
+                                                            <div class="ranking-detail_info">
+                                                                <strong>1위</strong>
+                                                                <p>느린걸음 시드니</p>
+                                                            </div>
+                                                            <div class="ranking-detail_walk">
+                                                                <p>현재 걸음 수 <strong>8,342</strong></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a class="ranking-btn"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination swiper-pagination-black"></div>
+                                </div>
                             </div>
                         </div>
                     </div>

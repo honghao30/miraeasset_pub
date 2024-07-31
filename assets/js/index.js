@@ -72,6 +72,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
         slidesOffsetAfter: 16
     });
 
+    const swiper6 = swiperCustom(".cardjs-ranking", 1, {
+        pagination: {
+            el: ".swiper-pagination-black",
+            clickable: true,
+        },
+        slidesOffsetAfter: 16,
+    });
+
     // 달력
     rangeOptionSelector('startDate2', 'endDate2');
     const calendar = new DateRangePicker('startDate', 'endDate');
