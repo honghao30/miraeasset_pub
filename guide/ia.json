@@ -2379,15 +2379,15 @@
 		"memo": ""
 	},
 	{
-		"condition": "진행대기",
+		"condition": "진행중",
 		"depth1": "",
 		"depth2": "",
 		"depth3": "회원가입 정보 입력",
-		"wbs_id": "screen_main",
-		"file_link": "/front_markup/",
-		"worker": "",
-		"start_date": "",
-		"end_date": "",
+		"wbs_id": "DHC-HT-077",
+		"file_link": "/front_markup/DHC-HT-077.html",
+		"worker": "최민경",
+		"start_date": "2024.07.29",
+		"end_date": "2024.08.09",
 		"screen_type": "",
 		"memo": ""
 	},
