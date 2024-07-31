@@ -466,3 +466,36 @@ const loadMoreContent = async (count = 5) => {
 
     return hasMoreContent;
 };
+
+//아코디언
+export const accordion = (container, openIndex) => {
+    const accordionContainers = document.querySelectorAll(container);
+
+    if (accordionContainers.length > 0) {
+        accordionContainers.forEach((acc, index) => {
+            const items = acc.querySelectorAll('.accordion-item');
+
+            // openIndex가 주어진 경우 해당 항목을 활성화 상태로 설정
+            if (typeof openIndex === 'number' && items[openIndex]) {
+                items[openIndex].classList.add('is-active');
+            }
+            
+            acc.addEventListener('click', event => {
+                if (event.target.tagName === 'BUTTON') {
+                    const _this = event.target;
+                    const parentItem = _this.parentElement.parentElement;
+                    
+                    // 모든 활성화된 항목을 비활성화
+                    document.querySelectorAll('.accordion-item.is-active').forEach(item => {
+                        if (item !== parentItem) {
+                            item.classList.remove('is-active');
+                        }
+                    });
+                    
+                    // 현재 클릭된 항목을 토글
+                    parentItem.classList.toggle('is-active');
+                }
+            });
+        });
+    }
+} 

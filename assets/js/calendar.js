@@ -79,11 +79,16 @@ export class DateRangePicker {
 
 
 // 월간 달력
+/************************
+ * day.js 필수
+ ************************/
 export const newMonthlyCalendar = (containerId, options) => {
     const mergedOptions = {
         button: false,
         displayData: 'default',
         dayClickCallback: null,
+        toggle: false,
+        addCalendarData: null, // 사용자 데이터를 추가하는 함수
         ...options
     };
 
@@ -93,6 +98,8 @@ export const newMonthlyCalendar = (containerId, options) => {
     }
 
     let currentDate = dayjs();
+    let todayRowIndex = null; 
+    let currentRowIndex = 0;  
 
     // 화면 로드 시 오늘 날짜 데이터를 불러오고 표시
     if (mergedOptions.dayClickCallback) {
@@ -101,7 +108,8 @@ export const newMonthlyCalendar = (containerId, options) => {
 
     displayCalendar(currentDate);
 
-    container.querySelector('.calendar__header .btn-show-today') && container.querySelector('.calendar__header .btn-show-today').addEventListener('click', function () {
+    // 현재 날짜로 이동 버튼
+    container.querySelector('.calendar__header .btn-show-today')?.addEventListener('click', () => {
         currentDate = dayjs();
         displayCalendar(currentDate);
         if (mergedOptions.dayClickCallback) {
@@ -109,13 +117,14 @@ export const newMonthlyCalendar = (containerId, options) => {
         }
     });
 
+    // 이전/다음 달 이동 버튼
     if (mergedOptions.button) {
-        container.querySelector('.calendar__header .btn-prev-month') && container.querySelector('.calendar__header .btn-prev-month').addEventListener('click', function () {
+        container.querySelector('.calendar__header .btn-prev-month')?.addEventListener('click', () => {
             currentDate = currentDate.subtract(1, 'month');
             displayCalendar(currentDate);
         });
 
-        container.querySelector('.calendar__header .btn-next-month') && container.querySelector('.calendar__header .btn-next-month').addEventListener('click', function () {
+        container.querySelector('.calendar__header .btn-next-month')?.addEventListener('click', () => {
             currentDate = currentDate.add(1, 'month');
             displayCalendar(currentDate);
         });
@@ -124,41 +133,41 @@ export const newMonthlyCalendar = (containerId, options) => {
         buttons.forEach(button => button.style.display = 'none');
     }
 
-    const handleTouchStart = (event) => {
-        start_xPos = event.touches[0].pageX;
-        start_yPos = event.touches[0].pageY;
-        start_time = new Date();
-    };
+    if(!mergedOptions.userTouchMove) {
+        // 터치 이벤트 핸들러
+        const handleTouchStart = (event) => {
+            start_xPos = event.touches[0].pageX;
+            start_yPos = event.touches[0].pageY;
+            start_time = new Date();
+        };
 
-    const handleTouchEnd = (event) => {
-        const end_xPos = event.changedTouches[0].pageX;
-        const end_yPos = event.changedTouches[0].pageY;
-        const end_time = new Date();
-        let move_x = end_xPos - start_xPos;
-        let move_y = end_yPos - start_yPos;
-        let elapsed_time = end_time - start_time;
-        if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
-            if (move_x < 0) {
-                currentDate = currentDate.add(1, 'month');
-                displayCalendar(currentDate);
-            } else {
-                currentDate = currentDate.subtract(1, 'month');
+        const handleTouchEnd = (event) => {
+            const end_xPos = event.changedTouches[0].pageX;
+            const end_yPos = event.changedTouches[0].pageY;
+            const end_time = new Date();
+            const move_x = end_xPos - start_xPos;
+            const move_y = end_yPos - start_yPos;
+            const elapsed_time = end_time - start_time;
+            if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
+                if (move_x < 0) {
+                    currentDate = currentDate.add(1, 'month');
+                } else {
+                    currentDate = currentDate.subtract(1, 'month');
+                }
                 displayCalendar(currentDate);
             }
-        }
-    };
+        };
 
-    const min_horizontal_move = 30;
-    const max_vertical_move = 30;
-    const within_ms = 1000;
+        const min_horizontal_move = 30;
+        const max_vertical_move = 30;
+        const within_ms = 1000;
+        let start_xPos, start_yPos, start_time;
 
-    let start_xPos;
-    let start_yPos;
-    let start_time;
+        container.addEventListener('touchstart', handleTouchStart);
+        container.addEventListener('touchend', handleTouchEnd);
+    }
 
-    container && container.addEventListener('touchstart', handleTouchStart);
-    container && container.addEventListener('touchend', handleTouchEnd);
-
+    // 드롭다운 옵션 생성
     const buildDropdownOptions = (currentDate) => {
         const select = document.createElement('select');
         for (let i = 0; i < 15; i++) {
@@ -186,6 +195,7 @@ export const newMonthlyCalendar = (containerId, options) => {
         });
     }
 
+    // 캘린더 표시
     function displayCalendar(date) {
         const displayData = container.querySelector('.display-data');
         const tableBody = container.querySelector('.calendar__content tbody');
@@ -202,13 +212,14 @@ export const newMonthlyCalendar = (containerId, options) => {
         const firstDayOfMonth = date.startOf('month').day();
         const daysInMonth = date.daysInMonth();
         const lastDayOfPrevMonth = date.subtract(1, 'month').endOf('month').date();
-        date.add(1, 'month');
+        date.add(1, 'month'); // date 상태 복구
         const firstDayOfNextMonth = date.startOf('month').date();
 
         tableBody.innerHTML = '';
         let dayIndex = 0;
         let row = tableBody.insertRow();
 
+        // 이전 달 날짜 표시
         for (let i = 0; i < firstDayOfMonth; i++) {
             const cell = row.insertCell();
             const prevMonthDay = lastDayOfPrevMonth - (firstDayOfMonth - i - 1);
@@ -220,6 +231,7 @@ export const newMonthlyCalendar = (containerId, options) => {
             dayIndex++;
         }
 
+        // 이번 달 날짜 표시
         for (let day = 1; day <= daysInMonth; day++) {
             const cell = row.insertCell();
             const link = document.createElement('a');
@@ -227,7 +239,10 @@ export const newMonthlyCalendar = (containerId, options) => {
             link.textContent = day;
             cell.appendChild(link);
 
-            addUserDataToCell(cell, date.date(day));
+            // 사용자 데이터 추가
+            if (typeof mergedOptions.addCalendarData === 'function') {
+                mergedOptions.addCalendarData(cell, date.date(day)); // cell에 사용자 데이터 추가
+            }
 
             link.addEventListener('click', (event) => {
                 event.preventDefault();
@@ -239,6 +254,7 @@ export const newMonthlyCalendar = (containerId, options) => {
 
             if (date.date(day).isSame(dayjs(), 'day')) {
                 cell.classList.add('today');
+                todayRowIndex = currentRowIndex;
             }
 
             const weekday = (firstDayOfMonth + day - 1) % 7;
@@ -248,9 +264,11 @@ export const newMonthlyCalendar = (containerId, options) => {
 
             if (++dayIndex % 7 === 0 && day < daysInMonth) {
                 row = tableBody.insertRow();
+                currentRowIndex++;
             }
         }
 
+        // 다음 달 날짜 표시
         let nextMonthDay = 1;
         while (dayIndex % 7 !== 0) {
             const cell = row.insertCell();
@@ -263,48 +281,49 @@ export const newMonthlyCalendar = (containerId, options) => {
             nextMonthDay++;
         }
 
+        // 빈 칸 채우기
         const remainingCells = 7 - (dayIndex % 7);
         if (remainingCells !== 7) {
             for (let i = 0; i < remainingCells; i++) {
                 const cell = row.insertCell();
                 cell.classList.add('gray');
             }
-        }
+        }       
     }
 
-    const handleDayClick = (date, day) => {
-        const selectedDay = dayjs(date).date(day).format('YYYYMMDD');
-        return selectedDay;
-    };
+    // 주간 월간 토글 기능    
+    const setupCalendarToggle = (todayRowIndex, mergedOptions) => {
+        const toggleButton = container.querySelector('.btn-calendar-toggle');
+        const allTrs = container.querySelectorAll('.calendar__content tbody tr');
+    
+        const toggleView = () => {
+            if (toggleButton.innerText === '월간보기') {
+                toggleButton.innerText = '주간보기';
+                allTrs.forEach(tr => tr.classList.remove('hide'));
+                allTrs[todayRowIndex].classList.remove('show');
+            } else {
+                toggleButton.innerText = '월간보기';
+                allTrs.forEach(tr => tr.classList.add('hide'));
+                allTrs[todayRowIndex].classList.remove('hide');
+                allTrs[todayRowIndex].classList.add('show');
+            }
+        };
+    
+        if (mergedOptions.toggle !== false) {
+            toggleButton.innerText = '월간보기';
+            toggleButton.style.display = 'block';
+            allTrs.forEach(tr => tr.classList.add('hide'));
+            allTrs[todayRowIndex].classList.remove('hide');
+            allTrs[todayRowIndex].classList.add('show');
+            toggleButton.addEventListener('click', toggleView);
+        } else {
+            toggleButton.style.display = 'none';
+        }
+    };   
+    setupCalendarToggle(todayRowIndex, mergedOptions);     
+
 };
 
-// 사용자 데이터를 추가하는 함수
-const addCalendarData = (cell, userData) => {
-    const healthDataEl = document.createElement('div');
-    healthDataEl.classList.add('health-data-wrap');
-    healthDataEl.innerHTML = userData;
-    cell.appendChild(healthDataEl);    
-}
-
-export const addUserDataToCell = async (cell, date) => {    
-    try {
-        // const response = await fetch('');
-        // const userData = await response.json();
-
-        // 예시 데이터 추가 (API 응답 형식에 맞게 변경하세요)
-        const healthDataHTML = `
-            <div class="dot type-meal"></div>
-            <div class="dot type-work-out"></div>
-            <div class="dot type-nutrition"></div>
-        `;
-
-        // API로부터 받은 데이터를 사용하여 사용자 데이터 추가
-        addCalendarData(cell, healthDataHTML);
-
-    } catch (error) {
-        console.error('사용자 데이터를 불러오는 중 오류가 발생했습니다:', error);
-    }
-} 
 
 // 주간달력
 /************************
@@ -329,22 +348,40 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
 
     let currentDate = dayjs();
     const weeksCount = displayWeeklyCalendar(currentDate) + 5; // 최초 호출시 weeksCount 반환
+
+    const startOfWeek = currentDate.clone().startOf('week');
+    const endOfWeek = currentDate.clone().endOf('week');
+    const titleType = options.displayDay;
+    
+    const displayWeeklyTitle = (titleType, day) => {
+        const displayData = container.querySelector('.display-data');
+        if (titleType === 'WeeklyRange') {
+            displayData.textContent = `${day.format('YYYY-MM')} - ${endOfWeek.format('MM-DD')}`;
+        } else if (titleType === 'onlyToday') {
+            displayData.textContent = `${day.format('YYYY-MM-DD')}`;
+        } else if (titleType === 'onlyMonthly') {
+            displayData.textContent = `${day.format('YYYY-MM')}`;
+        } else if (titleType === 'none') {
+            displayData.textContent = '';
+        }                
+    };
     
     if (options.swiperOptions) {
         options.swiperOptions.on = {
             slideNextTransitionEnd: (swiper) => {
-                console.log('SWIPED RIGHT');
+                const newWeekFStartDay = startOfWeek.clone().add(7, 'day');
+                displayWeeklyTitle(titleType, newWeekFStartDay);
             },
             slidePrevTransitionEnd: (swiper) => {
-                console.log('SWIPED LEFT');
+                const newWeekPStartDay = startOfWeek.clone().subtract(7, 'day');
+                displayWeeklyTitle(titleType, newWeekPStartDay);
             }
         };
-
+    
         const swiper = swiperCustom('.calendar-swiper', 1, options.swiperOptions);
         swiper.slideTo(weeksCount);
     }
-
-
+    
     // 캘린더 헤더에 이전달, 다음달 버튼 설정
     if (options.button) {
         const prevButton = document.createElement('button');
@@ -403,7 +440,7 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
 
         container && container.addEventListener('touchstart', handleTouchStart);
         container && container.addEventListener('touchend', handleTouchEnd);
-    }
+    }  
 
     function displayWeeklyCalendar(date) {
         const displayData = container.querySelector('.display-data');
@@ -429,7 +466,7 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
         let currentDay = endLimitDay.startOf('week');
     
         // 제목 사용시 오늘 날짜를 보여줄지 한주의 시작일과 종료일을 보여줄지 선택
-        const displayDateTitle = (type) => {
+        const displayDateTitle = (type, num) => {
             if (type === 'WeeklyRange') {
                 displayData.textContent = `${startOfWeek.format('YYYY년 M월 D일')} - ${endOfWeek.format('M월 D일')}`;
             } else if (type === 'onlyToday') {
@@ -463,8 +500,7 @@ export const createWeeklyCalendar = (containerId, options = {}) => {
         let setDay = startOfWeek.subtract(totalCount, 'week');
         let pastDay = startOfWeek.subtract(weeksCount, 'week');
     
-        if (options.userSwiping) {      
-            console.log('시작일', firstStart, '종료일', endLimitDay, totalCount, setDay, pastDay);
+        if (options.userSwiping) {                  
             while (day.isSameOrBefore(endOfWeek)) {
                 // 요일 표시
                 const weekLabel = document.createElement('li');
