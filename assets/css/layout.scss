@@ -80,6 +80,10 @@
 /* 서브 페이지 */
 .content {
     padding-top: 56px;
+    &.bg-color-basic1 {
+        background-color: var(--color-basic1);
+        padding-top: calc(70 / 16 * 1rem);
+    }
 } 
 .sub-title {
     display: flex;
