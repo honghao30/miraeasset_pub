@@ -45,6 +45,9 @@
                             <tbody></tbody>
                         </table>
                     </div>
+                    <div class="button__wrap">
+                        <button type="button" class="btn-calendar-toggle">주간토글</button>
+                    </div>
                 </div>     
                 <div class="weekly-calendar">
                     <div class="calendar__wrap" id="calendarWeekly2">
@@ -67,10 +70,48 @@
                     </div>                
                 </div>     
                 <script type="module">
-                    import { newMonthlyCalendar, createWeeklyCalendar } from "/assets/js/calendar.js";                    
+                    import { newMonthlyCalendar, createWeeklyCalendar } from "/assets/js/calendar.js";
 
-                    newMonthlyCalendar('page-cal', { button: true, displayData: 'default' });
-                    //사용자 데이터 추가 부분
+                    // 사용자 데이터를 추가하는 함수
+                    const addCalendarData = (cell, userData) => {
+                        const healthDataEl = document.createElement('div');
+                        healthDataEl.classList.add('health-data-wrap');
+                        healthDataEl.innerHTML = userData;
+                        cell.appendChild(healthDataEl);    
+                    };
+
+                    // 사용자 데이터를 셀에 추가하는 함수
+                    const addUserDataToCell = async (cell, date) => {    
+                        try {
+                            // const response = await fetch('');
+                            // const userData = await response.json();
+
+                            // 예시 데이터 추가 (API 응답 형식에 맞게 변경하세요)
+                            const healthDataHTML = `
+                                <div class="dot type-meal"></div>
+                                <div class="dot type-work-out"></div>
+                                <div class="dot type-nutrition"></div>
+                            `;
+
+                            // API로부터 받은 데이터를 사용하여 사용자 데이터 추가
+                            addCalendarData(cell, healthDataHTML);
+
+                        } catch (error) {
+                            console.error('사용자 데이터를 불러오는 중 오류가 발생했습니다:', error);
+                        }
+                    };
+
+                    // `newMonthlyCalendar` 함수 호출
+                    newMonthlyCalendar('page-cal', { 
+                        button: false, 
+                        userTouchMove: false,
+                        displayData: 'default',
+                        toggle: true,
+                        addCalendarData: addUserDataToCell // addUserDataToCell 함수를 올바르게 옵션으로 전달
+                    });
+
+                    
+                    //주간 사용자 데이터 추가 부분
                     const addUserDataToWeeklyLink = (link) => {    
                         const userData = document.createElement('div');
                         userData.classList.add('health-data-wrap');

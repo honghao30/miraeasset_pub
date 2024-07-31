@@ -866,6 +866,16 @@ body.modal-open {
     align-items: center;
     justify-content: center;
 }
+.calendar__content table tbody tr.hide {
+    position: absolute;
+    height:0;
+    overflow: hidden;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 .calendar__content table td.today a {
     background-color: #f58220;
     color: #fff;
