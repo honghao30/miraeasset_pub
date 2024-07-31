@@ -6,7 +6,7 @@
             <div data-include-path="./_inc/head_gnb.html"></div>
             <div class="content mainhealth_wrap">
                 <!-- 건강점수/ 등급별혜택 -->
-                <div class="level_wrap">
+                <div class="level_wrap" style="height: 800px;">
                     <div class="level-box main-whbox">
                         <div class="level-top">
                             <p class="main-font20-bold"><strong class="main-font40-exbold">5</strong>등급</p>
@@ -14,7 +14,7 @@
                         </div>
                         <div class="level-barbox">
                             <div class="level-bar">
-                                <div class="my-level" style="width: 60%;"><span class="myposition"></span></div>
+                                <div class="my-level myLevel-js01"><span class="myposition"></span></div>
                             </div>
                             <div class="level-list">
                                 <p class="main-font14-bold">9등급</p>
@@ -27,9 +27,73 @@
                 <!-- 건강+ (GC 케어서비스상세서비스노출영역) -->
                 <!-- 상단아이콘(건강+)  Tab시노출콘텐츠(GC케어) -->
                 <!-- 추천루틴노출영역(알고리즘에의한루틴노출영역)  -->
-                <div class="recommend_routine_wrap">
-                    <p class="main-font18-exbold02">추천루틴</p>
-                    <div class="swiper-card pagination-card routine-swiper">
+                <div class="recommend_routine_wrap animation-enter">
+                    <div class="anibubble_wrap anibubble-right">
+                        <div class="bubble-wrap">
+                            <div class="bubble-box bubble-orange">
+                                <div class="bubble-type01 bubble-right-center">추천루틴을 확인해보세요!</div>
+                                <div class="triangle-icon">
+                                    <div class="triangle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bubble-img">
+                            <img src="../assets/img/main/main_character01.png" alt="">
+                        </div>
+                    </div>
+                    <div class="anibubble_wrap anibubble-left">
+                        <div class="bubble-img">
+                            <img src="../assets/img/main/main_character02.png" alt="">
+                        </div>
+                        <div class="bubble-wrap">
+                            <div class="bubble-box bubble-orange">
+                                <div class="bubble-type01 bubble-left">루틴의 끝이 보이고 있어요!</div>
+                                <div class="triangle-icon">
+                                    <div class="triangle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anibubble_wrap anibubble-opacity">
+                        <div class="bubble-wrap">
+                            <div class="bubble-box bubble-orange">
+                                <div class="bubble-type01 bubble-right">지금처럼만 하면 1위를 유지할 수 있어요</div>
+                                <div class="triangle-icon">
+                                    <div class="triangle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bubble-img">
+                            <img src="../assets/img/main/main_character01.png" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="anibubble_wrap anibubble-opacity02">
+                        <div class="bubble-wrap">
+                            <div class="bubble-box bubble-orange">
+                                <div class="bubble-type01 bubble-right">지금처럼만 하면 1위를 유지할 수 있어요</div>
+                                <div class="triangle-icon">
+                                    <div class="triangle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bubble-img">
+                            <img src="../assets/img/main/main_character01.png" alt="">
+                        </div>
+                    </div> -->
+                    <div class="animation-title">
+                        <p class="main-font18-exbold02">추천루틴</p>
+                        <div class="anibubble_wrap anibubble-opacity02">
+                        <div class="bubble-wrap">
+                            <div class="bubble-box bubble-orange">
+                                <div class="bubble-type01 bubble-left">똑똑한 AI가 추천하는 루틴</div>
+                                <div class="triangle-icon">
+                                    <div class="triangle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="swiper-card pagination-card routine-swiper" style="padding-left: 16px;">
                         <div class="swiper cardjs-routine">
                             <div class="swiper-wrapper">
                                 <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
@@ -39,8 +103,8 @@
                                         <div class="routine-chk ing"></div>
                                     </div>
                                     <div class="routine-middle">
-                                        <div class="routine-img">
-                                            <img src="../assets/img/icon/main_routine_01.png" alt="">
+                                        <div class="routine-img w179">
+                                            <img src="../assets/img/main/main_routine_01.png" alt="">
                                         </div>
                                         <div class="routine-tit">
                                             <p class="routine-bigtit">아침에 일찍 일어나기</p>
@@ -55,8 +119,40 @@
                                         <div class="routine-chk not-ing"></div>
                                     </div>
                                     <div class="routine-middle">
+                                        <div class="routine-img w167">
+                                            <img src="../assets/img/main/main_routine_02.png" alt="">
+                                        </div>
+                                        <div class="routine-tit">
+                                            <p class="routine-bigtit">밀가루 먹지 않기</p>
+                                            <p class="routine-subtit">3일차 0% 달성</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
+                                    <div class="routine-top">
+                                        <div class="chip bg-primary">14일 미션</div>
+                                        <!-- 진행 미진행 -->
+                                        <div class="routine-chk not-ing"></div>
+                                    </div>
+                                    <div class="routine-middle">
                                         <div class="routine-img">
-                                            <img src="../assets/img/icon/main_routine_02.png" alt="">
+                                            <img src="../assets/img/main/main_routine_03.png" alt="">
+                                        </div>
+                                        <div class="routine-tit">
+                                            <p class="routine-bigtit">한시간 러닝하기</p>
+                                            <p class="routine-subtit">7일차 55% 달성</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
+                                    <div class="routine-top">
+                                        <div class="chip bg-primary">7일 미션</div>
+                                        <!-- 진행 미진행 -->
+                                        <div class="routine-chk not-ing"></div>
+                                    </div>
+                                    <div class="routine-middle">
+                                        <div class="routine-img">
+                                            <img src="../assets/img/main/main_routine_02.png" alt="">
                                         </div>
                                         <div class="routine-tit">
                                             <p class="routine-bigtit">밀가루 먹지 않기</p>
@@ -72,7 +168,7 @@
                                     </div>
                                     <div class="routine-middle">
                                         <div class="routine-img">
-                                            <img src="../assets/img/icon/main_routine_02.png" alt="">
+                                            <img src="../assets/img/main/main_routine_02.png" alt="">
                                         </div>
                                         <div class="routine-tit">
                                             <p class="routine-bigtit">밀가루 먹지 않기</p>
@@ -88,39 +184,7 @@
                                     </div>
                                     <div class="routine-middle">
                                         <div class="routine-img">
-                                            <img src="../assets/img/icon/main_routine_02.png" alt="">
-                                        </div>
-                                        <div class="routine-tit">
-                                            <p class="routine-bigtit">밀가루 먹지 않기</p>
-                                            <p class="routine-subtit">3일차 0% 달성</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
-                                    <div class="routine-top">
-                                        <div class="chip bg-primary">7일 미션</div>
-                                        <!-- 진행 미진행 -->
-                                        <div class="routine-chk not-ing"></div>
-                                    </div>
-                                    <div class="routine-middle">
-                                        <div class="routine-img">
-                                            <img src="../assets/img/icon/main_routine_02.png" alt="">
-                                        </div>
-                                        <div class="routine-tit">
-                                            <p class="routine-bigtit">밀가루 먹지 않기</p>
-                                            <p class="routine-subtit">3일차 0% 달성</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="swiper-slide"> <!-- 루틴페이지로 이동 -->
-                                    <div class="routine-top">
-                                        <div class="chip bg-primary">7일 미션</div>
-                                        <!-- 진행 미진행 -->
-                                        <div class="routine-chk not-ing"></div>
-                                    </div>
-                                    <div class="routine-middle">
-                                        <div class="routine-img">
-                                            <img src="../assets/img/icon/main_routine_02.png" alt="">
+                                            <img src="../assets/img/main/main_routine_02.png" alt="">
                                         </div>
                                         <div class="routine-tit">
                                             <p class="routine-bigtit">밀가루 먹지 않기</p>
@@ -134,8 +198,8 @@
                     </div>
                 </div>
                 <!-- 활동지수노출벤토카드(기본카드노출) -->
-                <div class="myactive_wrap">
-                    <p class="myactive-tit"><span>베니보리</span> 님의 활동 요약</p>
+                <div class="myactive_wrap animation-enter">
+                    <p class="main-font18-exbold03"><span>베니보리</span> 님의 활동 요약</p>
                     <!-- 신규회원및활동기록을 하지않은 사용자 활동카드 : 등록및연동으로 이어질수있도록 등록하기/기록하기/연동하기 텍스트노출 (작업 필요) -->
                     <div class="myactive-box">
                         <div class="myactive-col01">
@@ -144,19 +208,45 @@
                                     칼로리
                                     <i class="myactive-icon"></i>
                                 </div>
-                                <div class="circlebar_total">
+                                <div class="circlebar_total animation-enter">
                                     <div class="circlebar_wrap">
-                                        <svg width="126" height="126" viewBox="0 0 140 140" class="circlebar-type1 circlebar-js1" data-value="65">
-                                            <circle r="60" cx="70" cy="70" class="circle-border"></circle>
-                                            <circle r="60" cx="70" cy="70" class="circle-progress"></circle>
+                                        <svg width="118" height="118" viewBox="0 0 130 130" class="circlebar-type1 circlebar-js1" data-value="65">
+                                            <circle r="59" cx="65" cy="65" class="circle-border"></circle>
+                                            <circle r="59" cx="65" cy="65" class="circle-progress"></circle>
                                         </svg>
                                         <div class="mycal-txt">
                                             <p class="circlebar_txt"></p>
-                                            <span class="unit-txt">cal</span>
+                                            <span class="unit-txt">kcal</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="myactive-weight" style="height: auto;">
+                                <div class="myactive-top">
+                                    체중
+                                    <a href="#" class="btn-link myactive-icon"><i></i></a>
+                                </div>
+                                <p class="myactive-result">58<span class="unit-txt">kg</span></p>
+                                <!-- 그래프 -->
+                                <div class="weight-chart weight-Chjs01">
+                                    <!-- 375px 화면 기준으로 높이 75px이 최대임 -->
+                                    <div class="chart-box" style="height: 20vw;"> 
+                                        <div class="weight-bar01"></div>
+                                        <div class="weight-bar02"></div>
+                                        <div class="weight-bar03"></div>
+                                        <div class="weight-bar04"></div>
+                                        <div class="weight-bar05"></div>
+                                    </div>
+                                    <div class="chart-txt">
+                                        <p>1</p>
+                                        <p>2</p>
+                                        <p>3</p>
+                                        <p>4</p>
+                                        <p>5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- vw 안쓰고 체중 -->
                             <div class="myactive-weight">
                                 <div class="myactive-top">
                                     체중
@@ -164,7 +254,22 @@
                                 </div>
                                 <p class="myactive-result">58<span class="unit-txt">kg</span></p>
                                 <!-- 그래프 -->
-                                <div>
+                                <div class="weight-chart px-chart weight-Chjs02">
+                                    <!-- 375px 화면 기준으로 높이 75px이 최대임 -->
+                                    <div class="chart-box" style="height: 75px;"> 
+                                        <div class="weight-bar01"></div>
+                                        <div class="weight-bar02"></div>
+                                        <div class="weight-bar03"></div>
+                                        <div class="weight-bar04"></div>
+                                        <div class="weight-bar05"></div>
+                                    </div>
+                                    <div class="chart-txt">
+                                        <p>1</p>
+                                        <p>2</p>
+                                        <p>3</p>
+                                        <p>4</p>
+                                        <p>5</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="myactive-nutr">
@@ -258,22 +363,9 @@
         <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
         <script type="module" src="/assets/js/pub_include.js"></script>
         <script type="module" src="/assets/js/index.js"></script>
+        <script type="module" src="/assets/js/main.js"></script>
         <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
         <script type="module" src="/assets/js/gnb_include.js"></script>
         <script type="text/javascript" src="../../assets/bundle/swiper-bundle.min.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                    const myLevel = document.querySelector('.my-level');
-                    const myPosition = document.querySelector('.myposition');
-                    const newWidth = '60%'; // 이 값을 데이터에 따라 동적으로 설정
-                    myLevel.style.setProperty('--level-width', newWidth);
-                    myLevel.style.width = newWidth; // 즉시 반영
-
-                    setTimeout(() => {
-                        myPosition.style.display = "block";
-                        myPosition.style.opacity = "1";
-                    }, 1800); // 애니메이션이 끝나는 시간 1800ms
-                });
-        </script>
     </body>
 </html>

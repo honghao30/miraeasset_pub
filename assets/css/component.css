@@ -1012,7 +1012,6 @@ body.modal-open {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 30%;
     color: #212121;
     text-align: right;
     font-family: NanumSquare;
@@ -1021,6 +1020,8 @@ body.modal-open {
     font-weight: 800;
     line-height: 48px; /* 100% */
     letter-spacing: -0.96px;
+    width: 100%;
+    text-align: center;
 }
 
 /* graph type1*/
@@ -1035,24 +1036,28 @@ body.modal-open {
     stroke: green;
     stroke-width: 12;
     animation: progressType1 2s ease-in-out forwards;
-    stroke-dasharray: 376.8;
-    stroke-dashoffset: 376.8;
+    stroke-dasharray: var(--barWidth);
+    stroke-dashoffset: var(--barWidth);
     transform-origin: center center;
     transform: rotate(-90deg);
     stroke-linecap: round;
 }
-
+.circlebar_total.animation-enter .circle-progress {
+    animation: none;
+}
+.circlebar_total.animation-enter.fade-in .circle-progress {
+    animation: progressType1 2s ease-in-out forwards;
+}
 .circlebar-type1 + .circlebar_txt {
     font-size: 24px;
     font-style: normal;
     font-weight: 800;
     line-height: 24px;
     letter-spacing: -0.96px;
-    left: 30%;
 }
 @keyframes progressType1 {
     0% {
-        stroke-dashoffset: 376.8;
+        stroke-dashoffset: var(--barWidth);
     }
     100% {
         stroke-dashoffset: var(--barNum);
@@ -1071,8 +1076,8 @@ body.modal-open {
     stroke: rgb(249, 197, 100);
     stroke-width: 12;
     animation: progressType2 2s ease-in-out forwards;
-    stroke-dasharray: 376.8;
-    stroke-dashoffset: 376.8;
+    stroke-dasharray: var(--barOverWidth);
+    stroke-dashoffset: var(--barOverWidth);
     transform-origin: center center;
     transform: rotate(-90deg);
     stroke-linecap: round;
@@ -1082,8 +1087,8 @@ body.modal-open {
     stroke-width: 12;
     animation: overflowType 2s ease-in-out forwards;
     animation-delay: 1.5s;
-    stroke-dasharray: 376.8;
-    stroke-dashoffset: 376.8;
+    stroke-dasharray: var(--barOverWidth);
+    stroke-dashoffset: var(--barOverWidth);
     transform-origin: center center;
     transform: rotate(-90deg);
     stroke-linecap: round;
@@ -1094,11 +1099,10 @@ body.modal-open {
     font-weight: 800;
     line-height: 24px;
     letter-spacing: -0.96px;
-    left: 25%;
 }
 @keyframes progressType2 {
     0% {
-        stroke-dashoffset: 376.8;
+        stroke-dashoffset: var(--barOverWidth);
     }
     100% {
         stroke-dashoffset: var(--barNum);
@@ -1106,7 +1110,7 @@ body.modal-open {
 }
 @keyframes overflowType {
     0% {
-        stroke-dashoffset: 376.8;
+        stroke-dashoffset: var(--barOverWidth);
         stroke: transparent;
     }
     100% {
@@ -1253,6 +1257,7 @@ input[type="radio"]:disabled {
     position: relative;
     cursor: pointer;
     gap: 8px; /* 가이드에 없어서 임의로 작업 */
+    color:var(--color-basic9); /* 회원가입용 디자인 컬러로 우선 적용 7/31 */
 }
 .checkbox input[type="checkbox"] {
     overflow: hidden;
@@ -1316,6 +1321,27 @@ input[type="radio"]:disabled {
     background-color: var(--color-white);
     box-shadow: 0 0 0 2px var(--color-basic5) inset;
 }
+
+/* 라디오버튼 - 라인타입 */
+.checkbox.chkbox-line .ch-mark {
+    background-color: var(--color-white);
+    border:2px solid var(--color-basic5);
+}
+.checkbox.chkbox-line .ch-mark::before{
+    background:center / 100% url(../img/icon/check_icon_gr2.png) no-repeat;
+}
+.checkbox.chkbox-line input[type="checkbox"]:checked + .ch-mark::before{
+    border-color:var(--color-primary);
+    background:center / 100% url(../img/icon/check_icon_wh.png) no-repeat ;
+}
+.checkbox.chkbox-line input[type="checkbox"]:checked + .ch-mark{
+    border-color:var(--color-primary);
+}
+.checkbox.chkbox-line input[type="checkbox"]:disabled + .ch-mark {
+    background-color: var(--color-basic3);
+    border-color:var(--color-basic3)
+}
+
 /* 20240719 Main event checked, disabeld 디자인 없음 */
 .checkbox.main-chkbox20-secondary input[type="checkbox"]:checked + .ch-mark,
 .checkbox.main-chkbox20-secondary input[type="checkbox"]:disabled + .ch-mark {
@@ -1451,6 +1477,24 @@ input[type="radio"]:disabled {
 .bubble-right + .triangle-icon .triangle {
     transform: none;
 }
+.bubble-type01.bubble-right-center, .bubble-type01.bubble-left-center  {
+    border-radius: calc(16 / 16 * 1rem);
+}
+.bubble-type01.bubble-right-center + .triangle-icon {
+    top: 33%;
+    transform: rotate(90deg);
+    z-index: -1;
+    position: absolute;
+    right: -3%;
+}
+.bubble-type01.bubble-left-center + .triangle-icon {
+    top: 47%;
+    margin-top: -1%;
+    transform: rotate(150deg);
+    z-index: -1;
+    position: absolute;
+    left: 0;
+}
 /* swiper - pagination-black */
 .swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-black {
     bottom: -6px;
@@ -1558,4 +1602,145 @@ input[type="radio"]:disabled {
     height: 4px;
     background: var(--color-basic10);
     transition: width 0.2s;
+}
+
+/*회원가입*/
+.join-wrap {
+    width:100%;
+    height: calc(100vh - 56px - 76px);
+    background:#F5F5F5;
+}
+.join-wrap .join-wrap__box {
+    padding:calc(30 / 16 * 1rem) calc(16 / 16 * 1rem) calc(100 / 16 * 1rem);
+    overflow-y: auto;
+    background:#F5F5F5; 
+}
+.join-wrap__box .message-content{
+    margin-bottom:calc(10 / 16 * 1rem);
+    padding:calc(16 / 16 * 1rem) calc(20 / 16 * 1rem);
+    border-radius:calc(4 / 16 * 1rem) calc(20 / 16 * 1rem) calc(20 / 16 * 1rem);
+    animation: fadeIn 0.5s ease;
+    color: var(--color-basic10);
+    font-weight: 700;
+    font-size: calc(15 / 16 * 1rem);
+    line-height:calc(20 / 16 * 1rem);
+}
+.join-wrap__box .bot-message{
+    display: flex;
+    justify-content: left;
+    padding-top: calc(38 / 16 * 1rem);
+}
+.join-wrap__box .bot-message .message-content{
+    background-color:var(--color-white);
+    position:relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+}
+.bot-message .message-content::after{
+    content:"";
+    width:calc(42 / 16 * 1rem);
+    height:calc(42 / 16 * 1rem);
+    background: center / cover no-repeat url("../img/icon/chat_icon42_or.png");
+    position:absolute;
+    left:0;
+    top:calc(-32 / 16 * 1rem);
+}
+.bot-message.first-msg{
+    padding-top:0;
+}
+.bot-message.first-msg .message-content::after{
+    display:none;
+}
+.join-wrap .join-wrap__input {
+    display: flex;
+    padding: calc(12 / 16 * 1rem) calc(20 / 16 * 1rem);
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    z-index:10;
+    background-color:var(--color-white);
+    box-shadow: 0 -4px 6px 0 rgba(0, 0, 0, 0.05);
+}
+.join-wrap .join-wrap__input input{
+    width:100%;
+    background-color:var(--color-basic2);
+    border-radius:calc(30 / 16 * 1rem);
+    height:calc(52 / 16 * 1rem);
+    padding:calc(14 / 16 * 1rem) calc(50 / 16 * 1rem) calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
+    font-size:calc(16 / 16 * 1rem);
+}
+.join-wrap .join-wrap__input input::placeholder{
+    color:var(--color-basic6);
+}
+.join-wrap .join-wrap__input button{
+    position:absolute; 
+    right:calc(20 / 16 * 1rem);
+    top:calc(12 / 16 * 1rem);
+    background:center / 24px no-repeat url("../img/icon/send_icon24_gr.png");
+    width:calc(52 / 16 * 1rem);
+    height:calc(52 / 16 * 1rem);
+}
+.user-message{
+    display: flex;
+    justify-content:right;
+    
+}
+.user-message .message-content{
+    position:relative;
+    background-color:var(--color-primary);
+    color:var(--color-white);
+    border-radius:calc(20 / 16 * 1rem) calc(4 / 16 * 1rem)  calc(20 / 16 * 1rem)  calc(20 / 16 * 1rem);
+}
+.user-message .user-message__edit{
+    position:absolute;
+    left:calc(-21 / 16 * 1rem);
+    bottom:calc(-21 / 16 * 1rem);
+    width:calc(42 / 16 * 1rem);
+    height:calc(42 / 16 * 1rem);
+    border-radius:50%;
+    background:center / 14px no-repeat url("../img/icon/edit_icon14_bk.png") var(--color-white); 
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+
+}
+.join-wrap .massage-btn{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: calc(10 / 16* 1rem);
+}
+.join-wrap .massage-btn button{
+    padding:calc(12 / 16 * 1rem) calc(20 / 16 * 1rem) calc(12 / 16 * 1rem) calc(40 / 16 * 1rem);
+    font-size:calc(14 / 16 * 1rem);
+    font-weight:800;
+    border:1px solid var(--color-basic3);
+    border-radius:calc(10 / 16 * 1rem);
+    color:var(--color-basic6);
+    background:left 20px center / 12px no-repeat url("../img/icon/check_icon12_gr.png") var(--color-white);
+}
+.join-wrap .massage-btn button.active{
+    border-color:var(--color-primary);
+    color:var(--color-primary);
+    background:left 20px center / 12px no-repeat url("../img/icon/check_icon12_or.png")rgba(245, 130, 32, 0.05);
+}
+.join-wrap .agree-checkbox{
+    background-color: var(--color-white);
+    padding:calc(20 / 16 * 1rem);
+    border-radius:calc(20 / 16 * 1rem);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+    display:flex;
+    flex-direction: column;
+    gap:calc(16 / 16 * 1rem);
+    margin-bottom:calc(10 / 16 * 1rem);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
