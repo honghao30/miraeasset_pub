@@ -1615,6 +1615,11 @@ input[type="radio"]:disabled {
     overflow-y: auto;
     background:#F5F5F5; 
 }
+.join-wrap__box .bot-message{
+    display: flex;
+    justify-content: left;
+    padding-top: calc(38 / 16 * 1rem);
+}
 .join-wrap__box .message-content{
     margin-bottom:calc(10 / 16 * 1rem);
     padding:calc(16 / 16 * 1rem) calc(20 / 16 * 1rem);
@@ -1624,13 +1629,6 @@ input[type="radio"]:disabled {
     font-weight: 700;
     font-size: calc(15 / 16 * 1rem);
     line-height:calc(20 / 16 * 1rem);
-}
-.join-wrap__box .bot-message{
-    display: flex;
-    justify-content: left;
-    padding-top: calc(38 / 16 * 1rem);
-}
-.join-wrap__box .bot-message .message-content{
     background-color:var(--color-white);
     position:relative;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
@@ -1680,18 +1678,20 @@ input[type="radio"]:disabled {
     width:calc(52 / 16 * 1rem);
     height:calc(52 / 16 * 1rem);
 }
-.user-message{
+.join-wrap__box .user-message{
     display: flex;
     justify-content:right;
     
 }
-.user-message .message-content{
+.join-wrap__box .user-message .message-content{
     position:relative;
     background-color:var(--color-primary);
     color:var(--color-white);
     border-radius:calc(20 / 16 * 1rem) calc(4 / 16 * 1rem)  calc(20 / 16 * 1rem)  calc(20 / 16 * 1rem);
+    box-shadow: none;
+    padding:calc(14 / 16 * 1rem) calc(20 / 16 * 1rem);
 }
-.user-message .user-message__edit{
+.join-wrap__box .user-message .user-message__edit{
     position:absolute;
     left:calc(-21 / 16 * 1rem);
     bottom:calc(-21 / 16 * 1rem);
@@ -1702,13 +1702,13 @@ input[type="radio"]:disabled {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
 
 }
-.join-wrap .massage-btn{
+.join-wrap__box .massage-btn{
     display:flex;
     flex-wrap: wrap;
     gap: 6px;
     margin-bottom: calc(10 / 16* 1rem);
 }
-.join-wrap .massage-btn button{
+.join-wrap__box .massage-btn button{
     padding:calc(12 / 16 * 1rem) calc(20 / 16 * 1rem) calc(12 / 16 * 1rem) calc(40 / 16 * 1rem);
     font-size:calc(14 / 16 * 1rem);
     font-weight:800;
@@ -1717,23 +1717,61 @@ input[type="radio"]:disabled {
     color:var(--color-basic6);
     background:left 20px center / 12px no-repeat url("../img/icon/check_icon12_gr.png") var(--color-white);
 }
-.join-wrap .massage-btn button.active{
+.join-wrap__box .massage-btn button.active{
     border-color:var(--color-primary);
     color:var(--color-primary);
     background:left 20px center / 12px no-repeat url("../img/icon/check_icon12_or.png")rgba(245, 130, 32, 0.05);
 }
-.join-wrap .agree-checkbox{
+.join-wrap__box .agree-checkbox{
     background-color: var(--color-white);
     padding:calc(20 / 16 * 1rem);
     border-radius:calc(20 / 16 * 1rem);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+    margin-bottom:calc(10 / 16 * 1rem);
+}
+.join-wrap__box .agree-checkbox .guide-chkbox{
     display:flex;
     flex-direction: column;
     gap:calc(16 / 16 * 1rem);
-    margin-bottom:calc(10 / 16 * 1rem);
+    color:var(--color-basic9);
 }
-
-/* Animation */
+.join-wrap__box .agree-checkbox .guide-chkbox .checkbox{
+    font-size:calc(15 / 16 * 1rem);
+}
+.join-wrap__box .checkbox button{
+    background: center / 16px no-repeat url("../img/icon/right_icon16_bl.png");
+    width:calc(24 / 16 * 1rem);
+    height:calc(24 / 16 * 1rem);
+    right:0;
+    top:0;
+    clip: auto;
+    font-size: 0;
+}
+.join-wrap__box .auth-option{
+    display: flex;
+    justify-content: left;
+    width:70%;
+}
+.join-wrap__box .auth-option div{
+    background:var(--color-white);
+    margin-bottom:calc(10 / 16 * 1rem);
+    padding:calc(16 / 16 * 1rem) calc(20 / 16 * 1rem);
+    border-radius:calc(4 / 16 * 1rem) calc(20 / 16 * 1rem) calc(20 / 16 * 1rem);
+    animation: fadeIn 0.5s ease;
+    color: var(--color-basic10);
+    font-weight: 700;
+    font-size: calc(15 / 16 * 1rem);
+    line-height:calc(20 / 16 * 1rem);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+}
+.join-wrap__box .auth-option a{
+    display:block;
+    color:var(--color-primary);
+    border-top:1px solid var(--color-basic2);
+    padding-top:calc(14 / 16 * 1rem);
+    margin-top:calc(14 / 16 * 1rem);
+    background: right 8% top 76% / 16px no-repeat url("../img/icon/right_icon16_or.png");
+}
 @keyframes fadeIn {
     from {
         opacity: 0;

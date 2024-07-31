@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head></head>
+<body>
+    <div class="wrap">
+        <div data-include-path="./_inc/head_sub.html"></div>
+        <div class="content">
+            <div class="join-wrap">
+                <div class="join-wrap__box" id="chat-box"></div>
+                <div class="join-wrap__input">
+                    <input type="text" id="user-input" placeholder="홍길동" onkeydown="checkEnterKey(event)" />
+                    <!-- 가입 안내문구에 따라 placeholder 변경 / 기획서 참조 -->
+                    <button onclick="sendMessage()"><span class="ir-text"">전송</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            startConversation();
+        });
+
+        let step = 0;
+        let userInfo = {};
+        let editMode = false;
+        let currentEditStep = 0;
+
+        //기본 디폴트 메세지
+        function startConversation() {
+            addBotMessage("헬스케어 서비스에 오신 것을 환영합니다.<br>서비스 이용을 위해 본인확인이 필요해요", "bot");
+            addBotMessage("이름을 입력해 주세요.", "bot", "first-msg");
+        }
+        //가입 진행 메세지
+        function addBotMessage(message, type, additionalClass) {
+            createMessageElement(message, type, additionalClass, false);
+        }
+
+        //사용자 입력 메세지
+        function addUserMessage(message, showEditBtn = true) {
+            createMessageElement(message, "user", null, showEditBtn);
+        }
+
+        function createMessageElement(message, type, additionalClass, showEditBtn) {
+            const chatBox = document.getElementById('chat-box');
+            const messageElement = document.createElement('div');
+            messageElement.className = type === "bot" ? 'bot-message' : 'user-message';
+            if (additionalClass) {
+                messageElement.classList.add(additionalClass);
+            }
+
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            messageContent.innerHTML = message;
+
+            if (showEditBtn && type === "user") {
+                const editButton = document.createElement('button');
+                editButton.innerHTML = '<span class="ir-text">수정</span>';
+                editButton.className = 'user-message__edit';
+                messageContent.appendChild(editButton);
+            }
+
+            messageElement.appendChild(messageContent);
+            chatBox.appendChild(messageElement);
+            messageElement.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        //사용자 입력창
+        function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const message = userInput.value.trim();
+            if (message === '') return;
+            if (editMode) {
+                addUserMessage(message);
+                stepMessage(message);
+                editMode = false;
+            } else {
+                addUserMessage(message);
+                stepMessage(message);
+            }
+            userInput.value = '';
+        }
+
+        function checkEnterKey(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        //가입 진행 순서
+        function stepMessage(message) {
+            switch(step) {
+                case 0:
+                    userInfo.name = message;
+                    addBotMessage("주민등록번호를 입력해 주세요.", "bot");
+                    step++;
+                    break;
+                case 1:
+                    userInfo.idNum = message;
+                    addBotMessage("휴대폰 통신사를 선택해주세요.", "bot");
+                    showMobileOption();
+                    step++;
+                    break;
+                case 2:
+                    userInfo.carrier = message;
+                    addBotMessage("휴대폰 번호를 입력해주세요.", "bot");
+                    step++;
+                    break;
+                case 3:
+                    userInfo.mobileNum = message;
+                    addBotMessage("휴대폰 인증을 위해 약관 동의가 필요해요.", "bot");
+                    showAgreeOptions();
+                    step++;
+                    break;
+                case 4:
+                    userInfo.agreement = message;
+                    if (message === "동의 안할래요" || message === "모두 동의 할래요") {
+                        if (message === "모두 동의 할래요") {
+                            addBotMessage("인증 약관에 모두 동의하셨어요!<br>입력하신 휴대폰 번호로 인증번호를 보낼게요.", "bot");
+                            showAuthOption();
+                        } else {
+                            addBotMessage("약관을 모두 동의하지 않으면<br>서비스를 이용할 수 없어요.", "bot");
+                        }
+                    }
+                    step++;
+                    break;
+                case 5:
+                    userInfo.auth = message;
+                    // addUserMessage(message, false);
+                    addBotMessage("헬스케어 서비스를 이용하기 위한<br>약관 동의가 필요해요.", "bot");
+                    showServiceAgreeOptions();
+                    step++;
+                    break;
+                case 6:
+                    userInfo.serviceAgreement = message;
+                    if (message === "동의 안할래요" || message === "모두 동의 할래요") {
+                        if (message === "모두 동의 할래요") {
+                        } else {
+                            addBotMessage("약관을 모두 동의하지 않으면<br>서비스를 이용할 수 없어요.", "bot");
+                        }
+                    }
+                    step++;
+                    break;
+            }
+        }
+
+        //휴대폰 통신사 선택
+        function showMobileOption() {
+            const chatBox = document.getElementById('chat-box');
+            const MobileOption = document.createElement('div');
+            MobileOption.className = 'massage-btn';
+
+            ["SKT", "KT", "LG U+", "SKT 알뜰폰", "KT 알뜰폰", "LG U+ 알뜰폰"].forEach(carrier => {
+                const button = document.createElement('button');
+                button.textContent = carrier;
+                button.onclick = () => handleCarrierSelect(button, carrier);
+                MobileOption.appendChild(button);
+            });
+            chatBox.appendChild(MobileOption);
+            MobileOption.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleCarrierSelect(button, carrier) {
+            const carrierButtons = document.querySelectorAll('.massage-btn button');
+            carrierButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            addUserMessage(carrier);
+            stepMessage(carrier);
+        }
+
+        //휴대폰 인증 약관 동의
+        function showAgreeOptions() {
+            const chatBox = document.getElementById('chat-box');
+
+            const agreementCheckboxes = document.createElement('div');
+            agreementCheckboxes.className = 'agree-checkbox';
+
+            const guideCheckbox = document.createElement('div');
+            guideCheckbox.className = 'guide-chkbox';
+
+            const terms = [
+                { label: `<strong>[필수]</strong>` + "서비스 이용약관 동의" },
+                { label: `<strong>[필수]</strong>` + "개인정보 수집·이용 상세 동의" },
+                { label: `<strong>[필수]</strong>` + "자금융거래이용약관 동의" },
+                { label: `<strong>[필수]</strong>` + "통신사/인증사 이용약관 동의" }
+            ];
+
+            terms.forEach(term => {
+                const label = document.createElement('label');
+                label.className = 'checkbox chkbox-line';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = term.value;
+
+                const spanMark = document.createElement('span');
+                spanMark.className = 'ch-mark';
+
+                const spanText = document.createElement('span');
+                spanText.className = 'checkbox-label';
+                spanText.innerHTML = `${term.label}`;
+
+                const addBtn = document.createElement('button');
+                addBtn.className = 'ir-text';
+                addBtn.innerText = "더보기";
+
+                label.appendChild(checkbox);
+                label.appendChild(spanMark);
+                label.appendChild(spanText);
+                label.appendChild(addBtn);
+                guideCheckbox.appendChild(label);
+            });
+
+            agreementCheckboxes.appendChild(guideCheckbox);
+
+            const agreementButtons = document.createElement('div');
+            agreementButtons.className = 'massage-btn';
+
+            const disagreeButton = document.createElement('button');
+            disagreeButton.textContent = '동의 안할래요';
+            disagreeButton.onclick = () => handleAgreeSelect(disagreeButton, "동의 안할래요");
+
+            const agreeAllButton = document.createElement('button');
+            agreeAllButton.textContent = '모두 동의 할래요';
+            agreeAllButton.onclick = () => handleAgreeSelect(agreeAllButton, "모두 동의 할래요");
+            
+            agreementButtons.appendChild(disagreeButton);
+            agreementButtons.appendChild(agreeAllButton);
+
+            chatBox.appendChild(agreementCheckboxes);
+            chatBox.appendChild(agreementButtons);
+            agreementButtons.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleAgreeSelect(button, selection) {
+            const agreementButtons = document.querySelectorAll('.massage-btn button');
+            agreementButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const checkboxes = document.querySelectorAll('.guide-chkbox input[type="checkbox"]');
+            if (selection === "모두 동의 할래요") {
+                checkboxes.forEach(checkbox => checkbox.checked = true);
+            } else if (selection === "동의 안할래요") {
+                checkboxes.forEach(checkbox => checkbox.checked = false);
+            }
+
+            addUserMessage(selection, false);
+            stepMessage(selection);
+        }
+
+        //인증번호 입력 
+        function showAuthOption() {
+            const chatBox = document.getElementById('chat-box');
+            const authOption = document.createElement('div');
+            authOption.className = 'auth-option';
+
+            const authMessage = document.createElement('div');
+            authMessage.innerHTML = '인증번호를 입력해주세요. <a href="#">인증번호가 안 왔어요</a>';
+
+            authOption.appendChild(authMessage);
+            chatBox.appendChild(authOption);
+            authOption.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        //헬스케어 서비스 약관 동의
+        function showServiceAgreeOptions() {
+            const chatBox = document.getElementById('chat-box');
+
+            const serviceAgreeChk = document.createElement('div');
+            serviceAgreeChk.className = 'agree-checkbox';
+
+            const guideCheckbox = document.createElement('div');
+            guideCheckbox.className = 'guide-chkbox';
+
+            const terms = [
+                { label: "만 14세 이상이에요." },
+                { label: `<strong>[필수]</strong>` + "서비스 이용약관" },
+                { label: `<strong>[필수]</strong>` + "개인정보 수집·이용동의" },
+                { label: `<strong>[필수]</strong>` + "민감정보 수집 및 이용동의" }
+            ];
+
+            terms.forEach(term => {
+                const label = document.createElement('label');
+                label.className = 'checkbox chkbox-line';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = term.value;
+
+                const spanMark = document.createElement('span');
+                spanMark.className = 'ch-mark';
+
+                const spanText = document.createElement('span');
+                spanText.className = 'checkbox-label';
+                spanText.innerHTML = `${term.label}`;
+
+                const addBtn = document.createElement('button');
+                addBtn.className = 'ir-text';
+                addBtn.innerText = "더보기";
+
+                label.appendChild(checkbox);
+                label.appendChild(spanMark);
+                label.appendChild(spanText);
+                label.appendChild(addBtn);
+                guideCheckbox.appendChild(label);
+            });
+
+            serviceAgreeChk.appendChild(guideCheckbox);
+
+            const serviceAgreeBtn = document.createElement('div');
+            serviceAgreeBtn.className = 'massage-btn';
+
+            const disagreeButton = document.createElement('button');
+            disagreeButton.textContent = '동의 안할래요';
+            disagreeButton.onclick = () => handleAgreeSelect(disagreeButton, "동의 안할래요");
+            
+            const agreeAllButton = document.createElement('button');
+            agreeAllButton.textContent = '모두 동의 할래요';
+            agreeAllButton.onclick = () => handleAgreeSelect(agreeAllButton, "모두 동의 할래요");
+            
+            serviceAgreeBtn.appendChild(disagreeButton);
+            serviceAgreeBtn.appendChild(agreeAllButton);
+
+            chatBox.appendChild(serviceAgreeChk);
+            chatBox.appendChild(serviceAgreeBtn);
+            serviceAgreeBtn.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    
+    <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+    <script type="module" src="/assets/js/pub_include.js"></script>
+
+    <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
+    <script src="/assets/bundle/dayjs/dayjs.min.js"></script>
+    <script src="/assets/bundle/dayjs/isSameOrBefore.js"></script>
+    <script src="/assets/bundle/dayjs/ko.js"></script>
+    <script type="module" src="/assets/js/index.js"></script>    
+</body>
+
+</html>
