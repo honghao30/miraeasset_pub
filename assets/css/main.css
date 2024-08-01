@@ -296,6 +296,7 @@
     position: relative;
     padding: calc(50 / 16 * 1rem) calc(16 / 16 * 1rem);
     overflow: hidden;
+    z-index: 0;
 }
 .mainhome_wrap .mainhealth-box {
     margin-top: calc(16 / 16 * 1rem);
@@ -399,7 +400,6 @@
     left: calc(-16 / 16* 1rem);
     z-index: -1;
     content: '';
-    position: absolute;
 }
 .mainhome_wrap .main-health_wrap::after {
     width: 117.3333vw;
@@ -418,7 +418,6 @@
     right: -45%;
     z-index: -1;
     content: '';
-    position: absolute;
 }
 /* 스마트 라이프 콘텐츠 */
 .mainhome_wrap .heart-swiper {
@@ -1020,6 +1019,9 @@
     padding: calc(24 / 16 * 1rem);
     border: calc(1 / 16 * 1rem) solid #CCCCCC;
     text-align: left;
+    background-color: var(--color-white);
+    margin-top: calc(-16 / 16 * 1rem);
+    position: relative;
 }
 .mainhealth_wrap .mainchal-myranking dl {
     display: flex;
@@ -1051,6 +1053,7 @@
     padding: calc(24 / 16 * 1rem);
     border: calc(1 / 16 * 1rem) solid #CCCCCC;
     margin-top: calc(16 / 16 * 1rem);
+    background-color: var(--color-white);
 }
 .mainhealth_wrap .totalranking-wrap li + li {
     border-top: calc(1 / 16 * 1rem) solid var(--color-basic5);
@@ -1210,6 +1213,9 @@
     justify-content: center;
     gap: calc(16 / 16* 1rem);
 }
+.mainhealth_wrap .mainfamily-more .bubble-type03.bubble-right + .triangle-icon {
+    z-index: 0;
+}
 .mainfamily-box {
     display: flex;
     align-items: center;
@@ -1219,11 +1225,11 @@
 }
 .mainhealth_wrap .mainfamily-eachbox {
     padding: calc(24 / 16 * 1rem);
-    gap: calc(16 / 16 * 1rem);
     border-radius: calc(20 / 16 * 1rem);
     width: calc(50% - 6.5px);
     height: calc(200 / 16 * 1rem);
     box-shadow: 0px calc(2 / 16 * 1rem) calc(8 / 16 * 1rem) 0px rgba(36, 45, 60, 0.10);
+    background-color: var(--color-white);
 }
 .mainhealth_wrap .mainfamily-eachbox .mainfamily-detail {
     display: flex;
