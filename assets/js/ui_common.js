@@ -431,29 +431,6 @@ export const removeButton = (el, target, callback) => {
 };
 
 //infinite scroll
-let observer;
-
-export const savePageState = () => {
-    const contentList = document.querySelector('.infinity-list');
-    const itemCount = contentList.children.length;                        
-    sessionStorage.setItem('itemCount', itemCount);
-};
-
-export const restorePageState = () => {
-    const itemCount = sessionStorage.getItem('itemCount');
-    console.log('Restoring page state, itemCount:', itemCount); // Debugging
-    const contentList = document.querySelector('.infinity-list');
-
-    if (itemCount !== null) {                            
-        const currentItemCount = contentList.children.length;
-        console.log('Current item count:', currentItemCount); // Debugging
-
-        if (currentItemCount < itemCount) {                                
-            loadMoreContent(itemCount - currentItemCount);
-        }
-    }
-};
-
 let totalLoadedItems = 0; // 총 로드된 아이템 수를 추적
 const maxItems = 100; // 로드할 최대 아이템 수
 
@@ -473,11 +450,18 @@ export const infiniteScroll = () => {
     const targetElement = document.querySelector('.scroll-target');
     if (targetElement) {
         observer.observe(targetElement);
+    } else {
+        console.error("Target element not found for intersection observer.");
     }
 };
 
 const loadMoreContent = async (count = 5) => {
     const contentList = document.querySelector('.infinity-list');
+    if (!contentList) {
+        console.error("Content list element not found.");
+        return false;
+    }
+
     let hasMoreContent = true;
 
     // 남은 아이템 수를 계산

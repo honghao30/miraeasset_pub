@@ -190,21 +190,9 @@
         <script type="module" src="/assets/js/pub_include.js"></script>
         <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
         <script type="module">                    
-            import { savePageState, restorePageState, infiniteScroll } from "/assets/js/ui_common.js";
+            import { infiniteScroll } from "/assets/js/ui_common.js";
 
-            document.addEventListener('DOMContentLoaded', () => {
-                restorePageState();
-                infiniteScroll();
-            });
-
-            // 링크 타고 이동 후 뒤로 갔다가 다시 올 때
-            window.addEventListener('beforeunload', savePageState);                    
-            document.addEventListener('click', event => {
-                if (event.target.tagName === 'A' && event.target.href) {
-                    savePageState();
-                }
-            });
-            window.addEventListener('popstate', restorePageState);
+            document.addEventListener('DOMContentLoaded', infiniteScroll);
         </script>
 
         <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
