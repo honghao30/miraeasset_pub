@@ -473,6 +473,9 @@
 }
 
 /* 헬스 메인 (DHC-HT-M) */
+.mainhealth_wrap {
+    padding-bottom: calc(73 / 16 * 1rem);
+}
 /* 건강점수/ 등급별혜택 */
 .mainhealth_wrap .level_wrap {
     padding: 0  calc(16 / 16 * 1rem);
@@ -1259,13 +1262,14 @@
     margin-top: calc(50 / 16 * 1rem);
     padding-bottom: calc(50 / 16 * 1rem);
 }
-.additional-swiper {
+.additional-swiper.pagination-card .swiper{
     padding-left: calc(16 / 16 * 1rem);
 }
 .additional-swiper .swiper-slide {
-    padding:  calc(32 / 16 * 1rem) calc(24 / 16 * 1rem)  calc(16 / 16 * 1rem);
     border-radius: calc(20 / 16 * 1rem);
-
+}
+.additional-swiper .swiper-slide .additional-top {
+    padding: calc(32 / 16 * 1rem) calc(24 / 16 * 1rem) 0;
 }
 .additional-swiper .swiper-slide .additional-top p {
     text-align: center;
@@ -1278,14 +1282,20 @@
     font-weight: 800;
 }
 .additional-swiper .swiper-slide .additional-img {
+    padding: 0 calc(24 / 16 * 1rem);
+}
+.additional-swiper .swiper-slide .additional-img img{
     width:  calc(220 / 16 * 1rem);
     height:  calc(220 / 16 * 1rem);
     display: block;
     margin: calc(16 / 16 * 1rem) auto;
 }
+.additional-swiper .swiper-slide .button__wrap {
+    padding: 0 calc(24 / 16 * 1rem) calc(16 / 16 * 1rem);
+    width: auto;
+}
 .additional-swiper .swiper-slide .button__wrap .btn {
     text-align: center;
-    padding: calc(16 / 16 * 1rem);
 }
 /* keyframe common */
 @keyframes icon-rotation360 {

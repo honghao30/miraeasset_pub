@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         spaceBetween: 16,
     });
 
-    const swiper7 = swiperCustom(".cardjs-additional", 1.2, {
+    const swiper7 = swiperCustom(".cardjs-additional", 1.05, {
         pagination: {
             el: ".swiper-pagination-black",
             clickable: true,
