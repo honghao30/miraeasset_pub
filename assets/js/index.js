@@ -1,4 +1,4 @@
-import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu, removeButton } from "../js/ui_common.js";
+import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu, removeButton, toastPop } from "../js/ui_common.js";
 import { ScrollEnterMain } from "../js/scroll_event.js";
 import { circleGraphType1 } from "../js/graph_custom.js";
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from "../js/calendar.js";
@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
     focusNextInputOnMaxLength('.pin-code input');
     tabMenus('.tab-content');
     tabMenus('.tab-content-group', 'onlyTab');
-    ScrollEnterMain();    
+    ScrollEnterMain();
+    toastPop();
     
     const swiper1 = swiperCustom(".cardjs-01", 1.12, {
         pagination: {

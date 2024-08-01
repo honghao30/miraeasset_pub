@@ -533,3 +533,49 @@ export const accordion = (container, openIndex) => {
         });
     }
 } 
+
+//토스트팝업
+export const toastPop = () => {
+    const toastBtn = document.querySelectorAll(".toast__popup--link");
+    const toastClose = document.querySelectorAll(".toast__popup--close");
+
+    const slideDown = (element) => {
+        element.style.display = "block";
+        element.style.maxHeight = element.scrollHeight + "px";
+        element.style.opacity = "1";
+    };
+
+    const slideUp = (element) => {
+        element.style.maxHeight = "0";
+        element.style.opacity = "0";
+        setTimeout(() => {
+            element.style.display = "none";
+        }, 500);
+    };
+
+    const handleToast = (toastId, action) => {
+        const toast = document.querySelector(
+            `.toast__popup[data-toast="${toastId}"] `
+        );
+        if (action === "on") {
+            slideDown(toast);
+            setTimeout(() => {
+            slideUp(toast);
+            }, 5000);
+        } else {
+            slideUp(toast);
+        }
+    };
+
+    toastBtn.forEach((btn) => {
+        btn.addEventListener("click", () =>
+            handleToast(btn.getAttribute("data-toast"), "on")
+        );
+    });
+
+    toastClose.forEach((btn) => {
+        btn.addEventListener("click", () =>
+            handleToast(btn.getAttribute("data-toast"), "off")
+        );
+    });
+};

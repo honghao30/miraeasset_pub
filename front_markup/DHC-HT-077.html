@@ -5,9 +5,9 @@
     <div class="wrap">
         <div data-include-path="./_inc/head_sub.html"></div>
         <div class="content">
-            <div class="join-wrap">
-                <div class="join-wrap__box" id="chat-box"></div>
-                <div class="join-wrap__input">
+            <div class="join__wrap">
+                <div class="join__wrap--box" id="chat-box"></div>
+                <div class="join__wrap--input">
                     <input type="text" id="user-input" placeholder="홍길동" onkeydown="checkEnterKey(event)" />
                     <!-- 가입 안내문구에 따라 placeholder 변경 / 기획서 참조 -->
                     <button onclick="sendMessage()"><span class="ir-text"">전송</span></button>
@@ -328,6 +328,11 @@
     </script>
     
     <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+    <script>
+        setTimeout(function(){
+            document.querySelector('.document-title').innerText = '헬스케어서비스';
+        },200)
+    </script>
     <script type="module" src="/assets/js/pub_include.js"></script>
 
     <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
