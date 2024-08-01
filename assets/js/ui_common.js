@@ -135,25 +135,13 @@ export const bottomSheetHandle = () => {
     const bottomSheetTrigger = document.querySelector('.btn-handle-sheet');    
     bottomSheetTrigger && bottomSheetTrigger.addEventListener('click', () => {
         document.querySelector('.type-handlebar').classList.toggle('is-collapsed');
-        document.querySelector(".btm-dimmed").classList.toggle("is-collapsed");
-        document.body.classList.toggle("is-collapsed");
     });
-
     const closeButton = document.querySelector('.btn-close-sheet');
-    if (closeButton.closest(".type-modal.is-collapsed")) {
-        document.querySelector(".btm-dimmed").classList.add("is-collapsed");
-        document.body.classList.add("is-collapsed");
-        console.log("dimmed");
-    }
-
     closeButton && closeButton.addEventListener('click', () => {        
         const bottomPos = closeButton.closest('.type-modal').clientHeight;
         closeButton.closest('.type-modal').style.bottom = -bottomPos + 'px';
-        
         setTimeout(() => {
             document.querySelector('.type-modal').classList.remove('is-collapsed');
-            document.querySelector(".btm-dimmed").classList.remove("is-collapsed");
-            document.body.classList.remove("is-collapsed");
         },300);          
     });
 }
@@ -458,7 +446,8 @@ export const restorePageState = () => {
     }
 };
 
-import { fetchMoreContent } from '../js/DHC-CO-014.js';
+let totalLoadedItems = 0; // 총 로드된 아이템 수를 추적
+const maxItems = 100; // 로드할 최대 아이템 수
 
 export const infiniteScroll = () => {
     const observer = new IntersectionObserver(entries => {
@@ -467,7 +456,6 @@ export const infiniteScroll = () => {
                 loadMoreContent().then(hasMoreContent => {
                     if (!hasMoreContent) {
                         observer.unobserve(entry.target); // 더 이상 로드할 콘텐츠가 없으면 관찰 중지
-                        displayNoMoreContentMessage(); // 더 이상 불러올 내용이 없음을 표시
                     }
                 });
             }
@@ -481,24 +469,35 @@ export const infiniteScroll = () => {
 };
 
 const loadMoreContent = async (count = 5) => {
+    const contentList = document.querySelector('.infinity-list');
     let hasMoreContent = true;
 
-    try {
-        // fetchMoreContent 함수 호출
-        hasMoreContent = await fetchMoreContent(count);
-    } catch (error) {
-        console.error('Error loading more content:', error);
+    // 남은 아이템 수를 계산
+    const remainingItems = maxItems - totalLoadedItems;
+    const newItemsCount = Math.min(count, remainingItems);
+
+    for (let i = 0; i < newItemsCount; i++) {
+        const newContent = document.createElement('li');
+        const newContentLink = document.createElement('a');
+        newContentLink.setAttribute('href', '#');
+        newContentLink.innerHTML = `
+            <i class="ico-all"></i>
+            <div class="title-area">
+                <div class="title"><span>[전체]</span> 온라인 보험 사이트 이용 제한 안내 </div>
+                <div class="date">2024.03.27 </div>
+            </div>        
+        `;
+        newContent.appendChild(newContentLink);
+        contentList.appendChild(newContent);
+        totalLoadedItems++; // 총 로드된 아이템 수 증가
+    }
+
+    // 더 이상 로드할 아이템이 없으면 hasMoreContent를 false로 설정
+    if (totalLoadedItems >= maxItems) {
         hasMoreContent = false;
     }
 
     return hasMoreContent;
-};
-
-const displayNoMoreContentMessage = () => {
-    const loadingElement = document.querySelector('.loading.scroll-target');
-    if (loadingElement) {
-        loadingElement.textContent = "더 이상 불러올 내용이 없습니다.";
-    }
 };
 
 //아코디언
@@ -533,49 +532,3 @@ export const accordion = (container, openIndex) => {
         });
     }
 } 
-
-//토스트팝업
-export const toastPop = () => {
-    const toastBtn = document.querySelectorAll(".toast__popup--link");
-    const toastClose = document.querySelectorAll(".toast__popup--close");
-
-    const slideDown = (element) => {
-        element.style.display = "block";
-        element.style.maxHeight = element.scrollHeight + "px";
-        element.style.opacity = "1";
-    };
-
-    const slideUp = (element) => {
-        element.style.maxHeight = "0";
-        element.style.opacity = "0";
-        setTimeout(() => {
-            element.style.display = "none";
-        }, 500);
-    };
-
-    const handleToast = (toastId, action) => {
-        const toast = document.querySelector(
-            `.toast__popup[data-toast="${toastId}"] `
-        );
-        if (action === "on") {
-            slideDown(toast);
-            setTimeout(() => {
-            slideUp(toast);
-            }, 5000);
-        } else {
-            slideUp(toast);
-        }
-    };
-
-    toastBtn.forEach((btn) => {
-        btn.addEventListener("click", () =>
-            handleToast(btn.getAttribute("data-toast"), "on")
-        );
-    });
-
-    toastClose.forEach((btn) => {
-        btn.addEventListener("click", () =>
-            handleToast(btn.getAttribute("data-toast"), "off")
-        );
-    });
-};
