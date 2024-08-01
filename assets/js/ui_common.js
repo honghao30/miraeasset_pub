@@ -137,6 +137,12 @@ export const bottomSheetHandle = () => {
         document.querySelector('.type-handlebar').classList.toggle('is-collapsed');
     });
     const closeButton = document.querySelector('.btn-close-sheet');
+    if (closeButton && closeButton.closest(".type-modal.is-collapsed")) {
+        document.querySelector(".btm-dimmed").classList.add("is-collapsed");
+        document.body.classList.add("is-collapsed");
+        console.log("dimmed");
+    }
+
     closeButton && closeButton.addEventListener('click', () => {        
         const bottomPos = closeButton.closest('.type-modal').clientHeight;
         closeButton.closest('.type-modal').style.bottom = -bottomPos + 'px';

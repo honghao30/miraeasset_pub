@@ -8,7 +8,7 @@ const myLevelFun = (el, newWidth) => {
         setTimeout(() => {
             myPosition.style.display = "block";
             myPosition.style.opacity = "1";
-        }, 1600); // 애니메이션이 끝나는 시간 1800ms
+        }, 1700); // 애니메이션이 끝나는 시간 1700ms
     }
 };
 
