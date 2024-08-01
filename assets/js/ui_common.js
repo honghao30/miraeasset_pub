@@ -83,22 +83,30 @@ export const checkTextArea = () => {
 }
 
 // input 포커스 
-export const checkInputFocus = () => {
+export const checkInputFocus = (inputAdditionalFn) => {
     const inputs = document.querySelectorAll('.form-element__inner input[type="text"]');
-    
     const handleInputKeyup = (event) => {
         const nextSibling = event.target.nextElementSibling;
         if (nextSibling && nextSibling.classList.contains('btn-remove')) {
             nextSibling.classList.add('is-show');
+        } 
+        if (event.target.value === '') {
+            nextSibling.classList.remove('is-show');
+        }
+        // 추가로 전달된 함수 실행
+        if (inputAdditionalFn) {
+            inputAdditionalFn(event);
         }
     };
-
     const handleBtnRemoveClick = (event) => {
         const input = event.target.previousElementSibling;
         input.value = '';
         event.target.classList.remove('is-show');
+        // 추가로 전달된 함수 실행
+        if (inputAdditionalFn) {
+            inputAdditionalFn(event);
+        }
     };
-
     inputs.forEach(input => {
         input.addEventListener('keyup', handleInputKeyup);
         const btnRemove = input.nextElementSibling;
@@ -151,7 +159,7 @@ export const bottomSheetHandle = () => {
 }
 
 // 탭메뉴
-export const tabMenus = (tabGroupSelector) => {
+export const tabMenus = (tabGroupSelector, tabType) => {
     const tabGroups = document.querySelectorAll(tabGroupSelector);
     if (!tabGroups.length) return;
 
@@ -166,8 +174,10 @@ export const tabMenus = (tabGroupSelector) => {
                 tabTigers.forEach((btn) => btn.parentElement.classList.remove("is-active"));
                 tab.parentElement.classList.add("is-active");
 
-                tabPanes.forEach((pane) => pane.classList.remove("is-active"));
-                tabPanes[index].classList.add("is-active");
+                if (tabType !== 'onlyTab' && tabType !== null) {
+                    tabPanes.forEach((pane) => pane.classList.remove("is-active"));
+                    tabPanes[index].classList.add("is-active");
+                }
 
                 tab.parentElement.scrollIntoView({
                     behavior: "smooth",
@@ -407,6 +417,23 @@ export const openToggleBox = (el) => {
     }
 };
 
+//삭제 버튼 
+export const removeButton = (el, target, callback) => {
+    const buttons = document.querySelectorAll(el);
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetEl = document.querySelector(target);
+            if (targetEl) {
+                targetEl.remove();
+            }
+            if (typeof callback === 'function') {
+                callback(event);
+            }
+        });
+    });
+};
+
 //infinite scroll
 let observer;
 
@@ -431,8 +458,7 @@ export const restorePageState = () => {
     }
 };
 
-let totalLoadedItems = 0; // 총 로드된 아이템 수를 추적
-const maxItems = 100; // 로드할 최대 아이템 수
+import { fetchMoreContent } from '../js/DHC-CO-014.js';
 
 export const infiniteScroll = () => {
     const observer = new IntersectionObserver(entries => {
@@ -441,6 +467,7 @@ export const infiniteScroll = () => {
                 loadMoreContent().then(hasMoreContent => {
                     if (!hasMoreContent) {
                         observer.unobserve(entry.target); // 더 이상 로드할 콘텐츠가 없으면 관찰 중지
+                        displayNoMoreContentMessage(); // 더 이상 불러올 내용이 없음을 표시
                     }
                 });
             }
@@ -454,29 +481,24 @@ export const infiniteScroll = () => {
 };
 
 const loadMoreContent = async (count = 5) => {
-    const contentList = document.querySelector('.infinity-list');
     let hasMoreContent = true;
 
-    // 남은 아이템 수를 계산
-    const remainingItems = maxItems - totalLoadedItems;
-    const newItemsCount = Math.min(count, remainingItems);
-
-    for (let i = 0; i < newItemsCount; i++) {
-        const newContent = document.createElement('li');
-        const newContentLink = document.createElement('a');
-        newContentLink.setAttribute('href', 'js_guide.html');
-        newContentLink.textContent = `New Content ${totalLoadedItems + 1}`;
-        newContent.appendChild(newContentLink);
-        contentList.appendChild(newContent);
-        totalLoadedItems++; // 총 로드된 아이템 수 증가
-    }
-
-    // 더 이상 로드할 아이템이 없으면 hasMoreContent를 false로 설정
-    if (totalLoadedItems >= maxItems) {
+    try {
+        // fetchMoreContent 함수 호출
+        hasMoreContent = await fetchMoreContent(count);
+    } catch (error) {
+        console.error('Error loading more content:', error);
         hasMoreContent = false;
     }
 
     return hasMoreContent;
+};
+
+const displayNoMoreContentMessage = () => {
+    const loadingElement = document.querySelector('.loading.scroll-target');
+    if (loadingElement) {
+        loadingElement.textContent = "더 이상 불러올 내용이 없습니다.";
+    }
 };
 
 //아코디언
@@ -511,3 +533,49 @@ export const accordion = (container, openIndex) => {
         });
     }
 } 
+
+//토스트팝업
+export const toastPop = () => {
+    const toastBtn = document.querySelectorAll(".toast__popup--link");
+    const toastClose = document.querySelectorAll(".toast__popup--close");
+
+    const slideDown = (element) => {
+        element.style.display = "block";
+        element.style.maxHeight = element.scrollHeight + "px";
+        element.style.opacity = "1";
+    };
+
+    const slideUp = (element) => {
+        element.style.maxHeight = "0";
+        element.style.opacity = "0";
+        setTimeout(() => {
+            element.style.display = "none";
+        }, 500);
+    };
+
+    const handleToast = (toastId, action) => {
+        const toast = document.querySelector(
+            `.toast__popup[data-toast="${toastId}"] `
+        );
+        if (action === "on") {
+            slideDown(toast);
+            setTimeout(() => {
+            slideUp(toast);
+            }, 5000);
+        } else {
+            slideUp(toast);
+        }
+    };
+
+    toastBtn.forEach((btn) => {
+        btn.addEventListener("click", () =>
+            handleToast(btn.getAttribute("data-toast"), "on")
+        );
+    });
+
+    toastClose.forEach((btn) => {
+        btn.addEventListener("click", () =>
+            handleToast(btn.getAttribute("data-toast"), "off")
+        );
+    });
+};

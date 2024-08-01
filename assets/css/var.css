@@ -82,6 +82,28 @@
     --dropdown-text-color: #000;
     --dropdown-arrow-size: 6px;
     --dropdown-border-radius: 12px;
+
+    /* tag */
+    --tag-bg: #EBF4FF;
+
+    /* tabs */
+    --tab-btns-padding-vertical: calc(12 / 16 * 1rem);
+    --tab-btns-padding-horizontal: calc(16 / 16 * 1rem);
+    --tab-btn-hover-focus-active-bg: #f58220;
+    --tab-btn-hover-focus-active-color: #fff;
+    --tab-btn-default-bg: #f8f9fc;
+    --tab-btn-default-color: #8b929a;
+    --tab-btn-padding:8px 12px;
+    --tab-btn-border-radius: 90px;
+    --tab-btn-font-size: calc(12 / 16 * 1rem);
+    --tab-btn-font-family: "NanumSquare";
+    --tab-btn-font-weight: 700;
+    --tab-btn-gap: 6px;
+    --tab-pane-padding: calc(6 / 16 * 1rem);
+    --tab-btn-font-line-height: calc(20 / 16 * 1rem);
+
+    /* tab icon type */
+    --tab-btn-type-icon-bg: #fff;    
 }
 
 /* rem 사용 예시  */
