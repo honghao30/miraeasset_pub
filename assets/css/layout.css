@@ -187,6 +187,24 @@
   background-size: 24px auto;
 }
 
+.btm-dimmed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 14;
+  display: none;
+}
+.btm-dimmed.is-collapsed {
+  display: block;
+}
+
+body.is-collapsed {
+  overflow-y: hidden;
+}
+
 /* //fnb */
 .fnb__wrap {
   height: 72px;
