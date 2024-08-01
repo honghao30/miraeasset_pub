@@ -28,34 +28,69 @@
                 </style>
                 <div class="type-infinity mt-10">
                     <ul class="infinity-list">
-                        <!-- Initial content -->
-                        <li><a href="js_guide.html">content 1</a></li>
-                        <li><a href="js_guide.html">Content 2</a></li>
-                        <li><a href="js_guide.html">Content 3</a></li>
-                        <li><a href="js_guide.html">Content 4</a></li>
-                        <li><a href="js_guide.html">Content 5</a></li>                                      
+                        <li>
+                            <a href="#">
+                                <i class="ico-all"></i>
+                                <div class="title-area">
+                                    <div class="title"><span>[전체]</span> 온라인 보험 사이트 이용 제한 안내 </div>
+                                    <div class="date">2024.03.27 </div>
+                                </div>
+                            </a>
+                        </li>       
+                        <li>
+                            <a href="#">
+                                <i class="ico-common"></i>
+                                <div class="title-area">
+                                    <div class="title"><span>[공통]</span> 온라인 보험 사이트 이용 제한 안내 </div>
+                                    <div class="date">2024.03.27 </div>
+                                </div>
+                            </a>
+                        </li>   
+                        <li>
+                            <a href="#">
+                                <i class="ico-common"></i>
+                                <div class="title-area">
+                                    <div class="title"><span>[공통]</span> 온라인 보험 사이트 이용 제한 안내 </div>
+                                    <div class="date">2024.03.27 </div>
+                                </div>
+                            </a>
+                        </li>  
+                        <li>
+                            <a href="#">
+                                <i class="ico-health"></i>
+                                <div class="title-area">
+                                    <div class="title"><span>[헬스케어]</span> 온라인 보험 사이트 이용 제한 안내 </div>
+                                    <div class="date">2024.03.27 </div>
+                                </div>
+                            </a>
+                        </li>   
+                        <li>
+                            <a href="#">
+                                <i class="ico-pension"></i>
+                                <div class="title-area">
+                                    <div class="title"><span>[퇴직연금]</span> 온라인 보험 사이트 이용 제한 안내 </div>
+                                    <div class="date">2024.03.27 </div>
+                                </div>
+                            </a>
+                        </li>  
+                        <li>
+                            <a href="#">
+                                <i class="ico-fund"></i>
+                                <div class="title-area">
+                                    <div class="title"><span>[펀드신탁]</span> 온라인 보험 사이트 이용 제한 안내 </div>
+                                    <div class="date">2024.03.27 </div>
+                                </div>
+                            </a>
+                        </li>                                      
                     </ul>
                     <div class="loading scroll-target">Loading more content...</div>
                 </div>                
                 <!-- //스크롤 컨텐츠 -->
                 <script type="module">                    
-                    import { savePageState, restorePageState, infiniteScroll } from "../../assets/js/ui_common.js";
-
-                    document.addEventListener('DOMContentLoaded', () => {
-                        restorePageState();
-                        infiniteScroll();
-                    });
-
-                    // 링크 타고 이동 후 뒤로 갔다가 다시 올때 
-                    window.addEventListener('beforeunload', savePageState);                    
-                    document.addEventListener('click', event => {
-                        if (event.target.tagName === 'A' && event.target.href) {
-                            savePageState();
-                        }
-                    });
-                    window.addEventListener('popstate', restorePageState);
-
-                </script>                
+                    import { infiniteScroll } from "/assets/js/ui_common.js";
+        
+                    document.addEventListener('DOMContentLoaded', infiniteScroll);
+                </script>               
             </div>
         </div>
     </div>

@@ -455,6 +455,7 @@ export const infiniteScroll = () => {
     }
 };
 
+// 컨텐츠 생성
 const loadMoreContent = async (count = 5) => {
     const contentList = document.querySelector('.infinity-list');
     if (!contentList) {
