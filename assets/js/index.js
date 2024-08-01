@@ -1,4 +1,4 @@
-import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu } from "../js/ui_common.js";
+import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu, removeButton } from "../js/ui_common.js";
 import { ScrollEnterMain } from "../js/scroll_event.js";
 import { circleGraphType1 } from "../js/graph_custom.js";
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from "../js/calendar.js";
@@ -21,9 +21,23 @@ document.addEventListener('DOMContentLoaded', ()=> {
     dropdownMenu('.dropdown-menu__wrap')
     checkLabel();
     checkTextArea();
-    checkInputFocus();
+
+    // 추가로 처리할 함수 예시
+    const inputAdditionalFn = (event) => {
+        document.querySelector('.tag__wrap').classList.remove('is-hide')
+        console.log(event.target.value)
+        if(event.target.classList.contains('btn-remove')) {
+            document.querySelector('.tag__wrap').classList.add('is-hide') 
+            document.querySelector('.search-result-nodata').classList.add('is-hide');
+        }
+    };
+
+    // checkInputFocus 함수 호출 시 추가로 처리할 함수 전달
+    checkInputFocus(inputAdditionalFn);
+
     focusNextInputOnMaxLength('.pin-code input');
     tabMenus('.tab-content');
+    tabMenus('.tab-content-group', 'onlyTab');
     ScrollEnterMain();    
     
     const swiper1 = swiperCustom(".cardjs-01", 1.12, {
@@ -91,6 +105,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
     // 커스텀 챠트
     circleGraphType1('.circlebar-js1', 75);
     
+    removeButton('.btn-tag-remove', '.tag', (event) => {
+        console.log('버튼 삭제 추가 이벤트 있을까', event);
+    })
+
     // dom 로딩시간 체크 필요한 경우
     setTimeout(() => {
         bottomSheetHandle();

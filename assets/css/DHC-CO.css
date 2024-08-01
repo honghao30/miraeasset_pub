@@ -1,1 +1,118 @@
 @import url(mixin.scss);
+.form-element__wrap.search-page-top {
+  padding: 0 1rem;
+}
+.form-element__wrap.search-page-top .form-element__inner {
+  background-color: var(--color-basic2);
+  border: 0;
+}
+.form-element__wrap.search-page-top .form-element__inner input {
+  background-color: transparent;
+  color: var(--color-basic6);
+}
+.form-element__wrap.search-page-top .form-element__inner input::placeholder {
+  color: var(--color-basic6);
+}
+
+.search-result-nodata {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 100px);
+  gap: 1rem;
+}
+.search-result-nodata i {
+  display: inline-flex;
+  width: 56px;
+  height: 56px;
+  background: url("../img/icon/info_icon56_empty_gr.png") no-repeat center center;
+  background-size: 56px auto;
+}
+.search-result-nodata .msg {
+  color: var(--color-basic6);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+}
+
+.notice__wrap {
+  margin-top: 1.25rem;
+  height: calc(100vh - 150px);
+}
+
+.total-count {
+  color: var(--color-basic7);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.125rem;
+  padding: 0 1rem;
+  margin-top: 0.3125rem;
+}
+.total-count strong {
+  color: var(--color-basic9);
+}
+
+.aricle-list {
+  margin-top: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  gap: 8px;
+}
+.aricle-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  background: var(--color-white);
+  overflow: hidden;
+}
+.aricle-list li a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  gap: 0.8125rem;
+}
+.aricle-list li a::after {
+  content: "";
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  background: url("../img/icon/right_icon24_gr.png") no-repeat center;
+  background-size: cover;
+}
+.aricle-list li a .title-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+.aricle-list li a .title-area .title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  color: var(--color-basic10);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.aricle-list li a .title-area .date {
+  color: var(--color-basic7);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 30px;
+  font-size: 1.2em;
+  color: #888;
+}
