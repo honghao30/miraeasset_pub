@@ -1079,9 +1079,7 @@ body.modal-open {
     transform: translateY(-50%);
     color: #212121;
     text-align: right;
-    font-family: NanumSquare;
     font-size: 48px;
-    font-style: normal;
     font-weight: 800;
     line-height: 48px; /* 100% */
     letter-spacing: -0.96px;

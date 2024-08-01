@@ -93,5 +93,3 @@ export const circleGraphType3 = (el, dataValue, dataValueEmpty) => {
     }
 };
 
-
-// 업데이트 된 데이터 값으로 텍스트 변경

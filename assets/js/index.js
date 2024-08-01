@@ -91,6 +91,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
             el: ".swiper-pagination-black",
             clickable: true,
         },
+        spaceBetween: 16,
+    });
+
+    const swiper7 = swiperCustom(".cardjs-additional", 1.05, {
+        pagination: {
+            el: ".swiper-pagination-black",
+            clickable: true,
+        },
         slidesOffsetAfter: 16,
     });
 

@@ -8,7 +8,7 @@ const myLevelFun = (el, newWidth) => {
         setTimeout(() => {
             myPosition.style.display = "block";
             myPosition.style.opacity = "1";
-        }, 1800); // 애니메이션이 끝나는 시간 1800ms
+        }, 1600); // 애니메이션이 끝나는 시간 1800ms
     }
 };
 
@@ -22,7 +22,7 @@ const setBarHeights = (el, dataValues) => {
         bars.forEach((bar, index) => {
             const value = dataValues[index];
             const heightPercentage = (value / maxDataValue) * 100;
-            const heightInVW = (heightPercentage / 100) * 20; // 20vw가 최대임
+            const heightInVW = (heightPercentage / 100) * 20; // 20vw를 최대로 잡음
             const heightInVWUnit = heightInVW.toFixed(4) + "vw";
 
             if (heightInVW >= 20) {
