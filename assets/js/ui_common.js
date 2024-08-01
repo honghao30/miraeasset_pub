@@ -127,15 +127,27 @@ export const bottomSheetHandle = () => {
     const bottomSheetTrigger = document.querySelector('.btn-handle-sheet');    
     bottomSheetTrigger && bottomSheetTrigger.addEventListener('click', () => {
         document.querySelector('.type-handlebar').classList.toggle('is-collapsed');
-        document.querySelector(".btm-dimmed").classList.toggle("is-collapsed");
-        document.body.classList.toggle("is-collapsed");
+        if (document.querySelector(".type-handlebar.is-collapsed")) {
+            document.querySelector(".btm-dimmed").classList.toggle("is-collapsed");
+            document.body.classList.toggle("is-collapsed");
+        }
     });
+
     const closeButton = document.querySelector('.btn-close-sheet');
+    if (closeButton.closest(".type-modal.is-collapsed")) {
+        document.querySelector(".btm-dimmed").classList.add("is-collapsed");
+        document.body.classList.add("is-collapsed");
+        console.log("dimmed");
+    }
+
     closeButton && closeButton.addEventListener('click', () => {        
         const bottomPos = closeButton.closest('.type-modal').clientHeight;
         closeButton.closest('.type-modal').style.bottom = -bottomPos + 'px';
+        
         setTimeout(() => {
             document.querySelector('.type-modal').classList.remove('is-collapsed');
+            document.querySelector(".btm-dimmed").classList.remove("is-collapsed");
+            document.body.classList.remove("is-collapsed");
         },300);          
     });
 }
