@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head></head>
+    <body>
+        <div class="wrap">
+            <div data-include-path="./_inc/head_sub.html"></div>
+            <div class="content bg-color-basic1">
+                <!-- 마크업 -->
+                <div class="form-element__wrap">
+                    <label class="font-type-h5-bold ir-text" for="753e62fc">Input Search</label>
+                    <span class="form-element__inner input-type input-search">
+                        <input type="text" value="" class="input-type1-font14" placeholder="검색어 입력" id="753e62fc" title="Input Search 1번째 자리">
+                        <button type="button" class="btn btn-remove is-show">
+                            <span class="ir-text">삭제</span>
+                        </button>
+                        <button type="button" class="btn btn-search">
+                            <span class="ir-text">검색</span>
+                        </button>
+                    </span>
+                </div>
+                <!-- //마크업 -->
+            </div>
+        </div>        
+        <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script>
+            setTimeout(function(){
+                document.querySelector('.document-title').innerText = '공지사항';
+            },200)
+        </script>
+        <script type="module" src="/assets/js/pub_include.js"></script>
+        <!-- //퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
+        <script type="module" src="/assets/js/index.js"></script>
+    </body>
+</html>
