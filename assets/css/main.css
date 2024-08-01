@@ -2,6 +2,9 @@
 .main_wrap {
     background-color: var(--color-basic1);
 }
+.main_wrap .header__wrap {
+    background-color: var(--color-basic1);
+}
 .main_wrap .main-font13-bold {
     font-size: calc(13 / 16 * 1rem);
     font-weight: 700;
