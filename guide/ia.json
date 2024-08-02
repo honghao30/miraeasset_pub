@@ -228,7 +228,7 @@
         "wbs_id": "DHC-CO-016",
         "file_link": "/front_markup/DHC-CO-016.html",
         "worker": "",
-        "start_date": "",
+        "start_date": "2024-08-01",
         "end_date": "",
         "screen_type": "",
         "memo": ""
@@ -238,10 +238,10 @@
         "depth1": "",
         "depth2": "이벤트",
         "depth3": "목록",
-        "wbs_id": "screen_main",
-        "file_link": "/front_markup/",
-        "worker": "",
-        "start_date": "",
+        "wbs_id": "DHC-CO-017",
+        "file_link": "/front_markup/DHC-CO-017.html",
+        "worker": "홍성호",
+        "start_date": "2024-08-01",
         "end_date": "",
         "screen_type": "",
         "memo": ""

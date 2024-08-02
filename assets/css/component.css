@@ -1674,6 +1674,15 @@ input[type="radio"]:disabled {
     transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
     opacity: 0;
 }
+.toast__popup.self-close .toast__popup--message {
+    font-size: calc(13 / 16 * 1rem);
+    font-weight: 700;
+    line-height: calc(18 / 16 * 1rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
 .toast__popup.active {
     display: block;
     max-height: 100px; 
@@ -2129,5 +2138,12 @@ input[type="radio"]:disabled {
     width: 16px;
     height: 16px;
     background: url('../img/icon/icon_orther_16.png') no-repeat center center;
+    background-size: contain;
+}
+.icon_check {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    background: url('../img/icon/check_icon12_or.png') no-repeat center center;
     background-size: contain;
 }
