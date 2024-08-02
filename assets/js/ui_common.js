@@ -142,7 +142,6 @@ export const bottomSheetHandle = () => {
     if (closeButton && closeButton.closest(".type-modal.is-collapsed")) {
         document.querySelector(".btm-dimmed").classList.add("is-collapsed");
         document.body.classList.add("is-collapsed");
-        console.log("dimmed");
     }
 
     closeButton && closeButton.addEventListener('click', () => {        
@@ -150,6 +149,8 @@ export const bottomSheetHandle = () => {
         closeButton.closest('.type-modal').style.bottom = -bottomPos + 'px';
         setTimeout(() => {
             document.querySelector('.type-modal').classList.remove('is-collapsed');
+            document.querySelector(".btm-dimmed").classList.remove("is-collapsed");
+            document.body.classList.remove("is-collapsed");
         },300);          
     });
 }
