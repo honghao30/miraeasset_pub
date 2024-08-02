@@ -431,10 +431,7 @@ export const removeButton = (el, target, callback) => {
 };
 
 //infinite scroll
-let totalLoadedItems = 0; // 총 로드된 아이템 수를 추적
-const maxItems = 100; // 로드할 최대 아이템 수
-
-export const infiniteScroll = () => {
+export const infiniteScroll = (loadMoreContent, totalLoadedItems, maxItems) => {
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -455,43 +452,6 @@ export const infiniteScroll = () => {
     }
 };
 
-// 컨텐츠 생성
-const loadMoreContent = async (count = 5) => {
-    const contentList = document.querySelector('.infinity-list');
-    if (!contentList) {
-        console.error("Content list element not found.");
-        return false;
-    }
-
-    let hasMoreContent = true;
-
-    // 남은 아이템 수를 계산
-    const remainingItems = maxItems - totalLoadedItems;
-    const newItemsCount = Math.min(count, remainingItems);
-
-    for (let i = 0; i < newItemsCount; i++) {
-        const newContent = document.createElement('li');
-        const newContentLink = document.createElement('a');
-        newContentLink.setAttribute('href', '#');
-        newContentLink.innerHTML = `
-            <i class="ico-all"></i>
-            <div class="title-area">
-                <div class="title"><span>[전체]</span> 온라인 보험 사이트 이용 제한 안내 </div>
-                <div class="date">2024.03.27 </div>
-            </div>        
-        `;
-        newContent.appendChild(newContentLink);
-        contentList.appendChild(newContent);
-        totalLoadedItems++; // 총 로드된 아이템 수 증가
-    }
-
-    // 더 이상 로드할 아이템이 없으면 hasMoreContent를 false로 설정
-    if (totalLoadedItems >= maxItems) {
-        hasMoreContent = false;
-    }
-
-    return hasMoreContent;
-};
 
 //아코디언
 export const accordion = (container, openIndex) => {
