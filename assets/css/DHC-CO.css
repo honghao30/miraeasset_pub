@@ -128,6 +128,12 @@
   justify-content: space-between;
   gap: 0.5rem;
 }
+.article-view__wrap .article-view__title .event-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
 .article-view__wrap .article-view__title i {
   margin-top: 3px;
 }

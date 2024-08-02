@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     tabMenus('.tab-content');
     tabMenus('.tab-content-group', 'onlyTab');
     tabMenus('.faq-content-tabs');
-    ScrollEnterMain();
-    toastPop();
+    ScrollEnterMain();    
     
     const swiper1 = swiperCustom(".cardjs-01", 1.12, {
         pagination: {
@@ -125,5 +124,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
     // dom 로딩시간 체크 필요한 경우
     setTimeout(() => {
         bottomSheetHandle();
+        toastPop();
     }, executionTimer);
 });
