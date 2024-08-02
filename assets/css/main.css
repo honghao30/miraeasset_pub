@@ -1402,3 +1402,43 @@
         height: var(--weight-height, 60%);
     }
 }
+
+/* 바텀시트 */
+
+.mainbtm_wrap .btm-titbox {
+    display: flex;
+    flex-direction: column;
+    gap: calc(6 / 16 * 1rem);
+}
+.mainbtm_wrap.bottom-sheet__wrap .section-title {
+    width: 100%;
+    padding: 0 calc(24 / 16 * 1rem);
+}
+.mainbtm_wrap.bottom-sheet__wrap .sheet-header {
+    padding-bottom: calc(30 / 16 * 1rem);
+}
+.mainbtm_wrap.bottom-sheet__wrap .btm-bigtit {
+    font-size: calc(18 / 16 * 1rem);
+    font-weight: 700;
+    line-height: calc(24 / 16 * 1rem);
+}
+.mainbtm_wrap.bottom-sheet__wrap .btm-caltit {
+    font-size: calc(24 / 16 * 1rem);
+    font-weight: 800;
+    line-height: calc(30 / 16 * 1rem);
+}
+/* 
+.mainbtm_wrap.bottom-sheet__wrap .sheet-content {
+    padding-top: calc(2 / 16 * 1rem);
+} */
+/* .mainbtm_wrap.bottom-sheet__wrap {
+    bottom: 0;
+}
+.mainbtm_wrap.bottom-sheet__wrap .sheet-content {
+    max-height: 0;
+    display: none;
+}
+.mainbtm_wrap.bottom-sheet__wrap.is-collapsed .sheet-content {
+    max-height: 100%;
+    display: block;
+} */

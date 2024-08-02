@@ -151,6 +151,7 @@
   width: 48px;
   height: 5px;
   background: var(--color-black);
+  border-radius: 8px;
 }
 .bottom-sheet__wrap .sheet-header .section-title {
   font-size: 1rem;
