@@ -148,10 +148,10 @@
     background-color: var(--color-white);
     color: var(--color-basic8);
     border: 1px solid var(--color-basic4);
-    font-size: calc(15 / 16 * 1rem);
+    font-size: calc(16 / 16 * 1rem);
     font-weight: 800;
     line-height: calc(20 / 16 * 1rem);
-    padding: calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
+    padding: calc(16 / 16 * 1rem) calc(16 / 16 * 1rem);
 }
 .btn.btn-line:only-child {
     display: block;
@@ -658,7 +658,7 @@ body.modal-open {
     z-index: 11;
 }
 .modal__wrap--bg .modal__wrap.size-default {
-    width: 100%;
+    width: calc(100% - 40px);
     max-width: 720px;
 }
 .modal__wrap--bg .modal__wrap.size-large {
@@ -684,12 +684,12 @@ body.modal-open {
 }
 .modal__wrap--bg .modal__wrap .modal-cont {
     background-color: #fff;
-    padding: 32px 40px 0;
+    padding: 30px 24px 0;
     max-height: 550px;
     overflow-y: auto;
 }
 .modal__wrap--bg .modal__wrap .modal-footer {
-    padding: 0 40px 32px;
+    padding: 0 20px 20px;
     margin-top: 30px;
 }
 .modal__wrap--bg .modal__wrap {
@@ -707,11 +707,13 @@ body.modal-open {
     opacity: 0;
     z-index: 2;
     overflow: hidden;
+    margin: 0 20px;
+    width: calc(100% - 40px);
 }
 .modal__wrap--bg.default.is-active .modal__wrap {
     opacity: 1;
     transform: all 0.3s;
-    left: 50%;
+    left: calc(50% - 20px);
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 8px;
