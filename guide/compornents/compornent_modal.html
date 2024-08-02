@@ -18,7 +18,9 @@
                         <div class="section_text_no_round">
                             <!-- Modal -->
                             <div class="sample-code">
-                                <button type="button" onclick="openModal(event)" modal-id="basic">모달 기본</button> // <button type="button" onclick="openModal(event)" modal-id="basic2">모달 하단</button> //
+                                <button type="button" onclick="openModal(event)" modal-id="basic">모달 기본</button> // 
+                                <button type="button" onclick="openModal(event)" modal-id="basic4">모달 기본(타이틀 비노출)</button> //
+                                <button type="button" onclick="openModal(event)" modal-id="basic2">모달 하단</button> //
                                 <button type="button" onclick="openModal(event)" modal-id="basic3">모달 오른쪽</button>
                                 <!-- 모달 -->
                                 <div class="modal__wrap--bg default" id="basic">
@@ -40,6 +42,22 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="modal__wrap--bg default" id="basic4">
+                                    <div class="modal__wrap size-default">
+                                        <div class="modal-cont">
+                                            <h4>"미래에셋생명"에서<br />알림을 보내고자 합니다.</h4>
+                                            <p>경고, 사운드 및 아이콘 배지가 알림에 포함될 수 있습니다. 설정에서 이를 구성할 수 있습니다.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="button__wrap twobtn-case01">
+                                                <button type="button" class="btn btn-line" onclick="closeModal(event)">Button</button>
+                                                <button type="button" class="btn btn-primary">Button</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="modal__wrap--bg type-bottom" id="basic2">
                                     <div class="modal__wrap">
                                         <div class="modal-cont">
