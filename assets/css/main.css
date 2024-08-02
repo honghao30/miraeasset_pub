@@ -311,9 +311,9 @@
     border-radius: calc(26 / 16 * 1rem);
     padding: calc(24 / 16 * 1rem) calc(18 / 16 * 1rem) calc(20 / 16 * 1rem) calc(16 / 16 * 1rem);
     box-shadow: 0px 3px 13px 0px #00000021;
-    /* height: calc(184 / 16 * 1rem); */
+    height: calc(184 / 16 * 1rem);
     position: relative;
-    aspect-ratio: 1 / 1.2;
+    /* aspect-ratio: 1 / 1.2; */
 }
 .mainhome_wrap .mainhealth-eachbox p {
     font-size: calc(18 / 16 * 1rem);
@@ -384,38 +384,38 @@
     object-fit: cover;
 } */
 .mainhome_wrap .main-health_wrap::before {
-    width: 117.3333vw;
-    height: 81.3333vw;
+    /* width: 117.3333vw; */
+    /* height: 81.3333vw; */
     /* width: 117%;
     height: 50%; */
-    /* width: 440px; */
-    /* height: 305px; */
-    transform: rotate(10deg);
+    width: 440px;
+    height: 50%;
+    transform: rotate(25deg);
     background: #FF9438;
     border-radius: 50%;
     object-fit: cover;
     display: block;
-    bottom: 3%;
     position: absolute;
-    left: calc(-16 / 16* 1rem);
+    left: calc(-20 / 16* 1rem);
     z-index: -1;
     content: '';
+    bottom: 50px;
 }
 .mainhome_wrap .main-health_wrap::after {
-    width: 117.3333vw;
-    height: 76.2667vw;
+    /* width: 117.3333vw; */
+    /* height: 76.2667vw; */
     /* width: 117%;
     height: 50%; */
-    /* width: 440px; */
-    /* height: 286px; */
-    transform: rotate(48deg);
+    width: 440px;
+    height: 50%;
+    transform: rotate(60deg);
     background: #FF9438;
     border-radius: 50%;
     object-fit: cover;
     display: block;
     bottom: 35%;
     position: absolute;
-    right: -45%;
+    left: calc(100 / 16 * 1rem);
     z-index: -1;
     content: '';
 }
@@ -1212,6 +1212,9 @@
     display: flex;
     justify-content: center;
     gap: calc(16 / 16* 1rem);
+}
+.mainhealth_wrap .mainfamily-more .bubble-type03 {
+    z-index: 1;
 }
 .mainhealth_wrap .mainfamily-more .bubble-type03.bubble-right + .triangle-icon {
     z-index: 0;
