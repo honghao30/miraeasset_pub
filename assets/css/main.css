@@ -385,6 +385,7 @@
     object-fit: cover;
     left: calc(-30 / 16 * 1rem);
     top: calc(10 / 16 * 1rem);
+    z-index: -1;
 }
 @media (min-width: 500px) {
     .mainhome_wrap .main-health_wrap::before {
