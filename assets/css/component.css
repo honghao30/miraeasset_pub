@@ -1608,12 +1608,15 @@ input[type="radio"]:disabled {
 .heart-swiper {
     position: relative;
 }
+.heart-swiper img {
+    border-radius: calc(20 / 16 * 1rem);
+}
 .heart-wrap .heart-box {
     position: absolute;
-    top: 21px;
-    right: 21px;
-    width: 30px;
-    height: 30px;
+    top: calc(21 / 16 * 1rem);
+    right: calc(21 / 16 * 1rem);
+    width: calc(30 / 16 * 1rem);
+    height: calc(30 / 16 * 1rem);
     border-radius: 50%;
     background-color: var(--color-white);
     display: flex;
@@ -1621,29 +1624,29 @@ input[type="radio"]:disabled {
     justify-content: center;
 }
 .heart-wrap .heart-box .heart-btn {
-    width: 14px;
-    height: 14px;
+    width: calc(14 / 16 * 1rem);
+    height: calc(14 / 16 * 1rem);
     background: url("../img/icon/heart_icon14_gr.png") no-repeat center center;
     background-size: 100%;
     display: inline-flex;
 }
 .heart-wrap .heart-box .heart-btn.on {
-    width: 14px;
-    height: 14px;
+    width: calc(14 / 16 * 1rem);
+    height: calc(14 / 16 * 1rem);
     background: url("../img/icon/heart_icon14_red.png") no-repeat center center;
     background-size: 100%;
     display: inline-flex;
 }
 .heart-swiper .txt-wrap {
     position: absolute;
-    bottom: 24px;
-    left: 20px;
+    bottom: calc(24 / 16 * 1rem);
+    left: calc(20 / 16 * 1rem);
     width: calc(100% - 40px);
 }
 .swiper-tit {
-    font-size: 20px;
+    font-size: calc(20 / 16 * 1rem);
     font-weight: 800;
-    line-height: 26px;
+    line-height: calc(26 / 16 * 1rem);
     color: var(--color-white);
 }
 .chip + .swiper-tit {
