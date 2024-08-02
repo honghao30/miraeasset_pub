@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
     accordion('.acc-opentype', 0);
     // 커스텀 챠트
     circleGraphType1(".circlebar-js1", 95);
-    circleGraphType1(".circlebar-js1custom", 40);
+    circleGraphType1(".circlebar-js1custom", 95);
     circleGraphType2(".circlebar-js2", 119);
     circleGraphType3(".circlebar-js3", 95, 5);
     circleGraphType3(".circlebar-js4", 98, 2);

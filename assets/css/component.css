@@ -1073,6 +1073,14 @@ body.modal-open {
     transform: rotate(-120deg);
     stroke-linecap: round;
 }
+.circlebar-type1.calro-bar .circle-border {
+    fill: none;
+    stroke: #ECECEC;
+}
+.circlebar-type1.calro-bar .circle-progress {
+    fill: none;
+    stroke: url(#calGradient);
+}
 .circlebar_total.animation-enter .circle-progress {
     animation: none;
 }
@@ -1171,6 +1179,15 @@ body.modal-open {
 }
 .circlebar-type3.data-circle .circle-progress {
     animation: combineType 2s ease-in-out forwards;
+}
+@keyframes combineType {
+    0% {
+        stroke-dashoffset: var(--initialDashOffset);
+    }
+    100% {
+        stroke-dashoffset: var(--barNum);
+        stroke: url(#circleGradient);
+    }
 }
 @keyframes combineType {
     0% {
@@ -1441,6 +1458,7 @@ input[type="radio"]:disabled {
     width: fit-content;
     position: relative;
     padding: 3px 10px;
+    z-index: 1;
 }
 .bubble-box {
     position: relative;
