@@ -24,6 +24,9 @@
     height: 6px;
     border-radius: 50%;
 }
+.chip.bg-dark {
+    background-color: var(--color-black);
+}
 .chip.primary-light {
     background-color: var(--color-primary-light);
 }

@@ -117,6 +117,114 @@
   color: #888;
 }
 
+.article-view__wrap {
+  height: calc(100vh - 86px);
+  display: flex;
+  flex-direction: column;
+}
+.article-view__wrap .article-view__title {
+  padding: 0 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.article-view__wrap .article-view__title i {
+  margin-top: 3px;
+}
+.article-view__wrap .article-view__title .title {
+  flex: 1;
+  color: var(--color-basic10);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.375rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.article-view__wrap .article-view__title .date {
+  margin-top: 4px;
+  color: var(--color-basic7);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+.article-view__wrap .article-view__content {
+  flex: 1;
+  padding: 0 1.25rem 1.25rem;
+  color: var(--color-basic9);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  overflow: auto;
+}
+.article-view__wrap .article-view__content img {
+  margin-top: 1.25rem;
+  width: 100%;
+  max-width: 100%;
+}
+.article-view__wrap .button__wrap {
+  padding: 0 1.25rem;
+}
+
 .faq-list {
   margin-top: 15px;
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 1.5rem 1rem;
+}
+.event-list li {
+  position: relative;
+}
+.event-list li a {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+.event-list li a .event-thumbnail img {
+  width: 100%;
+  max-width: 100%;
+}
+.event-list li a .title-area .title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  color: var(--color-basic10);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.event-list li a .title-area .date {
+  color: var(--color-basic7);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+.event-list li .chip__wrap {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 15;
+  color: var(--color-white);
+}
+.event-list li.type-end a .event-thumbnail {
+  position: relative;
+}
+.event-list li.type-end a .event-thumbnail::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
