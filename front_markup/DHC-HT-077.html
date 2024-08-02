@@ -6,7 +6,170 @@
         <div data-include-path="./_inc/head_sub.html"></div>
         <div class="content">
             <div class="join__wrap">
-                <div class="join__wrap--box" id="chat-box"></div>
+                <div class="join__wrap--box" id="chat-box">
+                    <!-- 시작 메세지 : 고정 노출 -->
+                    <div class="bot-message">
+                        <div class="message-content">헬스케어 서비스에 오신 것을 환영합니다.<br>서비스 이용을 위해 본인확인이 필요해요</div>
+                    </div>
+                    <div class="bot-message first-msg">
+                        <div class="message-content">이름을 입력해 주세요.</div>
+                    </div> 
+
+                    <!-- 0 : 이름
+                    <div class="user-message">
+                        <div class="message-content">최민경
+                            <button class="user-message__edit"><span class="ir-text">수정</span></button>
+                        </div>
+                    </div>  -->
+
+                    <!-- 1 : 주민등록번호
+                    <div class="bot-message">
+                        <div class="message-content">주민등록번호를 입력해 주세요.</div>
+                    </div>
+                    <div class="user-message">
+                        <div class="message-content">
+                            123456
+                            <button class="user-message__edit"><span class="ir-text">수정</span></button>
+                        </div>
+                    </div> -->
+
+                    <!-- 2 : 통신사선택
+                    <div class="bot-message">
+                        <div class="message-content">휴대폰 통신사를 선택해 주세요.</div>
+                    </div>
+                    <div class="massage-btn">
+                        <button class="active">SKT</button>
+                        <button>KT</button>
+                        <button>LG U+</button>
+                        <button>SKT 알뜰폰</button>
+                        <button>KT 알뜰폰</button>
+                        <button>LG U+ 알뜰폰</button>
+                    </div>
+                    <div class="user-message">
+                        <div class="message-content">
+                            LG U+ 알뜰폰
+                            <button class="user-message__edit"><span class="ir-text">수정</span></button>
+                        </div>
+                    </div>  -->
+
+                    <!-- 3 : 휴대폰 번호입력
+                    <div class="bot-message">
+                        <div class="message-content">휴대폰 번호를 입력해 주세요.</div>
+                    </div>
+                    <div class="user-message">
+                        <div class="message-content">
+                            010-9047-2020
+                            <button class="user-message__edit"><span class="ir-text">수정</span></button>
+                        </div>
+                    </div>  -->
+
+                    <!-- 4 : 약관 동의
+                    <div class="bot-message">
+                        <div class="message-content">휴대폰 인증을 위해 약관 동의가 필요해요.</div>
+                    </div>
+                    <div class="agree-checkbox">
+                        <div class="guide-chkbox">
+                            <label class="checkbox chkbox-line">
+                                <input type="checkbox" value="undefined">
+                                <span class="ch-mark"></span>
+                                <span class="checkbox-label"><strong>[필수]</strong>서비스 이용약관 동의</span>
+                                <button class="ir-text">더보기</button>
+                            </label>
+                            <label class="checkbox chkbox-line">
+                                <input type="checkbox" value="undefined">
+                                <span class="ch-mark"></span>
+                                <span class="checkbox-label"><strong>[필수]</strong>개인정보 수집·이용 상세 동의</span>
+                                <button class="ir-text">더보기</button>
+                            </label>
+                            <label class="checkbox chkbox-line">
+                                <input type="checkbox" value="undefined">
+                                <span class="ch-mark"></span>
+                                <span class="checkbox-label"><strong>[필수]</strong>자금융거래이용약관 동의</span>
+                                <button class="ir-text">더보기</button>
+                            </label>
+                            <label class="checkbox chkbox-line">
+                                <input type="checkbox" value="undefined"><span class="ch-mark"></span>
+                                <span class="checkbox-label"><strong>[필수]</strong>통신사/인증사 이용약관 동의</span>
+                                <button class="ir-text">더보기</button>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="massage-btn">
+                        <button class="active">동의 안할래요</button>
+                        <button>모두 동의 할래요</button>
+                    </div> -->
+                    <!-- 4 - 1 : 동의 안할래요 선택 시
+                    <div class="user-message">
+                        <div class="message-content">동의 안할래요</div>
+                    </div> -->
+                    <!-- 4 - 1 : 동의 할래요 선택 시
+                    <div class="user-message">
+                        <div class="message-content">모두 동의 할래요</div>
+                    </div> -->
+
+                    <!-- 5 : 인증번호 입력
+                    <div class="bot-message">
+                        <div class="message-content">인증 약관에 모두 동의하셨어요!<br>입력하신 휴대폰 번호로 인증번호를 보낼게요.</div>
+                    </div>
+                    <div class="auth-option">
+                        <div>
+                            인증번호를 입력해주세요.
+                            <a href="#">인증번호가 안 왔어요</a>
+                        </div>
+                    </div> -->
+                    <!-- 5 - 1 : 인증번호 틀렸을 때 토스트팝업 노출
+                    <div class="user-message">
+                        <div class="message-content">123456</div>
+                    </div>  -->
+
+                    <!-- 6 : 약관 동의
+                    <div class="bot-message">
+                        <div class="message-content">헬스케어 서비스를 이용하기 위한<br>약관 동의가 필요해요.</div>
+                    </div>
+                    <div class="agree-checkbox">
+                        <div class="guide-chkbox">
+                            <label class="checkbox chkbox-line">
+                                <input type="checkbox" value="undefined">
+                                <span class="ch-mark"></span>
+                                <span class="checkbox-label">만 14세 이상이에요.</span>
+                                <button class="ir-text">더보기</button>
+                            </label>
+                            <label class="checkbox chkbox-line">
+                                <input type="checkbox" value="undefined">
+                                <span class="ch-mark"></span>
+                                <span class="checkbox-label"><strong>[필수]</strong>서비스 이용약관</span>
+                                <button class="ir-text">더보기</button>
+                            </label>
+                            <label class="checkbox chkbox-line">
+                                <input type="checkbox" value="undefined">
+                                <span class="ch-mark"></span>
+                                <span class="checkbox-label"><strong>[필수]</strong>개인정보 수집·이용동의</span>
+                                <button class="ir-text">더보기</button>
+                            </label>
+                            <label class="checkbox chkbox-line">
+                                <input type="checkbox" value="undefined">
+                                <span class="ch-mark"></span>
+                                <span class="checkbox-label"><strong>[필수]</strong>민감정보 수집 및 이용동의</span>
+                                <button class="ir-text">더보기</button>
+                            </label>
+                        </div>
+                    </div> 
+                    <div class="massage-btn">
+                        <button class="active">동의 안할래요</button>
+                        <button>모두 동의 할래요</button>
+                    </div> -->
+                    <!-- 6- 1 : 동의 안할래요 선택 시
+                    <div class="user-message">
+                        <div class="message-content">동의 안할래요</div>
+                    </div> -->
+                    <!-- 6- 2 동의 할래요 선택 시
+                    <div class="user-message">
+                        <div class="message-content">모두 동의 할래요</div>
+                    </div> -->
+                    
+                </div>
+
+                <!-- 입력 창 -->
                 <div class="join__wrap--input">
                     <input type="text" id="user-input" placeholder="홍길동" onkeydown="checkEnterKey(event)" />
                     <!-- 가입 안내문구에 따라 placeholder 변경 / 기획서 참조 -->
@@ -17,20 +180,10 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            startConversation();
-        });
-
         let step = 0;
         let userInfo = {};
         let editMode = false;
         let currentEditStep = 0;
-
-        //기본 디폴트 메세지
-        function startConversation() {
-            addBotMessage("헬스케어 서비스에 오신 것을 환영합니다.<br>서비스 이용을 위해 본인확인이 필요해요", "bot");
-            addBotMessage("이름을 입력해 주세요.", "bot", "first-msg");
-        }
         //가입 진행 메세지
         function addBotMessage(message, type, additionalClass) {
             createMessageElement(message, type, additionalClass, false);
