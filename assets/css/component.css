@@ -104,7 +104,7 @@
     font-size: calc(15 / 16 * 1rem);
     font-weight: 800;
     line-height: calc(20 / 16 * 1rem);
-    padding: calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
+    padding: calc(16 / 16 * 1rem);
 }
 .btn.btn-primary:hover,
 .btn.btn-primary.is-active {
@@ -1720,16 +1720,16 @@ input[type="radio"]:disabled {
 .join__wrap--box .bot-message{
     display: flex;
     justify-content: left;
-    padding-top: calc(38 / 16 * 1rem);
+    padding-top: calc(58 / 16 * 1rem);
 }
 .join__wrap--box .message-content{
-    margin-bottom:calc(10 / 16 * 1rem);
-    padding:calc(16 / 16 * 1rem) calc(20 / 16 * 1rem);
+    margin-bottom:calc(20 / 16 * 1rem);
+    padding:calc(16 / 16 * 1rem) calc(24 / 16 * 1rem);
     border-radius:calc(4 / 16 * 1rem) calc(20 / 16 * 1rem) calc(20 / 16 * 1rem);
     animation: fadeIn 0.5s ease;
     color: var(--color-basic10);
     font-weight: 700;
-    font-size: calc(15 / 16 * 1rem);
+    font-size: calc(17 / 16 * 1rem);
     line-height:calc(20 / 16 * 1rem);
     background-color:var(--color-white);
     position:relative;
@@ -1737,23 +1737,20 @@ input[type="radio"]:disabled {
 }
 .bot-message .message-content::after{
     content:"";
-    width:calc(42 / 16 * 1rem);
-    height:calc(42 / 16 * 1rem);
+    width:calc(50 / 16 * 1rem);
+    height:calc(50 / 16 * 1rem);
     background: center / cover no-repeat url("../img/icon/chat_icon42_or.png");
     position:absolute;
     left:0;
-    top:calc(-32 / 16 * 1rem);
+    top:calc(-42 / 16 * 1rem);
 }
 .bot-message.first-msg{
-    padding-top:0;
-}
-.bot-message.first-msg .message-content::after{
-    display:none;
+    padding-top:calc(38 / 16 * 1rem);
 }
 .join__wrap .join__wrap--input {
     display: flex;
     padding: calc(12 / 16 * 1rem) calc(20 / 16 * 1rem);
-    position:fixed;
+    position:fixed; 
     left:0;
     bottom:0;
     width:100%;
@@ -1768,6 +1765,7 @@ input[type="radio"]:disabled {
     height:calc(52 / 16 * 1rem);
     padding:calc(14 / 16 * 1rem) calc(50 / 16 * 1rem) calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
     font-size:calc(16 / 16 * 1rem);
+    font-weight: 700;
 }
 .join__wrap .join__wrap--input input::placeholder{
     color:var(--color-basic6);
@@ -1791,7 +1789,6 @@ input[type="radio"]:disabled {
     color:var(--color-white);
     border-radius:calc(20 / 16 * 1rem) calc(4 / 16 * 1rem)  calc(20 / 16 * 1rem)  calc(20 / 16 * 1rem);
     box-shadow: none;
-    padding:calc(14 / 16 * 1rem) calc(20 / 16 * 1rem);
 }
 .join__wrap--box .user-message .user-message__edit{
     position:absolute;
@@ -1809,30 +1806,34 @@ input[type="radio"]:disabled {
     display:flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-bottom: calc(10 / 16* 1rem);
+    margin: calc(-10 / 16* 1rem) 0 calc(20 / 16* 1rem);
     animation: fadeIn 0.5s ease;
     justify-content: right;
 }
 .join__wrap--box .massage-btn button{
-    padding:calc(12 / 16 * 1rem) calc(20 / 16 * 1rem) calc(12 / 16 * 1rem) calc(40 / 16 * 1rem);
-    font-size:calc(14 / 16 * 1rem);
+    padding:calc(14 / 16 * 1rem);
+    font-size:calc(16  / 16 * 1rem);
     font-weight:800;
     border:1px solid var(--color-basic3);
     border-radius:calc(10 / 16 * 1rem);
     color:var(--color-basic6);
-    background:left 20px center / 12px no-repeat url("../img/icon/check_icon12_gr.png") var(--color-white);
+    background: var(--color-white);
+    flex: 1 1 40%;
+}
+.join__wrap--box .massage-btn.type02{
+    justify-content: right;
+    padding-left:25%;
 }
 .join__wrap--box .massage-btn button.active{
     border-color:var(--color-primary);
     color:var(--color-primary);
-    background:left 20px center / 12px no-repeat url("../img/icon/check_icon12_or.png")rgba(245, 130, 32, 0.05);
 }
 .join__wrap--box .agree-checkbox{
     background-color: var(--color-white);
-    padding:calc(20 / 16 * 1rem);
+    padding:calc(24 / 16 * 1rem);
     border-radius:calc(20 / 16 * 1rem);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
-    margin-bottom:calc(10 / 16 * 1rem);
+    margin-bottom:calc(20 / 16 * 1rem);
     animation: fadeIn 0.5s ease;
 }
 .join__wrap--box .agree-checkbox .guide-chkbox{
@@ -1842,7 +1843,8 @@ input[type="radio"]:disabled {
     color:var(--color-basic9);
 }
 .join__wrap--box .agree-checkbox .guide-chkbox .checkbox{
-    font-size:calc(15 / 16 * 1rem);
+    font-size:calc(17 / 16 * 1rem);
+    color:var(--color-basic10)
 }
 .join__wrap--box .checkbox button{
     background: center / 16px no-repeat url("../img/icon/right_icon16_bl.png");
@@ -1856,27 +1858,20 @@ input[type="radio"]:disabled {
 .join__wrap--box .auth-option{
     display: flex;
     justify-content: left;
-    width:70%;
+    min-width:70%;
 }
-.join__wrap--box .auth-option div{
-    background:var(--color-white);
-    margin-bottom:calc(10 / 16 * 1rem);
-    padding:calc(16 / 16 * 1rem) calc(20 / 16 * 1rem);
-    border-radius:calc(4 / 16 * 1rem) calc(20 / 16 * 1rem) calc(20 / 16 * 1rem);
-    animation: fadeIn 0.5s ease;
-    color: var(--color-basic10);
-    font-weight: 700;
-    font-size: calc(15 / 16 * 1rem);
-    line-height:calc(20 / 16 * 1rem);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
-}
-.join__wrap--box .auth-option a{
+.join__wrap--box a.arrow_link{
     display:block;
     color:var(--color-primary);
     border-top:1px solid var(--color-basic2);
     padding-top:calc(14 / 16 * 1rem);
     margin-top:calc(14 / 16 * 1rem);
-    background: right 8% top 76% / 16px no-repeat url("../img/icon/right_icon16_or.png");
+    
+}
+.join__wrap--box a.arrow_link i{
+    background: right / 16px no-repeat url("../img/icon/right_icon16_or.png"); 
+    padding-right:calc(16 / 16 * 1rem);
+    font-style: normal;
 }
 @keyframes fadeIn {
     from {
@@ -1896,19 +1891,20 @@ input[type="radio"]:disabled {
 .join__wrap--info li{
     color:var(--color-basic8);
     line-height:calc(18 / 16 * 1rem);
-    padding-left:calc(50 / 16 * 1rem);
+    padding-left:calc(66 / 16 * 1rem);
     position:relative;
     color:var(--color-basic8);
-    font-size:calc(12 / 16 * 1rem);
+    font-size:calc(13 / 16 * 1rem);
+    font-weight:700;
 }
 .join__wrap--info li::after{
     content:"";
-    width: calc(40 / 16 * 1rem);
-    height: calc(40 / 16 * 1rem);
+    width: calc(50 / 16 * 1rem);
+    height: calc(50 / 16 * 1rem);
     position:absolute;
     left:0;
     top:0;
-    border-radius: calc(12 / 16 * 1rem);
+    border-radius: calc(20 / 16 * 1rem);
 }
 .join__wrap--info li:nth-child(1)::after{
     background: center / 24px no-repeat url("../img/icon/interlock_icon24.png") var(--color-basic2);
@@ -1923,10 +1919,12 @@ input[type="radio"]:disabled {
     background: center / 24px no-repeat url("../img/icon/alram_icon24.png") var(--color-basic2);
 }
 .join__wrap--info li strong{
-    font-size:calc(15 / 16 * 1rem);
-    font-weight:800;
-    line-height:calc(23 / 16 * 1rem);
+    font-size:calc(17 / 16 * 1rem);
+    font-weight:700;
+    line-height:calc(22 / 16 * 1rem);
     color:var(--color-black);
+    padding-bottom:calc(4 / 16 * 1rem);
+    display: flex;
 }
 .join__wrap--box .button__wrap{
     position:fixed;
