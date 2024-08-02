@@ -1643,7 +1643,7 @@ input[type="radio"]:disabled {
 .toast__popup {
     display: none;
     padding:calc(16 / 16 * 1rem);
-    position:absolute;
+    position:fixed;;
     left:0;
     bottom:0;
     width:100%;
