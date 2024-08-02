@@ -1,4 +1,4 @@
-import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu, removeButton, toastPop } from "../js/ui_common.js";
+import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu, removeButton, toastPop, accordion } from "../js/ui_common.js";
 import { ScrollEnterMain } from "../js/scroll_event.js";
 import { circleGraphType1 } from "../js/graph_custom.js";
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from "../js/calendar.js";
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     focusNextInputOnMaxLength('.pin-code input');
     tabMenus('.tab-content');
     tabMenus('.tab-content-group', 'onlyTab');
+    tabMenus('.faq-content-tabs');
     ScrollEnterMain();
     toastPop();
     
@@ -117,6 +118,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     removeButton('.btn-tag-remove', '.tag', (event) => {
         console.log('버튼 삭제 추가 이벤트 있을까', event);
     })
+
+
+    accordion('.faq-list');
 
     // dom 로딩시간 체크 필요한 경우
     setTimeout(() => {
