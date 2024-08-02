@@ -127,6 +127,12 @@
         display: flex;        
         justify-content: space-between;
         gap: calc(8 / 16 * 1rem);
+        .event-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: calc(8 / 16 * 1rem);
+        }
         i {
             margin-top: 3px;
         }

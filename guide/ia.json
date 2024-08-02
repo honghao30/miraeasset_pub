@@ -234,7 +234,7 @@
         "memo": ""
     },
     {
-        "condition": "진행대기", 
+        "condition": "진행중", 
         "depth1": "",
         "depth2": "이벤트",
         "depth3": "목록",
@@ -247,12 +247,12 @@
         "memo": ""
     },
     {
-        "condition": "진행대기", 
+        "condition": "진행중", 
         "depth1": "",
         "depth2": "",
         "depth3": "상세",
-        "wbs_id": "screen_main",
-        "file_link": "/front_markup/",
+        "wbs_id": "DHC-CO-018",
+        "file_link": "/front_markup/DHC-CO-018.html",
         "worker": "",
         "start_date": "",
         "end_date": "",
