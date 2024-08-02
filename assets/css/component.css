@@ -1670,12 +1670,12 @@ input[type="radio"]:disabled {
     height:calc(46 / 16 * 1rem);
     background:center / 16px no-repeat url("../img/icon/close_icon16_or.png");
 }
-
 /*회원가입*/
 .join__wrap {
     width:100%;
-    height: calc(100vh - 56px - 76px);
+    height: calc(100vh - 56px);
     background:#F5F5F5;
+    padding-bottom:calc(76 / 16 * 1rem);
 }
 .join__wrap .join__wrap--box {
     padding:calc(30 / 16 * 1rem) calc(16 / 16 * 1rem) calc(100 / 16 * 1rem);
@@ -1888,6 +1888,12 @@ input[type="radio"]:disabled {
     font-weight:800;
     line-height:calc(23 / 16 * 1rem);
     color:var(--color-black);
+}
+.join__wrap--box .button__wrap{
+    position:fixed;
+    left:0;
+    bottom:0;
+    padding:calc(16 / 16 * 1rem) calc(16 / 16 * 1rem) calc(20 / 16 * 1rem);
 }
 
 /* //tag */

@@ -147,7 +147,7 @@
   color: var(--color-basic9);
 }
 .bottom-sheet__wrap .sheet-content {
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 0 24px;
   transition: all 0.3s;
   height: auto;
