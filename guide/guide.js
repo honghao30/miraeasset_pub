@@ -1,4 +1,4 @@
-import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu,accordion  } from '../assets/js/ui_common.js';
+import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu,accordion, toastPop} from '../assets/js/ui_common.js';
 import { ScrollEnterMain } from '../assets/js/scroll_event.js';
 import { circleGraphType1, circleGraphType2, circleGraphType3 } from "../assets/js/graph_custom.js";
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from '../assets/js/calendar.js';
@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ScrollEnterMain();    
     convertCodeSamples();
     formatCodePreviews();
+    toastPop();
 
     // 달력
     rangeOptionSelector('startDate2', 'endDate2');
@@ -173,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
     accordion('.acc-opentype', 0);
     // 커스텀 챠트
     circleGraphType1(".circlebar-js1", 95);
-    circleGraphType1(".circlebar-js1custom", 40);
+    circleGraphType1(".circlebar-js1custom", 95);
     circleGraphType2(".circlebar-js2", 119);
     circleGraphType3(".circlebar-js3", 95, 5);
     circleGraphType3(".circlebar-js4", 98, 2);

@@ -1076,6 +1076,14 @@ body.modal-open {
     transform: rotate(-120deg);
     stroke-linecap: round;
 }
+.circlebar-type1.calro-bar .circle-border {
+    fill: none;
+    stroke: #ECECEC;
+}
+.circlebar-type1.calro-bar .circle-progress {
+    fill: none;
+    stroke: url(#calGradient);
+}
 .circlebar_total.animation-enter .circle-progress {
     animation: none;
 }
@@ -1174,6 +1182,15 @@ body.modal-open {
 }
 .circlebar-type3.data-circle .circle-progress {
     animation: combineType 2s ease-in-out forwards;
+}
+@keyframes combineType {
+    0% {
+        stroke-dashoffset: var(--initialDashOffset);
+    }
+    100% {
+        stroke-dashoffset: var(--barNum);
+        stroke: url(#circleGradient);
+    }
 }
 @keyframes combineType {
     0% {
@@ -1444,6 +1461,7 @@ input[type="radio"]:disabled {
     width: fit-content;
     position: relative;
     padding: 3px 10px;
+    z-index: 1;
 }
 .bubble-box {
     position: relative;
@@ -1579,12 +1597,15 @@ input[type="radio"]:disabled {
 .heart-swiper {
     position: relative;
 }
+.heart-swiper img {
+    border-radius: calc(20 / 16 * 1rem);
+}
 .heart-wrap .heart-box {
     position: absolute;
-    top: 21px;
-    right: 21px;
-    width: 30px;
-    height: 30px;
+    top: calc(21 / 16 * 1rem);
+    right: calc(21 / 16 * 1rem);
+    width: calc(30 / 16 * 1rem);
+    height: calc(30 / 16 * 1rem);
     border-radius: 50%;
     background-color: var(--color-white);
     display: flex;
@@ -1592,29 +1613,29 @@ input[type="radio"]:disabled {
     justify-content: center;
 }
 .heart-wrap .heart-box .heart-btn {
-    width: 14px;
-    height: 14px;
+    width: calc(14 / 16 * 1rem);
+    height: calc(14 / 16 * 1rem);
     background: url("../img/icon/heart_icon14_gr.png") no-repeat center center;
     background-size: 100%;
     display: inline-flex;
 }
 .heart-wrap .heart-box .heart-btn.on {
-    width: 14px;
-    height: 14px;
+    width: calc(14 / 16 * 1rem);
+    height: calc(14 / 16 * 1rem);
     background: url("../img/icon/heart_icon14_red.png") no-repeat center center;
     background-size: 100%;
     display: inline-flex;
 }
 .heart-swiper .txt-wrap {
     position: absolute;
-    bottom: 24px;
-    left: 20px;
+    bottom: calc(24 / 16 * 1rem);
+    left: calc(20 / 16 * 1rem);
     width: calc(100% - 40px);
 }
 .swiper-tit {
-    font-size: 20px;
+    font-size: calc(20 / 16 * 1rem);
     font-weight: 800;
-    line-height: 26px;
+    line-height: calc(26 / 16 * 1rem);
     color: var(--color-white);
 }
 .chip + .swiper-tit {
@@ -1643,7 +1664,7 @@ input[type="radio"]:disabled {
 .toast__popup {
     display: none;
     padding:calc(16 / 16 * 1rem);
-    position:absolute;
+    position:fixed;;
     left:0;
     bottom:0;
     width:100%;
@@ -1755,7 +1776,7 @@ input[type="radio"]:disabled {
 }
 .join__wrap--box .user-message .message-content{
     position:relative;
-    background-color:var(--color-primary);
+    background-color:var(--color-secondary);
     color:var(--color-white);
     border-radius:calc(20 / 16 * 1rem) calc(4 / 16 * 1rem)  calc(20 / 16 * 1rem)  calc(20 / 16 * 1rem);
     box-shadow: none;
@@ -1770,6 +1791,7 @@ input[type="radio"]:disabled {
     border-radius:50%;
     background:center / 14px no-repeat url("../img/icon/edit_icon14_bk.png") var(--color-white); 
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+    z-index:9;
 
 }
 .join__wrap--box .massage-btn{
@@ -1777,6 +1799,8 @@ input[type="radio"]:disabled {
     flex-wrap: wrap;
     gap: 6px;
     margin-bottom: calc(10 / 16* 1rem);
+    animation: fadeIn 0.5s ease;
+    justify-content: right;
 }
 .join__wrap--box .massage-btn button{
     padding:calc(12 / 16 * 1rem) calc(20 / 16 * 1rem) calc(12 / 16 * 1rem) calc(40 / 16 * 1rem);
@@ -1798,6 +1822,7 @@ input[type="radio"]:disabled {
     border-radius:calc(20 / 16 * 1rem);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
     margin-bottom:calc(10 / 16 * 1rem);
+    animation: fadeIn 0.5s ease;
 }
 .join__wrap--box .agree-checkbox .guide-chkbox{
     display:flex;
