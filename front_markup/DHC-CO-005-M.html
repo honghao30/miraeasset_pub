@@ -219,5 +219,48 @@
         <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
         <script type="module" src="/assets/js/gnb_include.js"></script>
         <script type="text/javascript" src="../../assets/bundle/swiper-bundle.min.js"></script>
+        <script src="/assets/bundle/dayjs/dayjs.min.js"></script>
+        <script src="/assets/bundle/dayjs/isSameOrBefore.js"></script>
+        <script src="/assets/bundle/dayjs/ko.js"></script>
+        <script>
+            import { newMonthlyCalendar } from "/assets/js/calendar.js";
+            // 사용자 데이터를 추가하는 함수
+            const addCalendarData = (cell, userData) => {
+                const healthDataEl = document.createElement('div');
+                healthDataEl.classList.add('health-data-wrap');
+                healthDataEl.innerHTML = userData;
+                cell.appendChild(healthDataEl);    
+            };
+            // 사용자 데이터를 셀에 추가하는 함수
+            const addUserDataToCell = async (cell, date) => {    
+                try {
+                    // const response = await fetch('');
+                    // const userData = await response.json();
+                    // 예시 데이터 추가 (API 응답 형식에 맞게 변경하세요)
+                    const healthDataHTML = `
+                        <div class="dot type-meal"></div>
+                        <div class="dot type-work-out"></div>
+                        <div class="dot type-nutrition"></div>
+                    `;
+                    // API로부터 받은 데이터를 사용하여 사용자 데이터 추가
+                    addCalendarData(cell, healthDataHTML);
+                } catch (error) {
+                    console.error('사용자 데이터를 불러오는 중 오류가 발생했습니다:', error);
+                }
+            };
+            
+            setInterval(() => {
+                if (document.getElementById("page-cal")) {
+                    // `newMonthlyCalendar` 함수 호출
+                    newMonthlyCalendar('page-cal', { 
+                        button: false, 
+                        userTouchMove: false,
+                        displayData: 'default',
+                        toggle: true,
+                        addCalendarData: addUserDataToCell // addUserDataToCell 함수를 올바르게 옵션으로 전달
+                    });
+                }
+            },500)
+        </script>
     </body>
 </html>
