@@ -389,9 +389,10 @@
 }
 @media (min-width: 500px) {
     .mainhome_wrap .main-health_wrap::before {
-        left: 50%;
+        left: auto;
         top: calc(10 / 16* 1rem);
-        transform: translateX(-50%);
+        transform: none;
+        right: calc(-30 / 16 * 1rem);
     }
 }
 
