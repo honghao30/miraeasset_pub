@@ -2069,7 +2069,7 @@ input[type="radio"]:disabled {
 .ico-all {
     display: inline-flex;
     width: 16px;
-    height: 16px;
+    height: 16px;    
     background: url('../img/icon/icon_all_16.png') no-repeat center center;
     background-size: contain;
 }    

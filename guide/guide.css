@@ -646,3 +646,24 @@ input[type="date"]::before {
     flex-direction: column;
     margin-top: 20px;
 }
+
+/* 아이콘 */
+.icon-list__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;    
+}
+.icon-list__wrap li {
+    width: 180px;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--color-basic3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.icon-list__wrap li:hover {
+    background-color: var(--color-basic1);
+    cursor: pointer;
+}

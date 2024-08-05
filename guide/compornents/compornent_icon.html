@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>Publish Guide System</title>
+        <link rel="stylesheet" href="../guide.css" />
+    </head>
+    <body>
+        <div class="guide_wrap">
+            <div class="header__wrap">
+                <div data-include-path="../top_nav.html"></div>
+                <div data-include-path="../site-name.html"></div>
+            </div>
+            <div class="guide-content__wrap lnb-type">
+                <div class="lnb-side__wrap">
+                    <div data-include-path="./cmp_side.html"></div>
+                </div>
+                <div class="guide-cont">
+                    <div class="page_tit_h1">아이콘 모음</div>
+                    <div class="section">
+                        <ul class="icon-list__wrap">
+                            <li>
+                                <div class="icon">
+                                    <i class="ico ico-grid"></i>
+                                </div>
+                                <div class="icon-name"></div>        
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="ico ico-miti-speaker"></i>
+                                </div>
+                                <div class="icon-name"></div>        
+                            </li>   
+                        </ul>
+                        <div class="toast__popup" data-toast="1">
+                            <div class="toast__popup--message">토스트 팝업이에요 5초 후에 사라져요</div>
+                            <button type="button" class="toast__popup--close" data-toast="1">
+                                <span class="ir-text">Close</span>
+                            </button>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="../guide.js"></script>
+        <script>
+            const iconsItems = document.querySelectorAll('.icon-list__wrap li');            
+
+            iconsItems.forEach(item => {
+                const icon = item.querySelector('.icon i');
+                const iconName = icon.className;
+                console.log(iconName);
+                icon.parentElement.nextElementSibling.innerText = iconName;
+                
+                item.addEventListener('click', () => {
+                    console.log('icon clicked'); 
+                    copyToClipboard(iconName); // 아이콘 이름을 클립보드에 복사
+                });
+            });
+
+            function copyToClipboard(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                console.log(`Copied to clipboard: ${text}`);
+            }
+            
+            
+        </script>
+        <!-- <script src="../../assets/js/ui_common.js"></script> -->
+    </body>
+</html>

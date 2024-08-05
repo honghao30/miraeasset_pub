@@ -1,0 +1,16 @@
+$baseUrl: '/assets/img/';
+$fileType: 'png';
+
+/* 아이콘 */
+.ico {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;    
+    background-size: contain !important;
+    &.ico-grid {
+        background: url("#{$baseUrl}icon/icon_all_16.#{$fileType}") no-repeat center center;                
+    }
+    &.ico-miti-speaker {
+        background: url("#{$baseUrl}icon/icon_common_16.#{$fileType}") no-repeat center center;        
+    }
+}

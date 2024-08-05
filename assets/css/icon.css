@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* 아이콘 */
+.ico {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  background-size: contain !important;
+}
+.ico.ico-grid {
+  background: url("/assets/img/icon/icon_all_16.png") no-repeat center center;
+}
+.ico.ico-miti-speaker {
+  background: url("/assets/img/icon/icon_common_16.png") no-repeat center center;
+}
