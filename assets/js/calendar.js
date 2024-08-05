@@ -296,6 +296,9 @@ export const newMonthlyCalendar = (containerId, options) => {
         const toggleButton = container.querySelector('.btn-calendar-toggle');
         const allTrs = container.querySelectorAll('.calendar__content tbody tr');
     
+        if(!toggleButton) {
+            return;
+        }
         const toggleView = () => {
             if (toggleButton.innerText === '월간보기') {
                 toggleButton.innerText = '주간보기';

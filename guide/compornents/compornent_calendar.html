@@ -17,6 +17,17 @@
                         <div class="section_text_no_round">
                             <div class="sample-code">
                                 <div class="form-element__wrap">
+                                    <label for="code01" class="font-type-h5-bold">날짜선택(js버전)</label>
+                                    <span class="form-element__inner input-type">
+                                        <input type="text" name="foo" id="dataVanilla">
+                                    </span>
+                                </div>
+                            </div>
+                            <pre class="code_view"></pre>
+                        </div>                        
+                        <div class="section_text_no_round">
+                            <div class="sample-code">
+                                <div class="form-element__wrap">
                                     <label for="code01" class="font-type-h5-bold">날짜선택(기본)</label>
                                     <span class="form-element__inner input-type">
                                         <input type="date" value="" name="datepicker" placeholder="날짜 선택" id="datepicker" autocomplete="off" />
@@ -161,6 +172,22 @@
         <script src="../../assets/bundle/dayjs/dayjs.min.js"></script>
         <script src="../../assets/bundle/dayjs/isSameOrBefore.js"></script>
         <script src="../../assets/bundle/dayjs/ko.js"></script>
+
+        <!-- vanilla.js datepicker -->
+        <script src="../../assets/bundle/datepicker/datepicker-full.js"></script>
+        <script src="../../assets/bundle/datepicker/ko.js"></script>
+        <script>
+            const elem = document.querySelector('#dataVanilla');
+            const datepicker = new Datepicker(elem, {
+            // ...options
+                buttonClass: 'btn',
+                languages:'kor',                
+                autoClose: true,
+                format: 'yyyy-mm-dd',      
+                language: 'ko'          
+            }); 
+        </script>            
+        <!-- vanilla.js datepicker -->
         <script type="module" src="../../assets/js/index.js"></script>
     </body>
 </html>
