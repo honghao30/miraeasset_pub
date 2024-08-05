@@ -1319,8 +1319,8 @@ input[type="radio"]:disabled {
     clip: rect(0 0 0 0);
 }
 .checkbox .ch-mark {
-    width: 20px;
-    height: 20px;
+    width: calc(24 / 16 * 1rem);
+    height: calc(24 / 16 * 1rem);
     background-color: var(--color-basic4);
     border-radius: 50%;
     position: relative;
@@ -1328,8 +1328,8 @@ input[type="radio"]:disabled {
 .checkbox .ch-mark::before {
     content: "";
     display: inline-block;
-    width: 9px;
-    height: 9.5px;
+    width: calc(11 / 16 * 1rem);
+    height:calc(11.5 / 16 * 1rem);
     background-color: var(--color-basic4);
     border-radius: 50%;
     background: url("../img/icon/check_icon_wh.png") center center no-repeat;
