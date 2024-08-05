@@ -84,9 +84,9 @@
     line-height: 33px;
 }
 .font-type-h3 {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 28px;
+    font-size: calc(18 / 16 * 1rem);
+    font-weight: 800;
+    line-height:alc(24 / 18 * 1rem);
 }
 .font-type-h4-bold {
     font-size: 20px;

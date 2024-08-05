@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head></head>
+<body>
+    <div class="wrap">
+        <div class="content">
+            <button class="toast__popup--link" data-toast="1">토스트팝업 - 인증번호가 틀렸어요</button><br />
+            <button type="button" onclick="openModal(event)" modal-id="agreePop">약관동의팝업</button>
+        </div>
+    </div>
+
+    <!-- toast popup -->
+    <div class="toast__popup" data-toast="1">
+        <div class="toast__popup--message">인증번호가틀렸어요. 다시 확인해 주세요.</div>
+        <button type="button" class="toast__popup--close" data-toast="1">
+            <span class="ir-text">Close</span>
+        </button>
+    </div>
+
+    <!-- 약관동의 popup -->
+    <div class="modal__wrap--bg default" id="agreePop">
+        <div class="modal__wrap size-default">
+            <div class="modal-header">
+                <h3 class="font-type-h3">&#91;필수&#93; 개인정보 수집&#183;이용 상세 동의</h3>
+                <button type="button" class="btn btn-icon-close close-modal" onclick="closeModal(event)">
+                    <span class="ir-text">닫기</span>
+                </button>
+            </div>
+            <div class="modal-cont">
+                <p style="height:200px; background:#F5F5F5">약관 내용이 들어갈거에요</p>
+            </div>
+            <div class="modal-footer">
+                <div class="button__wrap twobtn-case01">
+                    <button type="button" class="btn btn-line" onclick="closeModal(event)">동의 안함</button>
+                    <button type="button" class="btn btn-secondary">일괄 동의</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+    <script>
+        setTimeout(function(){
+            document.querySelector('.document-title').innerText = '권한 허용 안내';
+            document.querySelector('.header__utils').style.display="none";
+        },200)
+    </script>
+    <script type="module" src="/assets/js/pub_include.js"></script>
+
+    <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
+    <script src="/assets/bundle/dayjs/dayjs.min.js"></script>
+    <script src="/assets/bundle/dayjs/isSameOrBefore.js"></script>
+    <script src="/assets/bundle/dayjs/ko.js"></script>
+    <script type="module" src="/assets/js/index.js"></script>    
+</body>
+
+</html>

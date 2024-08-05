@@ -666,31 +666,28 @@ body.modal-open {
     max-width: 1056px;
 }
 .modal__wrap--bg .modal__wrap .modal-header {
-    background-color: #35ad68;
-    height: 72px;
+    padding:calc(20 / 16 * 1rem) calc(70 / 16 * 1rem) calc(20 / 16 * 1rem) calc(20 / 16 * 1rem);
     position: relative;
     display: flex;
     align-items: center;
 }
-.modal__wrap--bg .modal__wrap .modal-header h3 {
-    margin-left: 30px;
-    color: #fff;
-}
 .modal__wrap--bg .modal__wrap .modal-header .btn-icon-close {
     position: absolute;
-    right: 30px;
-    top: 50%;
+    right:calc(20 / 16 * 1rem);
+    top:calc(33 / 16 * 1rem);
     transform: translateY(-50%);
+    background: center / 100% no-repeat url("../img/icon/close_icon24_bk.png");
+    width:calc(24 / 16 * 1rem);
+    height:calc(24 / 16 * 1rem);
 }
 .modal__wrap--bg .modal__wrap .modal-cont {
     background-color: #fff;
-    padding: 30px 24px 0;
+    padding:0 calc(20 / 16 * 1rem);
     max-height: 550px;
     overflow-y: auto;
 }
 .modal__wrap--bg .modal__wrap .modal-footer {
-    padding: 0 20px 20px;
-    margin-top: 30px;
+    padding:calc(20 / 16 * 1rem);
 }
 .modal__wrap--bg .modal__wrap {
     position: fixed;

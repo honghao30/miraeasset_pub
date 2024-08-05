@@ -302,7 +302,7 @@
             const chatBox = document.getElementById('chat-box');
             const MobileOption = document.createElement('div');
             MobileOption.className = 'massage-btn type02';
-            
+
             ["LG U+ 알뜰폰", "LG U+", "KT 알뜰폰", "KT", "SKT 알뜰폰", "SKT"].forEach(carrier => {
                 const button = document.createElement('button');
                 button.textContent = carrier;
@@ -319,8 +319,14 @@
             button.classList.add('active');
             addUserMessage(carrier);
             stepMessage(carrier);
-        }
 
+            // 통신사 선택후 버튼 영역 삭제, user-message__edit 버튼 클릭 시 재 노출되어야 함
+            const MobileOption = document.querySelector('.massage-btn');
+            if (MobileOption) {
+                MobileOption.remove();
+            }
+        }
+        
         //휴대폰 인증 약관 동의
         function showAgreeOptions() {
             const chatBox = document.getElementById('chat-box');
