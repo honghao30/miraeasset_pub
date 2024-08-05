@@ -83,18 +83,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     width: 100%;
 }
 .button__wrap.twobtn-case02 .btn:first-child {
     width: fit-content;
-    padding: 15px 23px;
+    padding: calc(16 / 16 * 1rem);
     margin: 0;
     flex: 0 0 calc(80 / 16 * 1rem);
 }
 .button__wrap.twobtn-case02 .btn:last-child {
     width: fit-content;
-    padding: 16px 24px;
+    padding: calc(16 / 16 * 1rem);
     margin: 0;
     flex: 1;
 }
@@ -117,11 +117,12 @@
 .button__wrap.twobtn-case03 .btn:last-child {
     width: fit-content;
     padding: 16px 24px;
+    padding: calc(16 / 16 * 1rem);
     margin: 0;
     flex: 1;
 }
 .button__wrap .btn {
-    width: calc(50% - 8px);
+    width:50%;
 }
 .btn {
     font-family: var(--fontMain);
