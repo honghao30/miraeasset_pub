@@ -133,9 +133,9 @@
 .btn.btn-primary {
     background-color: var(--color-secondary);
     color: var(--color-white);
-    font-size: calc(15 / 16 * 1rem);
+    font-size: calc(16 / 16 * 1rem);
     font-weight: 800;
-    line-height: calc(20 / 16 * 1rem);
+    line-height: calc(22 / 16 * 1rem);
     padding: calc(16 / 16 * 1rem);
 }
 .btn.btn-primary:hover,
