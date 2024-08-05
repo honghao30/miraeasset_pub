@@ -432,15 +432,18 @@ export const removeButton = (el, target, callback) => {
 };
 
 //infinite scroll
-export const infiniteScroll = (loadMoreContent, totalLoadedItems, maxItems) => {
+export const infiniteScroll = (loadMoreContent, totalLoadedItems, maxItems, ms) => {
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                loadMoreContent().then(hasMoreContent => {
-                    if (!hasMoreContent) {
-                        observer.unobserve(entry.target); // 더 이상 로드할 콘텐츠가 없으면 관찰 중지
-                    }
-                });
+                setTimeout(() => {
+                    loadMoreContent().then(hasMoreContent => {
+                        if (!hasMoreContent) {
+                            observer.unobserve(entry.target); // 더 이상 로드할 콘텐츠가 없으면 관찰 중지
+                            entry.target.style.display = 'none'; // .scroll-target 요소 숨기기
+                        }
+                    });
+                }, ms); //지연 추가
             }
         });
     }, { threshold: 0.9 });
@@ -465,27 +468,46 @@ export const accordion = (container, openIndex) => {
             // openIndex가 주어진 경우 해당 항목을 활성화 상태로 설정
             if (typeof openIndex === 'number' && items[openIndex]) {
                 items[openIndex].classList.add('is-active');
+                const content = items[openIndex].querySelector('.accordion-content');
+                content.style.height = `${content.scrollHeight}px`;
             }
             
             acc.addEventListener('click', event => {
                 if (event.target.tagName === 'BUTTON') {
                     const _this = event.target;
                     const parentItem = _this.parentElement.parentElement;
+                    const content = parentItem.querySelector('.accordion-content');
                     
                     // 모든 활성화된 항목을 비활성화
                     document.querySelectorAll('.accordion-item.is-active').forEach(item => {
                         if (item !== parentItem) {
-                            item.classList.remove('is-active');
+                            const activeContent = item.querySelector('.accordion-content');
+                            activeContent.style.height = '0';
+                            item.classList.remove('fade-in');
+                            setTimeout(() => {
+                                item.classList.remove('is-active');
+                            }, 500);
                         }
                     });
                     
                     // 현재 클릭된 항목을 토글
-                    parentItem.classList.toggle('is-active');
+                    if (parentItem.classList.contains('is-active')) {
+                        content.style.height = '0';
+                        setTimeout(() => {
+                            parentItem.classList.remove('is-active');
+                        }, 0);
+                    } else {
+                        parentItem.classList.add('is-active');
+                        setTimeout(() => {
+                            content.style.height = `${content.scrollHeight}px`;
+                            parentItem.classList.add('fade-in');
+                        }, 10);
+                    }
                 }
             });
         });
     }
-} 
+}
 
 //토스트팝업
 export const toastPop = () => {

@@ -107,7 +107,7 @@
                                     <div class="total-count">
                                         총 <strong>132</strong> 건
                                     </div>
-                                    <ul class="aricle-list infinity-list">                                        
+                                    <ul class="article-list infinity-list">                                        
                                         <li>
                                             <a href="#">
                                                 <i class="ico-all"></i>
@@ -163,7 +163,9 @@
                                             </a>
                                         </li>                                                                                                                                                                                                                                     
                                     </ul>
-                                    <div class="loading scroll-target">로딩 중 입니다...</div>
+                                    <div class="scroll-target">
+                                        <div class="loading"></div>
+                                    </div>
                                 </div>
                                 
                             </div>
@@ -236,7 +238,7 @@
         
             // `infiniteScroll` 함수 호출 시 전역 변수 및 함수 전달
             document.addEventListener('DOMContentLoaded', () => {
-                infiniteScroll(loadMoreContent, totalLoadedItems, maxItems);
+                infiniteScroll(loadMoreContent, totalLoadedItems, maxItems, 300);
             });
         </script>
 
