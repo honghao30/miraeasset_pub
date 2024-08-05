@@ -147,7 +147,7 @@
                         <a href="#" class="more-btn"><i></i>더 보기</a> <!-- Mlife 스마트라이프 목록페이지 이동 -->
                     </div>
                     <div class="swiper-card heart-swiper">
-                        <div class="swiper cardjs-01">
+                        <div class="swiper cardjs-smart">
                             <div class="swiper-wrapper">
                                 <a class="swiper-slide" href="#">
                                     <div class="heart-wrap">
@@ -219,5 +219,21 @@
         <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
         <script type="module" src="/assets/js/gnb_include.js"></script>
         <script type="text/javascript" src="../../assets/bundle/swiper-bundle.min.js"></script>
+        <script type="module">
+            import { swiperCustom } from "/assets/js/swiper_custom.js";
+            
+            const swiperSmart = swiperCustom(".cardjs-smart", 1.12, {
+                pagination: {
+                    el: ".swiper-pagination-black",
+                    clickable: true,
+                },
+                slidesOffsetAfter: 16,
+            });
+
+            const swiperProduct = swiperCustom(".cardjs-product", 1.4, {
+                pagination: false,
+                slidesOffsetAfter: 16,
+            });
+        </script>
     </body>
 </html>

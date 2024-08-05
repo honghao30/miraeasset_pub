@@ -74,35 +74,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
         },
     });
 
-    const swiper4 = swiperCustom(".cardjs-product", 1.4, {
-        pagination: false,
-        slidesOffsetAfter: 16,
-    });
-
-    const swiper5 = swiperCustom(".cardjs-routine", 1.37, {
-        pagination: {
-            el: ".swiper-pagination-black",
-            clickable: true,
-        },
-        slidesOffsetAfter: 16
-    });
-
-    const swiper6 = swiperCustom(".cardjs-ranking", 1, {
-        pagination: {
-            el: ".swiper-pagination-black",
-            clickable: true,
-        },
-        spaceBetween: 16,
-    });
-
-    const swiper7 = swiperCustom(".cardjs-additional", 1.05, {
-        pagination: {
-            el: ".swiper-pagination-black",
-            clickable: true,
-        },
-        slidesOffsetAfter: 16,
-    });
-
     // 달력
     rangeOptionSelector('startDate2', 'endDate2');
     const calendar = new DateRangePicker('startDate', 'endDate');

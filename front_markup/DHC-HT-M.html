@@ -575,6 +575,7 @@
         <script src="/assets/bundle/dayjs/ko.js"></script>
         <script type="module">
             import { newMonthlyCalendar } from "/assets/js/calendar.js";
+            import { swiperCustom } from "/assets/js/swiper_custom.js";
             // 사용자 데이터를 추가하는 함수
             const addCalendarData = (cell, userData) => {
                 const healthDataEl = document.createElement('div');
@@ -612,6 +613,30 @@
                     });
                 }
             },500)
+
+            const swiperRoutine = swiperCustom(".cardjs-routine", 1.37, {
+                pagination: {
+                    el: ".swiper-pagination-black",
+                    clickable: true,
+                },
+                slidesOffsetAfter: 16
+            });
+
+            const swiperAdditional = swiperCustom(".cardjs-additional", 1.05, {
+                pagination: {
+                    el: ".swiper-pagination-black",
+                    clickable: true,
+                },
+                slidesOffsetAfter: 16,
+            });
+
+            const swiperRanking = swiperCustom(".cardjs-ranking", 1, {
+                pagination: {
+                    el: ".swiper-pagination-black",
+                    clickable: true,
+                },
+                spaceBetween: 16,
+            });
         </script>
     </body>
 </html>
