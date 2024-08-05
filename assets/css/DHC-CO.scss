@@ -2,7 +2,7 @@
 
 //센터 소개
 .help-text {
-    padding: calc(20 / 16 * 1rem) calc(26 / 16 * 1rem); 
+    padding: calc(0 / 16 * 1rem) calc(26 / 16 * 1rem) calc(20 / 16 * 1rem); 
     color: var(--color-basic9);
     font-size: calc(20 / 16 * 1rem);
     font-weight: 700;
@@ -74,80 +74,46 @@
                 font-size: calc(16 / 16 * 1rem);
                 font-weight: 800;
                 line-height: calc(22 / 16 * 1rem);
-                background: url('../img/icon/icon_tel_16.png') no-repeat left 3px;
+                background: url('../img/icon/icon_tel_16.png') no-repeat left 1px;
                 background-size: contain;
                 padding-left: calc(20 / 16 * 1rem);
                 margin-top: calc(12 / 16 * 1rem);
             }
         }
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 50px;
+            background-size: contain;
+        }
         &:nth-child(1) {
             &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 24px;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 48px;
-                height: 50px;
-                background: url('../img/icon/icon_service_center01.png') no-repeat center center;
-                background-size: contain;
+                background: url('../img/icon/icon_service_center01.png') no-repeat center center;                
             }
         }
         &:nth-child(2) {
             &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 24px;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 48px;
-                height: 50px;
                 background: url('../img/icon/icon_service_center02.png') no-repeat center center;
-                background-size: contain;
             }
         }     
         &:nth-child(3) {
             &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 24px;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 48px;
-                height: 50px;
                 background: url('../img/icon/icon_service_center03.png') no-repeat center center;
-                background-size: contain;
             }
         }
         &:nth-child(4) {
             &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 24px;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 48px;
-                height: 50px;
                 background: url('../img/icon/icon_service_center04.png') no-repeat center center;
-                background-size: contain;
             }
         }  
         &:nth-child(5) {
             &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 24px;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 48px;
-                height: 50px;
                 background: url('../img/icon/icon_service_center05.png') no-repeat center center;
-                background-size: contain;
             }
         }                           
     }
@@ -209,11 +175,11 @@
 }
 
 // 게시판 목록
-.aricle-list {
+.article-list {
     margin-top: calc(10 / 16 * 1rem);
     display: flex;
     flex-direction: column;
-    padding: 0 calc(16 / 16 * 1rem);
+    padding: 0 calc(16 / 16 * 1rem) calc(32 / 16 * 1rem);
     gap: 8px;
     li {
         display: flex;
@@ -265,12 +231,39 @@
         }
     }
 }
-.loading {
-    text-align: center;
-    padding: 30px;
-    font-size: 1.2em;
-    color: #888;
+.scroll-target {
+    padding: 50px 0;
 }
+.loading {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+    margin:15px auto;
+    position: relative;
+    color: var(--color-basic3);
+    box-sizing: border-box;
+    animation: animloader 2s linear infinite;
+    margin: 0 auto;   
+}
+@keyframes animloader {
+    0% {
+        box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+    }
+    25% {
+        box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 2px;
+    }
+    50% {
+        box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 2px,  -38px 0 0 -2px;
+    }
+    75% {
+        box-shadow: 14px 0 0 2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+    }
+    100% {
+        box-shadow: 14px 0 0 -2px,  38px 0 0 2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+    }
+}
+
 .article-view__wrap {
     height: calc(100vh - 86px);
     display: flex;
@@ -331,7 +324,9 @@
 .faq-list {
     margin-top: 15px;
 }
-
+.event__wrap .tab-btns {
+    padding: calc(0 / 16 * 1rem) var(--tab-btns-padding-horizontal);
+}
 .event-list {
     display: flex;
     flex-direction: column;
