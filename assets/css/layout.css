@@ -92,7 +92,7 @@
 }
 .content.bg-color-basic1 {
   background-color: var(--color-basic1);
-  padding-top: 4.75rem;
+  padding-top: 3.5rem;
 }
 
 .sub-title {
@@ -187,9 +187,9 @@
   justify-content: space-between;
 }
 .bottom-sheet__wrap.type-modal .sheet-header .section-title {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 800;
-  line-height: 1.625rem;
+  line-height: 1.5rem;
   color: var(--color-black);
   flex: 1;
 }

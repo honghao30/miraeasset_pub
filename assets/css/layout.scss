@@ -94,7 +94,7 @@
     padding-top: 56px;
     &.bg-color-basic1 {
         background-color: var(--color-basic1);
-        padding-top: calc(76 / 16 * 1rem);
+        padding-top: calc(56 / 16 * 1rem);
     }
 } 
 .sub-title {
@@ -187,9 +187,9 @@
             flex-direction: row;
             justify-content: space-between;            
             .section-title {
-                font-size: calc(20 / 16 * 1rem);            
+                font-size: calc(18 / 16 * 1rem);            
                 font-weight: 800;
-                line-height: calc(26 / 16 * 1rem);
+                line-height: calc(24 / 16 * 1rem);
                 color: var(--color-black);
                 flex: 1;
             }    
