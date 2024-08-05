@@ -4,13 +4,12 @@
 <body>
     <div class="wrap">
         <div class="content">
-            <button class="toast__popup--link" data-toast="1">토스트팝업 - 인증번호가 틀렸어요</button><br />
             <button type="button" onclick="openModal(event)" modal-id="agreePop">약관동의팝업</button>
         </div>
     </div>
 
     <!-- toast popup -->
-    <div class="toast__popup" data-toast="1">
+    <div class="toast__popup active" data-toast="1">
         <div class="toast__popup--message">인증번호가틀렸어요. 다시 확인해 주세요.</div>
         <button type="button" class="toast__popup--close" data-toast="1">
             <span class="ir-text">Close</span>
@@ -38,13 +37,6 @@
         </div>
     </div>
 
-    <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
-    <script>
-        setTimeout(function(){
-            document.querySelector('.document-title').innerText = '권한 허용 안내';
-            document.querySelector('.header__utils').style.display="none";
-        },200)
-    </script>
     <script type="module" src="/assets/js/pub_include.js"></script>
 
     <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>

@@ -127,7 +127,7 @@
     font-size: calc(15 / 16 * 1rem);
     font-weight: 800;
     line-height: calc(20 / 16 * 1rem);
-    padding: calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
+    padding: calc(16 / 16 * 1rem);
 }
 .btn.btn-secondary:hover,
 .btn.btn-secondary.is-active {
@@ -1693,6 +1693,7 @@ input[type="radio"]:disabled {
     padding: calc(14 / 16 * 1rem) calc(42 / 16 * 1rem) calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
     line-height:calc(18 / 16 * 1rem);
     border-radius:calc(14 / 16 * 1rem);
+    font-size:calc(13 / 16 * 1rem);
 }
 .toast__popup .toast__popup--close{
     position: absolute;
