@@ -156,9 +156,9 @@
 .btn.btn-secondary {
     background-color: var(--color-primary);
     color: var(--color-white);
-    font-size: calc(15 / 16 * 1rem);
+    font-size: calc(16 / 16 * 1rem);
     font-weight: 800;
-    line-height: calc(20 / 16 * 1rem);
+    line-height: calc(22 / 16 * 1rem);
     padding: calc(16 / 16 * 1rem);
 }
 .btn.btn-secondary:hover,
@@ -182,8 +182,8 @@
     border: 1px solid var(--color-basic4);
     font-size: calc(16 / 16 * 1rem);
     font-weight: 800;
-    line-height: calc(20 / 16 * 1rem);
-    padding: calc(16 / 16 * 1rem) calc(16 / 16 * 1rem);
+    line-height: calc(22 / 16 * 1rem);
+    padding: calc(15 / 16 * 1rem) calc(15 / 16 * 1rem);
 }
 .btn.btn-line:only-child {
     display: block;
