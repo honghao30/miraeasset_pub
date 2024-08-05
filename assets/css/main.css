@@ -1436,7 +1436,8 @@
     bottom: 0;
 }
 .type-long.bottom-sheet__wrap.is-collapsed  {
-    height: calc(100% - 110px);
+    height: calc(100% - 76px);
+    overflow-y: auto;
 }
 .type-long.bottom-sheet__wrap .sheet-content {
     max-height: 0;
