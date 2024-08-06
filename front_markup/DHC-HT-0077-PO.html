@@ -4,17 +4,11 @@
 <body>
     <div class="wrap">
         <div class="content">
-            <button type="button" onclick="openModal(event)" modal-id="agreePop">약관동의팝업</button>
+            <button type="button" onclick="openModal(event)" modal-id="agreePop">약관동의팝업</button><br />
+            <button onclick="openToast('toast1')">toast01</button><br />
+            <button onclick="openToast('toast2')">toast02</button>
         </div>
-    </div>
-
-    <!-- toast popup -->
-    <div class="toast__popup active" data-toast="1">
-        <div class="toast__popup--message">인증번호가틀렸어요. 다시 확인해 주세요.</div>
-        <button type="button" class="toast__popup--close" data-toast="1">
-            <span class="ir-text">Close</span>
-        </button>
-    </div>
+    </div> 
 
     <!-- 약관동의 popup -->
     <div class="modal__wrap--bg default" id="agreePop">
@@ -37,6 +31,49 @@
         </div>
     </div>
 
+    <!-- 스낵바 -->
+    <div class="toast--wrap">
+        <div class="toast--wrap__msg " id="toast1">인증번호가 틀렸어요 다시 확인해 주세요
+            <button class="ico ico-close-or" onclick="closeToast('toast1')"><span class="ir-text">닫기</span></button>
+        </div>
+        <div class="toast--wrap__msg " id="toast2">특수문자는사용할수없어요
+            <button class="ico ico-close-or" onclick="closeToast('toast2')"><span class="ir-text">닫기</span></button>
+        </div>
+    </div>
+
+    <script>
+        function openToast(id) {
+            const toast = document.getElementById(id);
+            toast.style.visibility = 'visible';
+            toast.classList.add('show');
+            setTimeout(() => {
+                closeToast(id);
+            }, 3000); // 3초 동안 스낵바 표시
+        }
+
+        function closeToast(id) {
+            const toast = document.getElementById(id);
+            toast.classList.remove('show');
+            toast.addEventListener('transitionend', function handleTransitionEnd(event) {
+                if (event.propertyName === 'opacity' && !toast.classList.contains('show')) {
+                    toast.style.visibility = 'hidden';
+                    adjustToast();
+                    toast.removeEventListener('transitionend', handleTransitionEnd);
+                }
+            });
+        }
+
+        function adjustToast() {
+            const toastPop = document.querySelectorAll('.toast');
+            let bottom = 10;
+            toastPop.forEach(toast => {
+                if (toast.style.visibility === 'visible') {
+                    toast.style.bottom = `${bottom}px`;
+                    bottom += toast.offsetHeight + 10;
+                }
+            });
+        }
+    </script>
     <script type="module" src="/assets/js/pub_include.js"></script>
 
     <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
