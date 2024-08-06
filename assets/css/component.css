@@ -107,13 +107,6 @@
     box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.10);
     border: 0;
 }
-.button__wrap.twobtn-case03 .btn:first-child .share-icon {
-    display: block;
-    width: calc(24 / 16 * 1rem);
-    height: calc(24 / 16 * 1rem);
-    background: url("../../assets/img/icon/icon_share_r4.png") no-repeat center center;
-    background-size: contain;
-}
 .button__wrap.twobtn-case03 .btn:last-child {
     width: fit-content;
     padding: 16px 24px;
@@ -312,7 +305,7 @@
     content: "";
     width: 24px;
     height: 24px;
-    background: url("../images/admin/icon-chevron-down.svg") no-repeat center;
+    /* background: url("../images/admin/icon-chevron-down.svg") no-repeat center; */
     display: block;
     position: absolute;
     right: 10px;
@@ -322,7 +315,7 @@
 .form-element__wrap .form-element__inner .btn.btn-remove {
     width: 24px;
     height: 24px;
-    background: url("../img/icon/close_icon24_gr3.png") no-repeat;
+    background: url("../img/icon/close_icon24_gr4.png") no-repeat;
     background-size: cover;
 }
 .form-element__wrap .form-element__inner .btn-remove {
@@ -568,20 +561,20 @@
     display: none;
 }
 .pagination a.btn-first::before {
-    background: url("../images/admin/icon-pagination-arrow-double.svg") no-repeat center;
+    /* background: url("../images/admin/icon-pagination-arrow-double.svg") no-repeat center; */
     border-right: 1px solid #cfd4da;
 }
 .pagination a.btn-prev::before {
-    background: url("../images/admin/icon-pagination-arrow.svg") no-repeat center;
+    /* background: url("../images/admin/icon-pagination-arrow.svg") no-repeat center; */
     border-right: 1px solid #cfd4da;
 }
 .pagination a.btn-next::before {
-    background: url("../images/admin/icon-pagination-arrow.svg") no-repeat center;
+    /* background: url("../images/admin/icon-pagination-arrow.svg") no-repeat center; */
     border-left: 1px solid #cfd4da;
     transform: rotate(180deg);
 }
 .pagination a.btn-last::before {
-    background: url("../images/admin/icon-pagination-arrow-double.svg") no-repeat center;
+    /* background: url("../images/admin/icon-pagination-arrow-double.svg") no-repeat center; */
     transform: rotate(180deg);
 }
 
@@ -1291,9 +1284,9 @@ body.modal-open {
     align-items: center;
 }
 .txtarea-error .txtarea-noti::before {
-    width: 24px;
-    height: 24px;
-    background: url("../img/icon/error_icon24_red.png") no-repeat;
+    width: 16px;
+    height: 16px;
+    background: url("../img/icon/error_icon_red.png") no-repeat;
     background-size: cover;
     content: "";
     display: inline-block;
@@ -2097,111 +2090,4 @@ input[type="radio"]:disabled {
 }
 .scroll-box::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
-}
-/* 아이콘 */
-.ico-all {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;    
-    background: url('../img/icon/icon_all_16.png') no-repeat center center;
-    background-size: contain;
-}    
-.ico-common {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_common_16.png') no-repeat center center;
-    background-size: contain;
-}
-.ico-health {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_health_16.png') no-repeat center center;
-    background-size: contain;
-}
-.ico-fund {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_fund_16.png') no-repeat center center;
-    background-size: contain;
-}
-.ico-pension {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_pension_16.png') no-repeat center center;
-    background-size: contain;
-}
-
-.ico-planing {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_planing_16.png') no-repeat center center;
-    background-size: contain;
-}
-.icon_subscription {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_subscription_16.png') no-repeat center center;
-    background-size: contain;
-}
-.icon_insu_pay {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_insu_pay_16.png') no-repeat center center;
-    background-size: contain;
-}
-.icon_online_insu {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_online_insu_16.png') no-repeat center center;
-    background-size: contain;
-}
-.icon_goods {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_goods_16.png') no-repeat center center;
-    background-size: contain;
-}
-.icon_insurance {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_insurance_16.png') no-repeat center center;
-    background-size: contain;
-}
-.icon_orther {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_orther_16.png') no-repeat center center;
-    background-size: contain;
-}
-.icon_check {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/check_icon12_or.png') no-repeat center center;
-    background-size: contain;
-}
-.ico-event {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_event_16.png') no-repeat center center;
-    background-size: contain;
-}
-.ico-jupiter {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    background: url('../img/icon/icon_Jupiter_16.png') no-repeat center center;
-    background-size: contain;
 }

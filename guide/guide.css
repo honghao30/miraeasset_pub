@@ -493,12 +493,12 @@ input[type="date"]::before {
 .btn.btn-remove {
     width: 24px;
     height: 24px;
-    background: url("../assets/img/icon/ico_delete.svg") no-repeat;
+    /* background: url("../assets/img/icon/ico_delete.svg") no-repeat; */
 }
 .btn.btn-search {
     width: 24px;
     height: 24px;
-    background: url("../assets/img/icon/ico_search.svg") no-repeat;
+    /* background: url("../assets/img/icon/ico_search.svg") no-repeat; */
 }
 .btn.color-blue {
     background-color: #0072bc;

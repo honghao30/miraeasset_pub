@@ -6,12 +6,6 @@
   height: 16px;
   background-size: contain !important;
 }
-.ico.ico-grid {
-  background: url("/assets/img/icon/icon_all_16.png") no-repeat center center;
-}
-.ico.ico-miti-speaker {
-  background: url("/assets/img/icon/icon_common_16.png") no-repeat center center;
-}
 .ico.ico-chat {
   background: url("/assets/img/icon/chat_icon42_or.png") no-repeat center center;
   width: 42px;
@@ -50,11 +44,258 @@
   width: 24px;
   height: 24px;
 }
+.ico.ico-alram-bl {
+  background: url("/assets/img/icon/alarm_icon24_bl.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
 .ico.ico-close-bk {
+  background: url("/assets/img/icon/close_icon24_bk.png") no-repeat center center;
+}
+.ico.ico-close-full-or {
+  background: url("/assets/img/icon/close_icon16_or.png") no-repeat center center;
+}
+.ico.ico-close-gr {
+  background: url("/assets/img/icon/close_icon16_gr.png") no-repeat center center;
+}
+.ico.ico-close24-bk {
   background: url("/assets/img/icon/close_icon24_bk.png") no-repeat center center;
   width: 24px;
   height: 24px;
 }
-.ico.ico-close-or {
-  background: url("/assets/img/icon/close_icon16_or.png") no-repeat center center;
+.ico.ico-close24-or {
+  background: url("/assets/img/icon/close_icon24_or.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-close24-gr {
+  background: url("/assets/img/icon/close_icon24_gr.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-close24-wh {
+  background: url("/assets/img/icon/close_icon24_wh.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-close24-gr2 {
+  background: url("/assets/img/icon/close_icon24_gr2.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-close24-gr3 {
+  background: url("/assets/img/icon/close_icon24_gr3.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-close24-gr4 {
+  background: url("/assets/img/icon/close_icon24_gr4.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-all {
+  background: url("/assets/img/icon/all_icon_16.png") no-repeat center center;
+}
+.ico.ico-common {
+  background: url("/assets/img/icon/common_icon_16.png") no-repeat center center;
+}
+.ico.ico-health {
+  background: url("/assets/img/icon/health_icon_16.png") no-repeat center center;
+}
+.ico.ico-fund {
+  background: url("/assets/img/icon/fund_icon_16.png") no-repeat center center;
+}
+.ico.ico-pension {
+  background: url("/assets/img/icon/pension_icon_16.png") no-repeat center center;
+}
+.ico.ico-planing {
+  background: url("/assets/img/icon/planing_icon_16.png") no-repeat center center;
+}
+.ico.ico-subscription {
+  background: url("/assets/img/icon/subscription_icon_16.png") no-repeat center center;
+}
+.ico.ico-insu-pay {
+  background: url("/assets/img/icon/insu_pay_icon_16.png") no-repeat center center;
+}
+.ico.ico-online-insu {
+  background: url("/assets/img/icon/online_insu_icon_16.png") no-repeat center center;
+}
+.ico.ico-goods {
+  background: url("/assets/img/icon/goods_icon_16.png") no-repeat center center;
+}
+.ico.ico-insurance {
+  background: url("/assets/img/icon/insurance_icon_16.png") no-repeat center center;
+}
+.ico.ico-orther {
+  background: url("/assets/img/icon/orther_icon_16.png") no-repeat center center;
+}
+.ico.ico-check {
+  background: url("/assets/img/icon/check_icon12_or.png") no-repeat center center;
+}
+.ico.ico-event {
+  background: url("/assets/img/icon/event_icon_16.png") no-repeat center center;
+}
+.ico.ico-jupiter {
+  background: url("/assets/img/icon/jupiter_icon_16.png") no-repeat center center;
+}
+.ico.ico-new {
+  background: url("/assets/img/icon/new_icon16.png") no-repeat center center;
+}
+.ico.ico-service-center01 {
+  background: url("/assets/img/icon/service_center_icon01.png") no-repeat center center;
+}
+.ico.ico-service-center02 {
+  background: url("/assets/img/icon/service_center_icon02.png") no-repeat center center;
+}
+.ico.ico-service-center03 {
+  background: url("/assets/img/icon/service_center_icon03.png") no-repeat center center;
+}
+.ico.ico-service-center04 {
+  background: url("/assets/img/icon/service_center_icon04.png") no-repeat center center;
+}
+.ico.ico-service-center05 {
+  background: url("/assets/img/icon/service_center_icon05.png") no-repeat center center;
+}
+.ico.ico-share24 {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/icon_share_r4.png") no-repeat center center;
+}
+.ico.ico-top24 {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/top_icon24_bl.png") no-repeat center center;
+}
+.ico.ico-top24-gr {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/top_icon24_gr.png") no-repeat center center;
+}
+.ico.ico-bigtop24-gr {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/bigtop_icon24_gr.png") no-repeat center center;
+}
+.ico.ico-btm24 {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/btm_icon24_bl.png") no-repeat center center;
+}
+.ico.ico-btm24-gr {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/btm_icon24_gr.png") no-repeat center center;
+}
+.ico.ico-bigbtm24-gr {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/bigbtm_icon24_gr.png") no-repeat center center;
+}
+.ico.ico-tel {
+  background: url("/assets/img/icon/tel_icon16.png") no-repeat center center;
+}
+.ico.ico-info-empty56 {
+  background: url("/assets/img/icon/info_icon56_empty_gr.png") no-repeat center center;
+  width: 56px;
+  height: 56px;
+}
+.ico.ico-info-empty24 {
+  background: url("/assets/img/icon/info_icon24_empty_gr.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-info-empty16 {
+  background: url("/assets/img/icon/info_icon16_empty_gr.png") no-repeat center center;
+}
+.ico.ico-info-full56 {
+  width: 56px;
+  height: 56px;
+  background: url("/assets/img/icon/info_icon56_full_gr.png") no-repeat center;
+}
+.ico.ico-info-full24 {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/info_icon24_full_gr.png") no-repeat center;
+}
+.ico.ico-info-full18 {
+  background: url("/assets/img/icon/info_icon18_full_gr.png") no-repeat center;
+}
+.ico.ico-info-error {
+  background: url("/assets/img/icon/error_icon_red.png") no-repeat center;
+}
+.ico.ico-right24-gr {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/right_icon24_gr.png") no-repeat center;
+}
+.ico.ico-right24-bl {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/right_icon24_bl.png") no-repeat center;
+}
+.ico.ico-right24-wh {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/right_icon24_wh.png") no-repeat center;
+}
+.ico.ico-right-bl {
+  background: url("/assets/img/icon/right_icon16_bl.png") no-repeat center;
+}
+.ico.ico-right-wh {
+  background: url("/assets/img/icon/right_icon16_wh.png") no-repeat center;
+}
+.ico.ico-right-gr {
+  background: url("/assets/img/icon/right_icon16_gr.png") no-repeat center;
+}
+.ico.ico-right-gr2 {
+  background: url("/assets/img/icon/right_icon16_gr2.png") no-repeat center;
+}
+.ico.ico-plus-bl {
+  background: url("/assets/img/icon/plus_icon16_bl.png") no-repeat center;
+}
+.ico.ico-plus-gr {
+  background: url("/assets/img/icon/plus_icon16_gr.png") no-repeat center;
+}
+.ico.ico-plus24-bl {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/plus_icon24_bl.png") no-repeat center;
+}
+.ico.ico-plus24-gr {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/plus_icon24_gr.png") no-repeat center;
+}
+.ico.ico-plus24-or {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/plus_icon24_or.png") no-repeat center;
+}
+.ico.ico-plus24-wh {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/plus_icon24_wh.png") no-repeat center;
+}
+.ico.ico-search-wh {
+  background: url("/assets/img/icon/search_icon16_wh.png") no-repeat center;
+}
+.ico.ico-search24 {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/search_icon24_bl.png") no-repeat center;
+}
+.ico.ico-search24-gr {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/search_icon24_gr.png") no-repeat center;
+}
+.ico.ico-search24-or {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/search_icon24_or.png") no-repeat center;
+}
+.ico.ico-menu24 {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/menu_icon24_bl.png") no-repeat center;
 }

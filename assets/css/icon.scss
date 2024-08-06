@@ -1,5 +1,5 @@
-$baseUrl: '/assets/img/';
-$fileType: 'png';
+$baseUrl: "/assets/img/";
+$fileType: "png";
 
 /* 아이콘 */
 .ico {
@@ -7,12 +7,6 @@ $fileType: 'png';
     width: 16px;
     height: 16px;    
     background-size: contain !important;
-    &.ico-grid {
-        background: url("#{$baseUrl}icon/icon_all_16.#{$fileType}") no-repeat center center;                
-    }
-    &.ico-miti-speaker {
-        background: url("#{$baseUrl}icon/icon_common_16.#{$fileType}") no-repeat center center;        
-    }
     &.ico-chat {
         background: url("#{$baseUrl}icon/chat_icon42_or.#{$fileType}") no-repeat center center;   
         width:42px;
@@ -51,12 +45,260 @@ $fileType: 'png';
         width:24px;
         height:24px; 
     }
-    &.ico-close-bk {
-        background: url("#{$baseUrl}icon/close_icon24_bk.#{$fileType}") no-repeat center center;
+    &.ico-alram-bl {
+        background: url("#{$baseUrl}icon/alarm_icon24_bl.#{$fileType}") no-repeat center center;
         width:24px;
         height:24px; 
     }
-    &.ico-close-or {
+    &.ico-close-bk {
+        background: url("#{$baseUrl}icon/close_icon24_bk.#{$fileType}") no-repeat center center;
+    }
+    &.ico-close-full-or {
         background: url("#{$baseUrl}icon/close_icon16_or.#{$fileType}") no-repeat center center;
     }
+    &.ico-close-gr {
+        background: url("#{$baseUrl}icon/close_icon16_gr.#{$fileType}") no-repeat center center;
+    }
+    &.ico-close24-bk {
+        background: url("#{$baseUrl}icon/close_icon24_bk.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px;
+    }
+    &.ico-close24-or {
+        background: url("#{$baseUrl}icon/close_icon24_or.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px;
+    }
+    &.ico-close24-gr {
+        background: url("#{$baseUrl}icon/close_icon24_gr.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px;
+    }
+    &.ico-close24-wh {
+        background: url("#{$baseUrl}icon/close_icon24_wh.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px;
+    }
+    &.ico-close24-gr2 {
+        background: url("#{$baseUrl}icon/close_icon24_gr2.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px;
+    }
+    &.ico-close24-gr3 {
+        background: url("#{$baseUrl}icon/close_icon24_gr3.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px;
+    }
+    &.ico-close24-gr4 {
+        background: url("#{$baseUrl}icon/close_icon24_gr4.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px;
+    }
+    &.ico-all {
+        background: url("#{$baseUrl}icon/all_icon_16.#{$fileType}") no-repeat center center;
+    }    
+    &.ico-common {
+        background: url("#{$baseUrl}icon/common_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-health {
+        background: url("#{$baseUrl}icon/health_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-fund {
+        background: url("#{$baseUrl}icon/fund_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-pension {
+        background: url("#{$baseUrl}icon/pension_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-planing {
+        background: url("#{$baseUrl}icon/planing_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-subscription {
+        background: url("#{$baseUrl}icon/subscription_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-insu-pay {
+        background: url("#{$baseUrl}icon/insu_pay_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-online-insu {
+        background: url("#{$baseUrl}icon/online_insu_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-goods {
+        background: url("#{$baseUrl}icon/goods_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-insurance {
+        background: url("#{$baseUrl}icon/insurance_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-orther {
+        background: url("#{$baseUrl}icon/orther_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-check {
+        background: url("#{$baseUrl}icon/check_icon12_or.#{$fileType}") no-repeat center center;
+    }
+    &.ico-event {
+        background: url("#{$baseUrl}icon/event_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-jupiter {
+        background: url("#{$baseUrl}icon/jupiter_icon_16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-new {
+        background: url("#{$baseUrl}icon/new_icon16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-service-center01 {
+        background: url("#{$baseUrl}icon/service_center_icon01.#{$fileType}") no-repeat center center;
+    }
+    &.ico-service-center02 {
+        background: url("#{$baseUrl}icon/service_center_icon02.#{$fileType}") no-repeat center center;
+    }
+    &.ico-service-center03 {
+        background: url("#{$baseUrl}icon/service_center_icon03.#{$fileType}") no-repeat center center;
+    }
+    &.ico-service-center04 {
+        background: url("#{$baseUrl}icon/service_center_icon04.#{$fileType}") no-repeat center center;
+    }
+    &.ico-service-center05 {
+        background: url("#{$baseUrl}icon/service_center_icon05.#{$fileType}") no-repeat center center;
+    }
+    &.ico-share24 {
+        width:24px;
+        height:24px; 
+        background: url("#{$baseUrl}icon/icon_share_r4.#{$fileType}") no-repeat center center;
+    }
+    &.ico-top24 {
+        width:24px;
+        height:24px; 
+        background: url("#{$baseUrl}icon/top_icon24_bl.#{$fileType}") no-repeat center center;
+    }
+    &.ico-top24-gr {
+        width:24px;
+        height:24px; 
+        background: url("#{$baseUrl}icon/top_icon24_gr.#{$fileType}") no-repeat center center;
+    }
+    &.ico-bigtop24-gr {
+        width:24px;
+        height:24px; 
+        background: url("#{$baseUrl}icon/bigtop_icon24_gr.#{$fileType}") no-repeat center center;
+    }
+    &.ico-btm24 {
+        width:24px;
+        height:24px; 
+        background: url("#{$baseUrl}icon/btm_icon24_bl.#{$fileType}") no-repeat center center;
+    }
+    &.ico-btm24-gr {
+        width:24px;
+        height:24px; 
+        background: url("#{$baseUrl}icon/btm_icon24_gr.#{$fileType}") no-repeat center center;
+    }
+    &.ico-bigbtm24-gr {
+        width:24px;
+        height:24px; 
+        background: url("#{$baseUrl}icon/bigbtm_icon24_gr.#{$fileType}") no-repeat center center;
+    }
+    &.ico-tel {
+        background: url("#{$baseUrl}icon/tel_icon16.#{$fileType}") no-repeat center center;
+    }
+    &.ico-info-empty56 {
+        background: url("#{$baseUrl}icon/info_icon56_empty_gr.#{$fileType}") no-repeat center center;
+        width: 56px;
+        height: 56px;
+    }
+    &.ico-info-empty24 {
+        background: url("#{$baseUrl}icon/info_icon24_empty_gr.#{$fileType}") no-repeat center center;
+        width: 24px;
+        height: 24px;
+    }
+    &.ico-info-empty16 {
+        background: url("#{$baseUrl}icon/info_icon16_empty_gr.#{$fileType}") no-repeat center center;
+    }
+    &.ico-info-full56 {
+        width: 56px;
+        height: 56px;
+        background: url("#{$baseUrl}icon/info_icon56_full_gr.#{$fileType}") no-repeat center;
+    }
+    &.ico-info-full24 {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/info_icon24_full_gr.#{$fileType}") no-repeat center;
+    }
+    &.ico-info-full18 {
+        background: url("#{$baseUrl}icon/info_icon18_full_gr.#{$fileType}") no-repeat center;
+    }
+    &.ico-info-error {
+        background: url("#{$baseUrl}icon/error_icon_red.#{$fileType}") no-repeat center;
+    }
+    &.ico-right24-gr {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/right_icon24_gr.#{$fileType}") no-repeat center;
+    }
+    &.ico-right24-bl {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/right_icon24_bl.#{$fileType}") no-repeat center;
+    }
+    &.ico-right24-wh {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/right_icon24_wh.#{$fileType}") no-repeat center;
+    }
+    &.ico-right-bl {
+        background: url("#{$baseUrl}icon/right_icon16_bl.#{$fileType}") no-repeat center;
+    }
+    &.ico-right-wh {
+        background: url("#{$baseUrl}icon/right_icon16_wh.#{$fileType}") no-repeat center;
+    }
+    &.ico-right-gr {
+        background: url("#{$baseUrl}icon/right_icon16_gr.#{$fileType}") no-repeat center;
+    }
+    &.ico-right-gr2 {
+        background: url("#{$baseUrl}icon/right_icon16_gr2.#{$fileType}") no-repeat center;
+    }
+    &.ico-plus-bl {
+        background: url("#{$baseUrl}icon/plus_icon16_bl.#{$fileType}") no-repeat center;
+    }
+    &.ico-plus-gr {
+        background: url("#{$baseUrl}icon/plus_icon16_gr.#{$fileType}") no-repeat center;
+    }
+    &.ico-plus24-bl {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/plus_icon24_bl.#{$fileType}") no-repeat center;
+    }
+    &.ico-plus24-gr {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/plus_icon24_gr.#{$fileType}") no-repeat center;
+    }
+    &.ico-plus24-or {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/plus_icon24_or.#{$fileType}") no-repeat center;
+    }
+    &.ico-plus24-wh {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/plus_icon24_wh.#{$fileType}") no-repeat center;
+    }
+    &.ico-search-wh {
+        background: url("#{$baseUrl}icon/search_icon16_wh.#{$fileType}") no-repeat center;
+    }
+    &.ico-search24 {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/search_icon24_bl.#{$fileType}") no-repeat center;
+    }
+    &.ico-search24-gr {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/search_icon24_gr.#{$fileType}") no-repeat center;
+    }
+    &.ico-search24-or {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/search_icon24_or.#{$fileType}") no-repeat center;
+    }
+    &.ico-menu24 {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/menu_icon24_bl.#{$fileType}") no-repeat center;
+    }
 }
+

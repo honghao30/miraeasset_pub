@@ -96,27 +96,27 @@
         }
         &:nth-child(1) {
             &::before {
-                background: url('../img/icon/icon_service_center01.png') no-repeat center center;                
+                background: url('../img/icon/service_center_icon01.png') no-repeat center center;                
             }
         }
         &:nth-child(2) {
             &::before {
-                background: url('../img/icon/icon_service_center02.png') no-repeat center center;
+                background: url('../img/icon/service_center_icon02.png') no-repeat center center;
             }
         }     
         &:nth-child(3) {
             &::before {
-                background: url('../img/icon/icon_service_center03.png') no-repeat center center;
+                background: url('../img/icon/service_center_icon03.png') no-repeat center center;
             }
         }
         &:nth-child(4) {
             &::before {
-                background: url('../img/icon/icon_service_center04.png') no-repeat center center;
+                background: url('../img/icon/service_center_icon04.png') no-repeat center center;
             }
         }  
         &:nth-child(5) {
             &::before {
-                background: url('../img/icon/icon_service_center05.png') no-repeat center center;
+                background: url('../img/icon/service_center_icon05.png') no-repeat center center;
             }
         }                           
     }
@@ -240,13 +240,6 @@
                     font-size: calc(12 / 16 * 1rem);                    
                     font-weight: 400;
                     line-height: calc(18 / 16 * 1rem); 
-                }
-                .new_icon {
-                    width: calc(16 / 16 * 1rem);
-                    height: calc(16 / 16 * 1rem);
-                    display: block;
-                    background: url("../img/icon/new_icon16.png") no-repeat center center;
-                    background-size: contain;
                 }
             }
         }
