@@ -47,7 +47,7 @@
                 <div class="search-result-nodata is-hide">
                     <i></i>
                     <div class="msg">
-                        <span>"피프티원"</span> 검색 결과가 없습니다.
+                        <span>‘피프티원’</span> 검색 결과가 없습니다.
                     </div>
                 </div>
                 <!-- 검색결과 없음 -->
@@ -121,15 +121,124 @@
                                                     <div class="date">2024.03.27 </div>
                                                 </div>
                                             </a>
-                                        </li>                                                                                 
+                                        </li>
+                                        <li>
+                                            <div class="chip__wrap">
+                                                <span class="chip smallchip bg-primary">
+                                                    진행중
+                                                </span>
+                                            </div>
+                                            <a href="#">
+                                                <div class="event-thumbnail">
+                                                    <img src="../assets/img/temp/template00.png" alt="" />
+                                                </div>
+                                                <div class="title-area">
+                                                    <div class="title">헬스케어 서비스 출시 기념 가입 이벤트! </div>
+                                                    <div class="date">2024.03.27 </div>
+                                                </div>
+                                            </a>
+                                        </li> 
+                                        <li>
+                                            <div class="chip__wrap">
+                                                <span class="chip smallchip bg-primary">
+                                                    진행중
+                                                </span>
+                                            </div>
+                                            <a href="#">
+                                                <div class="event-thumbnail">
+                                                    <img src="../assets/img/temp/template01.png" alt="" />
+                                                </div>
+                                                <div class="title-area">
+                                                    <div class="title">헬스케어 서비스 출시 기념 가입 이벤트! </div>
+                                                    <div class="date">2024.03.27 </div>
+                                                </div>
+                                            </a>
+                                        </li> 
+                                        <li class="type-end">
+                                            <div class="chip__wrap">
+                                                <span class="chip smallchip bg-dark-light2">
+                                                    종료
+                                                </span>
+                                            </div>
+                                            <a href="#">
+                                                <div class="event-thumbnail">
+                                                    <img src="../assets/img/temp/template02.png" alt="" />
+                                                </div>
+                                                <div class="title-area">
+                                                    <div class="title">헬스케어 서비스 출시 기념 가입 이벤트! </div>
+                                                    <div class="date">2024.03.27 </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="chip__wrap">
+                                                <span class="chip smallchip bg-primary">
+                                                    진행중
+                                                </span>
+                                            </div>
+                                            <a href="#">
+                                                <div class="event-thumbnail">
+                                                    <img src="../assets/img/temp/template00.png" alt="" />
+                                                </div>
+                                                <div class="title-area">
+                                                    <div class="title">헬스케어 서비스 출시 기념 가입 이벤트! </div>
+                                                    <div class="date">2024.03.27 </div>
+                                                </div>
+                                            </a>
+                                        </li> 
+                                        <li>
+                                            <div class="chip__wrap">
+                                                <span class="chip smallchip bg-primary">
+                                                    진행중
+                                                </span>
+                                            </div>
+                                            <a href="#">
+                                                <div class="event-thumbnail">
+                                                    <img src="../assets/img/temp/template01.png" alt="" />
+                                                </div>
+                                                <div class="title-area">
+                                                    <div class="title">헬스케어 서비스 출시 기념 가입 이벤트! </div>
+                                                    <div class="date">2024.03.27 </div>
+                                                </div>
+                                            </a>
+                                        </li> 
+                                        <li class="type-end">
+                                            <div class="chip__wrap">
+                                                <span class="chip smallchip bg-dark-light2">
+                                                    종료
+                                                </span>
+                                            </div>
+                                            <a href="#">
+                                                <div class="event-thumbnail">
+                                                    <img src="../assets/img/temp/template02.png" alt="" />
+                                                </div>
+                                                <div class="title-area">
+                                                    <div class="title">헬스케어 서비스 출시 기념 가입 이벤트! </div>
+                                                    <div class="date">2024.03.27 </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="type-end">
+                                            <div class="chip__wrap">
+                                                <span class="chip smallchip bg-dark-light2">
+                                                    종료
+                                                </span>
+                                            </div>
+                                            <a href="#">
+                                                <div class="event-thumbnail">
+                                                    <img src="../assets/img/temp/template02.png" alt="" />
+                                                </div>
+                                                <div class="title-area">
+                                                    <div class="title">헬스케어 서비스 출시 기념 가입 이벤트! </div>
+                                                    <div class="date">2024.03.27 </div>
+                                                </div>
+                                            </a>
+                                        </li>                                                                               
                                     </ul>
-                                    <div class="button__wrap">
-                                        <button type="button" class="btn-more-list">
-                                            더 보기 <i class="ico ico-btm24-gr"></i>
-                                        </button>
-                                    </div>                                   
+                                    <div class="scroll-target">
+                                        <div class="loading"></div>
+                                    </div>                                  
                                 </div>
-                                
                             </div>
                             <div class="tab-pane1">
                                 당첨자 발표
@@ -157,7 +266,7 @@
             let totalLoadedItems = 0; // 총 로드된 아이템 수를 추적
         
             // 컨텐츠 생성 함수
-            const loadMoreContent = async (count = 5) => {
+            const loadMoreContent = async (count = 10) => {
                 const contentList = document.querySelector('.infinity-list');
                 if (!contentList) {
                     console.error("Content list element not found.");
@@ -202,10 +311,7 @@
         
             // `infiniteScroll` 함수 호출 시 전역 변수 및 함수 전달
             document.addEventListener('DOMContentLoaded', () => {
-                document.querySelector('.btn-more-list').addEventListener('click', () => {
-                    loadMoreContent();
-                });
-                // infiniteScroll(loadMoreContent, totalLoadedItems, maxItems, 300);
+                infiniteScroll(loadMoreContent, totalLoadedItems, maxItems, 300);
             });
         </script>
 

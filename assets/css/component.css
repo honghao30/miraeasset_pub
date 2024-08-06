@@ -197,10 +197,22 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    color: var(--color-basic9);
+    color: var(--color-basic6);
     font-size: calc(14 / 16 * 1rem);
     font-weight: 700;
     line-height: calc(20 / 16 * 1rem);     
+}
+.button__wrap.top-gradient {
+    position: relative;
+}
+.button__wrap.top-gradient::after {
+    position: absolute;
+    top: calc(-20 / 16 * 1rem);
+    width: 100%;
+    height: calc(20 / 16 * 1rem);
+    display: block;
+    content: '';
+    background: linear-gradient(180deg, rgba(250, 250, 250, 0.00) 0%, #FAFAFA 62.5%);
 }
 /* 폼요소 */
 .form-element__wrap {
@@ -2015,14 +2027,14 @@ input[type="radio"]:disabled {
     border-radius: 14px;
     background: var(--color-white);
     overflow: hidden;
-    padding: 18px 20px;       
+    padding: 20px;       
 }
 .accordion-item .accordion-tit {
     width: 100%;
 }
 .accordion-item .accordion-tit button {
     width: 100%;
-    font-size: calc(14 / 16 * 1rem);                   
+    font-size: calc(15 / 16 * 1rem);                   
     font-weight: 700;
     line-height: calc(20 / 16 * 1rem);
     color:var(--color-basic10);
@@ -2036,20 +2048,21 @@ input[type="radio"]:disabled {
     justify-content: space-between;
     flex: 1;
     gap: 10px;
+    align-items: center;
 }
 .accordion-item .accordion-tit button::after {
     content: '';
     display: inline-flex;
-    width: 24px;
-    height: 24px;
-    background: url('../img/icon/top_icon24_gr.png') no-repeat center center;
+    width: 16px;
+    height: 16px;
+    background: url('../img/icon/btm_icon16_gr.png') no-repeat center center;
     background-size: cover;
     transition: all 0.3s;
 }
 .accordion-item.is-active .accordion-tit {
     
 }
-.accordion-item.is-active  button::after {
+.accordion-item.is-active button::after {
     transform: rotate(-180deg);
 }
 .accordion-item.is-active .accordion-content  {
@@ -2060,8 +2073,8 @@ input[type="radio"]:disabled {
     height: auto;
     transition: all 0.3s ease-in;
     border-top: 1px solid var(--color-basic3);
-    padding-top: calc(16 / 16 * 1rem);
-    margin-top: calc(13 / 16 * 1rem);
+    padding-top: calc(20 / 16 * 1rem);
+    margin-top: calc(20 / 16 * 1rem);
 }
 
 .accordion-item .accordion-content {

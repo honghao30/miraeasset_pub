@@ -5,6 +5,7 @@ html {
     padding: 0;
     border: 0;
     font-family: var(--fontMain);
+    background-color: var(--color-basic1);
 }
 blockquote,
 body,
