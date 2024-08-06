@@ -83,13 +83,53 @@
                             </a>
                         </li>                                      
                     </ul>
-                    <div class="loading scroll-target">Loading more content...</div>
+                    <div class="scroll-target">
+                        <div class="loading"></div>
+                    </div>
                 </div>                
                 <!-- //스크롤 컨텐츠 -->
                 <script type="module">                    
                     import { infiniteScroll } from "/assets/js/ui_common.js";
-        
-                    document.addEventListener('DOMContentLoaded', infiniteScroll);
+                    
+                    // 전역 변수 및 함수 설정
+                    const maxItems = 100; // 로드할 최대 아이템 수
+                    let totalLoadedItems = 0; // 총 로드된 아이템 수를 추적
+                
+                    // 컨텐츠 생성 함수
+                    const loadMoreContent = async (count = 5) => {
+                        const contentList = document.querySelector('.infinity-list');
+                        if (!contentList) {
+                            console.error("Content list element not found.");
+                            return false;
+                        }
+                
+                        let hasMoreContent = true;
+                
+                        // 남은 아이템 수를 계산
+                        const remainingItems = maxItems - totalLoadedItems;
+                        const newItemsCount = Math.min(count, remainingItems);
+                        
+                        const newAddItems = contentList.querySelector('.infinity-list li').innerHTML;
+
+                        for (let i = 0; i < newItemsCount; i++) {
+                            const newContent = document.createElement('li');                            
+                            newContent.innerHTML = newAddItems;                    
+                            contentList.appendChild(newContent);
+                            totalLoadedItems++; // 총 로드된 아이템 수 증가
+                        }
+                
+                        // 더 이상 로드할 아이템이 없으면 hasMoreContent를 false로 설정
+                        if (totalLoadedItems >= maxItems) {
+                            hasMoreContent = false;
+                        }
+                
+                        return hasMoreContent;
+                    };
+                
+                    // `infiniteScroll` 함수 호출 시 전역 변수 및 함수 전달
+                    document.addEventListener('DOMContentLoaded', () => {
+                        infiniteScroll(loadMoreContent, totalLoadedItems, maxItems);
+                    });
                 </script>               
             </div>
         </div>
