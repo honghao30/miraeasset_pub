@@ -307,6 +307,9 @@
   font-weight: 400;
   line-height: 1.125rem;
 }
+.article-view__wrap .article-view__title .chip__wrap + .date {
+  margin-top: 0;
+}
 .article-view__wrap .article-view__content {
   flex: 1;
   padding: 0 1.25rem 0;

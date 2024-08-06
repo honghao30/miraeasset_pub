@@ -325,6 +325,11 @@
             font-weight: 400;
             line-height: calc(18 / 16 * 1rem);
         }
+        .chip__wrap {
+            &+.date {
+                margin-top: 0;
+            }
+        }
     }
     .article-view__content {
         flex:1;
