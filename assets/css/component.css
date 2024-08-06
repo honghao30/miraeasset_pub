@@ -2090,31 +2090,32 @@ input[type="radio"]:disabled {
     bottom: 0;
     width: 100%;
     display: flex;
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
     align-items: center;
-    gap: 6px;
-    padding:calc(16 / 16 * 1rem);
+    padding: calc(16 / 16 * 1rem);
+    gap:10px;
 }
 .toast--wrap .toast--wrap__msg {
-    background-color:rgba(0, 0, 0, 0.7);
-    color:var(--color-white);
-    border-radius:calc(14 / 16 * 1rem);
-    font-size:calc(13 / 16 * 1rem);
+    visibility: hidden;
     position: relative;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out, bottom 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(0);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--color-white);
+    padding: calc(14 / 16 * 1rem) calc(42 / 16 * 1rem) calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
+    border-radius: calc(14 / 16 * 1rem);
+    font-size: calc(13 / 16 * 1rem);
     width: 100%;
-    height:0;
 }
-.toast--wrap .toast--wrap__msg.show {
+.toast--wrap .toast--wrap__msg.toast-open {
     visibility: visible;
     opacity: 1;
-    height:calc(46 / 16 * 1rem);
-    padding: calc(14 / 16 * 1rem) calc(42 / 16 * 1rem) calc(14 / 16 * 1rem) calc(16 / 16 * 1rem);
+    transform: translateY(0);
 }
 .toast--wrap .toast--wrap__msg button {
-    color: #fff;
     position: absolute;
-    right:calc(16 / 16 * 1rem);
-    top:calc(15 / 16 * 1rem);
+    top: calc(10 / 16 * 1rem);
+    right: calc(14 / 16 * 1rem);
+    cursor: pointer;
 }
