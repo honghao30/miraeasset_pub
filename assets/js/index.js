@@ -1,4 +1,4 @@
-import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu, removeButton, toastPop, accordion } from "../js/ui_common.js";
+import { bottomSheetHandle, checkLabel, checkTextArea, numComma, focusNextInputOnMaxLength, checkInputFocus, tabMenus, dropdownMenu, removeButton, accordion, openToast, closeToast, adjustToast } from "../js/ui_common.js";
 import { ScrollEnterMain } from "../js/scroll_event.js";
 import { circleGraphType1 } from "../js/graph_custom.js";
 import { rangeOptionSelector, DateRangePicker, newMonthlyCalendar, createWeeklyCalendar } from "../js/calendar.js";
@@ -95,6 +95,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     // dom 로딩시간 체크 필요한 경우
     setTimeout(() => {
         bottomSheetHandle();
-        toastPop();
     }, executionTimer);
+
+    window.openToast = openToast;
+    window.closeToast = closeToast;
+    window.closeToast = adjustToast;
 });

@@ -5,7 +5,7 @@
     <div class="wrap">
         <div class="content">
             <button type="button" onclick="openModal(event)" modal-id="agreePop">약관동의팝업</button><br />
-            <button onclick="openToast('toast1')">toast01</button><br />
+            <button onclick="openToast('toast-share')">toast01</button><br />
             <button onclick="openToast('toast2')">toast02</button>
         </div>
     </div> 
@@ -31,13 +31,13 @@
         </div>
     </div>
 
-    <!-- 스낵바 -->
+    <!-- 토스트팝업 -->
     <div class="toast--wrap">
-        <div class="toast--wrap__msg " id="toast1">인증번호가 틀렸어요 다시 확인해 주세요
-            <button class="ico ico-close-or" onclick="closeToast('toast1')"><span class="ir-text">닫기</span></button>
+        <div class="toast--wrap__msg" id="toast-share">인증번호가 틀렸어요 다시 확인해 주세요
+            <button class="ico ico-close24-or" onclick="closeToast('toast-share')"><span class="ir-text">닫기</span></button>
         </div>
-        <div class="toast--wrap__msg " id="toast2">특수문자는사용할수없어요
-            <button class="ico ico-close-or" onclick="closeToast('toast2')"><span class="ir-text">닫기</span></button>
+        <div class="toast--wrap__msg" id="toast2">특수문자는사용할수없어요
+            <button class="ico ico-close24-or" onclick="closeToast('toast2')"><span class="ir-text">닫기</span></button>
         </div>
     </div>
 
@@ -48,7 +48,7 @@
             toast.classList.add('show');
             setTimeout(() => {
                 closeToast(id);
-            }, 3000); // 3초 동안 스낵바 표시
+            }, 3000); // 3초 동안 토스트 표시
         }
 
         function closeToast(id) {
@@ -57,18 +57,18 @@
             toast.addEventListener('transitionend', function handleTransitionEnd(event) {
                 if (event.propertyName === 'opacity' && !toast.classList.contains('show')) {
                     toast.style.visibility = 'hidden';
-                    adjustToast();
+                    adjustToasts();
                     toast.removeEventListener('transitionend', handleTransitionEnd);
                 }
             });
         }
 
-        function adjustToast() {
-            const toastPop = document.querySelectorAll('.toast');
-            let bottom = 10;
-            toastPop.forEach(toast => {
+        function adjustToasts() {
+            const toasts = document.querySelectorAll('.toast--wrap__msg');
+            let bottom = 56;
+            toasts.forEach(toast => {
                 if (toast.style.visibility === 'visible') {
-                    toast.style.bottom = `${bottom}px`;
+                    toast.style.transform = `translateY(${bottom}px)`;
                     bottom += toast.offsetHeight + 10;
                 }
             });

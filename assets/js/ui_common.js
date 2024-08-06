@@ -514,47 +514,32 @@ export const accordion = (container, openIndex) => {
 }
 
 //토스트팝업
-export const toastPop = () => {
-    const toastBtn = document.querySelectorAll(".toast__popup--link");
-    const toastClose = document.querySelectorAll(".toast__popup--close");
-
-    const slideDown = (element) => {
-        element.style.display = "block";
-        element.style.maxHeight = element.scrollHeight + "px";
-        element.style.opacity = "1";
-    };
-
-    const slideUp = (element) => {
-        element.style.maxHeight = "0";
-        element.style.opacity = "0";
-        setTimeout(() => {
-            element.style.display = "none";
-        }, 500);
-    };
-
-    const handleToast = (toastId, action) => {
-        const toast = document.querySelector(
-            `.toast__popup[data-toast="${toastId}"] `
-        );
-        if (action === "on") {
-            slideDown(toast);
-            setTimeout(() => {
-            slideUp(toast);
-            }, 5000);
-        } else {
-            slideUp(toast);
+export function openToast(id) {
+    const toast = document.getElementById(id);
+    toast.style.visibility = "visible";
+    toast.classList.add("show");
+    setTimeout(() => {
+        closeToast(id);
+    }, 3000); // 3초 동안 토스트 표시
+}
+export function closeToast(id) {
+    const toast = document.getElementById(id);
+    toast.classList.remove("show");
+    toast.addEventListener("transitionend", function handleTransitionEnd(event) {
+        if (event.propertyName === "opacity" && !toast.classList.contains("show")) {
+        toast.style.visibility = "hidden";
+        adjustToast();
+        toast.removeEventListener("transitionend", handleTransitionEnd);
         }
-    };
-
-    toastBtn.forEach((btn) => {
-        btn.addEventListener("click", () =>
-            handleToast(btn.getAttribute("data-toast"), "on")
-        );
     });
-
-    toastClose.forEach((btn) => {
-        btn.addEventListener("click", () =>
-            handleToast(btn.getAttribute("data-toast"), "off")
-        );
+}
+export function adjustToast() {
+    const toasts = document.querySelectorAll(".toast--wrap__msg");
+    let bottom = 56;
+    toasts.forEach((toast) => {
+        if (toast.style.visibility === "visible") {
+        toast.style.transform = `translateY(${bottom}px)`;
+        bottom += toast.offsetHeight + 10;
+        }
     });
-};
+}
