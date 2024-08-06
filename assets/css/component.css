@@ -193,6 +193,15 @@
     cursor: default;
     pointer-events: none;
 }
+.btn-more-list {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-basic9);
+    font-size: calc(14 / 16 * 1rem);
+    font-weight: 700;
+    line-height: calc(20 / 16 * 1rem);     
+}
 /* 폼요소 */
 .form-element__wrap {
     display: flex;
@@ -1942,6 +1951,7 @@ input[type="radio"]:disabled {
 .tag__wrap {
     display: flex;
     align-items: center;
+    position: relative;
 }
 .is-hide {
     display: none !important;
@@ -1956,7 +1966,7 @@ input[type="radio"]:disabled {
     overflow-x: scroll;
 }
 .tag__wrap.scroll-box .tag__wrap--inner {
-    white-space: nowrap;
+    
 }
 .tag__wrap .tag {
     display: flex;
@@ -1970,6 +1980,7 @@ input[type="radio"]:disabled {
     font-weight: 400;
     line-height: calc(18 / 16 * 1rem);
     color: var(--color-secondary);
+    white-space: nowrap;
 }
 .tag__wrap .tag .btn-tag-remove {
     width:16px;

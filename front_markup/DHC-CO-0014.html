@@ -174,8 +174,10 @@
                                             </a>
                                         </li>                                                                                                                                                                                                                                     
                                     </ul>
-                                    <div class="scroll-target">
-                                        <div class="loading"></div>
+                                    <div class="button__wrap">
+                                        <button type="button" class="btn-more-list">
+                                            더 보기 <i class="ico ico-btm24-gr"></i>
+                                        </button>
                                     </div>
                                 </div>
                                 
@@ -249,7 +251,10 @@
         
             // `infiniteScroll` 함수 호출 시 전역 변수 및 함수 전달
             document.addEventListener('DOMContentLoaded', () => {
-                infiniteScroll(loadMoreContent, totalLoadedItems, maxItems, 300);
+                document.querySelector('.btn-more-list').addEventListener('click', () => {
+                    loadMoreContent()
+                })
+                // infiniteScroll(loadMoreContent, totalLoadedItems, maxItems, 300);
             });
         </script>
 
