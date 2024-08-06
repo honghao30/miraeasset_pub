@@ -20,7 +20,9 @@
                             <div class="sample-code">
                                 <button type="button" onclick="openModal(event)" modal-id="basic">모달 기본</button> //
                                 <button type="button" onclick="openModal(event)" modal-id="basic2">모달 하단</button> //
-                                <button type="button" onclick="openModal(event)" modal-id="basic3">모달 오른쪽</button>
+                                <button type="button" onclick="openModal(event)" modal-id="basic3">모달 오른쪽</button> //
+                                <button type="button" onclick="openModal(event)" modal-id="basic4">전체 모달</button> //
+                                <button type="button" onclick="openModal(event)" modal-id="basic5">넛지</button>
                                 <!-- 모달 -->
                                 <div class="modal__wrap--bg default" id="basic">
                                     <div class="modal__wrap size-default">
@@ -80,23 +82,45 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- 모달 -->
-                            </div>
-                            <pre class="code_view"></pre>
-                        </div>
-
-                        <div class="page_tit_h2" style="margin-top: 2.5rem">toast Popup</div>
-                        <div class="section_text_no_round">
-                            <div class="sample-code">
-                                <button class="toast__popup--link" data-toast="1">토스트 팝업</button>
-
-                                <!-- toast popup -->
-                                <div class="toast__popup" data-toast="1">
-                                    <div class="toast__popup--message">토스트 팝업이에요 5초 후에 사라져요</div>
-                                    <button type="button" class="toast__popup--close" data-toast="1">
-                                        <span class="ir-text">Close</span>
-                                    </button>
+                                <div class="modal__wrap--bg type-full" id="basic4">
+                                    <div class="modal__wrap">
+                                        <div class="modal-header">
+                                            <h3 class="font-type-h3">모달 제목</h3>
+                                            <button type="button" class="btn btn-icon-close close-modal" onclick="closeModal(event)">
+                                                <span class="ir-text">닫기</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-cont">
+                                            <div style="height: 300px">모달 컨텐츠</div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="button__wrap flex-end">
+                                                <button type="button" class="btn btn-line close-modal" onclick="closeModal(event)">취소</button>
+                                                <button type="button" class="btn btn-primary">등록</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="modal__wrap--bg type-nudge" id="basic5">
+                                    <div class="modal__wrap size-default">
+                                        <div class="modal-header">
+                                            <h3 class="font-type-h3">모달 제목</h3>
+                                            <button type="button" class="btn btn-icon-close close-modal" onclick="closeModal(event)">
+                                                <span class="ir-text">닫기</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-cont">
+                                            <div style="height: 300px">모달 컨텐츠</div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="button__wrap flex-end">
+                                                <button type="button" class="btn btn-line close-modal" onclick="closeModal(event)">취소</button>
+                                                <button type="button" class="btn btn-primary">등록</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 모달 -->
                             </div>
                             <pre class="code_view"></pre>
                         </div>
