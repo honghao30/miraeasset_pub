@@ -498,7 +498,7 @@ export const accordion = (container, openIndex) => {
                         }, 0);
                         setTimeout(() => {
                             parentItem.classList.remove('fade-in');
-                        }, 300); // is-active 제거 후 300ms 뒤에 fade-in 제거
+                        }, 300);
                     } else {
                         parentItem.classList.add('is-active');
                         setTimeout(() => {
