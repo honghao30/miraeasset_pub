@@ -163,9 +163,12 @@
 }
 .notice__wrap {
     margin-top: calc(8 / 16 * 1rem);
-    height: calc(100vh - 150px);
     .tab-content-group {
         background-color: var(--color-basic1);
+    }
+    .tab-pane1s {
+        overflow-y: auto;
+        height: calc(100% - 192px);
     }
 }
 .total-count {

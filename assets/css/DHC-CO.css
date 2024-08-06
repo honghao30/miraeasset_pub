@@ -75,7 +75,7 @@
   font-size: 1rem;
   font-weight: 800;
   line-height: 1.375rem;
-  background: url("../img/icon/tel_icon16.png") no-repeat left 1px;
+  background: url("../img/icon/icon_tel_16.png") no-repeat left 1px;
   background-size: contain;
   padding-left: 1.25rem;
   margin-top: 0.5rem;
@@ -149,10 +149,13 @@
 
 .notice__wrap {
   margin-top: 0.5rem;
-  height: calc(100vh - 150px);
 }
 .notice__wrap .tab-content-group {
   background-color: var(--color-basic1);
+}
+.notice__wrap .tab-pane1s {
+  overflow-y: auto;
+  height: calc(100% - 192px);
 }
 
 .total-count {
@@ -172,7 +175,7 @@
   margin-top: 0.625rem;
   display: flex;
   flex-direction: column;
-  padding: 0 1rem 2rem;
+  padding: 0 1rem 1rem;
   gap: 8px;
 }
 .article-list li {
