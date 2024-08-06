@@ -12,3 +12,49 @@
 .ico.ico-miti-speaker {
   background: url("/assets/img/icon/icon_common_16.png") no-repeat center center;
 }
+.ico.ico-chat {
+  background: url("/assets/img/icon/chat_icon42_or.png") no-repeat center center;
+  width: 42px;
+  height: 42px;
+}
+.ico.ico-right-or {
+  background: url("/assets/img/icon/right_icon16_or.png") no-repeat center center;
+}
+.ico.ico-send {
+  background: url("/assets/img/icon/send_icon24_gr.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-edit {
+  background: url("/assets/img/icon/edit_icon14_bk.png") no-repeat center center;
+  width: 14px;
+  height: 14px;
+}
+.ico.ico-interlock {
+  background: url("/assets/img/icon/interlock_icon24.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-phone {
+  background: url("/assets/img/icon/phone_icon24.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-camera {
+  background: url("/assets/img/icon/camera_icon24.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-alram {
+  background: url("/assets/img/icon/alram_icon24.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-close-bk {
+  background: url("/assets/img/icon/close_icon24_bk.png") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+.ico.ico-close-or {
+  background: url("/assets/img/icon/close_icon16_or.png") no-repeat center center;
+}

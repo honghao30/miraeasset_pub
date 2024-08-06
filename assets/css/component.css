@@ -88,7 +88,7 @@
 }
 .button__wrap.twobtn-case02 .btn:first-child {
     width: fit-content;
-    padding: calc(16 / 16 * 1rem);
+    padding: calc(16 / 16 * 1rem) calc(23 / 16 * 1rem);
     margin: 0;
     flex: 0 0 calc(80 / 16 * 1rem);
 }
