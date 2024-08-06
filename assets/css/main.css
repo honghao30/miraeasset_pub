@@ -1436,7 +1436,7 @@
 }
 .type-long.bottom-sheet__wrap.is-collapsed  {
     height: calc(100% - 76px);
-    padding-bottom: calc(108 / 16 * 1rem);
+    padding-bottom: calc(0 / 16 * 1rem);
     /* overflow-y: auto; */
 }
 .type-long.bottom-sheet__wrap .sheet-content {
@@ -1446,6 +1446,8 @@
 .type-long.bottom-sheet__wrap.is-collapsed .sheet-content {
     max-height: 100%;
     display: block;
+    height: calc(100vh - 197px);
+    overflow-y: auto;
 }
 .btmcal-box {
     margin-bottom: calc(16 / 16 * 1rem);
