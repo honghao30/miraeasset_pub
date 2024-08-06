@@ -244,6 +244,7 @@
                 // 더 이상 로드할 아이템이 없으면 hasMoreContent를 false로 설정
                 if (totalLoadedItems >= maxItems) {
                     hasMoreContent = false;
+                    document.querySelector('.btn-more-list').style.display = 'none';
                 }
         
                 return hasMoreContent;
