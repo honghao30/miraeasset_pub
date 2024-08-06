@@ -492,7 +492,7 @@
 
 /* 헬스 메인 (DHC-HT-M) */
 .mainhealth_wrap {
-    padding-bottom: calc(73 / 16 * 1rem);
+    padding-bottom: calc(173 / 16 * 1rem);
 }
 /* 건강점수/ 등급별혜택 */
 .mainhealth_wrap .level_wrap {
@@ -1288,7 +1288,6 @@
 /* 부가콘텐츠 페이지로 이동할 수 있는 배너 */
 .mainban_wrap {
     margin-top: calc(50 / 16 * 1rem);
-    padding-bottom: calc(50 / 16 * 1rem);
 }
 .additional-swiper.pagination-card .swiper{
     padding-left: calc(16 / 16 * 1rem);
@@ -1437,7 +1436,8 @@
 }
 .type-long.bottom-sheet__wrap.is-collapsed  {
     height: calc(100% - 76px);
-    overflow-y: auto;
+    padding-bottom: calc(108 / 16 * 1rem);
+    /* overflow-y: auto; */
 }
 .type-long.bottom-sheet__wrap .sheet-content {
     max-height: 0;
