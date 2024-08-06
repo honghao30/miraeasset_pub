@@ -300,5 +300,8 @@ $fileType: "png";
         height: 24px;
         background: url("#{$baseUrl}icon/menu_icon24_bl.#{$fileType}") no-repeat center;
     }
+    &.ico-check-or {
+        background: url("#{$baseUrl}icon/check_icon_or.#{$fileType}") no-repeat center;
+    }
 }
 

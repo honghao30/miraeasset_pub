@@ -299,3 +299,6 @@
   height: 24px;
   background: url("/assets/img/icon/menu_icon24_bl.png") no-repeat center;
 }
+.ico.ico-check-or {
+  background: url("/assets/img/icon/check_icon_or.png") no-repeat center;
+}
