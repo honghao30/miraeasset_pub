@@ -13,4 +13,50 @@ $fileType: 'png';
     &.ico-miti-speaker {
         background: url("#{$baseUrl}icon/icon_common_16.#{$fileType}") no-repeat center center;        
     }
+    &.ico-chat {
+        background: url("#{$baseUrl}icon/chat_icon42_or.#{$fileType}") no-repeat center center;   
+        width:42px;
+        height:42px;     
+    }
+    &.ico-right-or {
+        background: url("#{$baseUrl}icon/right_icon16_or.#{$fileType}") no-repeat center center;   
+    }
+    &.ico-send {
+        background: url("#{$baseUrl}icon/send_icon24_gr.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px; 
+    }
+    &.ico-edit {
+        background: url("#{$baseUrl}icon/edit_icon14_bk.#{$fileType}") no-repeat center center;
+        width:14px;
+        height:14px;  
+    }
+    &.ico-interlock {
+        background: url("#{$baseUrl}icon/interlock_icon24.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px; 
+    }
+    &.ico-phone {
+        background: url("#{$baseUrl}icon/phone_icon24.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px; 
+    }
+    &.ico-camera {
+        background: url("#{$baseUrl}icon/camera_icon24.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px; 
+    }
+    &.ico-alram {
+        background: url("#{$baseUrl}icon/alram_icon24.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px; 
+    }
+    &.ico-close-bk {
+        background: url("#{$baseUrl}icon/close_icon24_bk.#{$fileType}") no-repeat center center;
+        width:24px;
+        height:24px; 
+    }
+    &.ico-close-or {
+        background: url("#{$baseUrl}icon/close_icon16_or.#{$fileType}") no-repeat center center;
+    }
 }
