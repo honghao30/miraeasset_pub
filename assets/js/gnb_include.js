@@ -7,14 +7,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         const navItems = headerNav.getElementsByTagName("li"); // typeof object
         const navItemsArray = Array.from(headerNav.getElementsByTagName("li")); // 배열로 순회
-        const currentPath = window.location.pathname;
+        const pathName = window.location.pathname;
+
+        let currentPath = pathName.match(/[^/]+$/)[0];
+        // 파일 확장자 확인
+        const fileExtension = currentPath.split('.').pop().toLowerCase();
+
+        // 확장자가 'html'이 아닌 경우에만 변환
+        if (fileExtension !== 'html') {
+            currentPath = currentPath.toUpperCase();
+        }
         let activeIndex = -1;
 
         for (let i = 0; i < navItemsArray.length; i++) {
             // 현재 경로에 맞는 navItemsArray의 파일 찾기
             const link = navItemsArray[i].getElementsByTagName("a")[0];
-            const href = link.getAttribute("href");
-
+            const href = link.getAttribute("href");            
+    
+            console.log(currentPath)
+            
             // 해당 url의 pathname이 NavTagHref을 포함하고 있다면 is-active 이중클래스 추가
             if (currentPath.includes(href)) {
                 activeIndex = i;
