@@ -469,7 +469,7 @@ export const accordion = (container, openIndex) => {
             if (typeof openIndex === 'number' && items[openIndex]) {
                 items[openIndex].classList.add('is-active');
                 const content = items[openIndex].querySelector('.accordion-content');
-                content.style.height = `${content.scrollHeight}px`;
+                content.style.height = `${content.scrollHeight} + 29 + px`;
             }
             
             acc.addEventListener('click', event => {
@@ -488,7 +488,7 @@ export const accordion = (container, openIndex) => {
                                 item.classList.remove('is-active');
                             }, 500);
                         }
-                    });
+                    });                    
                     
                     // 현재 클릭된 항목을 토글
                     if (parentItem.classList.contains('is-active')) {
@@ -496,13 +496,17 @@ export const accordion = (container, openIndex) => {
                         setTimeout(() => {
                             parentItem.classList.remove('is-active');
                         }, 0);
+                        setTimeout(() => {
+                            parentItem.classList.remove('fade-in');
+                        }, 300); // is-active 제거 후 300ms 뒤에 fade-in 제거
                     } else {
                         parentItem.classList.add('is-active');
                         setTimeout(() => {
-                            content.style.height = `${content.scrollHeight}px`;
+                            content.style.height = `${content.scrollHeight + 29}px`;
                             parentItem.classList.add('fade-in');
                         }, 10);
                     }
+
                 }
             });
         });
