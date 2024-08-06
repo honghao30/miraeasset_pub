@@ -776,11 +776,12 @@ body.modal-open {
 .modal__wrap--bg.type-nudge .modal__wrap {
     top:-100%;
     transition: top 0.3s, opacity 0.3s;
-    left: 0%;
-    width: 100%;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    left: calc(50% - 20px);
+    width: calc(100% - 40px);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     opacity: 0;
+    transform: translateX(-50%);
 }
 .modal__wrap--bg.type-nudge.is-active .modal__wrap {
     opacity: 1;
