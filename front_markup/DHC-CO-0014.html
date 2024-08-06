@@ -356,7 +356,7 @@
             import { infiniteScroll } from "/assets/js/ui_common.js";
         
             // 전역 변수 및 함수 설정
-            const maxItems = 100; // 로드할 최대 아이템 수
+            const maxItems = 30; // 로드할 최대 아이템 수
             let totalLoadedItems = 0; // 총 로드된 아이템 수를 추적
         
             // 컨텐츠 생성 함수
@@ -392,6 +392,7 @@
                 // 더 이상 로드할 아이템이 없으면 hasMoreContent를 false로 설정
                 if (totalLoadedItems >= maxItems) {
                     hasMoreContent = false;
+                    document.querySelector('.btn-more-list').style.display = 'none';
                 }
         
                 return hasMoreContent;
