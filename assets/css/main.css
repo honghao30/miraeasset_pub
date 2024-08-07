@@ -1452,3 +1452,45 @@
 .btmcal-box {
     margin-bottom: calc(16 / 16 * 1rem);
 }
+
+/* 운동기록 */
+.health-data-wrap:not(:empty) {
+    margin: 6px 0;
+}
+.health-data-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+.health-data-wrap .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+.health-data-wrap .dot.type-meal {
+    background: #FE447D;
+}
+.health-data-wrap .dot.type-work-out {
+    background: #31E45A;
+}
+.health-data-wrap .dot.type-routine {
+    background: #FF831A;
+}
+.health-data-wrap .dot.type-nutrition {
+    background: #4D9FFF;
+}
+.health-data-wrap .dot.type-weight {
+    background: #9F24FF;        
+}
+.health-record-graph {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top:10px;
+}
+.animated-path {
+    transition: d 1s ease-in-out;
+}
