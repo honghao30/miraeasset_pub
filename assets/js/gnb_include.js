@@ -66,4 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+    setTimeout(() => {
+        headerNavActive();
+    }, 2000)
 });
