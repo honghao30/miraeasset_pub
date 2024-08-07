@@ -51,23 +51,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // head_gnb 페이지에서만 headerNavActive() 불러오기
     const includeElements = document.querySelectorAll("[data-include-path]");
 
-    setTimeout(()=>{
-        includeElements.forEach(async (element) => {
-            const includePath = element.getAttribute("data-include-path");
+    includeElements.forEach(async (element) => {
+        const includePath = element.getAttribute("data-include-path");
 
-            if (includePath === "./_inc/head_gnb.html") {
-                try {
-                    const response = await fetch(includePath);
-                    const html = await response.text();
-                    element.innerHTML = html;
+        if (includePath === "./_inc/head_gnb.html") {
+            try {
+                const response = await fetch(includePath);
+                const html = await response.text();
+                element.innerHTML = html;
 
-                    // 로드가 완료된 후에 호출
-                    console.log("활성화");
-                    headerNavActive();
-                } catch (error) {
-                    console.error("Error loading include:", error);
-                }
+                // 로드가 완료된 후에 호출
+                console.log('활성화')
+                headerNavActive();
+            } catch (error) {
+                console.error("Error loading include:", error);
             }
-        });
-    },300)
+        }
+    });
 });
