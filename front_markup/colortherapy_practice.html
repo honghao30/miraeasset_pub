@@ -2,7 +2,15 @@
 <html lang="ko">
     <head></head>
     <body>
-        <div class="wrap main_wrap">
+        <div class="wrap therapy_wrap therapy-color01">
+            <div class="therapy-des">
+                <p>컬러테라피</p>
+                <strong class="changetxt">눈의 피로를 풀고 싶을 때</strong>
+                <p>잠시만 컬러를 바라보세요</p>
+                <div class="therapy-circle big">
+
+                </div>
+            </div>
             <div class="therapy-type">
                 <!-- 01. 우울감을 완화 하고 싶을 때 -->
                 <!-- 02. 눈의 피로를 풀고 싶을 때 -->
@@ -16,30 +24,54 @@
                             <div class="swiper-slide therapy-color01">
                                 <div class="therapy-circle">
                                 </div>
-                                <p class="therapy-txt">우울감을 완화 하고 싶을 때</p>
+                                <p class="therapy-txt">1 우울감을 완화하고<br/> 싶을 때</p>
                             </div>
                             <div class="swiper-slide therapy-color02">
                                 <div class="therapy-circle">
                                 </div>
-                                <p class="therapy-txt">눈의 피로를 풀고 싶을 때</p>
+                                <p class="therapy-txt">2 눈의 피로를<br/> 풀고 싶을 때</p>
                             </div>
                             <div class="swiper-slide therapy-color03">
                                 <div class="therapy-circle">
                                 </div>
-                                <p class="therapy-txt">스트레스를 완화 하고 싶을 때</p>
+                                <p class="therapy-txt">3 스트레스를<br/> 완화하고 싶을 때</p>
                             </div>
                             <div class="swiper-slide therapy-color04">
                                 <div class="therapy-circle">
                                 </div>
-                                <p class="therapy-txt">활력이 필요할 때</p>
+                                <p class="therapy-txt">4 활력이<br/> 필요할 때</p>
                             </div>
                             <div class="swiper-slide therapy-color05">
                                 <div class="therapy-circle">
                                 </div>
-                                <p class="therapy-txt">위로가 필요할 때</p>
+                                <p class="therapy-txt">5 위로가<br/> 필요할 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color06">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">1 우울감을 완화하고<br/> 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color07">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">2 눈의 피로를<br/> 풀고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color08">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">3 스트레스를<br/> 완화하고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color09">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">4 스트레스를<br/> 완화하고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color010">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">5 위로가<br/> 필요할 때</p>
                             </div>
                         </div>
-                        <!-- <div class="swiper-pagination swiper-pagination-black"></div> -->
                     </div>
                 </div>
             </div>
@@ -52,19 +84,57 @@
         <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
         <script type="module">
             import { swiperCustom } from "/assets/js/swiper_custom.js";
-            const swiperAdditional = swiperCustom(".cardjs-therapy", 3, {
-                pagination: false,
-                slidesOffsetAfter: 16,
+            const swiperAdditional = swiperCustom(".cardjs-therapy", 2.5, {
                 centeredSlides: true,
-                roundLengths: true,
+                slideToClickedSlide: true,
                 loop: true,
-                loopAdditionalSlides: 30,
-                // autoplay: true,
             });
-            // swiperAdditional.on('transitionEnd', function() {
-            //     console.log('now index :::', swiperAdditional.realIndex);
-               
-            // });
+
+            function updateTherapyTypeClass() {
+                const textElement = document.querySelector('.changetxt');
+                const activeSlide = document.querySelector('.swiper-slide-active');
+
+                // Define the text for each therapy-color class
+                const textMap = {
+                    'therapy-color01': '우울감을 완화하고 싶을 때',
+                    'therapy-color02': '눈의 피로를 풀고 싶을 때',
+                    'therapy-color03': '스트레스를 완화하고 싶을 때',
+                    'therapy-color04': '활력이 필요할  때',
+                    'therapy-color05': '위로가 필요할 때',
+                    'therapy-color06': '우울감을 완화하고 싶을 때',
+                    'therapy-color07': '눈의 피로를 풀고 싶을 때',
+                    'therapy-color08': '스트레스를 완화하고 싶을 때',
+                    'therapy-color09': '활력이 필요할  때',
+                    'therapy-color010': '위로가 필요할 때',
+                };
+
+                // Remove all therapy-color classes
+                document.querySelector('.therapy_wrap').classList.forEach(className => {
+                    if (className.startsWith('therapy-color')) {
+                        document.querySelector('.therapy_wrap').classList.remove(className);
+                    }
+                });
+
+                // Add the appropriate therapy-color class based on the active slide
+                let activeClass = '';
+                activeSlide.classList.forEach(className => {
+                    if (className.startsWith('therapy-color')) {
+                        activeClass = className;
+                        document.querySelector('.therapy_wrap').classList.add(className);
+                    }
+                });
+
+                // Update the text based on the active class
+                textElement.textContent = textMap[activeClass] || 'Default text';
+            }
+
+            swiperAdditional.on('transitionEnd', function() {
+                updateTherapyTypeClass();
+                console.log('now index :::', swiperAdditional.realIndex);
+            });
+            
+            updateTherapyTypeClass();
+
         </script>
     </body>
 </html>
