@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // 확장자가 'html'이 아닌 경우에만 변환
         if (fileExtension !== 'html') {
             currentPath = currentPath.toUpperCase();
+            console.log('텟틀리파이')
         }
         let activeIndex = -1;
 
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const link = navItemsArray[i].getElementsByTagName("a")[0];
             const href = link.getAttribute("href");            
     
-            console.log('경로', currentPath)
+            console.log('경로', currentPath, href)
             
             // 해당 url의 pathname이 NavTagHref을 포함하고 있다면 is-active 이중클래스 추가
             if (currentPath.includes(href)) {
