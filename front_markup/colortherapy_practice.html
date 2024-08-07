@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head></head>
+    <body>
+        <div class="wrap main_wrap">
+            <div class="therapy-type">
+                <!-- 01. 우울감을 완화 하고 싶을 때 -->
+                <!-- 02. 눈의 피로를 풀고 싶을 때 -->
+                <!-- 03. 스트레스를 완화 하고 싶을 때 -->
+                <!-- 04. 활력이 필요할 때 -->
+                <!-- 05. 위로가 필요할 때 -->
+                <!-- swiper 영역 -->
+                <div class="swiper-card therapy-swiper">
+                    <div class="swiper cardjs-therapy swiper-therapy">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide therapy-color01">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">우울감을 완화 하고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color02">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">눈의 피로를 풀고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color03">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">스트레스를 완화 하고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color04">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">활력이 필요할 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color05">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">위로가 필요할 때</p>
+                            </div>
+                        </div>
+                        <!-- <div class="swiper-pagination swiper-pagination-black"></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script type="module" src="/assets/js/pub_include.js"></script>
+        <script type="module" src="/assets/js/index.js"></script>
+        <script type="module" src="/assets/js/main.js"></script>
+        <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
+        <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
+        <script type="module">
+            import { swiperCustom } from "/assets/js/swiper_custom.js";
+            const swiperAdditional = swiperCustom(".cardjs-therapy", 3, {
+                pagination: false,
+                slidesOffsetAfter: 16,
+                centeredSlides: true,
+                roundLengths: true,
+                loop: true,
+                loopAdditionalSlides: 30,
+                // autoplay: true,
+            });
+            // swiperAdditional.on('transitionEnd', function() {
+            //     console.log('now index :::', swiperAdditional.realIndex);
+               
+            // });
+        </script>
+    </body>
+</html>
