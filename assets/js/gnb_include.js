@@ -31,8 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             // 해당 url의 pathname이 NavTagHref을 포함하고 있다면 is-active 이중클래스 추가
             if (currentPath.includes(href)) {
-                activeIndex = i;
-                console.log(activeIndex, currentPath.includes(href))
+                activeIndex = i;                
                 navItemsArray[i].classList.add("is-active"); // 현재 페이지의 li.is-active 추가
             } else {
                 navItemsArray[i].classList.remove("is-active");
