@@ -100,4 +100,23 @@ document.addEventListener('DOMContentLoaded', ()=> {
     window.openToast = openToast;
     window.closeToast = closeToast;
     window.closeToast = adjustToast;
+
+    //HT -상하 여백 계산 > 박스에 margin 추가
+    function adjustPadding() {
+        const bottomFixed = document.querySelector(".sub__bottom--fixed");
+        const subContent = document.querySelector(".sub__content");
+        const headerWrap = document.querySelector(".header__wrap");
+
+        if (bottomFixed && subContent && headerWrap) {
+            const bottomHeight = bottomFixed.offsetHeight;
+            const headerHeight = headerWrap.offsetHeight;
+
+            subContent.style.marginBottom = bottomHeight + "px";
+            subContent.style.marginTop = headerHeight + "px";
+        }
+    }
+
+    adjustPadding();
+    window.addEventListener("load", adjustPadding);
+    window.addEventListener("resize", adjustPadding); 
 });

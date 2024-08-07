@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head></head>
+<body>
+    <div class="wrap">
+        <div data-include-path="./_inc/head_sub.html"></div>
+        <div class="sub__content">
+            <!-- 오늘 활동 기록 -->
+            <div class="sub__content--box">
+                <div class="today__date">2024년 8월 7일 (목)</div> 
+                <div class="sub__content--shadowbox">
+                    123
+                </div>
+            </div>
+            
+            <div class="sub__content--title">
+                <h3>내 또래 인기 있는 운동 <span>TOP3</span></h3>
+            </div>
+            <div class="sub__content--box">
+                sdf
+            </div>
+
+            <div class="sub__content--title">
+                <h3>건강한 일상을 위한 루틴을 추천해 드려요!</h3>
+            </div>
+            <div class="sub__content--box">
+                sdf
+            </div>
+
+            <div class="sub__content--title">
+                <h3>건강한 일상을 위한 건강 뉴스</h3>
+                더 보기
+            </div>
+            <div class="sub__content--box">
+                sdf
+            </div>
+        </div>
+
+        <!-- 하단 고정버튼 영역  -->
+        <div class="sub__bottom--fixed">
+            <div class="button__wrap">
+                <button type="button" class="btn btn-primary">운동 기록하기</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- popup -->
+    <div class="modal__wrap--bg type-bottom is-active" style="display:block;">
+        <div class="modal__wrap">
+            <p class="img_analysis">아직 기록된 운동이 없어요<br />고객님의 건강을 꼼꼼히 분석해 드릴게요~</p>
+            <div class="modal-footer">
+                <div class="button__wrap">
+                    <button type="button" class="btn btn-primary">운동 기록하기</button>
+                </div>
+                <div class="button__wrap">
+                    <button type="button" class="text-button close-modal" onclick="closeModal(event)">오늘 그만 보기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+    <script>
+        setTimeout(function(){
+            document.querySelector('.document-title').innerText = '운동';
+        },200)
+    </script>
+    <script type="module" src="/assets/js/pub_include.js"></script>
+
+    <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
+    <script src="/assets/bundle/dayjs/dayjs.min.js"></script>
+    <script src="/assets/bundle/dayjs/isSameOrBefore.js"></script>
+    <script src="/assets/bundle/dayjs/ko.js"></script>
+    <script type="module" src="/assets/js/index.js"></script>    
+</body>
+
+</html>
