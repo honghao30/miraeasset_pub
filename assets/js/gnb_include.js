@@ -25,9 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
             //     currentPath = currentPath.toUpperCase();            
             // }
             console.log('경로2', currentPath, href)
-            if(currentPath === 'dhc-co-0005-m' || currentPath === 'dhc-ht-0000-m') {
-                console.log(currentPath)
+            // 네틀리파이에서 적용이 안돼서 파일명 지정함
+            if (currentPath === "dhc-co-0005-m") {
+                console.log(currentPath);
                 navItemsArray[0].classList.add("is-active");
+            } else if (currentPath === "dhc-ht-0000-m") {
+                console.log(currentPath);
+                navItemsArray[1].classList.add("is-active");
             }
             // 해당 url의 pathname이 NavTagHref을 포함하고 있다면 is-active 이중클래스 추가
             if (currentPath.includes(href)) {
