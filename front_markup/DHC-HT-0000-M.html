@@ -565,11 +565,10 @@
         <div data-include-path="./_inc/bottom_sheet_main.html"></div>
         <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
         <script type="module" src="/assets/js/pub_include.js"></script>
+        <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
         <script type="module" src="/assets/js/index.js"></script>
         <script type="module" src="/assets/js/main.js"></script>
-        <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
-        <script type="module" src="/assets/js/gnb_include.js"></script>
-        <script type="text/javascript" src="../../assets/bundle/swiper-bundle.min.js"></script>
+        <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
         <script src="/assets/bundle/dayjs/dayjs.min.js"></script>
         <script src="/assets/bundle/dayjs/isSameOrBefore.js"></script>
         <script src="/assets/bundle/dayjs/ko.js"></script>
@@ -577,25 +576,39 @@
             import { newMonthlyCalendar } from "/assets/js/calendar.js";
             import { swiperCustom } from "/assets/js/swiper_custom.js";
             // 사용자 데이터를 추가하는 함수
-            const addCalendarData = (cell, userData) => {
+            const addCalendarData = (cell, userData, recordGraph) => {
                 const healthDataEl = document.createElement('div');
                 healthDataEl.classList.add('health-data-wrap');
                 healthDataEl.innerHTML = userData;
-                cell.appendChild(healthDataEl);    
+
+                const recordEl = document.createElement('div');
+                recordEl.classList.add('health-record-graph');
+                recordEl.innerHTML = recordGraph;
+
+                cell.appendChild(healthDataEl);
+                cell.appendChild(recordEl);
             };
+
             // 사용자 데이터를 셀에 추가하는 함수
-            const addUserDataToCell = async (cell, date) => {    
+            const addUserDataToCell = async (cell, date) => {
                 try {
                     // const response = await fetch('');
                     // const userData = await response.json();
                     // 예시 데이터 추가 (API 응답 형식에 맞게 변경하세요)
-                    const healthDataHTML = `
+
+                    const recordGraph = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+                            <path class="animated-path" d="M32.8999 18.4755C32.3703 27.2815 24.7767 34.0133 15.9708 33.4805C7.16493 32.9478 0.430864 25.3493 0.960405 16.5432C1.48995 7.73713 9.08574 1.00551 17.8916 1.53824C26.6975 2.07098 33.4315 9.66953 32.902 18.4756L32.8999 18.4755ZM4.21875 16.7403C3.79728 23.7492 9.15585 29.798 16.1667 30.2221C23.1776 30.6463 29.2221 25.2895 29.6437 18.2785C30.0653 11.2674 24.7066 5.2208 17.6957 4.79666C10.6848 4.37251 4.64022 9.73141 4.21875 16.7403Z" fill="#FF831A"/>
+                        </svg>
+                    `;
+                    const healthDataHTML = `                         
                         <div class="dot type-meal"></div>
                         <div class="dot type-work-out"></div>
                         <div class="dot type-nutrition"></div>
+                        <div class="dot type-weight"></div>
                     `;
                     // API로부터 받은 데이터를 사용하여 사용자 데이터 추가
-                    addCalendarData(cell, healthDataHTML);
+                    addCalendarData(cell, healthDataHTML, recordGraph);
                 } catch (error) {
                     console.error('사용자 데이터를 불러오는 중 오류가 발생했습니다:', error);
                 }
@@ -605,10 +618,11 @@
                 if (document.getElementById("page-cal")) {
                     // `newMonthlyCalendar` 함수 호출
                     newMonthlyCalendar('page-cal', { 
-                        button: false, 
-                        userTouchMove: false,
+                        button: true, 
+                        userTouchMove: true,
                         displayData: 'default',
-                        toggle: false,
+                        userTitle: '건강 캘린더',
+                        toggle: true,
                         addCalendarData: addUserDataToCell // addUserDataToCell 함수를 올바르게 옵션으로 전달
                     });
                 }

@@ -12,7 +12,7 @@
     padding: 5px 12px;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     border-radius: 999px;
     font-size: calc(12 / 16 * 1rem);
     line-height: 18px;
@@ -30,6 +30,7 @@
 .chip.bg-dark {
     background-color: var(--color-black);
 }
+
 .chip.bg-dark-light {
     background-color: var(--color-basic8);
 }
@@ -38,6 +39,12 @@
 }
 .chip.primary-light {
     background-color: var(--color-primary-light);
+}
+.chip.pink-light {
+    background: rgba(255, 104, 156, 0.10);
+}
+.chip.purple-light {
+    background: rgba(234, 104, 255, 0.10);
 }
 .chip.green-light {
     background-color: var(--color-green-light);
@@ -76,6 +83,15 @@
 }
 .chip.bg-primary .ico-dot {
     background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.chip.pink-light .ico-dot {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+}
+.chip.purple-light .ico-dot {
+    background-color: var(--color-purple);
     color: var(--color-white);
 }
 /* 버튼 */
@@ -904,6 +920,9 @@ body.modal-open {
 .calendar__wrap {
     width: 100%;
 }
+.calendar__wrap .chip__wrap {
+    margin: calc(16 / 16 * 1rem) auto calc(20 / 16 * 1rem) ;
+}
 .calendar__wrap .weekly-cal__header {
     display: flex;
     align-items: center;
@@ -923,7 +942,7 @@ body.modal-open {
 .calendar__wrap .calendar__header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 10px;
 }
 .calendar__content {
@@ -933,42 +952,43 @@ body.modal-open {
     width: 100%;
 }
 .calendar__content table th {
-    border: 0;
-    border-bottom: 1px solid #eaeaea;
-    text-align: center;
-    height: 50px;
-
-    font-family: "Pretendard";
-    font-size: 12px;
-    font-weight: 500;
+    border: 0;    
+    text-align: center;   
+    font-size: 13px;
+    font-weight: 800;
     line-height: 12px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.13px;
     text-align: center;
 }
 .calendar__content table td {
+    position: relative;
     border: 0;
-    text-align: center;
-    height: 85px;
-
-    font-family: "Pretendard";
-    font-size: 12px;
+    text-align: center;     
+    font-size: calc(12 / 16 * 1rem);
     font-weight: 500;
-    line-height: 12px;
-    letter-spacing: -0.01em;
-    text-align: center;
+    line-height: calc(12 / 16 * 1rem);
+    letter-spacing: -0.01em;  
+    padding: calc(10 / 16 * 1rem) 0;  
 }
 .gray {
     color: #ccc;
 }
-
+.calendar__title {
+    color: var(--color-black);    
+    font-size: calc(18 / 16 * 1rem);  
+    font-weight: 700;
+    line-height: calc(18 / 16 * 1rem);
+    letter-spacing: -0.18px;
+}
 .calendar__content table th.holiday,
 .calendar__content table td.holiday {
     color: red;
 }
 .calendar__content table td a {
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    position: relative;
+    width: 33px;
+    height: 33px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -984,21 +1004,48 @@ body.modal-open {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
-.calendar__content table td.today a {
-    background-color: #f58220;
-    color: #fff;
+.calendar__content table td.today a {    
+    color: #f58220;
+    font-weight: 800;
 }
 /* 주간 달력 */
 .calendar__wrap {
     width: 100%;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 4px;
 }
-.calendar__wrap .calendar__header {
+/* .calendar__wrap .calendar__header {
     margin-top: calc(20 / 16 * 1rem);
+} */
+.calendar__title {
+    margin-bottom: 6px;
+}
+.btn-prev-month i {
+    transform: rotate(180deg);
+}
+.btn-prev-month,
+.btn-next-month {
+    width:24px;
+    height:24px;
+}
+.btn-line.btn-show-today {
+    height: 27px;
+    line-height: 27px;
+    padding: calc(0 / 16* 1rem) calc(15 / 16* 1rem);
+    color: #9E9E9E;
+    font-size: calc(12 / 16* 1rem);
+    font-weight: 700;
+    line-height: calc(12 / 16* 1rem);
+    letter-spacing: -0.12px;
 }
 .calendar__wrap .calendar__header .display-data {
-    font-size: 16px;
-    font-weight: 500;
-    color: #242424;
+    flex: 1;
+    color: var(--color-black);    
+    font-size: calc(24 / 16 * 1rem);
+    font-style: normal;
+    font-weight: 800;
+    line-height: calc(24 / 16 * 1rem);
+    letter-spacing: -0.24px;
 }
 .calendar__content {
     margin-top: calc(10 / 16 * 1rem);
@@ -1067,7 +1114,10 @@ body.modal-open {
     border-top: 1px solid #eaeaea;
     padding: 23px 16px;
 }
-
+.btn-calendar-toggle.is-active i {
+    transform: rotate(180deg);
+    transition: all 0.3s;
+}
 .detail-day {
     color: #242424;
     font-size: 16px;
@@ -1086,28 +1136,7 @@ body.modal-open {
 .calendar__content .button__wrap img {
     width: 61px;
 }
-.health-data-wrap:not(:empty) {
-    margin: 10px 0;
-}
-.health-data-wrap {
-    display: flex;
-    justify-content: center;
-    gap: 2px;
-}
-.health-data-wrap .dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-}
-.health-data-wrap .dot.type-meal {
-    background: #f48221;
-}
-.health-data-wrap .dot.type-work-out {
-    background: #7ce778;
-}
-.health-data-wrap .dot.type-nutrition {
-    background: #5ca7ff;
-}
+
 /* graph */
 .circlebar_total {
     display: flex;

@@ -88,6 +88,7 @@ export const newMonthlyCalendar = (containerId, options) => {
         displayData: 'default',
         dayClickCallback: null,
         toggle: false,
+        userTitle: '',
         addCalendarData: null, // 사용자 데이터를 추가하는 함수
         ...options
     };
@@ -104,6 +105,13 @@ export const newMonthlyCalendar = (containerId, options) => {
     // 화면 로드 시 오늘 날짜 데이터를 불러오고 표시
     if (mergedOptions.dayClickCallback) {
         mergedOptions.dayClickCallback(currentDate.format('YYYYMMDD'));
+    }
+    
+    if(mergedOptions.userTitle) {
+        const calendarTitle = document.createElement('div');
+        calendarTitle.classList.add('calendar__title');
+        calendarTitle.innerText = mergedOptions.userTitle;
+        container.prepend(calendarTitle)
     }
 
     displayCalendar(currentDate);
@@ -294,18 +302,21 @@ export const newMonthlyCalendar = (containerId, options) => {
     // 주간 월간 토글 기능    
     const setupCalendarToggle = (todayRowIndex, mergedOptions) => {
         const toggleButton = container.querySelector('.btn-calendar-toggle');
+        const toggleButtonText = toggleButton.querySelector('.ir-text');
         const allTrs = container.querySelectorAll('.calendar__content tbody tr');
     
         if(!toggleButton) {
             return;
         }
         const toggleView = () => {
-            if (toggleButton.innerText === '월간보기') {
-                toggleButton.innerText = '주간보기';
+            if (toggleButtonText.innerText === '월간보기') {
+                toggleButtonText.innerText = '주간보기';
                 allTrs.forEach(tr => tr.classList.remove('hide'));
                 allTrs[todayRowIndex].classList.remove('show');
+                toggleButton.classList.add('is-active');
             } else {
-                toggleButton.innerText = '월간보기';
+                toggleButtonText.innerText = '월간보기';
+                toggleButton.classList.remove('is-active');
                 allTrs.forEach(tr => tr.classList.add('hide'));
                 allTrs[todayRowIndex].classList.remove('hide');
                 allTrs[todayRowIndex].classList.add('show');
@@ -313,7 +324,7 @@ export const newMonthlyCalendar = (containerId, options) => {
         };
     
         if (mergedOptions.toggle !== false) {
-            toggleButton.innerText = '월간보기';
+            toggleButtonText.innerText = '월간보기';
             toggleButton.style.display = 'block';
             allTrs.forEach(tr => tr.classList.add('hide'));
             allTrs[todayRowIndex].classList.remove('hide');
