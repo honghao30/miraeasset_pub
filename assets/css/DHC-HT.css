@@ -1,0 +1,257 @@
+@charset "UTF-8";
+/*회원가입*/
+.join__wrap {
+  width: 100%;
+  height: calc(100vh - 56px);
+  background: #F5F5F5;
+  padding-bottom: 4.75rem;
+}
+
+.join__wrap .join__wrap--box {
+  padding: 1.875rem 1rem 6.25rem;
+  overflow-y: auto;
+  background: #F5F5F5;
+}
+
+.join__wrap--box .bot-message {
+  display: flex;
+  justify-content: left;
+  padding-top: 3.625rem;
+}
+
+.join__wrap--box .message-content {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.25rem 1.25rem 1.25rem;
+  animation: fadeIn 0.5s ease;
+  color: var(--color-basic10);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  line-height: 1.25rem;
+  background-color: var(--color-white);
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+}
+
+.bot-message .message-content::after {
+  content: "";
+  width: 3.125rem;
+  height: 3.125rem;
+  background: center/cover no-repeat url("../img/icon/chat_icon42_or.png");
+  position: absolute;
+  left: 0;
+  top: -2.625rem;
+}
+
+.bot-message.first-msg {
+  padding-top: 2.375rem;
+}
+
+.join__wrap .join__wrap--input {
+  display: flex;
+  padding: 0.75rem 1.25rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: var(--color-white);
+  box-shadow: 0 -4px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
+.join__wrap .join__wrap--input input {
+  width: 100%;
+  background-color: var(--color-basic2);
+  border-radius: 1.875rem;
+  height: 3.25rem;
+  padding: 0.875rem 3.125rem 0.875rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.join__wrap .join__wrap--input input::placeholder {
+  color: var(--color-basic6);
+}
+
+.join__wrap .join__wrap--input button {
+  position: absolute;
+  right: 1.25rem;
+  top: 0.75rem;
+  background: center/24px no-repeat url("../img/icon/send_icon24_gr.png");
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+.join__wrap--box .user-message {
+  display: flex;
+  justify-content: right;
+}
+
+.join__wrap--box .user-message .message-content {
+  position: relative;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  border-radius: 1.25rem 0.25rem 1.25rem 1.25rem;
+  box-shadow: none;
+}
+
+.join__wrap--box .user-message .user-message__edit {
+  position: absolute;
+  left: -1.3125rem;
+  bottom: -1.3125rem;
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: 50%;
+  background: center/14px no-repeat url("../img/icon/edit_icon14_bk.png") var(--color-white);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+  z-index: 9;
+}
+
+.join__wrap--box .massage-btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: -0.625rem 0 1.25rem;
+  animation: fadeIn 0.5s ease;
+  justify-content: right;
+}
+
+.join__wrap--box .massage-btn button {
+  padding: 0.875rem;
+  font-size: 1rem;
+  font-weight: 800;
+  border: 1px solid var(--color-basic3);
+  border-radius: 0.625rem;
+  color: var(--color-basic6);
+  background: var(--color-white);
+  flex: 1 1 40%;
+}
+
+.join__wrap--box .massage-btn.type02 {
+  justify-content: right;
+  padding-left: 25%;
+}
+
+.join__wrap--box .massage-btn button.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.join__wrap--box .agree-checkbox {
+  background-color: var(--color-white);
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+  margin-bottom: 1.25rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.join__wrap--box .agree-checkbox .guide-chkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--color-basic9);
+}
+
+.join__wrap--box .agree-checkbox .guide-chkbox .checkbox {
+  font-size: 1.0625rem;
+  color: var(--color-basic10);
+}
+
+.join__wrap--box .checkbox button {
+  background: center/16px no-repeat url("../img/icon/right_icon16_bl.png");
+  width: 1.5rem;
+  height: 1.5rem;
+  right: 0;
+  top: 0;
+  clip: auto;
+  font-size: 0;
+}
+
+.join__wrap--box .auth-option {
+  display: flex;
+  justify-content: left;
+  min-width: 70%;
+}
+
+.join__wrap--box a.arrow_link {
+  display: block;
+  color: var(--color-primary);
+  border-top: 1px solid var(--color-basic2);
+  padding-top: 0.875rem;
+  margin-top: 0.875rem;
+}
+
+.join__wrap--box a.arrow_link i {
+  background: right/16px no-repeat url("../img/icon/right_icon16_or.png");
+  padding-right: 1rem;
+  font-style: normal;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.join__wrap--info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.join__wrap--info li {
+  color: var(--color-basic8);
+  line-height: 1.125rem;
+  padding-left: 4.125rem;
+  position: relative;
+  color: var(--color-basic8);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.join__wrap--info li::after {
+  content: "";
+  width: 3.125rem;
+  height: 3.125rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 1.25rem;
+}
+
+.join__wrap--info li:nth-child(1)::after {
+  background: center/24px no-repeat url("../img/icon/interlock_icon24.png") var(--color-basic2);
+}
+
+.join__wrap--info li:nth-child(2)::after {
+  background: center/24px no-repeat url("../img/icon/phone_icon24.png") var(--color-basic2);
+}
+
+.join__wrap--info li:nth-child(3)::after {
+  background: center/24px no-repeat url("../img/icon/camera_icon24.png") var(--color-basic2);
+}
+
+.join__wrap--info li:nth-child(4)::after {
+  background: center/24px no-repeat url("../img/icon/alram_icon24.png") var(--color-basic2);
+}
+
+.join__wrap--info li strong {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.375rem;
+  color: var(--color-black);
+  padding-bottom: 0.25rem;
+  display: flex;
+}
+
+.join__wrap--box .button__wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 1rem 1rem 1.25rem;
+}
