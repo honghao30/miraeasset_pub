@@ -21,11 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const href = link.getAttribute("href");            
 
             // 확장자가 'html'이 아닌 경우에만 변환
-            if (fileExtension !== 'html') {
-                currentPath = currentPath.toUpperCase();            
-            }
+            // if (fileExtension !== 'html') {
+            //     currentPath = currentPath.toUpperCase();            
+            // }
             console.log('경로2', currentPath, href)
-            
+            if(currentPath === 'dhc-co-0005-m') {
+                console.log('currentPath')
+            }
             // 해당 url의 pathname이 NavTagHref을 포함하고 있다면 is-active 이중클래스 추가
             if (currentPath.includes(href)) {
                 activeIndex = i;
@@ -66,7 +68,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
-    setTimeout(() => {
-        headerNavActive();
-    }, 2000)
 });
