@@ -1,1 +1,85 @@
 /* colortherapy */
+.therapy_wrap {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.therapy_wrap.therapy-color01, .therapy_wrap.therapy-color06 {
+  background: linear-gradient(#FFFF00, #FF7F00);
+}
+.therapy_wrap.therapy-color01 .therapy-circle.big, .therapy_wrap.therapy-color06 .therapy-circle.big {
+  background: linear-gradient(#FFFF00, #FF7F00);
+}
+.therapy_wrap.therapy-color02, .therapy_wrap.therapy-color07 {
+  background: linear-gradient(#90EE90, #808000);
+}
+.therapy_wrap.therapy-color02 .therapy-circle.big, .therapy_wrap.therapy-color07 .therapy-circle.big {
+  background: linear-gradient(#90EE90, #808000);
+}
+.therapy_wrap.therapy-color03, .therapy_wrap.therapy-color08 {
+  background: linear-gradient(#E6E6FA, #800080, #A9CCE3, #0047AB);
+}
+.therapy_wrap.therapy-color03 .therapy-circle.big, .therapy_wrap.therapy-color08 .therapy-circle.big {
+  background: linear-gradient(#E6E6FA, #800080, #A9CCE3, #0047AB);
+}
+.therapy_wrap.therapy-color04, .therapy_wrap.therapy-color09 {
+  background: linear-gradient(#FF7F00, #FFFF00);
+}
+.therapy_wrap.therapy-color04 .therapy-circle.big, .therapy_wrap.therapy-color09 .therapy-circle.big {
+  background: linear-gradient(#FF7F00, #FFFF00);
+}
+.therapy_wrap.therapy-color05, .therapy_wrap.therapy-color010 {
+  background: linear-gradient(#F28EB2, #E6E6FA, #F4A460);
+}
+.therapy_wrap.therapy-color05 .therapy-circle.big, .therapy_wrap.therapy-color010 .therapy-circle.big {
+  background: linear-gradient(#F28EB2, #E6E6FA, #F4A460);
+}
+.therapy_wrap .therapy-circle {
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  border: 0.0625rem solid var(--color-white);
+}
+.therapy_wrap .therapy-circle.big {
+  width: 12.5rem;
+  height: 12.5rem;
+  margin: 30px auto 0;
+}
+.therapy_wrap .swiper-slide {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.therapy_wrap .swiper-slide.therapy-color01 .therapy-circle, .therapy_wrap .swiper-slide.therapy-color06 .therapy-circle {
+  background: linear-gradient(#FFFF00, #FF7F00);
+}
+.therapy_wrap .swiper-slide.therapy-color02 .therapy-circle, .therapy_wrap .swiper-slide.therapy-color07 .therapy-circle {
+  background: linear-gradient(#90EE90, #808000);
+}
+.therapy_wrap .swiper-slide.therapy-color03 .therapy-circle, .therapy_wrap .swiper-slide.therapy-color08 .therapy-circle {
+  background: linear-gradient(#E6E6FA, #800080, #A9CCE3, #0047AB);
+}
+.therapy_wrap .swiper-slide.therapy-color04 .therapy-circle, .therapy_wrap .swiper-slide.therapy-color09 .therapy-circle {
+  background: linear-gradient(#FF7F00, #FFFF00);
+}
+.therapy_wrap .swiper-slide.therapy-color05 .therapy-circle, .therapy_wrap .swiper-slide.therapy-color010 .therapy-circle {
+  background: linear-gradient(#F28EB2, #E6E6FA, #F4A460);
+}
+
+.therapy-swiper .swiper-slide {
+  padding: 1rem 0;
+  border-radius: 1rem;
+  border: 0.0625rem solid var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.therapy-txt {
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0 8px;
+}

@@ -1,4 +1,138 @@
 /* colortherapy */
-// .swiper-therapy [data-swiper-slide-index="1"] {
-
+.therapy_wrap {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    &.therapy-color01, 
+    &.therapy-color06 {
+        background: linear-gradient( #FFFF00 ,#FF7F00);
+        .therapy-circle {
+            &.big {
+                background: linear-gradient( #FFFF00 ,#FF7F00);
+            }
+        }
+    }
+    &.therapy-color02, 
+    &.therapy-color07 {
+        background: linear-gradient( #90EE90 ,#808000);
+        .therapy-circle {
+            &.big {
+                background: linear-gradient( #90EE90 ,#808000);
+            }
+        }
+    }
+    &.therapy-color03, 
+    &.therapy-color08 {
+        background: linear-gradient( #E6E6FA, #800080,#A9CCE3,#0047AB);
+        .therapy-circle {
+            &.big {
+                background: linear-gradient( #E6E6FA, #800080,#A9CCE3,#0047AB);
+            }
+        }
+    }
+    &.therapy-color04, 
+    &.therapy-color09 {
+        background: linear-gradient( #FF7F00, #FFFF00);
+        .therapy-circle {
+            &.big {
+                background: linear-gradient( #FF7F00, #FFFF00);
+            }
+        }
+    }
+    &.therapy-color05, &.therapy-color010 {
+        background: linear-gradient( #F28EB2, #E6E6FA, #F4A460);
+        .therapy-circle {
+            &.big {
+                background: linear-gradient( #F28EB2, #E6E6FA, #F4A460);
+            }
+        }
+    }
+    .therapy-circle {
+        width: calc(50 / 16 * 1rem);
+        height: calc(50 / 16 * 1rem);
+        border-radius: 50%;
+        border: calc(1 / 16 * 1rem) solid var(--color-white);
+        &.big {
+            width: calc(200 / 16 * 1rem);
+            height: calc(200 / 16 * 1rem);
+            margin: 30px auto 0;
+        }
+    }
+    .swiper-slide {
+        background-color: rgba(255, 255, 255, 0.5);
+        &.therapy-color01, 
+        &.therapy-color06 {
+            .therapy-circle {
+                background: linear-gradient( #FFFF00 ,#FF7F00);
+            }
+        }
+        &.therapy-color02, 
+        &.therapy-color07 {
+            .therapy-circle {
+                background: linear-gradient( #90EE90 ,#808000);
+            }
+        }
+        &.therapy-color03, 
+        &.therapy-color08 {
+            .therapy-circle {
+                background: linear-gradient( #E6E6FA, #800080,#A9CCE3,#0047AB);
+            }
+        }
+        &.therapy-color04, 
+        &.therapy-color09 {
+            .therapy-circle {
+                background: linear-gradient( #FF7F00, #FFFF00);
+            }
+        }
+        &.therapy-color05, &.therapy-color010 {
+            .therapy-circle {
+                background: linear-gradient( #F28EB2, #E6E6FA, #F4A460);
+            }
+        }
+    }
+}
+// .therapy_wrap.therapy-color02, .therapy_wrap.therapy-color07 {
+//     background: linear-gradient( #90EE90 ,#808000);
 // }
+// .therapy_wrap.therapy-color02 .therapy-bigcircle, .therapy_wrap.therapy-color07 .therapy-bigcircle {
+//     background: linear-gradient( #90EE90 ,#808000);
+// }
+// .therapy_wrap.therapy-color03, .therapy_wrap.therapy-color08 {
+//     background: linear-gradient( #E6E6FA, #800080,#A9CCE3,#0047AB);
+// }
+// .therapy_wrap.therapy-color03 .therapy-bigcircle, .therapy_wrap.therapy-color08 .therapy-bigcircle {
+//     background: linear-gradient( #E6E6FA, #800080,#A9CCE3,#0047AB);
+// }
+// .therapy_wrap.therapy-color04, .therapy_wrap.therapy-color09 {
+//     background: linear-gradient( #FF7F00, #FFFF00);
+// }
+// .therapy_wrap.therapy-color04 .therapy-bigcircle, .therapy_wrap.therapy-color09 .therapy-bigcircle {
+//     background: linear-gradient( #FF7F00, #FFFF00);
+// }
+// .therapy_wrap.therapy-color05, .therapy_wrap.therapy-color010 {
+//     background: linear-gradient( #F28EB2, #E6E6FA, #F4A460);
+// }
+// .therapy_wrap.therapy-color05 .therapy-bigcircle, .therapy_wrap.therapy-color010 .therapy-bigcircle {
+//     background: linear-gradient( #F28EB2, #E6E6FA, #F4A460);
+// }
+
+
+.therapy-swiper .swiper-slide {
+    padding: calc(16 / 16 * 1rem) 0;
+    border-radius: calc(16 / 16 * 1rem);
+    border: calc(1 / 16 * 1rem) solid var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.therapy-txt {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 0 8px;
+}
