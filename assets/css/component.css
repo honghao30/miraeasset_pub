@@ -2099,7 +2099,7 @@ input[type="radio"]:disabled {
 /* 토스트팝업 */
 .toast--wrap {
     position: fixed;
-    bottom: 0;
+    bottom: calc(70 / 16 * 1rem);
     width: 100%;
     display: flex;
     flex-direction: column-reverse;

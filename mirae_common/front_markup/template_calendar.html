@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head></head>
+<body>
+    <div class="wrap">
+        <div data-include-path="./_inc/head_sub.html"></div>
+        <style>
+            .calendar-swiper .swiper-slide,
+            .calendar-swiper .swiper-slide ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }              
+            .calendar-swiper .swiper-slide>div,
+            .calendar-swiper .swiper-slide>ul>li {
+                text-align: center;
+                width: calc(100% / 7);
+            }
+            .calendar__header .display-data:empty,
+            .calendar__content ul:empty {display: none;}
+        </style>        
+        <div class="content">
+            <div class="month-calendar">    
+                <div class="calendar__wrap" id="page-cal">
+                    <div class="calendar__header">
+                        <button type="button" class="btn-prev-month">이전</button>
+                        <div class="display-data"></div>
+                        <button type="button" class="btn-next-month">다음</button>
+                        <button type="button" class="btn-show-today">오늘</button>
+                    </div>
+                    <div class="calendar__content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="holiday">일</th>
+                                    <th scope="col">월</th>
+                                    <th scope="col">화</th>
+                                    <th scope="col">수</th>
+                                    <th scope="col">목</th>
+                                    <th scope="col">금</th>
+                                    <th scope="col" class="holiday">토</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="button__wrap">
+                        <button type="button" class="btn-calendar-toggle">주간토글</button>
+                    </div>
+                </div>     
+                <div class="weekly-calendar">
+                    <div class="calendar__wrap" id="calendarWeekly2">
+                        <div class="calendar__header">
+                            <div class="display-data"></div>
+                        </div>
+                        <div class="calendar__content">
+                            <ul class="weekly-cal__header" id="weeklyLabels"></ul>
+                            <ul id="weekDates"></ul>
+                            <div class="swiper calendar-swiper">
+                                <div class="swiper-wrapper">
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>    
+                
+                    <div class="detail-section">
+                        <div class="detail-day"></div>
+                        오늘 날짜에 해당하는 값
+                    </div>                
+                </div>     
+                <script type="module">
+                    import { newMonthlyCalendar, createWeeklyCalendar } from "/assets/js/calendar.js";
+
+                    // 사용자 데이터를 추가하는 함수
+                    const addCalendarData = (cell, userData) => {
+                        const healthDataEl = document.createElement('div');
+                        healthDataEl.classList.add('health-data-wrap');
+                        healthDataEl.innerHTML = userData;
+                        cell.appendChild(healthDataEl);    
+                    };
+
+                    // 사용자 데이터를 셀에 추가하는 함수
+                    const addUserDataToCell = async (cell, date) => {    
+                        try {
+                            // const response = await fetch('');
+                            // const userData = await response.json();
+
+                            // 예시 데이터 추가 (API 응답 형식에 맞게 변경하세요)
+                            const healthDataHTML = `
+                                <div class="dot type-meal"></div>
+                                <div class="dot type-work-out"></div>
+                                <div class="dot type-nutrition"></div>
+                            `;
+
+                            // API로부터 받은 데이터를 사용하여 사용자 데이터 추가
+                            addCalendarData(cell, healthDataHTML);
+
+                        } catch (error) {
+                            console.error('사용자 데이터를 불러오는 중 오류가 발생했습니다:', error);
+                        }
+                    };
+
+                    // `newMonthlyCalendar` 함수 호출
+                    newMonthlyCalendar('page-cal', { 
+                        button: false, 
+                        userTouchMove: false,
+                        displayData: 'default',
+                        toggle: true,
+                        addCalendarData: addUserDataToCell // addUserDataToCell 함수를 올바르게 옵션으로 전달
+                    });
+
+                    
+                    //주간 사용자 데이터 추가 부분
+                    const addUserDataToWeeklyLink = (link) => {    
+                        const userData = document.createElement('div');
+                        userData.classList.add('health-data-wrap');
+                        userData.innerHTML = `
+                            <div class="dot type-meal"></div>
+                            <div class="dot type-work-out"></div>
+                            <div class="dot type-nutrition"></div>
+                        `; 
+                        link.parentElement.appendChild(userData);
+                    };  
+                    //날짜 클릭 이벤트
+                    const handleWeeklyLinkClick = (day) => {
+                        const selectedDay = day.format('YYYY-MM-DD');
+                        const today = dayjs().format('YYYY-MM-DD');   
+                        document.querySelector('.detail-section .detail-day').innerText = selectedDay;
+                    };
+                    createWeeklyCalendar('calendarWeekly2', { 
+                        startDate: '2024.01',       
+                        futureLimit: 5,                                         
+                        button: false, 
+                        displayDay: 'onlyMonthly', 
+                        userSwiping: true,
+                        weekStart: 1,
+                        addUserDataToWeeklyLink,
+                        handleWeeklyLinkClick,
+                        swiperOptions: {
+                            pagination: false, 
+                            spaceBetween: 0,  
+                            slidesPerGroup: 1, 
+                            loop: false,
+                            lazyLoading: true,    
+                            lazyLoadingInPrevNext: true,   
+                            observeParents: true,
+                            observeSlideChildren: true,
+                            observer: true,
+                        } 
+                    });
+                </script>
+            </div>
+    </div>    
+    <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+    <script type="module" src="/assets/js/pub_include.js"></script>
+
+    <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
+    <script src="/assets/bundle/dayjs/dayjs.min.js"></script>
+    <script src="/assets/bundle/dayjs/isSameOrBefore.js"></script>
+    <script src="/assets/bundle/dayjs/ko.js"></script>
+    <script type="module" src="/assets/js/index.js"></script>    
+</body>
+</html>
