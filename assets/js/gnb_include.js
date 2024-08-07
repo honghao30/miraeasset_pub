@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //     currentPath = currentPath.toUpperCase();            
             // }
             console.log('경로2', currentPath, href)
-            if(currentPath === 'dhc-co-0005-m') {
+            if(currentPath === 'dhc-co-0005-m' || currentPath === 'dhc-ht-0000-m') {
                 console.log(currentPath)
                 navItemsArray[0].classList.add("is-active");
             }
