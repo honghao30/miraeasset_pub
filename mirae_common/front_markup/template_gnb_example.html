@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head></head>
+    <body>
+        <div class="wrap">
+            <div data-include-path="./_inc/head_gnb.html"></div>
+            <div class="content" style="display: flex; justify-content: center; align-items: center; font-size: 40px; margin-top: 50px;">
+                gnb_include js 작동을 보여주기 위한 예시 파일 입니다.
+                (헬스 홈 컨텐츠 영역)
+            </div>
+        </div>
+        <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script type="module" src="/assets/js/pub_include.js"></script>
+        <script type="module" src="/assets/js/index.js"></script>
+        <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
+        <script type="module" src="/assets/js/gnb_include.js"></script>
+    </body>
+</html>
