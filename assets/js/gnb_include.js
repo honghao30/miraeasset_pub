@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 currentPath = currentPath.toUpperCase();            
             }
             console.log('경로2', currentPath, href)
-            
+            console.log(currentPath.includes(href));
+            console.log(activeIndex);
             // 해당 url의 pathname이 NavTagHref을 포함하고 있다면 is-active 이중클래스 추가
             if (currentPath.includes(href)) {
                 activeIndex = i;
