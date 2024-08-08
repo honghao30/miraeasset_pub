@@ -107,7 +107,12 @@
     --tab-btn-font-line-height: calc(20 / 16 * 1rem);
 
     /* tab icon type */
-    --tab-btn-type-icon-bg: #fff;    
+    --tab-btn-type-icon-bg: #fff;
+
+    /* swiper test */
+     /* --swiper-image-ratio: 33.3%;  */
+
+    --swiper-width: 42.1%;
 }
 
 /* rem 사용 예시  */

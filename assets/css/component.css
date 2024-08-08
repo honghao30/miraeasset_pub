@@ -1962,7 +1962,7 @@ input[type="radio"]:disabled {
     box-shadow: none;
 } */
 .modal__wrap--bg.modal-datepicker .modal__wrap .modal-cont {
-    /* padding-bottom: calc(30 / 16 * 1rem); */
+    padding: 0 calc(12 / 16 * 1rem);
 }
 .modal-datepicker .datepicker-view {
     width: 100%;
@@ -1970,6 +1970,8 @@ input[type="radio"]:disabled {
 .modal-datepicker .datepicker-main {
     padding: 0;
     margin-top: calc(32 / 16 * 1rem);
+}
+.modal-datepicker .datepicker-main .days {
     height: calc(380 / 16 * 1rem);
 }
 .modal-datepicker .datepicker-header .datepicker-controls {
@@ -2041,7 +2043,7 @@ input[type="radio"]:disabled {
     color: transparent;
     cursor:default;
 }
- .modal-datepicker .datepicker .datepicker-grid span.datepicker-cell.day.next {
+.modal-datepicker .datepicker .datepicker-grid span.datepicker-cell.day.next {
     display: none;
 }
 .modal-datepicker .datepicker .datepicker-grid span.datepicker-cell.focused:not(.selected),
@@ -2065,6 +2067,9 @@ input[type="radio"]:disabled {
 .modal-datepicker .datepicker .datepicker-grid span.datepicker-cell:not(.disabled):hover {
     background-color: transparent;
 }
+.datepicker-view.months.datepicker-grid, .datepicker-view.years.datepicker-grid {
+    padding-bottom: calc(30 / 16 *1rem);
+}
 /* month select 시 */
 .datepicker-view.months.datepicker-grid .datepicker-cell.month, .datepicker-view.months.datepicker-grid .datepicker-cell.year {
     color: var(--color-basic7);
@@ -2078,4 +2083,28 @@ input[type="radio"]:disabled {
     width: calc(80 / 16 * 1rem);
     height: calc(50 / 16 * 1rem);
     border-radius: calc(30 / 16 * 1rem);
+}
+/* swiper center and active center width zoom */
+.swiper-zoom {
+    position: relative;
+    width: 100%;
+    /* height: calc(var(--swiper-width) * var(--swiper-image-ratio) / 100%); */
+    overflow: hidden;
+}
+
+.swiper-zoom .swiper-slide {
+    position: relative;
+    /* width: var(--swiper-width); */
+    transform: scale(0.9);
+    transition: all .3s ease-in-out;
+    overflow: hidden;
+}
+
+.swiper-zoom .swiper-slide.swiper-slide-prev, 
+.swiper-zoom .swiper-slide.swiper-slide-next {
+    transform: scale(0.9) translateZ(0);
+}
+
+.swiper-zoom .swiper-slide.swiper-slide-active {  
+    transform: scale(1);
 }
