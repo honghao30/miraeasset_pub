@@ -1910,6 +1910,7 @@ input[type="radio"]:disabled {
     pointer-events: none; /* 부모 요소는 포인터 이벤트를 무시합니다 */
     padding: calc(16 / 16 * 1rem);
     gap: 10px;
+    z-index:12;
 }
 .toast--wrap .toast--wrap__msg {
     visibility: hidden;
@@ -1925,6 +1926,10 @@ input[type="radio"]:disabled {
     border-radius: calc(14 / 16 * 1rem);
     font-size: calc(13 / 16 * 1rem);
     width: 100%;
+    text-align:center
+}
+.toast--wrap .toast--wrap__msg.a-c{
+    text-align:center;
 }
 .toast--wrap .toast--wrap__msg.show {
     visibility: visible;

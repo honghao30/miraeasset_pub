@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head></head>
+<body>
+    <div class="wrap">
+        <div data-include-path="./_inc/head_sub.html"></div>
+        <div class="sub__content">
+            <button type="button" onclick="openModal(event)" modal-id="pop01">아직 기록된 운동이 없어요</button><br />
+            <button type="button" onclick="openModal(event)" modal-id="pop02">스쿼트 10회 하기</button><br />
+            <button type="button" onclick="openModal(event)" modal-id="pop03">활동 설문을 체크해 주세요</button><br />
+            <button type="button" onclick="openModal(event)" modal-id="pop04">데이터를 가져올까요?</button>
+        </div>
+    </div>
+    
+    <!-- 아직 기록된 운동이 없어요 -->
+    <div class="modal__wrap--bg type-bottom" id="pop01">
+        <div class="modal__wrap">
+            <p class="img_analysis">아직 기록된 운동이 없어요<br />고객님의 건강을 꼼꼼히 분석해 드릴게요~</p>
+            <div class="modal-footer">
+                <div class="button__wrap">
+                    <button type="button" class="btn btn-primary">운동 기록하기</button>
+                </div>
+                <div class="button__wrap">
+                    <button type="button" class="text-button close-modal" onclick="closeModal(event)">오늘 그만 보기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 스쿼트 10회 하기 -->
+    <div class="modal__wrap--bg type-bottom" id="pop02">
+        <div class="modal__wrap">
+            <div class="modal-header">
+                <h3 class="font-type-h3">스쿼트 10회 하기</h3>
+                <button type="button" class="btn btn-icon-close close-modal" onclick="closeModal(event)"></button>
+                    <span class="ir-text">닫기</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <div class="button__wrap">
+                    <button type="button" class="btn btn-primary">운동 기록하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 활동 설문을 체크해 주세요 -->
+    <div class="modal__wrap--bg type-bottom" id="pop03">
+        <div class="modal__wrap">
+            <div class="modal-header">
+                <h3 class="font-type-h3">활동 설문을 체크해 주세요</h3>
+                <button type="button" class="btn btn-icon-close close-modal" onclick="closeModal(event)"></button>
+                    <span class="ir-text">닫기</span>
+                </button>
+            </div>
+            <div class="modal-cont">
+                <div class="content-gray-box">
+                    <i>Q</i>나의 평균적인 활동량이 어느 정도인지 체크해 주세요.
+                </div>
+                <ul class="check_wrap">
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox"><span class="ch-mark"></span>
+                            <span class="checkbox-label">운동을 거의 하지 않아요.<br>(일일 걸음 수 4,500보 미만)</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox"><span class="ch-mark"></span>
+                            <span class="checkbox-label">주 1-3회, 가벼운 산책 (15-30분)을 해요.</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox"><span class="ch-mark"></span>
+                            <span class="checkbox-label">주 6일 이상, 30분 이상을 걸어요.</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox">
+                            <input type="checkbox"><span class="ch-mark"></span>
+                            <span class="checkbox-label">주 6일 이상, 30분 이상 땀이 나는 운동을 해요.</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <div class="button__wrap">
+                    <button type="button" class="btn btn-primary" onclick="openToast('toast1')">저장하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 활동 설문 : 토스트팝업 -->
+    <div class="toast--wrap">
+        <div class="toast--wrap__msg" id="toast1">설문이 저장되었습니다.</div>
+    </div>
+
+    <!-- 데이터를 가져올까요? -->
+    <div class="modal__wrap--bg default" id="pop04">
+        <div class="modal__wrap">
+            <div class="modal-header"></div>
+            <div class="modal-cont">데이터를 가져올까요?</div>
+            <div class="modal-footer">
+                <div class="button__wrap">
+                    <button type="button" class="btn btn-line close-modal" onclick="closeModal(event)">닫기</button>
+                    <button type="button" class="btn btn-primary" onclick="openToast('toast2')">가져오기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 활동 설문 : 토스트팝업 -->
+    <div class="toast--wrap">
+        <div class="toast--wrap__msg" id="toast2">데이터 가져오기에 실패했습니다.</div>
+        <div class="toast--wrap__msg" id="toast2">가져올 수 있는 데이터가 없습니다.</div>
+        <div class="toast--wrap__msg" id="toast2">기록이 삭제되었습니다.</div>
+        <div class="toast--wrap__msg" id="toast2">데이터 가져오기가 완료되었습니다.</div>
+    </div>
+
+    <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+    <script>
+        setTimeout(function(){
+            document.querySelector('.document-title').innerText = '운동 팝업 모음';
+        },200)
+    </script>
+    <script type="module" src="/assets/js/pub_include.js"></script>
+
+    <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
+    <script src="/assets/bundle/dayjs/dayjs.min.js"></script>
+    <script src="/assets/bundle/dayjs/isSameOrBefore.js"></script>
+    <script src="/assets/bundle/dayjs/ko.js"></script>
+    <script type="module" src="/assets/js/index.js"></script>    
+</body>
+
+</html> 
