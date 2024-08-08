@@ -6,20 +6,20 @@
   background: #F5F5F5;
   padding-bottom: 4.75rem;
 }
-.join__wrap .join__wrap--box {
+.join__wrap--box {
   padding: 1.875rem 1rem 6.25rem;
   overflow-y: auto;
   background: #F5F5F5;
 }
-.join__wrap .join__wrap--box .bot-message {
+.join__wrap--box .bot-message {
   display: flex;
   justify-content: left;
   padding-top: 3.625rem;
 }
-.join__wrap .join__wrap--box .bot-message.first-msg {
+.join__wrap--box .bot-message.first-msg {
   padding-top: 2.375rem;
 }
-.join__wrap .join__wrap--box .message-content {
+.join__wrap--box .message-content {
   margin-bottom: 1.25rem;
   padding: 1rem 1.5rem;
   border-radius: 0.25rem 1.25rem 1.25rem;
@@ -32,7 +32,7 @@
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
 }
-.join__wrap .join__wrap--box .message-content::after {
+.join__wrap--box .message-content::after {
   content: "";
   width: 3.125rem;
   height: 3.125rem;
@@ -41,7 +41,7 @@
   left: 0;
   top: -2.625rem;
 }
-.join__wrap .join__wrap--box .massage-btn {
+.join__wrap--box .massage-btn {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -49,7 +49,7 @@
   animation: fadeIn 0.5s ease;
   justify-content: right;
 }
-.join__wrap .join__wrap--box .massage-btn button {
+.join__wrap--box .massage-btn button {
   padding: 0.875rem;
   font-size: 1rem;
   font-weight: 800;
@@ -59,15 +59,15 @@
   background: var(--color-white);
   flex: 1 1 40%;
 }
-.join__wrap .join__wrap--box .massage-btn.type02 {
+.join__wrap--box .massage-btn.type02 {
   justify-content: right;
   padding-left: 25%;
 }
-.join__wrap .join__wrap--box .massage-btn.active {
+.join__wrap--box .massage-btn.active {
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
-.join__wrap .join__wrap--box .agree-checkbox {
+.join__wrap--box .agree-checkbox {
   background-color: var(--color-white);
   padding: 1.5rem;
   border-radius: 1.25rem;
@@ -75,17 +75,17 @@
   margin-bottom: 1.25rem;
   animation: fadeIn 0.5s ease;
 }
-.join__wrap .join__wrap--box .agree-checkbox .guide-chkbox {
+.join__wrap--box .agree-checkbox .guide-chkbox {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   color: var(--color-basic9);
 }
-.join__wrap .join__wrap--box .agree-checkbox .guide-chkbox .checkbox {
+.join__wrap--box .agree-checkbox .guide-chkbox .checkbox {
   font-size: 1.0625rem;
   color: var(--color-basic10);
 }
-.join__wrap .join__wrap--box .checkbox button {
+.join__wrap--box .checkbox button {
   background: center/16px no-repeat url("../img/icon/right_icon16_bl.png");
   width: 1.5rem;
   height: 1.5rem;
@@ -94,47 +94,47 @@
   clip: auto;
   font-size: 0;
 }
-.join__wrap .join__wrap--box .auth-option {
+.join__wrap--box .auth-option {
   display: flex;
   justify-content: left;
   min-width: 70%;
 }
-.join__wrap .join__wrap--box .auth-option .message-content::after {
+.join__wrap--box .auth-option .message-content::after {
   display: none;
 }
-.join__wrap .join__wrap--box a.arrow_link {
+.join__wrap--box a.arrow_link {
   display: block;
   color: var(--color-primary);
   border-top: 1px solid var(--color-basic2);
   padding-top: 0.875rem;
   margin-top: 0.875rem;
 }
-.join__wrap .join__wrap--box a.arrow_link i {
+.join__wrap--box a.arrow_link i {
   background: right/16px no-repeat url("../img/icon/right_icon16_or.png");
   padding-right: 1rem;
   font-style: normal;
 }
-.join__wrap .join__wrap--box .button__wrap {
+.join__wrap--box .button__wrap {
   position: fixed;
   left: 0;
   bottom: 0;
   padding: 1rem 1rem 1.25rem;
 }
-.join__wrap .join__wrap--box .user-message {
+.join__wrap--box .user-message {
   display: flex;
   justify-content: right;
 }
-.join__wrap .join__wrap--box .user-message .message-content {
+.join__wrap--box .user-message .message-content {
   position: relative;
-  background-color: var(--color-secondary);
+  background-color: #043b72;
   color: var(--color-white);
   border-radius: 1.25rem 0.25rem 1.25rem 1.25rem;
   box-shadow: none;
 }
-.join__wrap .join__wrap--box .user-message .message-content::after {
+.join__wrap--box .user-message .message-content::after {
   display: none;
 }
-.join__wrap .join__wrap--box .user-message .message-content .user-message__edit {
+.join__wrap--box .user-message .message-content .user-message__edit {
   position: absolute;
   left: -1.3125rem;
   bottom: -1.3125rem;
@@ -231,27 +231,35 @@
   display: flex;
 }
 
-.sub__content .sub__content--box {
+/* sub-layout */
+.sub__content {
+  color: var(--color-basic10);
+}
+.sub__content--box {
   padding: 0 1rem;
   margin-bottom: 50px;
 }
-.sub__content .sub__content--box .sub__content--shadowbox {
+.sub__content--whbox {
   border-radius: 1.25rem;
   background: var(--color-white);
   box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem 1rem;
 }
-.sub__content .sub__content--title {
+.sub__content--whbox + .sub__content--whbox {
+  margin-top: 1rem;
+}
+.sub__content--title {
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
   color: var(--color-basic10);
   line-height: 1.375rem;
 }
-.sub__content .sub__content--title h3 {
+.sub__content--title h3 {
   font-size: 1rem;
   font-weight: 800;
 }
-.sub__content .sub__content--title h3 span {
+.sub__content--title h3 span {
   color: var(--color-primary);
 }
 
@@ -272,8 +280,123 @@
 
 .img_analysis {
   padding: 1.5rem;
-  height: 16.25rem;
-  background: center bottom/160px no-repeat url("../img/icon/img_analysis.png");
+  padding-bottom: 14.625rem;
   color: var(--color-basic10);
+  font-weight: 800;
+  line-height: 1.625rem;
+  position: relative;
+  font-size: 1.125rem;
+}
+.img_analysis::after {
+  content: "";
+  background: center/cover no-repeat url("../img/icon/img_analysis.png");
+  width: 190px;
+  height: 156px;
+  position: absolute;
+  top: 7.5625rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.date__area {
+  padding: 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.date__area--today {
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.5rem;
+  padding-left: 2rem;
+  background: left/24px no-repeat url("../img/icon/calendar_icon24.png");
+}
+.date__area button {
+  background-color: var(--color-basic9);
+  color: var(--color-white);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  border-radius: 1.25rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.my__data {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.my__data .my__data--thum {
+  flex-shrink: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: center/cover no-repeat url("../img/icon/bg_profile.png");
+}
+.my__data .my__data--thum img {
+  width: 100%;
+}
+.my__data .my__data--record {
+  flex-grow: 1;
+}
+.my__data .my__data--record dt {
   font-weight: 700;
+  line-height: 1.375rem;
+  font-size: 1.0625rem;
+  margin-bottom: 1rem;
+}
+.my__data .my__data--record dd {
+  display: inline-flex;
+  align-items: center;
+  width: 45%;
+  color: #999;
+  position: relative;
+  padding-top: 1.25rem;
+  line-height: 1.875rem;
+  font-weight: 800;
+}
+.my__data .my__data--record dd strong {
+  color: var(--color-basic10);
+  font-size: 1.5rem;
+  margin-right: 2px;
+}
+.my__data .my__data--record dd::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.my__data .my__data--record dd:first-of-type::before {
+  background: center/cover no-repeat url("../img/icon/dumbbell_icon16.png");
+}
+.my__data .my__data--record dd:last-of-type::before {
+  background: center/cover no-repeat url("../img/icon/fire_icon16.png");
+}
+
+.btn-box-arrow {
+  display: flex;
+  width: 100%;
+  color: var(--color-white);
+  border-radius: 0.75rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  background: center right 16px/16px no-repeat url(../img/icon/right_icon16_wh.png) #F58220;
+}
+.btn-box-arrow:disabled {
+  background-color: var(--color-basic4);
+  cursor: default;
+  pointer-events: none;
+}
+
+.content-gray-box {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 0.875rem;
+  display: flex;
+  gap: 8px;
+}
+.content-gray-box span {
+  font-style: normal;
 }/*# sourceMappingURL=DHC-HT.css.map */

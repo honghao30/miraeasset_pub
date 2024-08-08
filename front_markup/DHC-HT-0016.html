@@ -5,19 +5,57 @@
     <div class="wrap">
         <div data-include-path="./_inc/head_sub.html"></div>
         <div class="sub__content">
-            <!-- 오늘 활동 기록 -->
+            <!-- 오늘 활동 기록 no-data -->
             <div class="sub__content--box">
-                <div class="today__date">2024년 8월 7일 (목)</div> 
-                <div class="sub__content--shadowbox">
-                    123
+                <div class="date__area">
+                    <span class="date__area--today">2024년 8월 7일 (목)</span>
+                    <button>활동 설문</button>
+                </div> 
+                <div class="sub__content--whbox">
+                    <div class="my__data">
+                        <p class="my__data--thum"></p>
+                        <dl class="my__data--record">
+                            <dt>하루 활동 기록</dt>
+                            <dd><strong>0</strong>분</dd>
+                            <dd><strong>0</strong>kcal</dd>
+                        </dl>
+                    </div>
+                    <button class="btn-box-arrow" disabled>나의 하루 전체 통계</button>
                 </div>
             </div>
             
+            <!-- 오늘 활동 기록 data -->
+            <div class="sub__content--box">
+                <div class="date__area">
+                    <span class="date__area--today">오늘</span>
+                    <button>활동 설문</button>
+                </div> 
+                <div class="sub__content--whbox">
+                    <div class="my__data">
+                        <p class="my__data--thum"><img src="../assets/img/icon/@profile.png" /></p>
+                        <dl class="my__data--record">
+                            <dt>하루 활동 기록</dt>
+                            <dd><strong>360</strong>분</dd>
+                            <dd><strong>10,000</strong>kcal</dd>
+                        </dl>
+                    </div>
+                    <button class="btn-box-arrow">나의 하루 전체 통계</button>
+                </div>
+
+                <div class="sub__content--whbox">
+                    <div class="">
+                        어제보다 오늘 89kcal 더 소모했어요!
+                    </div>
+                </div>
+            </div>
+
             <div class="sub__content--title">
                 <h3>내 또래 인기 있는 운동 <span>TOP3</span></h3>
             </div>
             <div class="sub__content--box">
-                sdf
+                <div class="sub__content--whbox">
+                    필라테스
+                </div>
             </div>
 
             <div class="sub__content--title">
@@ -26,6 +64,7 @@
             <div class="sub__content--box">
                 sdf
             </div>
+
 
             <div class="sub__content--title">
                 <h3>건강한 일상을 위한 건강 뉴스</h3>
@@ -40,21 +79,6 @@
         <div class="sub__bottom--fixed">
             <div class="button__wrap">
                 <button type="button" class="btn btn-primary">운동 기록하기</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- popup -->
-    <div class="modal__wrap--bg type-bottom is-active" style="display:block;">
-        <div class="modal__wrap">
-            <p class="img_analysis">아직 기록된 운동이 없어요<br />고객님의 건강을 꼼꼼히 분석해 드릴게요~</p>
-            <div class="modal-footer">
-                <div class="button__wrap">
-                    <button type="button" class="btn btn-primary">운동 기록하기</button>
-                </div>
-                <div class="button__wrap">
-                    <button type="button" class="text-button close-modal" onclick="closeModal(event)">오늘 그만 보기</button>
-                </div>
             </div>
         </div>
     </div>
