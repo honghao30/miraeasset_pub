@@ -8,7 +8,6 @@
                 <strong class="changetxt">눈의 피로를 풀고 싶을 때</strong>
                 <p>잠시만 컬러를 바라보세요</p>
                 <div class="therapy-circle big">
-
                 </div>
             </div>
             <div class="therapy-type">
@@ -74,6 +73,62 @@
                         </div>
                     </div>
                 </div>
+                <!-- <div class="swiper-card therapy-swiper zoom-swiper">
+                    <div class="swiper cardjs-therapy swiper-therapy swiper-zoom">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide therapy-color01">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">우울감을 완화하고<br/> 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color02">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">눈의 피로를<br/> 풀고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color03">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">스트레스를<br/> 완화하고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color04">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">활력이<br/> 필요할 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color05">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt"> 위로가<br/> 필요할 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color06">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">우울감을 완화하고<br/> 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color07">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">눈의 피로를<br/> 풀고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color08">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">스트레스를<br/> 완화하고 싶을 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color09">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt">활력이<br/> 필요할 때</p>
+                            </div>
+                            <div class="swiper-slide therapy-color010">
+                                <div class="therapy-circle">
+                                </div>
+                                <p class="therapy-txt"> 위로가<br/> 필요할 때</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
         <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
@@ -82,14 +137,31 @@
         <script type="module" src="/assets/js/main.js"></script>
         <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
         <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
-        <script type="module">
+        <!-- <script type="module">
             import { swiperCustom } from "/assets/js/swiper_custom.js";
             const swiperAdditional = swiperCustom(".cardjs-therapy", 2.5, {
                 centeredSlides: true,
                 slideToClickedSlide: true,
                 loop: true,
             });
-
+        </script> -->
+        <script type="module">
+            import { swiperCustom } from "/assets/js/swiper_custom.js";
+            // const swiperAdditional = swiperCustom(".swiper-zoom", "auto", {
+            //     loop: true,
+            //     centeredSlides: true,
+            //     slideToClickedSlide: true,
+            //     navigation: {
+            //         nextEl: '.swiper-button-next',
+            //         prevEl: '.swiper-button-prev',
+            //     },
+            //     spaceBetween: 0,
+            // });
+            const swiperAdditional = swiperCustom(".cardjs-therapy", 2.5, {
+                centeredSlides: true,
+                slideToClickedSlide: true,
+                loop: true,
+            });
             function updateTherapyTypeClass() {
                 const textElement = document.querySelector('.changetxt');
                 const activeSlide = document.querySelector('.swiper-slide-active');
@@ -134,7 +206,6 @@
             });
             
             updateTherapyTypeClass();
-
         </script>
     </body>
 </html>
