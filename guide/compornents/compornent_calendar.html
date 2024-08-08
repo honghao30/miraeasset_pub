@@ -23,9 +23,32 @@
                                     </span>
                                 </div>
                             </div>
-                            <br><br>https://mymth.github.io/vanillajs-datepicker/#/<br><br>
                             <pre class="code_view"></pre>
-                        </div>                        
+                            <p class="font-type-h6-bold">공식문서 : https://mymth.github.io/vanillajs-datepicker/#/</p>
+                        </div>
+                        <div class="section_text_no_round">
+                            <div class="sample-code">
+                                <p class="font-type-h5-bold">날짜선택(js버전 / datepicker custom)</p>
+                                <p class="font-type-h6-bold mt-4">- 오늘 날짜 클릭 시 하단 모달창으로 나타남</p>
+                                <p class="font-type-h6-bold mt-2 mb-10">- 내부 js 사용 들고가야함</p>
+                                <div class="datepicker-custom">
+                                    <button class="today-date font-type-h5-bold" onclick="openModal(event)" modal-id="basic2" style="background-color: var(--color-primary);"></button>
+                                </div> 
+                                <div class="modal__wrap--bg type-bottom modal-datepicker" id="basic2">
+                                <div class="modal__wrap">
+                                    <div class="modal-header">
+                                        <h3 class="font-type-h3">날짜를 선택해 주세요</h3>
+                                        <button type="button" class="btn btn-icon-close close-modal" onclick="closeModal(event)">
+                                            <span class="ir-text">닫기</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-cont" id="dataVanillaCusotm"></div>
+                                </div>
+                            </div>
+                            </div>
+                            <pre class="code_view"></pre>
+                            <p class="font-type-h6-bold">공식문서 : https://mymth.github.io/vanillajs-datepicker/#/</p>
+                        </div>                    
                         <div class="section_text_no_round">
                             <div class="sample-code">
                                 <div class="form-element__wrap">
@@ -186,6 +209,26 @@
                 format: 'yyyy-mm-dd',      
                 language: 'ko'          
             }); 
+            const elemCusotm = document.querySelector('#dataVanillaCusotm');
+            const datepickerCustom = new Datepicker(elemCusotm, {
+            // ...options
+                buttonClass: 'btn',                           
+                autoClose: true,
+                format: 'yyyy-mm-dd',      
+                language: 'ko'          
+            }); 
+            if (document.querySelector('.today-date')) {
+                let todayDate = new Date();   
+
+                let year = todayDate.getFullYear(); // 년도
+                let month = todayDate.getMonth() + 1;  // 월
+                let date = todayDate.getDate();  // 날짜
+                let day = todayDate.getDay();  // 일
+                const week = ['일', '월', '화', '수', '목', '금', '토'];
+                let dayoOfWeek = week[new Date(todayDate).getDay()]; // 요일
+
+                document.querySelector('.today-date').innerText = year + '년 ' + month + '월 ' + date + '일 ' + dayoOfWeek + '요일';
+            }
         </script>            
         <!-- vanilla.js datepicker -->
         <script type="module" src="../../assets/js/index.js"></script>
