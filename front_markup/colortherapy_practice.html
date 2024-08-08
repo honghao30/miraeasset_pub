@@ -2,22 +2,17 @@
 <html lang="ko">
     <head></head>
     <body>
-        <div class="wrap therapy_wrap therapy-color01">
-            <div class="therapy-des">
+        <!-- 컬러테라피 -->
+        <!-- <div class="wrap therapy_wrap therapy-color01"> -->
+            <!-- <div class="therapy-des">
                 <p>컬러테라피</p>
                 <strong class="changetxt">눈의 피로를 풀고 싶을 때</strong>
                 <p>잠시만 컬러를 바라보세요</p>
                 <div class="therapy-circle big">
                 </div>
-            </div>
-            <div class="therapy-type">
-                <!-- 01. 우울감을 완화 하고 싶을 때 -->
-                <!-- 02. 눈의 피로를 풀고 싶을 때 -->
-                <!-- 03. 스트레스를 완화 하고 싶을 때 -->
-                <!-- 04. 활력이 필요할 때 -->
-                <!-- 05. 위로가 필요할 때 -->
-                <!-- swiper 영역 -->
-                <div class="swiper-card therapy-swiper">
+            </div> -->
+            <!-- <div class="therapy-type"> -->
+                <!-- <div class="swiper-card therapy-swiper">
                     <div class="swiper cardjs-therapy swiper-therapy">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide therapy-color01">
@@ -72,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="swiper-card therapy-swiper zoom-swiper">
                     <div class="swiper cardjs-therapy swiper-therapy swiper-zoom">
                         <div class="swiper-wrapper">
@@ -129,6 +124,113 @@
                         </div>
                     </div>
                 </div> -->
+            <!-- </div> -->
+        <!-- </div> -->
+        <!-- 오늘의 기분 -->
+        <div class="todaycondi_wrap">
+            <p><span>베니</span>님의 오늘 기분을 알려주세요</p>
+            <div class="tab-content">
+                <div class="tab-pane1s">
+                    <div class="tab-pane1 is-active">
+                        <div class="todaycondi-box">
+                            <img src="../assets/img/main/main_additional_banner03.png" alt="오늘의 기분 중 행복한 기분의 아이콘">
+                        </div>
+                    </div>
+                    <div class="tab-pane1">
+                        <div class="todaycondi-box">
+                            <img src="" alt="오늘의 기분 중 좋은 기분의 아이콘">
+                        </div>
+                    </div>
+                    <div class="tab-pane1">
+                        <div class="todaycondi-box">
+                            <img src="" alt="오늘의 기분 중 보통 기분의 아이콘">
+                        </div>
+                    </div>
+                    <div class="tab-pane1">
+                        <div class="todaycondi-box">
+                            <img src="" alt="오늘의 기분 중 별로인 기분의 아이콘">
+                        </div>
+                    </div>
+                    <div class="tab-pane1">
+                        <div class="todaycondi-box">
+                            <img src="" alt="오늘의 기분 중 나쁜 기분의 아이콘">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-btns">
+                    <ul class="tab-button-list">
+                        <li class="is-active">
+                            <a href="#">
+                                <span class="ir-text">행복함</span>
+                            </a>
+                            <!-- 말풍선 -->
+                            <div class="bubble-wrap">
+                                <div class="bubble-box bubble-black">
+                                    <div class="bubble-type03 bubble-right">행복함</div>
+                                    <div class="triangle-icon long-triangle">
+                                        <div class="triangle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="ir-text">좋음</span>
+                            </a>
+                            <!-- 말풍선 -->
+                            <div class="bubble-wrap">
+                                <div class="bubble-box bubble-black">
+                                    <div class="bubble-type03 bubble-right">좋음</div>
+                                    <div class="triangle-icon">
+                                        <div class="triangle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="ir-text">보통</span>
+                            </a>
+                            <!-- 말풍선 -->
+                            <div class="bubble-wrap">
+                                <div class="bubble-box bubble-black">
+                                    <div class="bubble-type03 bubble-right">보통</div>
+                                    <div class="triangle-icon">
+                                        <div class="triangle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="ir-text">별로</span>
+                            </a>
+                            <!-- 말풍선 -->
+                            <div class="bubble-wrap">
+                                <div class="bubble-box bubble-black">
+                                    <div class="bubble-type03 bubble-right">별로</div>
+                                    <div class="triangle-icon">
+                                        <div class="triangle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="ir-text">나쁨</span>
+                            </a>
+                            <!-- 말풍선 -->
+                            <div class="bubble-wrap">
+                                <div class="bubble-box bubble-black">
+                                    <div class="bubble-type03 bubble-right">나쁨</div>
+                                    <div class="triangle-icon">
+                                        <div class="triangle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
@@ -137,16 +239,9 @@
         <script type="module" src="/assets/js/main.js"></script>
         <!-- gnb_include파일 : header 활성화된 네비 경우에 활성화 네비 작업 및 위치 이동 -->
         <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
-        <!-- <script type="module">
-            import { swiperCustom } from "/assets/js/swiper_custom.js";
-            const swiperAdditional = swiperCustom(".cardjs-therapy", 2.5, {
-                centeredSlides: true,
-                slideToClickedSlide: true,
-                loop: true,
-            });
-        </script> -->
         <script type="module">
             import { swiperCustom } from "/assets/js/swiper_custom.js";
+            // swiper zoom 작업 예시
             // const swiperAdditional = swiperCustom(".swiper-zoom", "auto", {
             //     loop: true,
             //     centeredSlides: true,
@@ -179,6 +274,10 @@
                     'therapy-color09': '활력이 필요할  때',
                     'therapy-color010': '위로가 필요할 때',
                 };
+
+                if (!textElement && !activeSlide) {
+                    return
+                }
 
                 // Remove all therapy-color classes
                 document.querySelector('.therapy_wrap').classList.forEach(className => {
