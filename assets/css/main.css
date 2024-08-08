@@ -1494,3 +1494,110 @@
 .animated-path {
     transition: d 1s ease-in-out;
 }
+
+/* 건강캘린더 */
+.card-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 26px;
+}
+.card-inner .tit {
+    color: var(--color-basic10);    
+    font-size: calc(14 / 16 * 1rem);    
+    font-weight: 800;
+    line-height: calc(22 / 16 * 1rem);  
+}
+.card-inner .progress-bar__wrap {
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+.card-inner .progress-bar__wrap {
+    color: var(--color-basic10);
+    text-align: right;    
+    font-size: calc(16 / 16 * 1rem);;    
+    font-weight: 800;
+    line-height: calc(26 / 16 * 1rem);
+}
+.card-inner .progress-bar__wrap .bar {
+    flex:1;
+    height: 10px;
+}
+.card-inner .progress-bar__wrap .data {
+    width: 40px;
+}
+#progress {
+    appearance: none;
+}
+#progress::-webkit-progress-bar {
+    background:var(--color-basic2);
+    border-radius:90px;
+    height: 10px;
+    width: 100%;    
+}
+#progress::-webkit-progress-value {
+    border-radius:90px;
+    height: 10px;
+    background: linear-gradient(90deg, #FFD059 -10.49%, #F58220 70.84%);
+}
+
+.routine-list-bttom-sheet {
+    display: flex;
+    flex-direction: column;
+    gap: calc(0 / 16 * 1rem);
+}
+.routine-list-bttom-sheet li {
+    padding: calc(16 / 16 * 1rem) 0;
+    border-bottom: 1px solid var(--color-basic3);
+}
+.routine-list-bttom-sheet li:last-child,
+.routine-list-bttom-sheet li:only-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+.routine-list-bttom-sheet li .list-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.list-inner .text-area {
+    color: var(--color-black);
+    font-size: calc(14 / 16 * 1rem);    
+    font-weight: 800;
+    line-height: calc(17 / 16 * 1rem); 
+    letter-spacing: -0.14px;
+}
+.list-inner .text-area .description {
+    font-weight: 700;
+    font-size: calc(11 / 16 * 1rem);    
+}
+.activity-list__wrap {
+    margin-top: calc(40 / 16 * 1rem);
+}
+.activity-list__wrap .activity-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.activity-list__wrap .activity-title .tit {
+    color: var(--color-basic10);
+    font-size: calc(18 / 16 * 1rem);    
+    font-weight: 800;
+    line-height: calc(22 / 16 * 1rem); 
+    letter-spacing: -0.14px;
+}
+.activity-list__wrap .activity-title .link-more {
+    color: var(--color-basic3);
+    text-align: right;
+    font-size: calc(12 / 16 * 1rem);
+    font-weight: 700;
+    line-height: calc(16 / 16 * 1rem);
+    display: flex;
+    align-items: center;
+}
+.activity-list__wrap .activity-title .link-more i {
+    opacity: 0.5;
+}

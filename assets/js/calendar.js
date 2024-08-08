@@ -313,13 +313,18 @@ export const newMonthlyCalendar = (containerId, options) => {
                 toggleButtonText.innerText = '주간보기';
                 allTrs.forEach(tr => tr.classList.remove('hide'));
                 allTrs[todayRowIndex].classList.remove('show');
-                toggleButton.classList.add('is-active');
+                toggleButton.classList.add('is-active');                
+                container.querySelector('.calendar__header .btn-prev-month').style.display = 'block';
+                container.querySelector('.calendar__header .btn-next-month').style.display = 'block';
+                container.querySelector('.display-data').textContent = dayjs().format('YYYY년 M월 D일');
             } else {
                 toggleButtonText.innerText = '월간보기';
                 toggleButton.classList.remove('is-active');
                 allTrs.forEach(tr => tr.classList.add('hide'));
                 allTrs[todayRowIndex].classList.remove('hide');
                 allTrs[todayRowIndex].classList.add('show');
+                container.querySelector('.calendar__header .btn-prev-month').style.display = 'none';
+                container.querySelector('.calendar__header .btn-next-month').style.display = 'none';
             }
         };
     
@@ -334,7 +339,12 @@ export const newMonthlyCalendar = (containerId, options) => {
             toggleButton.style.display = 'none';
         }
     };   
-    setupCalendarToggle(todayRowIndex, mergedOptions);     
+    if(mergedOptions.toggle) {
+        setupCalendarToggle(todayRowIndex, mergedOptions);    
+        container.querySelector('.calendar__header .btn-prev-month').style.display = 'none';
+        container.querySelector('.calendar__header .btn-next-month').style.display = 'none'; 
+    }
+    
 
 };
 

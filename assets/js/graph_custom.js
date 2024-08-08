@@ -19,6 +19,29 @@ export const circleGraphType1 = (el, dataValue) => {
     }
 };
 
+// 캘린더 작업으로 추가한 함수로 통합예정
+export const circleGraphType0 = (el, dataValue) => {
+    // 01. 기본 원형 그래프
+    if (el instanceof Element || el instanceof SVGElement) {
+        const svgType1 = el;
+        const progressCircleType1 = svgType1.querySelector(".circle-progress");
+        if (progressCircleType1) {
+            const radiusType1 = progressCircleType1.r.baseVal.value;
+            const circumferenceType1 = (2 * Math.PI * radiusType1).toFixed(3);
+            const offsetType1 = (circumferenceType1 * (1 - dataValue / 100)).toFixed(3);
+
+            progressCircleType1.style.setProperty("--barNum", offsetType1);
+            progressCircleType1.style.setProperty("--barWidth", circumferenceType1);
+            progressCircleType1.style.strokeDashoffset = offsetType1;
+
+            const textElement = svgType1.parentElement.querySelector(".circlebar_txt");
+            if (textElement) {
+                textElement.textContent = `${dataValue}`;
+            }
+        }
+    }
+};
+
 export const circleGraphType2 = (el, dataValueType2) => {
     // 02. 100% 넘는 경우의 그래프
     const svgType2 = document.querySelector(el);

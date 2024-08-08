@@ -575,6 +575,7 @@
         <script type="module">
             import { newMonthlyCalendar } from "/assets/js/calendar.js";
             import { swiperCustom } from "/assets/js/swiper_custom.js";
+            import { circleGraphType0 } from "/assets/js/graph_custom.js";
             // 사용자 데이터를 추가하는 함수
             const addCalendarData = (cell, userData, recordGraph) => {
                 const healthDataEl = document.createElement('div');
@@ -587,8 +588,7 @@
 
                 cell.appendChild(healthDataEl);
                 cell.appendChild(recordEl);
-            };
-
+            };                        
             // 사용자 데이터를 셀에 추가하는 함수
             const addUserDataToCell = async (cell, date) => {
                 try {
@@ -597,9 +597,18 @@
                     // 예시 데이터 추가 (API 응답 형식에 맞게 변경하세요)
 
                     const recordGraph = `
-                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                            <path class="animated-path" d="M32.8999 18.4755C32.3703 27.2815 24.7767 34.0133 15.9708 33.4805C7.16493 32.9478 0.430864 25.3493 0.960405 16.5432C1.48995 7.73713 9.08574 1.00551 17.8916 1.53824C26.6975 2.07098 33.4315 9.66953 32.902 18.4756L32.8999 18.4755ZM4.21875 16.7403C3.79728 23.7492 9.15585 29.798 16.1667 30.2221C23.1776 30.6463 29.2221 25.2895 29.6437 18.2785C30.0653 11.2674 24.7066 5.2208 17.6957 4.79666C10.6848 4.37251 4.64022 9.73141 4.21875 16.7403Z" fill="#FF831A"/>
-                        </svg>
+                        <svg width="33" height="33" viewBox="0 0 140 140" class="circlebar-type1 calro-bar circlebar-js1custom">
+                            <defs>
+                                    <linearGradient id="calGradient" x1="0.1" y1="0.5" x2="0.9" y2="0.5">
+                                        <stop offset="0%" stop-color="#FFCA48" />
+                                        <stop offset="30%" stop-color="#FBB142" />
+                                        <stop offset="70%" stop-color="#F58220" />
+                                        <stop offset="100%" stop-color="#FF6B00" />
+                                    </linearGradient>
+                                </defs>
+                            <circle r="60" cx="70" cy="70" class="circle-border"></circle>
+                            <circle r="60" cx="70" cy="70" class="circle-progress"></circle>
+                        </svg>  
                     `;
                     const healthDataHTML = `                         
                         <div class="dot type-meal"></div>
@@ -609,12 +618,15 @@
                     `;
                     // API로부터 받은 데이터를 사용하여 사용자 데이터 추가
                     addCalendarData(cell, healthDataHTML, recordGraph);
+                    const svgElement = cell.querySelector('.circlebar-js1custom');
+                    if (svgElement) {
+                        circleGraphType0(svgElement, 75);
+                    }
                 } catch (error) {
                     console.error('사용자 데이터를 불러오는 중 오류가 발생했습니다:', error);
                 }
-            };
-            
-            setTimeout(() => {
+            };            
+            setTimeout(() => {                             
                 if (document.getElementById("page-cal")) {
                     // `newMonthlyCalendar` 함수 호출
                     newMonthlyCalendar('page-cal', { 
@@ -625,7 +637,7 @@
                         toggle: true,
                         addCalendarData: addUserDataToCell // addUserDataToCell 함수를 올바르게 옵션으로 전달
                     });
-                }
+                }                
             },500)
 
             const swiperRoutine = swiperCustom(".cardjs-routine", 1.37, {
