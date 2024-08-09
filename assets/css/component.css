@@ -2113,3 +2113,23 @@ input[type="radio"]:disabled {
 .swiper-zoom .swiper-slide.swiper-slide-active {  
     transform: scale(1);
 }
+
+
+/* // 카테고리 */
+.category-menu__wrap.scroll-box {
+    width: 100%;
+    overflow-x: scroll;
+}
+.category-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: calc(20 / 16 * 1rem);
+    padding: calc(16 / 16 * 1rem) 0;
+}
+.category-menu li {
+    white-space: nowrap;
+}
+.category-menu li.is-active a {
+    color: var(--color-primary);
+}

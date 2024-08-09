@@ -161,7 +161,7 @@ export const tabMenus = (tabGroupSelector, tabType) => {
     if (!tabGroups.length) return;
 
     tabGroups.forEach((tabGroup) => {
-        const tabTigers = tabGroup.querySelectorAll(".tab-button-list li a");
+        const tabTigers = tabGroup.querySelectorAll(".tab-button-list li a:not(.no-panels)");
         const tabPanes = tabGroup.querySelectorAll(".tab-pane1s > div");
 
         tabTigers.forEach((tab, index) => {
@@ -185,6 +185,47 @@ export const tabMenus = (tabGroupSelector, tabType) => {
         });
     });
 };
+// 카테고리 메뉴 sort 타입
+export const categoryMenuType = (tabMenuSelector) => {
+    if (!tabMenuSelector) {
+        return;
+    }
+
+    const container = document.querySelectorAll(`.${tabMenuSelector}`);
+
+    container.forEach((tab) => {
+        const triggers = tab.querySelectorAll('.category-menu li a');
+        const contentList = tab.querySelectorAll('.smart-list li');
+
+        triggers.forEach((trigger) => {
+            trigger.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                const targetName = trigger.getAttribute('href').replace('#', '');
+
+                triggers.forEach((trigger) => trigger.parentElement.classList.remove("is-active"));
+                trigger.parentElement.classList.add('is-active');
+
+                contentList.forEach((content) => {
+                    const contentType = content.getAttribute('data-type');
+
+                    if (targetName === 'all' || targetName === contentType) {
+                        content.style.display = 'block';
+                        document.querySelector('.no-content').style.display = 'none';
+                    } else if (targetName !== contentType) {
+                        content.style.display = 'none';
+                        document.querySelector('.no-content').style.display = 'block';
+                    } else {
+                        content.style.display = 'none';
+                        document.querySelector('.no-content').style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+};
+
+
 
 // dot pin
 export const checkDotPin = (pw) => {
