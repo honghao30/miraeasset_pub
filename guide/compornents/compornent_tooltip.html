@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>Publish Guide System</title>
+        <link rel="stylesheet" href="../guide.css" />
+    </head>
+    <body>
+        <div class="guide_wrap">
+            <div class="header__wrap">
+                <div data-include-path="../top_nav.html"></div>
+                <div data-include-path="../site-name.html"></div>
+            </div>
+            <div class="guide-content__wrap lnb-type">
+                <div class="lnb-side__wrap">
+                    <div data-include-path="./cmp_side.html"></div>
+                </div>
+                <div class="guide-cont">
+                    <div class="page_tit_h1">툴팁 가이드</div>
+                    <div class="section">
+                        <div class="section_text_no_round" style="margin-top: 2.5rem">
+                            <div class="sample-code" style="height: 300px;">
+                                <!-- 아이콘만 있는 툴팁 -->
+                                <div class="tooltip-wrap tool-only">
+                                    <div class="tooltip-icon">
+                                        <i class="ico ico-maintip"><span class="ir-text">등급안내</span></i>
+                                    </div>
+                                    <!-- 툴팁 내용 -->
+                                    <div class="tooltip-box">
+                                        <div class="bubble-wrap">
+                                            <div class="bubble-box bubble-orange">
+                                                <div class="bubble-type01 bubble-top">aaaaaaaaaaaaaaaaaaaaaaaa</div>
+                                                <div class="triangle-icon">
+                                                    <div class="triangle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 아이콘 + 텍스트 툴팁 && 위치는 오른쪽인 툴팁 -->
+                                <div class="tooltip-wrap right-tool tool-txt">
+                                    <div class="tooltip-icon">
+                                        <i class="ico ico-tooltip"></i>
+                                        <span class="tooltip-tit">칼로리 계산법</span>
+                                    </div>
+                                    <!-- 툴팁 내용 : 0809 기준 운동에 있는 내용 사용함 (기존 말풍선과 여백 상이한 상황) -->
+                                    <div class="tooltip-box">
+                                        <div class="bubble-wrap">
+                                            <div class="bubble-box bubble-orange">
+                                                <div class="bubble-type01 bubble-top">운동 소모 칼로리는 ‘운동 별 운동 강동 (MET), W : 몸무게(kg), hr : 운동시간(hr)’을 기준으로 계산됩니다. (국제 표준 기준)</div>
+                                                <div class="triangle-icon">
+                                                    <div class="triangle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 아이콘만 있는 툴팁 -->
+                                <div class="tooltip-wrap tool-only" style="margin-top: 50px;">
+                                    <div class="tooltip-icon">
+                                        <i class="ico ico-tooltip"><span class="ir-text">등급안내</span></i>
+                                    </div>
+                                    <!-- 툴팁 내용 -->
+                                    <div class="tooltip-box">
+                                        <div class="bubble-wrap">
+                                            <div class="bubble-box bubble-orange">
+                                                <div class="bubble-type01 bubble-top">aaaa</div>
+                                                <div class="triangle-icon">
+                                                    <div class="triangle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <!-- 코드 영역 -->
+                            <pre class="code_view"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="../guide.js"></script>
+        <!-- <script src="../../assets/js/ui_common.js"></script> -->
+    </body>
+</html>

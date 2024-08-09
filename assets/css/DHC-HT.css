@@ -246,7 +246,7 @@
   padding: 1.25rem 1rem;
 }
 .sub__content--whbox + .sub__content--whbox {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 .sub__content__title {
   display: flex;
@@ -334,16 +334,16 @@
 .my-data .thum img {
   width: 100%;
 }
-.my-data .record {
+.my-data .my-record {
   flex-grow: 1;
 }
-.my-data .record dt {
+.my-data .my-record dt {
   font-weight: 700;
   line-height: 1.375rem;
   font-size: 1.0625rem;
   margin-bottom: 1rem;
 }
-.my-data .record dd {
+.my-data .my-record dd {
   display: inline-flex;
   align-items: center;
   width: 45%;
@@ -353,12 +353,12 @@
   line-height: 1.875rem;
   font-weight: 800;
 }
-.my-data .record dd strong {
+.my-data .my-record dd strong {
   color: var(--color-basic10);
   font-size: 1.5rem;
   margin-right: 2px;
 }
-.my-data .record dd::before {
+.my-data .my-record dd::before {
   content: "";
   width: 1rem;
   height: 1rem;
@@ -366,10 +366,10 @@
   left: 0;
   top: 0;
 }
-.my-data .record dd:first-of-type::before {
+.my-data .my-record dd:first-of-type::before {
   background: center/cover no-repeat url("../img/icon/dumbbell_icon16.png");
 }
-.my-data .record dd:last-of-type::before {
+.my-data .my-record dd:last-of-type::before {
   background: center/cover no-repeat url("../img/icon/fire_icon16.png");
 }
 
@@ -388,6 +388,57 @@
   background-color: var(--color-basic4);
   cursor: default;
   pointer-events: none;
+}
+
+.my-kcal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+.my-kcal .my-img {
+  display: flex;
+  justify-content: center;
+}
+.my-kcal .my-img img {
+  width: 7.5rem;
+}
+
+.content-info-list {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.content-info-list li a {
+  display: flex;
+  gap: 0.96875rem;
+  align-items: center;
+  position: relative;
+}
+.content-info-list li a strong {
+  display: flex;
+}
+.content-info-list li a::after {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  background: center/cover no-repeat url(/assets/img/icon/right_icon24_gr.png);
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sub__content .heart-swiper {
+  padding-left: 1rem;
+}
+
+#chart-doughnut .rMateH5__Legend, #chart-doughnut .rMateH5__SubLegend {
+  border: none;
+  left: auto;
+  right: 0;
 }
 
 .content-gray-box {
