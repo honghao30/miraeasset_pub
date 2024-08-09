@@ -106,17 +106,19 @@ document.addEventListener('DOMContentLoaded', ()=> {
         const bottomFixed = document.querySelector(".sub__bottom--fixed");
         const subContent = document.querySelector(".sub__content");
         const headerWrap = document.querySelector(".header__wrap");
-
-        if (bottomFixed && subContent && headerWrap) {
-            const bottomHeight = bottomFixed.offsetHeight;
+        if (subContent && headerWrap) {
             const headerHeight = headerWrap.offsetHeight;
-
-            subContent.style.marginBottom = bottomHeight + "px";
             subContent.style.marginTop = headerHeight + "px";
+
+            if (bottomFixed) {
+            const bottomHeight = bottomFixed.offsetHeight;
+            subContent.style.marginBottom = bottomHeight + "px";
+            } else {
+            subContent.style.marginBottom = 0;
+            }
         }
     }
-
     adjustPadding();
     window.addEventListener("load", adjustPadding);
-    window.addEventListener("resize", adjustPadding); 
+    window.addEventListener("resize", adjustPadding);
 });
