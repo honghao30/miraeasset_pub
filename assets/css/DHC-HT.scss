@@ -236,7 +236,7 @@
 /* sub-layout */
 .sub__content{
     color:var(--color-basic10);
-    &--box{
+    &__box{
         padding:0 calc(16 / 16 * 1rem);
         margin-bottom:50px;
     }
@@ -246,10 +246,10 @@
         box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.10);
         padding:calc(20 / 16 * 1rem) calc(16 / 16 * 1rem);
         & + .sub__content--whbox{
-            margin-top: calc( 16 / 16 * 1rem);
+            margin-top: calc( 24 / 16 * 1rem);
         }
     }
-    &--title{
+    &__title{
         display:flex;
         justify-content: space-between;
         padding:0 calc(16 / 16 * 1rem);
@@ -299,12 +299,12 @@
         transform: translateX(-50%);
     }
 }
-.date__area{
+.date-area{
     padding:calc(20 / 16 * 1rem) 0;
     display:flex;
     justify-content: space-between;
     align-items: center;
-    &--today{
+    .date-today{
         font-size: calc(18 / 16 * 1rem);
         font-weight: 800;
         line-height: calc(24 / 16 * 1rem);
@@ -320,18 +320,19 @@
         padding:calc(6 / 16 * 1rem) calc(12 / 16 * 1rem);
     }
 }
-.my__data{
+//오늘 활동기록
+.my-data{
     display:flex;
     gap: calc(24 / 16 * 1rem);
     margin-bottom:calc(20 / 16 * 1rem);
-    .my__data--thum{
+    .thum{
         flex-shrink: 0;
 	    width:calc(72 / 16 * 1rem);
         height:calc(72 / 16 * 1rem);
         background: center / cover no-repeat url("../img/icon/bg_profile.png");
         img{width:100%}
     }
-    .my__data--record{
+    .my-record{
         flex-grow: 1;
         dt{
             font-weight:700;
@@ -384,6 +385,58 @@
         background-color: var(--color-basic4);
         cursor: default;
         pointer-events: none;
+    }
+}
+//오늘 소모 칼로리
+.my-kcal{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap:calc(20 / 16* 1rem);
+    .my-img{
+        display:flex;
+        justify-content: center;
+        img{width:calc(120 / 16* 1rem);}
+    }
+}
+.content-info-list{
+    margin-top:calc(12 / 16* 1rem);
+    display:flex;
+    flex-direction: column;
+    gap: calc(8 / 16* 1rem);
+    li{
+        a{
+            display:flex; 
+            gap: calc(15.5 / 16* 1rem);
+            align-items: center;
+            position:relative;
+            strong{
+                display:flex
+            }
+            &::after{
+                content:"";
+                width:calc(24 / 16* 1rem);
+                height:calc(24 / 16* 1rem);
+                background: center / cover no-repeat url(/assets/img/icon/right_icon24_gr.png) ;
+                position:absolute;
+                right:calc(20 / 16* 1rem);
+                top:50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+//컴포넌트 친구들 속성 추가
+.sub__content .heart-swiper{
+    padding-left: calc(16 / 16* 1rem);
+}
+#chart-doughnut{
+    .rMateH5__Legend, .rMateH5__SubLegend{
+        border:none;
+        left:auto;
+        right:0;
     }
 }
 

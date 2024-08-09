@@ -1196,15 +1196,15 @@
         "memo": ""
     },
     {
-        "condition": "진행대기", 
+        "condition": "진행중", 
         "depth1": "",
         "depth2": "운동",
         "depth3": "",
-        "wbs_id": "screen_main",
-        "file_link": "/front_markup/",
-        "worker": "",
+        "wbs_id": "DHC-HT-0016",
+        "file_link": "/front_markup/DHC-HT-0016.html",
+        "worker": "최민경",
         "start_date": "",
-        "end_date": "",
+        "end_date": "2024-08-19",
         "screen_type": "",
         "memo": ""
     },
@@ -1215,8 +1215,8 @@
         "depth3": "날짜 선택 팝업",
         "wbs_id": "screen_main",
         "file_link": "/front_markup/",
-        "worker": "",
-        "start_date": "",
+        "worker": "최민경",
+        "start_date": "2024-08-19",
         "end_date": "",
         "screen_type": "popup",
         "memo": ""
@@ -1228,8 +1228,8 @@
         "depth3": "루틴 가이드 팝업",
         "wbs_id": "screen_main",
         "file_link": "/front_markup/",
-        "worker": "",
-        "start_date": "",
+        "worker": "최민경",
+        "start_date": "2024-08-19",
         "end_date": "",
         "screen_type": "popup",
         "memo": ""
@@ -1243,21 +1243,21 @@
         "file_link": "/front_markup/",
         "worker": "",
         "start_date": "",
-        "end_date": "",
+        "end_date": "2024-08-19",
         "screen_type": "",
         "memo": ""
     },
     {
-        "condition": "진행대기", 
+        "condition": "진행중", 
         "depth1": "",
         "depth2": "",
         "depth3": "운동기록하기 > 운동시간기록",
-        "wbs_id": "screen_main",
-        "file_link": "/front_markup/",
-        "worker": "",
+        "wbs_id": "DHC-HT-0017-P0",
+        "file_link": "/front_markup/DHC-HT-0017-P0.html",
+        "worker": "최민경",
         "start_date": "",
-        "end_date": "",
-        "screen_type": "",
+        "end_date": "2024-08-19",
+        "screen_type": "popup",
         "memo": ""
     },
     {
@@ -2392,7 +2392,7 @@
 		"memo": ""
 	},
 	{
-		"condition": "진행중",
+		"condition": "완료",
 		"depth1": "",
 		"depth2": "헬스케어 서비스 권한허용안내",
         "depth3": "",

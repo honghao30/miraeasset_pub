@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head></head>
+<head>
+
+    <script src="https://www.riamore.net/HTML5demo/chart/LicenseKey/rMateChartH5License.js"></script>
+    <script src="https://www.riamore.net/HTML5demo/chart/rMateChartH5/JS/rMateChartH5.js"></script>
+    <link rel="stylesheet" href="https://www.riamore.net/HTML5demo/chart/rMateChartH5/Assets/Css/rMateChartH5.css"/>
+</head>
 <body>
     <div class="wrap">
         <div data-include-path="./_inc/head_sub.html"></div>
         <div class="sub__content">
             <!-- 오늘 활동 기록 no-data -->
-            <div class="sub__content--box">
-                <div class="date__area">
-                    <span class="date__area--today">2024년 8월 7일 (목)</span>
+            <div class="sub__content__box">
+                <div class="date-area">
+                    <span class="date-today">2024년 8월 7일 (목)</span>
                     <button>활동 설문</button>
                 </div> 
                 <div class="sub__content--whbox">
-                    <div class="my__data">
-                        <p class="my__data--thum"></p>
-                        <dl class="my__data--record">
+                    <div class="my-data">
+                        <p class="thum"></p>
+                        <dl class="my-record">
                             <dt>하루 활동 기록</dt>
-                            <dd><strong>0</strong>분</dd>
-                            <dd><strong>0</strong>kcal</dd>
+                            <dd><strong>360</strong>분</dd>
+                            <dd><strong>10,000</strong>kcal</dd>
                         </dl>
                     </div>
                     <button class="btn-box-arrow" disabled>나의 하루 전체 통계</button>
@@ -25,15 +30,15 @@
             </div>
             
             <!-- 오늘 활동 기록 data -->
-            <div class="sub__content--box">
-                <div class="date__area">
-                    <span class="date__area--today">오늘</span>
+            <div class="sub__content__box">
+                <div class="date-area">
+                    <span class="date-today">오늘</span>
                     <button>활동 설문</button>
                 </div> 
                 <div class="sub__content--whbox">
-                    <div class="my__data">
-                        <p class="my__data--thum"><img src="../assets/img/icon/@profile.png" /></p>
-                        <dl class="my__data--record">
+                    <div class="my-data">
+                        <p class="thum"><img src="../assets/img/icon/@profile.png" /></p>
+                        <dl class="my-record">
                             <dt>하루 활동 기록</dt>
                             <dd><strong>360</strong>분</dd>
                             <dd><strong>10,000</strong>kcal</dd>
@@ -41,37 +46,138 @@
                     </div>
                     <button class="btn-box-arrow">나의 하루 전체 통계</button>
                 </div>
+            </div>
 
+            <!-- 오늘 소모 칼로리 -->
+            <div class="sub__content__box">
                 <div class="sub__content--whbox">
-                    <div class="">
-                        어제보다 오늘 89kcal 더 소모했어요!
+                    <div class="my-kcal">
+                        <span class="my-txt01">어제보다 오늘 89kcal 더 소모했어요!</span>
+                        <span class="my-img"><img src="../assets/img/icon/@profile.png" /></span>
+                        <span class="my-txt02"><strong>360</strong>kcal</span>
+                        <span class="my-txt03">오늘 팬케이크 4장만큼 칼로리를 소모했어요</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="sub__content--title">
-                <h3>내 또래 인기 있는 운동 <span>TOP3</span></h3>
-            </div>
-            <div class="sub__content--box">
                 <div class="sub__content--whbox">
-                    필라테스
+                    <div id="chart-doughnut" style="width:100%; height:160px"></div>
                 </div>
             </div>
 
-            <div class="sub__content--title">
+            <!-- 운동기록 -->
+            <div class="sub__content__title">
+                <h3>운동기록 <span>6</span></h3>
+                <button type="button" class="ico ico-refresh"><span class="ir-text">새로고침</span></button>
+            </div>
+            <div class="sub__content__box">
+                <ul class="content-info-list">
+                    <li>
+                        <div class="sub__content--whbox">
+                            <dl>
+                                <dt><span>직접 기록</span>팔 굽혀 펴기</dt>
+                                <dd><strong>12:00</strong> 오전</dd>
+                                <dd><strong>30</strong>분</dd>
+                                <dd><strong>10,000</strong>kcal</dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sub__content--whbox">
+                            <dl class="record-list">
+                                <dt>자동 기록</span>빠르게 걷기</dt>
+                                <dd><strong>12:00</strong> 오전</dd>
+                                <dd><strong>30</strong>분</dd>
+                                <dd><strong>10,000</strong>kcal</dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sub__content--whbox">
+                            <dl>
+                                <dt><span>루틴</span>배드민턴</dt>
+                                <dd><strong>12:00</strong> 오전</dd>
+                                <dd><strong>30</strong>분</dd>
+                                <dd><strong>10,000</strong>kcal</dd>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+                <div class="button__wrap">
+                    <button type="button" class="btn-more-list">
+                        더 보기 <i class="ico ico-btm24-gr"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 내 또래 인기 있는 운동 -->
+            <div class="sub__content__title">
+                <h3>내 또래 인기 있는 운동 <span>TOP3</span></h3>
+            </div>
+            <div class="sub__content__box">
+                <ul class="content-info-list">
+                    <li>
+                        <a href="javascript:void(0)" class="sub__content--whbox">
+                            <span>1위</span>
+                            <div class=""><strong>필라테스</strong>1일 평균 60분 정도 운동해요</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="sub__content--whbox">
+                            <span>2위</span>
+                            <div class=""><strong>플라잉 요가</strong>1일 평균 60분 정도 운동해요</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="sub__content--whbox">
+                            <span>3위</span>
+                            <div class=""><strong>크로스핏</strong>1일 평균 60분 정도 운동해요</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sub__content__title">
                 <h3>건강한 일상을 위한 루틴을 추천해 드려요!</h3>
             </div>
-            <div class="sub__content--box">
+            <div class="sub__content__box">
                 sdf
             </div>
 
 
-            <div class="sub__content--title">
+            <div class="sub__content__title">
                 <h3>건강한 일상을 위한 건강 뉴스</h3>
                 더 보기
             </div>
-            <div class="sub__content--box">
-                sdf
+            <div class="swiper-card heart-swiper">
+                <div class="swiper cardjs-smart swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden">
+                    <div class="swiper-wrapper" id="swiper-wrapper-e5c5df41d2ded102a" aria-live="polite">
+                        <a class="swiper-slide swiper-slide-visible swiper-slide-active" href="#" role="group" aria-label="1 / 2" style="width: 368.357px; margin-right: 12px;">
+                            <div class="heart-wrap">
+                                <div class="heart-box">
+                                    <!-- on 이중클래스 사용 : 빨간색 하트 아이콘 -->
+                                    <span class="heart-btn on"></span>
+                                </div>
+                            </div>
+                            <img src="/assets/img/main/smartlife_slide01.png" alt="스마트라이프 슬라이드 라이프 이미지"> 
+                            <div class="txt-wrap">
+                                <span class="chip bg-white">라이프</span>
+                                <p class="swiper-tit">살 빠지는 식사 순서?</p>
+                            </div>
+                        </a>
+                        <a class="swiper-slide swiper-slide-visible swiper-slide-next" href="#" role="group" aria-label="2 / 2" style="width: 368.357px; margin-right: 12px;">
+                            <div class="heart-wrap">
+                                <div class="heart-box">
+                                    <!-- on 이중클래스 미사용 : 회색 하트 아이콘 -->
+                                    <span class="heart-btn"></span>
+                                </div>
+                            </div>
+                            <img src="/assets/img/main/smartlife_slide02.png" alt="스마트라이프 슬라이드 라이프 이미지"> 
+                            <div class="txt-wrap">
+                                <span class="chip bg-white">운동</span>
+                                <p class="swiper-tit">소화에 도움이 되는 액티비티</p>
+                            </div>
+                        </a>
+                    </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
             </div>
         </div>
 
@@ -83,6 +189,51 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        rMateChartH5.create("chart", "chart-doughnut", "", "100%", "100%");
+        var layoutStr =
+        '<rMateChart backgroundColor="#FFFFFF" borderStyle="none">'
+            +'<Options>'
+                +'<Legend defaultMouseOverAction="true" position="right"  direction="vertical" useVisibleCheck="true"/>'
+            +'</Options>'
+            +'<Pie2DChart innerRadius="0.5" showDataTips="true" selectionMode="single" seriesMouseOverAction="none">'
+                +'<series>'
+                    +'<Pie2DSeries nameField="sports" field="Profit" startAngle="20" renderDirection="clockwise" labelPosition="inside" color="#ffffff" itemRollOverEmphasize="true" styleName="fs" labelJsFunction="labelFunc" >'
+                        + '<fills>'
+                            + '<SolidColor color="#88C721"/>'
+                            + '<SolidColor color="#5CA7FF"/>'
+                            + '<SolidColor color="#6B56F2"/>'
+                            + '<SolidColor color="#F58220"/>'
+                            + '<SolidColor color="#FBCD56"/>'
+                        + '</fills>'
+                        +'<showDataEffect>'
+                            +'<SeriesSlide duration="1000"/>'
+                        +'</showDataEffect>'
+                    +'</Pie2DSeries>'
+                +'</series>'
+            +'</Pie2DChart>'
+            + '<Style>'
+                + '.fs{fontSize:15px; font-weight:800}'
+            + '</Style>'
+        +'</rMateChart>';
+        
+        // Custom
+        function labelFunc(id,value){
+            return value+"%";
+        }
+
+        // 차트 데이터
+        var chartData = [{"sports":"배드민턴", "Profit":30},
+                        {"sports":"축구", "Profit":30},
+                        {"sports":"달리기", "Profit":20},
+                        {"sports":"테니스", "Profit":10},
+                        {"sports":"빠르게걷기", "Profit":10}];
+
+        rMateChartH5.calls("chart", {
+            "setLayout" : layoutStr,
+            "setData" : chartData
+        });
+    </script>
     <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
     <script>
         setTimeout(function(){
@@ -95,7 +246,24 @@
     <script src="/assets/bundle/dayjs/dayjs.min.js"></script>
     <script src="/assets/bundle/dayjs/isSameOrBefore.js"></script>
     <script src="/assets/bundle/dayjs/ko.js"></script>
-    <script type="module" src="/assets/js/index.js"></script>    
+    <script type="module" src="/assets/js/index.js"></script>
+
+    <script type="module">
+        import { swiperCustom } from "/assets/js/swiper_custom.js";
+        
+        const swiperSmart = swiperCustom(".cardjs-smart", 1.12, {
+            pagination: {
+                el: ".swiper-pagination-black",
+                clickable: true,
+            },
+            slidesOffsetAfter: 16,
+        });
+
+        const swiperProduct = swiperCustom(".cardjs-product", 1.4, {
+            pagination: false,
+            slidesOffsetAfter: 16,
+        });
+    </script>
 </body>
 
 </html>

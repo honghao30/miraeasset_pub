@@ -305,3 +305,11 @@
 .ico.ico-tooltip {
   background: url("/assets/img/icon/info_icon16_empty_gr.png") no-repeat center;
 }
+.ico.error_icon16_or {
+  background: url("/assets/img/icon/error_icon16_or.png") no-repeat center;
+}
+.ico.ico-refresh {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/refresh_icon24_gr.png") no-repeat center;
+}

@@ -40,6 +40,13 @@
                     </div>
                 </div>
 
+                <div class="section" style="margin-top: 3rem">
+                    <div class="page_tit_h2">Doughnut chart</div>
+                    <div id="chartHolder04" style="margin-top: 50px; width:500px; height:350px;">
+
+                    </div>
+                </div>
+
                 <script type="text/javascript">
                     //기본타입
                     rMateChartH5.create("chart1", "chartHolder", "", "100%", "100%");
@@ -169,6 +176,7 @@
                         "setData": chartData
                     });
 
+
                     //배경추가
                     rMateChartH5.create("chart3", "chartHolder03", "", "100%", "100%");
                     var layoutStrBg =
@@ -225,6 +233,54 @@
                     rMateChartH5.calls("chart3", {
                         "setLayout": layoutStrBg,
                         "setData": chartData
+                    });
+
+
+                    
+                    //도넛
+                    rMateChartH5.create("chart4", "chartHolder04", "", "100%", "100%");
+                    var layoutStr =
+                    '<rMateChart backgroundColor="#FFFFFF" borderStyle="none">'
+                        +'<Options>'
+                            +'<Legend position="right"  direction="vertical" defaultMouseOverAction="true" useVisibleCheck="true"/>'
+                        +'</Options>'
+                        +'<Pie2DChart innerRadius="0.5" showDataTips="true" selectionMode="single" seriesMouseOverAction="none">'
+                            +'<series>'
+                                +'<Pie2DSeries nameField="sports" field="Profit" startAngle="20" renderDirection="clockwise" labelPosition="inside" color="#ffffff" itemRollOverEmphasize="true" labelJsFunction="labelFunc" styleName="fs" >'
+                                /* Pie2DChart 정의 후 Pie2DSeries labelPosition="inside"정의합니다 */
+                                    +'<showDataEffect>'
+                                    /* 차트 생성시에 Effect를 주고 싶을 때 shoDataEffect정의합니다 */
+                                        +'<SeriesSlide previewColor="#eeeeee" duration="1000"/>'
+                                    +'</showDataEffect>'
+                                +'</Pie2DSeries>'
+                            +'</series>'
+                            +'<backgroundElements>'
+                                +'<CanvasElement>'
+                                    +'<CanvasLabel horizontalCenter="0" verticalCenter="-10" fontSize="19" color="#333333" backgroundAlpha="0"/>'
+                                    +'<CanvasLabel height="24" horizontalCenter="0" verticalCenter="10" fontSize="14" color="#666666" backgroundAlpha="0"/>'
+                                +'</CanvasElement>'
+                            +'</backgroundElements>'
+                        +'</Pie2DChart>'
+                        + '<Style>'
+                            + '.fs{fontSize:15px; font-weight:800}'
+                        + '</Style>'
+                    +'</rMateChart>';
+                    
+                    // Custom
+                    function labelFunc(id,value){
+                        return value+"%";
+                    }
+
+                    // 차트 데이터
+                    var chartData = [{"sports":"배드민턴", "Profit":30},
+                                    {"sports":"축구", "Profit":30},
+                                    {"sports":"달리기", "Profit":20},
+                                    {"sports":"테니스", "Profit":10},
+                                    {"sports":"빠르게걷기", "Profit":10}];
+
+                    rMateChartH5.calls("chart4", {
+                        "setLayout" : layoutStr,
+                        "setData" : chartData
                     });
             </script>
         </div>
