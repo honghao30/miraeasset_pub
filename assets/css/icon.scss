@@ -298,5 +298,8 @@ $fileType: "png";
     &.ico-check-or {
         background: url("#{$baseUrl}icon/check_icon_or.#{$fileType}") no-repeat center;
     }
+    &.ico-info-or {
+        background: url("#{$baseUrl}icon/error_icon16_or.#{$fileType}") no-repeat center;
+    }
 }
 

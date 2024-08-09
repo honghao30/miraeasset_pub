@@ -235,7 +235,7 @@
 .sub__content {
   color: var(--color-basic10);
 }
-.sub__content--box {
+.sub__content__box {
   padding: 0 1rem;
   margin-bottom: 50px;
 }
@@ -248,18 +248,18 @@
 .sub__content--whbox + .sub__content--whbox {
   margin-top: 1rem;
 }
-.sub__content--title {
+.sub__content__title {
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
   color: var(--color-basic10);
   line-height: 1.375rem;
 }
-.sub__content--title h3 {
+.sub__content__title h3 {
   font-size: 1rem;
   font-weight: 800;
 }
-.sub__content--title h3 span {
+.sub__content__title h3 span {
   color: var(--color-primary);
 }
 
@@ -298,20 +298,20 @@
   transform: translateX(-50%);
 }
 
-.date__area {
+.date-area {
   padding: 1.25rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.date__area--today {
+.date-area .date-today {
   font-size: 1.125rem;
   font-weight: 800;
   line-height: 1.5rem;
   padding-left: 2rem;
   background: left/24px no-repeat url("../img/icon/calendar_icon24.png");
 }
-.date__area button {
+.date-area button {
   background-color: var(--color-basic9);
   color: var(--color-white);
   font-size: 0.8125rem;
@@ -320,30 +320,30 @@
   padding: 0.375rem 0.75rem;
 }
 
-.my__data {
+.my-data {
   display: flex;
   gap: 1.5rem;
   margin-bottom: 1.25rem;
 }
-.my__data .my__data--thum {
+.my-data .thum {
   flex-shrink: 0;
   width: 4.5rem;
   height: 4.5rem;
   background: center/cover no-repeat url("../img/icon/bg_profile.png");
 }
-.my__data .my__data--thum img {
+.my-data .thum img {
   width: 100%;
 }
-.my__data .my__data--record {
+.my-data .record {
   flex-grow: 1;
 }
-.my__data .my__data--record dt {
+.my-data .record dt {
   font-weight: 700;
   line-height: 1.375rem;
   font-size: 1.0625rem;
   margin-bottom: 1rem;
 }
-.my__data .my__data--record dd {
+.my-data .record dd {
   display: inline-flex;
   align-items: center;
   width: 45%;
@@ -353,12 +353,12 @@
   line-height: 1.875rem;
   font-weight: 800;
 }
-.my__data .my__data--record dd strong {
+.my-data .record dd strong {
   color: var(--color-basic10);
   font-size: 1.5rem;
   margin-right: 2px;
 }
-.my__data .my__data--record dd::before {
+.my-data .record dd::before {
   content: "";
   width: 1rem;
   height: 1rem;
@@ -366,10 +366,10 @@
   left: 0;
   top: 0;
 }
-.my__data .my__data--record dd:first-of-type::before {
+.my-data .record dd:first-of-type::before {
   background: center/cover no-repeat url("../img/icon/dumbbell_icon16.png");
 }
-.my__data .my__data--record dd:last-of-type::before {
+.my-data .record dd:last-of-type::before {
   background: center/cover no-repeat url("../img/icon/fire_icon16.png");
 }
 

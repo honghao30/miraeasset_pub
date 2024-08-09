@@ -236,7 +236,7 @@
 /* sub-layout */
 .sub__content{
     color:var(--color-basic10);
-    &--box{
+    &__box{
         padding:0 calc(16 / 16 * 1rem);
         margin-bottom:50px;
     }
@@ -249,7 +249,7 @@
             margin-top: calc( 16 / 16 * 1rem);
         }
     }
-    &--title{
+    &__title{
         display:flex;
         justify-content: space-between;
         padding:0 calc(16 / 16 * 1rem);
@@ -299,12 +299,12 @@
         transform: translateX(-50%);
     }
 }
-.date__area{
+.date-area{
     padding:calc(20 / 16 * 1rem) 0;
     display:flex;
     justify-content: space-between;
     align-items: center;
-    &--today{
+    .date-today{
         font-size: calc(18 / 16 * 1rem);
         font-weight: 800;
         line-height: calc(24 / 16 * 1rem);
@@ -320,18 +320,18 @@
         padding:calc(6 / 16 * 1rem) calc(12 / 16 * 1rem);
     }
 }
-.my__data{
+.my-data{
     display:flex;
     gap: calc(24 / 16 * 1rem);
     margin-bottom:calc(20 / 16 * 1rem);
-    .my__data--thum{
+    .thum{
         flex-shrink: 0;
 	    width:calc(72 / 16 * 1rem);
         height:calc(72 / 16 * 1rem);
         background: center / cover no-repeat url("../img/icon/bg_profile.png");
         img{width:100%}
     }
-    .my__data--record{
+    .record{
         flex-grow: 1;
         dt{
             font-weight:700;
