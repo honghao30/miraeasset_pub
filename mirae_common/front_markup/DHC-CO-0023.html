@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head></head>
+    <body>
+        <div class="wrap">
+            <div data-include-path="./_inc/head_sub.html"></div>
+            <div class="content bg-color-basic1">
+                <!-- 마크업 -->
+                <div class="article-view__wrap">
+                    <div class="article-view__title">
+                        <i class="ico ico-common"></i>
+                        <div class="title-wrap">
+                            <p class="date">2024.01.21 ~ 2024.01.23</p>
+                            <div class="title">
+                                [헬스케어서비스] 온라인 보험 사이트 이용 제한에 대하여 안라인 보험 사이트 이용 제한에                                
+                            </div>
+                            <div class="label">건강</div>                            
+                        </div>
+                    </div>
+                    <div class="article-view__content">
+                        <div class="video__wrap">
+                            <video class="video" data-js="video" id="video11" playsinline muted loop>
+                                <source src="../../assets/img/test/video_00.mp4" type="video/mp4" />
+                            </video>                            
+                        </div>
+                        고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용
+                        고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용
+                        고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용고객센터상세내용
+                        <img src="/assets/img/temp/template.png" alt="" />
+                        <!-- 추천 컨텐츠 -->
+                        <div class="swiper-card smart-life">
+                            <div class="swiper cardjs-02 card01">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="txt-wrap">
+                                            <span class="chip bg-white">라이프</span>
+                                            <p class="swiper-tit">살 빠지는 식사 순서?</p>
+                                        </div>                                                    
+                                        <img src="../../assets/img/test/test_card01_02.png" alt="" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="txt-wrap">
+                                            <span class="chip bg-white">라이프</span>
+                                            <p class="swiper-tit">살 빠지는 식사 순서?</p>
+                                        </div>                                                    
+                                        <img src="../../assets/img/test/test_card01_01.png" alt="" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="txt-wrap">
+                                            <span class="chip bg-white">라이프</span>
+                                            <p class="swiper-tit">살 빠지는 식사 순서?</p>
+                                        </div>                                                    
+                                        <img src="../../assets/img/test/test_card01_02.png" alt="" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="txt-wrap">
+                                            <span class="chip bg-white">라이프</span>
+                                            <p class="swiper-tit">살 빠지는 식사 순서?</p>
+                                        </div>                                                    
+                                        <img src="../../assets/img/test/test_card01_01.png" alt="" />
+                                    </div>                                                                                            
+                                </div>
+                                <div class="swiper-pagination swiper-pagination-black"></div>
+                                <div class="swiper-scrollbar"></div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="button__wrap top-gradient">
+                        <button type="button" class="btn btn-primary">목록</button>
+                    </div>
+                </div>                
+
+                <!-- //마크업 -->
+            </div>
+        </div>        
+        <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script>
+            setTimeout(function(){
+                document.querySelector('.document-title').innerText = '꿀팁';
+            },200)
+        </script>
+        <script type="module" src="/assets/js/pub_include.js"></script>
+        <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script type="module">
+            import { categoryMenuType  } from "/assets/js/ui_common.js";
+            import { swiperCustom, SlideVideo, SlideVideoPlayBtn } from "/assets/js/swiper_custom.js";
+
+            categoryMenuType('tab-menu-type');
+            const swiper2 = swiperCustom(".cardjs-02",2, {
+                pagination: {
+                    el: ".swiper-pagination-black",
+                    clickable: true,                    
+                },                                                                       
+            });               
+        </script>
+        <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
+        <script type="module" src="/assets/js/index.js"></script>
+    </body>
+</html>
