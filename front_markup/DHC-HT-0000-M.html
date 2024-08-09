@@ -573,6 +573,7 @@
         <script src="/assets/bundle/dayjs/isSameOrBefore.js"></script>
         <script src="/assets/bundle/dayjs/ko.js"></script>
         <script type="module">
+            import { numComma } from "/assets/js/ui_common.js";    
             import { newMonthlyCalendar } from "/assets/js/calendar.js";
             import { swiperCustom } from "/assets/js/swiper_custom.js";
             import { circleGraphType0 } from "/assets/js/graph_custom.js";
@@ -637,7 +638,16 @@
                         toggle: true,
                         addCalendarData: addUserDataToCell // addUserDataToCell 함수를 올바르게 옵션으로 전달
                     });
-                }                
+                }                   
+                document.querySelectorAll('.activiti-num').forEach(item => {
+                    let counts = parseInt(item.innerText, 10);
+                    
+                    if (!isNaN(counts)) {
+                        counts = numComma(counts);
+                        item.innerText = counts;
+                    }
+                });
+                
             },500)
 
             const swiperRoutine = swiperCustom(".cardjs-routine", 1.37, {

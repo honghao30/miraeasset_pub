@@ -22,12 +22,40 @@
         </style>        
         <div class="content">
             <div class="month-calendar">    
-                <div class="calendar__wrap" id="page-cal">
-                    <div class="calendar__header">
-                        <button type="button" class="btn-prev-month">이전</button>
+                <div class="calendar__wrap" id="page-cal">                
+                    <div class="calendar__header">                    
                         <div class="display-data"></div>
-                        <button type="button" class="btn-next-month">다음</button>
-                        <button type="button" class="btn-show-today">오늘</button>
+                        <button type="button" class="btn-prev-month">
+                            <i class="ico ico-right24-bl"></i>
+                            <span class="ir-text">이전</span>
+                        </button>
+                        <button type="button" class="btn-next-month">
+                            <i class="ico ico-right24-bl"></i>
+                            <span class="ir-text">다음</span>
+                        </button>
+                        <button type="button" class="btn btn-line btn-show-today">오늘</button>                    
+                    </div>
+                    <div class="chip__wrap">
+                        <span class="chip primary-light">
+                            <i class="ico ico-dot"></i>
+                            루틴
+                        </span>
+                        <span class="chip pink-light">
+                            <i class="ico ico-dot"></i>
+                            식사
+                        </span>                    
+                        <span class="chip green-light">
+                            <i class="ico ico-dot"></i>
+                            운동
+                        </span>      
+                        <span class="chip blue-light">
+                            <i class="ico ico-dot"></i>
+                            영양
+                        </span>    
+                        <span class="chip purple-light">
+                            <i class="ico ico-dot"></i>
+                            체중
+                        </span>                                                                                                                                                                                              
                     </div>
                     <div class="calendar__content">
                         <table>
@@ -46,9 +74,12 @@
                         </table>
                     </div>
                     <div class="button__wrap">
-                        <button type="button" class="btn-calendar-toggle">주간토글</button>
+                        <button type="button" class="btn-calendar-toggle">
+                            <i class="ico ico-btm24-gr"></i>
+                            <span class="ir-text">주간토글</span>
+                        </button>
                     </div>
-                </div>     
+                </div>      
                 <div class="weekly-calendar">
                     <div class="calendar__wrap" id="calendarWeekly2">
                         <div class="calendar__header">
@@ -131,9 +162,9 @@
                     createWeeklyCalendar('calendarWeekly2', { 
                         startDate: '2024.01',       
                         futureLimit: 5,                                         
-                        button: false, 
+                        button: true, 
                         displayDay: 'onlyMonthly', 
-                        userSwiping: true,
+                        userSwiping: false,
                         weekStart: 1,
                         addUserDataToWeeklyLink,
                         handleWeeklyLinkClick,

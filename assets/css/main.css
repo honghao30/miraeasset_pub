@@ -1601,3 +1601,30 @@
 .activity-list__wrap .activity-title .link-more i {
     opacity: 0.5;
 }
+.activity-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: calc(16 / 16 * 1rem);
+    align-items: center;
+}
+.activity-inner .activity-name {
+    flex: 1;
+}
+.activity-name .activity-cate {
+    color: var(--color-basic10);    
+    font-size: calc(13 / 16 * 1rem);    
+    font-weight: 700;
+    line-height: calc(22 / 16 * 1rem);
+    margin-bottom: 5px;
+}
+.activity-name  .activiti-counter {
+    color: #858585;    
+    font-size: calc(12 / 16 * 1rem);    
+    font-weight: 700;
+    line-height: calc(22 / 16 * 1rem);
+}
+.activity-name  .activiti-counter .activiti-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-basic10);   
+}

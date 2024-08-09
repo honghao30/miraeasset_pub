@@ -101,6 +101,8 @@ export const newMonthlyCalendar = (containerId, options) => {
     let currentDate = dayjs();
     let todayRowIndex = null; 
     let currentRowIndex = 0;  
+    const currentMonth = dayjs().format('YYYYMM');
+    let isMonth = null;
 
     // 화면 로드 시 오늘 날짜 데이터를 불러오고 표시
     if (mergedOptions.dayClickCallback) {
@@ -114,12 +116,20 @@ export const newMonthlyCalendar = (containerId, options) => {
         container.prepend(calendarTitle)
     }
 
+    // 현재 달 여부를 구하는 함수
+    const getTodayRowIndex = (date) => {
+        const isCurrentMonth = date.format('YYYYMM') === currentMonth;
+        return isCurrentMonth;
+    };  
+    
     displayCalendar(currentDate);
 
     // 현재 날짜로 이동 버튼
     container.querySelector('.calendar__header .btn-show-today')?.addEventListener('click', () => {
         currentDate = dayjs();
         displayCalendar(currentDate);
+        isMonth = getTodayRowIndex(currentDate); 
+        console.log(isMonth);
         if (mergedOptions.dayClickCallback) {
             mergedOptions.dayClickCallback(currentDate.format('YYYYMMDD'));
         }
@@ -130,11 +140,13 @@ export const newMonthlyCalendar = (containerId, options) => {
         container.querySelector('.calendar__header .btn-prev-month')?.addEventListener('click', () => {
             currentDate = currentDate.subtract(1, 'month');
             displayCalendar(currentDate);
+            isMonth = getTodayRowIndex(currentDate);            
         });
 
         container.querySelector('.calendar__header .btn-next-month')?.addEventListener('click', () => {
             currentDate = currentDate.add(1, 'month');
             displayCalendar(currentDate);
+            isMonth = getTodayRowIndex(currentDate);            
         });
     } else {
         const buttons = container.querySelectorAll('.calendar__header button');
@@ -162,7 +174,7 @@ export const newMonthlyCalendar = (containerId, options) => {
                 } else {
                     currentDate = currentDate.subtract(1, 'month');
                 }
-                displayCalendar(currentDate);
+                displayCalendar(currentDate);                
             }
         };
 
@@ -249,7 +261,11 @@ export const newMonthlyCalendar = (containerId, options) => {
 
             // 사용자 데이터 추가
             if (typeof mergedOptions.addCalendarData === 'function') {
-                mergedOptions.addCalendarData(cell, date.date(day)); // cell에 사용자 데이터 추가
+                const currentDate = date.date(day);
+                // 오늘 이전 날짜에만 데이터 추가
+                if (currentDate.isBefore(dayjs(), 'day')) {
+                    mergedOptions.addCalendarData(cell, currentDate); // cell에 사용자 데이터 추가
+                }
             }
 
             link.addEventListener('click', (event) => {
@@ -296,7 +312,8 @@ export const newMonthlyCalendar = (containerId, options) => {
                 const cell = row.insertCell();
                 cell.classList.add('gray');
             }
-        }       
+        }     
+
     }
 
     // 주간 월간 토글 기능    
@@ -308,23 +325,47 @@ export const newMonthlyCalendar = (containerId, options) => {
         if(!toggleButton) {
             return;
         }
+        
         const toggleView = () => {
-            if (toggleButtonText.innerText === '월간보기') {
-                toggleButtonText.innerText = '주간보기';
+            isMonth = getTodayRowIndex(currentDate);            
+            const irText = toggleButtonText.innerText;            
+            toggleButtonText.innerText = irText === '월간보기' ? '주간보기' : '월간보기';
+            toggleButton.classList.toggle('is-active');
+            const allTrs = container.querySelectorAll('.calendar__content tbody tr');
+            
+            if(isMonth && toggleButton.classList.contains('is-active')) {
+                console.log('true');
                 allTrs.forEach(tr => tr.classList.remove('hide'));
                 allTrs[todayRowIndex].classList.remove('show');
-                toggleButton.classList.add('is-active');                
+                toggleButton.classList.add('is-active');                  
                 container.querySelector('.calendar__header .btn-prev-month').style.display = 'block';
                 container.querySelector('.calendar__header .btn-next-month').style.display = 'block';
-                container.querySelector('.display-data').textContent = dayjs().format('YYYY년 M월 D일');
-            } else {
-                toggleButtonText.innerText = '월간보기';
-                toggleButton.classList.remove('is-active');
+                container.querySelector('.calendar__header .btn-show-today').style.display = 'block';                 
+            } else if(isMonth && !toggleButton.classList.contains('is-active')) {
                 allTrs.forEach(tr => tr.classList.add('hide'));
                 allTrs[todayRowIndex].classList.remove('hide');
                 allTrs[todayRowIndex].classList.add('show');
                 container.querySelector('.calendar__header .btn-prev-month').style.display = 'none';
                 container.querySelector('.calendar__header .btn-next-month').style.display = 'none';
+                container.querySelector('.calendar__header .btn-show-today').style.display = 'none';  
+            } else if (!isMonth && toggleButton.classList.contains('is-active')) {
+                console.log('3',!isMonth && toggleButton.classList.contains('is-active'));
+                const allTrs = container.querySelectorAll('.calendar__content tbody tr');
+                allTrs.forEach(tr => tr.classList.remove('hide'));
+                allTrs[0].classList.remove('hide');
+                allTrs[0].classList.add('show');
+                container.querySelector('.calendar__header .btn-prev-month').style.display = 'block';
+                container.querySelector('.calendar__header .btn-next-month').style.display = 'block';
+                container.querySelector('.calendar__header .btn-show-today').style.display = 'block';                  
+            } else if (!isMonth && !toggleButton.classList.contains('is-active')) {
+                console.log('4', !isMonth && !toggleButton.classList.contains('is-active'));
+                const allTrs = container.querySelectorAll('.calendar__content tbody tr');
+                allTrs.forEach(tr => tr.classList.add('hide'));
+                allTrs[0].classList.remove('hide');
+                allTrs[0].classList.add('show');
+                container.querySelector('.calendar__header .btn-prev-month').style.display = 'none';
+                container.querySelector('.calendar__header .btn-next-month').style.display = 'none';
+                container.querySelector('.calendar__header .btn-show-today').style.display = 'none';  
             }
         };
     
@@ -343,9 +384,8 @@ export const newMonthlyCalendar = (containerId, options) => {
         setupCalendarToggle(todayRowIndex, mergedOptions);    
         container.querySelector('.calendar__header .btn-prev-month').style.display = 'none';
         container.querySelector('.calendar__header .btn-next-month').style.display = 'none'; 
-    }
-    
-
+        container.querySelector('.calendar__header .btn-show-today').style.display = 'none';
+    }  
 };
 
 
