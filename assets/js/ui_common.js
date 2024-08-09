@@ -584,3 +584,67 @@ export function adjustToast() {
         }
     });
 }
+
+// 툴팁
+export function tooltipActive() {
+    const toolIcons = document.querySelectorAll(".tooltip-wrap .tooltip-icon > i");
+
+    if (!toolIcons) {
+        return;
+    }
+
+    toolIcons.forEach((icon) => {
+        const toolBox = icon.parentElement.nextElementSibling;
+        const triangle = toolBox.querySelector(".triangle-icon");
+
+        const showTooltip = () => {
+            toolBox.classList.add("tool-active");
+            positionTriangle(icon, triangle); // Adjust the triangle position
+        };
+
+        const hideTooltip = () => {
+            toolBox.classList.remove("tool-active");
+        };
+
+        icon.addEventListener("mouseover", showTooltip);
+        icon.addEventListener("click", showTooltip);
+        icon.addEventListener("mouseleave", hideTooltip);
+        // Mobile touch events
+        icon.addEventListener("touchstart", (event) => {
+            showTooltip();
+            event.stopPropagation();
+        });
+        document.addEventListener("touchstart", (event) => {
+            if (!icon.contains(event.target)) {
+                hideTooltip();
+            }
+        });
+    });
+}
+
+function positionTriangle(icon, triangle) {
+    const iconRect = icon.getBoundingClientRect();
+    const toolWrap = icon.parentElement;
+    const textSpan = toolWrap.querySelector(".tooltip-tit"); // 아이콘 옆 텍스트 요소
+
+    let textWidth = 0;
+
+    const leftPosition = iconRect.width / 2 + 10;
+
+    triangle.style.left = `${leftPosition}px`;
+    triangle.style.right = "auto";
+    
+    // 아이콘 + 텍스트 툴팁 && 위치는 오른쪽인 툴팁
+    if (textSpan) {
+        console.log(iconRect);
+
+        textWidth = textSpan.offsetWidth; // 텍스트 넓이
+        console.log(textWidth);
+
+        const rightPosition = textWidth + iconRect.width - 6; 
+
+        // 삼각형 위치 설정
+        triangle.style.left = "auto";
+        triangle.style.right = `${rightPosition}px`;
+    }
+}

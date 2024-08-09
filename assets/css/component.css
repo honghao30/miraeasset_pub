@@ -2133,3 +2133,63 @@ input[type="radio"]:disabled {
 .category-menu li.is-active a {
     color: var(--color-primary);
 }
+
+/* tooltip */
+.tooltip-wrap {
+    position: relative;
+}
+.tooltip-wrap .tooltip-box {
+    position: absolute;
+}
+.tooltip-wrap .bubble-type01 {
+    max-width: 372px;
+}
+.tooltip-wrap .tooltip-box {
+    display: none;
+}
+.tooltip-wrap .tooltip-box.tool-active {
+    display: block;
+    animation: toolOpacity 1s ease forwards;
+}
+/* tooltip > 아이콘만 있는 툴팁 */
+.tooltip-wrap.tool-only {
+    display: inline-flex;
+}
+.tooltip-wrap.tool-only .tooltip-icon {
+    display: flex;
+}
+.tooltip-wrap.tool-only .tooltip-box {
+    top: calc(24 / 16 * 1rem);
+    left: calc(-16 / 16* 1rem);
+}
+
+/* tooltip > 아이콘 + 텍스트 툴팁이면서 위치는 오른쪽인 툴팁 */
+.tooltip-wrap.tool-txt {
+    display: flex;
+    flex-direction: column;
+}
+.tooltip-wrap.right-tool {
+    align-items: flex-end;
+}
+.tooltip-wrap.tool-txt .tooltip-icon {
+    display: flex;
+    align-items: center;
+    gap: calc(6 / 16 * 1rem);
+}
+.tooltip-wrap.right-tool .tooltip-box {
+    top: calc(32 / 16 * 1rem);
+    right: 0;
+}
+.tooltip-wrap.right-tool .bubble-top + .triangle-icon {
+    top: -20%;
+}
+@keyframes toolOpacity {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+    100% {
+        opacity: 1;
+        display: block;
+    }
+}

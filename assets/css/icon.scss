@@ -298,5 +298,13 @@ $fileType: "png";
     &.ico-check-or {
         background: url("#{$baseUrl}icon/check_icon_or.#{$fileType}") no-repeat center;
     }
+    &.ico-maintip {
+        width: 12px;
+        height: 12px;
+        background: url("#{$baseUrl}main/main_tooltip_icon12.#{$fileType}") no-repeat center;
+    }
+    &.ico-tooltip {
+        background: url("#{$baseUrl}icon/info_icon16_empty_gr.#{$fileType}") no-repeat center;
+    }
 }
 
