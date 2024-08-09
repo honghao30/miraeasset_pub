@@ -464,3 +464,46 @@
         }
     }
 }
+
+// 스마트 라이프
+.smart-life__section {
+    padding: calc(16 / 16 * 1rem) calc(16 / 16 * 1rem);
+}
+.smart-life__section .life-title {
+    color: var(--color-basic10);    
+    font-size: calc(18 / 16 * 1rem);    
+    font-weight: 800;
+    line-height: calc(22 / 16 * 1rem);
+}
+.smart-life {
+    .swiper-slide {
+        position: relative;
+        .txt-wrap {
+            position: absolute;
+            bottom: calc(16 / 16 * 1rem);
+            left: calc(16 / 16 * 1rem);           
+            color: var(--color-white);
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 400;
+            line-height: calc(15 / 16 * 1rem);
+        }
+    }   
+}
+.smart-list__wrap {
+    margin-top: 16px;
+    .smart-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px;
+    }
+    li {
+        width: calc((100% / 2) - 12px);
+        position: relative;
+        .txt-wrap {
+            position: absolute;
+            left: calc(16 / 16 * 1rem);
+            bottom: calc(16 / 16 * 1rem);
+        }
+    }
+}

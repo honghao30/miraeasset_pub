@@ -2,97 +2,24 @@
 <html lang="ko">
     <head></head>
     <body>
-        <div class="guide_wrap">
-            <div class="header__wrap">
-                <div data-include-path="../top_nav.html"></div>
-                <div data-include-path="../site-name.html"></div>
-            </div>
-            <div class="guide-content__wrap lnb-type">
-                <div class="lnb-side__wrap">
-                    <div data-include-path="./cmp_side.html"></div>
-                </div>
-                <div class="guide-cont">
-                    <div class="page_tit_h1">탭 가이드</div>
-                    <div class="section">
-                        <div>
-                            <div class="page_tit_h2">기본 유형</div>
-                            <div class="section_text_no_round">
-                                <div class="sample-code">
-                                    <!-- 탭 -->
-                                    <div class="tab-content">
-                                        <div class="tab-btns">
-                                            <ul class="tab-button-list">
-                                                <li class="is-active"><a href="#">#전체</a></li>
-                                                <li><a href="#">#관심소식</a></li>
-                                                <li><a href="#">#스크랩</a></li>
-                                                <li><a href="#">#변액</a></li>
-                                                <li><a href="#">연금</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane1s">
-                                            <div class="tab-pane1 is-active">탭1</div>
-                                            <div class="tab-pane1">탭2</div>
-                                            <div class="tab-pane1">탭3</div>
-                                            <div class="tab-pane1">탭4</div>
-                                            <div class="tab-pane1">탭5</div>
-                                        </div>
-                                    </div>
-                                    <!-- 탭 -->
-                                </div>
-                                <pre class="code_view"></pre>
-                            </div>
-                        </div>
-                        <div class="mt-10">
-                            <div class="page_tit_h2">탭 많은 유형</div>
-                            <div class="section_text_no_round">
-                                <div class="sample-code">
-                                    <!-- 탭 -->
-                                    <div class="tab-content" style="max-width: 360px">
-                                        <div class="tab-btns">
-                                            <ul class="tab-button-list">
-                                                <li class="is-active"><a href="#">#전체</a></li>
-                                                <li><a href="#">#관심소식</a></li>
-                                                <li><a href="#">#스크랩</a></li>
-                                                <li><a href="#">#변액</a></li>
-                                                <li><a href="#">연금</a></li>
-                                                <li><a href="#">연금</a></li>
-                                                <li><a href="#">연금</a></li>
-                                                <li><a href="#">연금</a></li>
-                                                <li><a href="#">연금</a></li>
-                                                <li><a href="#">연금</a></li>
-                                                <li><a href="#">연금</a></li>
-                                                <li><a href="#">연금</a></li>
-                                                <li><a href="#">연금</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane1s">
-                                            <div class="tab-pane1 is-active">탭1</div>
-                                            <div class="tab-pane1">탭2</div>
-                                            <div class="tab-pane1">탭3</div>
-                                            <div class="tab-pane1">탭4</div>
-                                            <div class="tab-pane1">탭5</div>
-                                            <div class="tab-pane1">탭6</div>
-                                            <div class="tab-pane1">탭7</div>
-                                            <div class="tab-pane1">탭8</div>
-                                            <div class="tab-pane1">탭9</div>
-                                            <div class="tab-pane1">탭10</div>
-                                            <div class="tab-pane1">탭11</div>
-                                            <div class="tab-pane1">탭12</div>
-                                            <div class="tab-pane1">탭13</div>
-                                        </div>
-                                    </div>
-                                    <!-- 탭 -->
-                                </div>
-                                <pre class="code_view"></pre>
-                                <p class="text">
-                                    탭이 많을 경우 : 뒤쪽 탭 클릭 시 center 이동할 수 있음(js: scrollIntoView) <br />
-                                    화면 구현을 위해 tab-content 클래스에 max-width를 inner style로 넣음 (작업 시 삭제)
-                                </p>
-                            </div>
-                        </div>
-                        <div class="mt-10">
+        <div class="wrap">
+            <div data-include-path="./_inc/head_sub.html"></div>
+            <div class="content bg-color-basic1">
+                <!-- 마크업 -->
+                <div class="tab-content">
+                    <div class="tab-btns">
+                        <ul class="tab-button-list">
+                            <li class="is-active"><a href="#">자산</a></li>
+                            <li class=""><a href="#">노후</a></li>
+                            <li class=""><a href="#">라이프</a></li>
+                            <li class=""><a href="#">컬쳐</a></li>
+                            <li><a href="#" class="no-panels">설정</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane1s">
+                        <div class="tab-pane1 is-active">
                             <div class="tab-menu-type">
-                                <div class="category-menu__wrap">
+                                <div class="category-menu__wrap scroll-box">
                                     <ul class="category-menu tip-cate">
                                         <li class="is-active"><a href="#all">전체</a></li>
                                         <li><a href="#skin">피부 관리</a></li>
@@ -190,17 +117,38 @@
                                             <img src="/assets/img/main/smartlife_slide02.png" alt="" />
                                         </li>                                                                                                                                      
                                     </ul>
-                                    <div class="no-content" style="display: none;">
-                                        등록된 내용이 없을때
-                                    </div>
                                 </div>
+                                <div class="no-content" style="display: none;">
+                                    등록된 내용이 없을때
+                                </div>                                
                             </div>
                         </div>
+                        <div class="tab-pane1">
+                            2
+                        </div>     
+                        <div class="tab-pane1">
+                            3
+                        </div> 
+                        <div class="tab-pane1">
+                            4
+                        </div>                                                                
                     </div>
-                </div>
+                <!-- //마크업 -->
             </div>
-        </div>
-        <script type="module" src="../guide.js"></script>
-        <!-- <script src="../../assets/js/ui_common.js"></script> -->
+        </div>        
+        <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script>
+            setTimeout(function(){
+                document.querySelector('.document-title').innerText = '꿀팁';
+            },200)
+        </script>
+        <script type="module" src="/assets/js/pub_include.js"></script>
+        <!-- 퍼블 단계에서 공통 영역 include를 위한 스크립트 -->
+        <script type="module">
+            import { categoryMenuType  } from "/assets/js/ui_common.js";
+            categoryMenuType('tab-menu-type');
+        </script>
+        <script type="text/javascript" src="/assets/bundle/swiper-bundle.min.js"></script>
+        <script type="module" src="/assets/js/index.js"></script>
     </body>
 </html>
