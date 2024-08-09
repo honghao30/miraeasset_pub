@@ -297,6 +297,11 @@
 .ico.ico-check-or {
   background: url("/assets/img/icon/check_icon_or.png") no-repeat center;
 }
-.ico.ico-info-or {
+.ico.error_icon16_or {
   background: url("/assets/img/icon/error_icon16_or.png") no-repeat center;
+}
+.ico.ico-refresh {
+  width: 24px;
+  height: 24px;
+  background: url("/assets/img/icon/refresh_icon24_gr.png") no-repeat center;
 }

@@ -298,8 +298,13 @@ $fileType: "png";
     &.ico-check-or {
         background: url("#{$baseUrl}icon/check_icon_or.#{$fileType}") no-repeat center;
     }
-    &.ico-info-or {
+    &.error_icon16_or{
         background: url("#{$baseUrl}icon/error_icon16_or.#{$fileType}") no-repeat center;
+    }
+    &.ico-refresh {
+        width: 24px;
+        height: 24px;
+        background: url("#{$baseUrl}icon/refresh_icon24_gr.#{$fileType}") no-repeat center;
     }
 }
 
