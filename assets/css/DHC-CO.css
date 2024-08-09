@@ -280,7 +280,6 @@
 .article-view__wrap .article-view__title {
   padding: 0 1rem 1.25rem;
   display: flex;
-  justify-content: space-between;
   gap: 0.5rem;
 }
 .article-view__wrap .article-view__title .event-info {
